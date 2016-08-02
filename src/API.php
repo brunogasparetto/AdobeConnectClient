@@ -89,7 +89,7 @@ class API
             $this->getResponse('logout');
             $this->cookie = '';
             return true;
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             return false;
         }
     }
@@ -106,9 +106,8 @@ class API
     {
         try {
             $params = empty($domain) ? [] : ['domain' => $domain];
-            $response = $this->getResponse('common-info', $params);
-            return new CommonInfo($response->common);
-        } catch (Exception $ex) {
+            return new CommonInfo($this->getResponse('common-info', $params)->common);
+        } catch (\Exception $ex) {
             return new CommonInfo();
         }
     }
@@ -170,7 +169,7 @@ class API
                 $result[] = new SCORecord($scoElement);
             }
             return $result;
-        } catch (Exception $ex) {
+        } catch (\Exception $ex) {
             return [];
         }
     }
