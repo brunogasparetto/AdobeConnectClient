@@ -5,11 +5,11 @@ namespace Bruno\AdobeConnectClient;
 /**
  * The Request to the Server
  *
- * Make the request and get the result in \SimpleXMLElement format.
+ * Handler the Request and get the response in \SimpleXMLElement format.
  *
  * @todo Improve the Exceptions including better messages
  */
-class Request
+class RequestHandler
 {
     const STATUS_OK = 'ok';
 
@@ -19,56 +19,37 @@ class Request
     protected $host;
 
     /**
-     * @var string Action to call
-     */
-    protected $action;
-
-    /**
      * @var array Parameters to attach with the action
      */
     protected $params;
 
-    /**
-     * @var string Final URI
-     */
-    protected $uri;
-
-    /**
-     * @var string Final URL
-     */
-    protected $url;
-
-    /**
-     * @var bool Get the response with Header
-     */
-    protected $withHeader = false;
-    
     /**
      * @var array cURL Options
      */
     protected $curlOptions = [];
 
     /**
-     * Create a new Request
+     * Create a new Request Handler
      *
      * @param string $host
-     * @param string $action
-     * @param array $params
      * @param array $curlOptions An array with key is a CURLOPT_* constant.
-     * @param bool $withHeader
      */
-    public function __construct($host, $action, array $params = [], $withHeader = false, array $curlOptions = [])
+    public function __construct($host, array $curlOptions = [])
     {
         $this->host = $host;
-        $this->action = $action;
-        $this->params = $params;
-        $this->withHeader = $withHeader;
-
-        $this->mountURI();
-        $this->mountURL();
         $this->setCurlOptions($curlOptions);
     }
-    
+
+    /**
+     * The Host URL
+     *
+     * @return string
+     */
+    public function getHostUrl()
+    {
+        return $this->host;
+    }
+
     /**
      * Set the cURL Options
      * @param array $curlOptions An array with key is a CURLOPT_* constant.
@@ -82,35 +63,41 @@ class Request
             CURLOPT_SSL_VERIFYPEER => true,
             CURLOPT_SSL_VERIFYHOST => 2,
         ];
-        $this->curlOptions = $defaults + $curlOptions;
+        $this->curlOptions = $curlOptions + $defaults;
         $this->curlOptions[CURLOPT_RETURNTRANSFER] = true;
         $this->curlOptions[CURLOPT_FOLLOWLOCATION] = true;
     }
 
     /**
-     * Return a new response from a new Request.
      *
-     * @param string $host
-     * @param string $action
-     * @param array $params
-     * @param bool $withHeader
+     * @param string $field
+     * @param mixed $value
      */
-    public static function response($host, $action, array $params = [], $withHeader = false)
+    public function addParam($field, $value)
     {
-        $request = new Request($host, $action, $params, $withHeader);
-        return $request->getResponse();
+        $this->params[$field] = $value;
+    }
+
+    public function setParams(array $params)
+    {
+        $this->params = $params;
+    }
+
+    public function clearParams()
+    {
+        $this->params = [];
     }
 
     /**
      * Get the Response from the server.
-     *
+     * @param boolean $withHeader If true return with the HTTP Header
      * @return \SimpleXMLElement
      */
-    public function getResponse()
+    public function getResponse($withHeader = false)
     {
-        $result = $this->getWebServiceResponse();
+        $result = $this->getWebServiceResponse($withHeader);
 
-        $response = $this->withHeader
+        $response = $withHeader
             ? $this->createResponseWithHeader($result)
             : $this->createResponseWithoutHeader($result);
 
@@ -128,23 +115,23 @@ class Request
      */
     public function __toString()
     {
-        return $this->url;
+        return $this->getURL();
     }
 
     /**
      * Mount the URI
      */
-    protected function mountURI()
+    protected function getURI()
     {
-        $this->uri = '?' . http_build_query(['action' => $this->action] + $this->params, '', '&');
+        return http_build_query($this->params, '', '&');
     }
 
     /**
-     * Mount the URL
+     * Get the URL
      */
-    protected function mountURL()
+    protected function getURL()
     {
-        $this->url = $this->host . '/api/xml' . $this->uri;
+        return $this->host . '/api/xml?' . $this->getURI();
     }
 
     /**
@@ -183,19 +170,20 @@ class Request
     /**
      * Get the raw response from the server.
      *
+     * @param boolean $withHeader If true return with the HTTP Header
      * @return string
      * @throws \Exception
      */
-    protected function getWebServiceResponse()
+    protected function getWebServiceResponse($withHeader)
     {
-        $curl = curl_init($this->url);
+        $curl = curl_init($this->getURL());
         curl_setopt_array($curl, $this->curlOptions);
-        curl_setopt($curl, CURLOPT_HEADER, $this->withHeader);
+        curl_setopt($curl, CURLOPT_HEADER, $withHeader);
         $result = curl_exec($curl);
         curl_close($curl);
 
         if (!$result) {
-            throw new \Exception(sprintf('The endpoint "%s" is not returning.', $this->url));
+            throw new \Exception(sprintf('The endpoint "%s" is not returning.', $this->getURL()));
         }
 
         return $result;

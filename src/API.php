@@ -4,26 +4,33 @@ namespace Bruno\AdobeConnectClient;
 
 /**
  * Adobe Connect API abstraction
+ *
+ * @todo Improve the Exceptions including better messages
  */
 class API
 {
-    /**
-     * @var string The connection host
-     */
-    private $host = '';
-
     /**
      * @var string The session cookie
      */
     private $cookie = '';
 
     /**
-     *
-     * @param string $host The Connection Host
+     * @var \Bruno\AdobeConnectClient\RequestHandler $requestHandler The Request Handler
      */
-    public function __construct($host)
+    private $requestHandler = null;
+
+    /**
+     * @param mixed The Host URL or a \Bruno\AdobeConnectClient\RequestHandler object
+     */
+    public function __construct($hostUrlOrRequestHandler)
     {
-        $this->host = $host;
+        if (is_string($hostUrlOrRequestHandler)) {
+            $this->requestHandler = new RequestHandler($hostUrlOrRequestHandler);
+        } elseif ($hostUrlOrRequestHandler instanceof RequestHandler) {
+            $this->requestHandler = $hostUrlOrRequestHandler;
+        } else {
+            throw new \Exception('Invalid Parameter');
+        }
     }
 
     /**
@@ -567,19 +574,20 @@ class API
      *
      * @param string $action The Web Service Action.
      * @param array $params An array where key is the param name and value is the param value.
-     * @param boolean $withHeader Get the Header. Only for Login action
      * @return \SimpleXMLElement
      * @throws \DomainException
      */
-    protected function getResponse($action, array $params = [], $withHeader = false)
+    protected function getResponse($action, array $params = [])
     {
+        $this->requestHandler->setParams(['action' => $action] + $params);
+
         if ($action === 'login') {
-            return Request::response($this->host, $action, $params, $withHeader);
+            return $this->requestHandler->getResponse(true);
         }
         if (!$this->isLogged()) {
             throw new \DomainException('Need login before make a request.');
         }
-        $params['session'] = $this->cookie;
-        return Request::response($this->host, $action, $params, $withHeader);
+        $this->requestHandler->addParam('session', $this->cookie);
+        return $this->requestHandler->getResponse();
     }
 }
