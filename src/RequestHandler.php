@@ -52,6 +52,7 @@ class RequestHandler
 
     /**
      * Set the cURL Options
+     *
      * @param array $curlOptions An array with key is a CURLOPT_* constant.
      */
     public function setCurlOptions(array $curlOptions)
@@ -69,6 +70,7 @@ class RequestHandler
     }
 
     /**
+     * Add one Paramameter
      *
      * @param string $field
      * @param mixed $value
@@ -78,11 +80,19 @@ class RequestHandler
         $this->params[$field] = $value;
     }
 
+    /**
+     * Set all Parameters
+     *
+     * @param array $params An array with the field in the key.
+     */
     public function setParams(array $params)
     {
         $this->params = $params;
     }
 
+    /**
+     * Clear all Parameters
+     */
     public function clearParams()
     {
         $this->params = [];
@@ -90,6 +100,7 @@ class RequestHandler
 
     /**
      * Get the Response from the server.
+     *
      * @param boolean $withHeader If true return with the HTTP Header
      * @return \SimpleXMLElement
      */
@@ -119,7 +130,7 @@ class RequestHandler
     }
 
     /**
-     * Mount the URI
+     * Get the URI
      */
     protected function getURI()
     {
