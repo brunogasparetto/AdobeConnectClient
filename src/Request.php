@@ -42,6 +42,11 @@ class Request
      * @var bool Get the response with Header
      */
     protected $withHeader = false;
+    
+    /**
+     * @var array cURL Options
+     */
+    protected $curlOptions = [];
 
     /**
      * Create a new Request
@@ -49,9 +54,10 @@ class Request
      * @param string $host
      * @param string $action
      * @param array $params
+     * @param array $curlOptions An array with key is a CURLOPT_* constant.
      * @param bool $withHeader
      */
-    public function __construct($host, $action, array $params = [], $withHeader = false)
+    public function __construct($host, $action, array $params = [], $withHeader = false, array $curlOptions = [])
     {
         $this->host = $host;
         $this->action = $action;
@@ -60,6 +66,25 @@ class Request
 
         $this->mountURI();
         $this->mountURL();
+        $this->setCurlOptions($curlOptions);
+    }
+    
+    /**
+     * Set the cURL Options
+     * @param array $curlOptions An array with key is a CURLOPT_* constant.
+     */
+    public function setCurlOptions(array $curlOptions)
+    {
+        $defaults = [
+            CURLOPT_CONNECTTIMEOUT => 120,
+            CURLOPT_TIMEOUT => 120,
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_SSL_VERIFYPEER => true,
+            CURLOPT_SSL_VERIFYHOST => 2,
+        ];
+        $this->curlOptions = $defaults + $curlOptions;
+        $this->curlOptions[CURLOPT_RETURNTRANSFER] = true;
+        $this->curlOptions[CURLOPT_FOLLOWLOCATION] = true;
     }
 
     /**
@@ -111,7 +136,7 @@ class Request
      */
     protected function mountURI()
     {
-        $this->uri = '?' . http_build_query(['action' => $this->action] + $this->params);
+        $this->uri = '?' . http_build_query(['action' => $this->action] + $this->params, '', '&');
     }
 
     /**
@@ -164,18 +189,8 @@ class Request
     protected function getWebServiceResponse()
     {
         $curl = curl_init($this->url);
-        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 120);
-        curl_setopt($curl, CURLOPT_TIMEOUT, 120);
-        curl_setopt($curl, CURLOPT_MAXREDIRS, 10);
-        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($curl, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_AUTOREFERER, true);
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
-
-        if ($this->withHeader) {
-            curl_setopt($curl, CURLOPT_HEADER, true);
-        }
+        curl_setopt_array($curl, $this->curlOptions);
+        curl_setopt($curl, CURLOPT_HEADER, $this->withHeader);
         $result = curl_exec($curl);
         curl_close($curl);
 
