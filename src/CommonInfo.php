@@ -13,7 +13,8 @@ class CommonInfo
     public $locale = '';
 
     /**
-     * Time Zone ID list in {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
+     * Time Zone ID list in
+     * {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
      *
      * @var int
      */

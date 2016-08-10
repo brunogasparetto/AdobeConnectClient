@@ -48,7 +48,7 @@ class API
 
     /**
      * Indicates if API is logged
-     * 
+     *
      * @return boolean True if is logged
      */
     public function isLogged()
