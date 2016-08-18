@@ -27,7 +27,7 @@ trait ParameterTrait
             }
             
             if (is_bool($value)) {
-                $value = B::toStr($value);
+                $value = B::toString($value);
             } elseif ($value instanceof \DateTimeInterface) {
                 $value = $value->format(\DateTime::W3C);
             }
