@@ -325,6 +325,8 @@ class API
     /**
      * Create a Principal.
      *
+     * See {@link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html}
+     *
      * @param \Bruno\AdobeConnectClient\Parameter $principal The Principal
      * @return \Bruno\AdobeConnectClient\Principal
      */
@@ -344,16 +346,21 @@ class API
     /**
      * Update a Principal.
      *
+     * See {@link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html}
+     *
      * @param \Bruno\AdobeConnectClient\Parameter $principal The Principal
-     * @return \Bruno\AdobeConnectClient\Principal
+     * @return boolean
      */
     public function principalUpdate(Parameter $principal)
     {
+        $params = $principal->toArray();
+        unset($params['password'], $params['type'], $params['has-children']);
+        
         try {
-            $response = $this->getResponse('principal-update', $principal->toArray());
-            return new Principal($response->principal);
+            $this->getResponse('principal-update', $params);
+            return true;
         } catch (\Exception $exc) {
-            return new Principal();
+            return false;
         }
     }
 
