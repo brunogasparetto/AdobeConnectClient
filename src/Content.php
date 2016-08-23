@@ -1,6 +1,6 @@
 <?php
 
-namespace Bruno\AdobeConnectClient\Type;
+namespace Bruno\AdobeConnectClient;
 
 /**
  * Adobe Connect's types constants to Content
