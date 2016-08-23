@@ -355,7 +355,7 @@ class API
     {
         $params = $principal->toArray();
         unset($params['password'], $params['type'], $params['has-children']);
-        
+
         try {
             $this->getResponse('principal-update', $params);
             return true;
@@ -499,6 +499,30 @@ class API
     {
         try {
             $this->getResponse('permissions-update', $parameter->toArray());
+            return true;
+        } catch (\Exception $ex) {
+            return false;
+        }
+    }
+
+    /**
+     * Updates the passed in field-id for the specified acl-id.
+     *
+     * See {@link https://helpx.adobe.com/adobe-connect/webservices/acl-field-update.html}
+     *
+     * @param int $aclId SCO ID, Principal ID or Account ID
+     * @param string $fieldId The field to update.
+     * @param mixed $value The value to update
+     * @return boolean
+     */
+    public function aclFieldUpdate($aclId, $fieldId, $value)
+    {
+        try {
+            $this->getResponse('acl-field-update', [
+                'acl-id' => $aclId,
+                'field-id' => $fieldId,
+                'value' => is_bool($value) ? Helper\BooleanStr::toString($value) : $value,
+            ]);
             return true;
         } catch (\Exception $ex) {
             return false;
