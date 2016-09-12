@@ -214,7 +214,6 @@ class RequestHandler
         curl_setopt($curl, CURLOPT_HEADER, $withHeader);
         $result = curl_exec($curl);
         curl_close($curl);
-        echo '<pre>', htmlentities($result), '</pre>';
 
         if (!$result) {
             throw new \Exception(sprintf('The endpoint "%s" is not returning.', $this->getURL()));
