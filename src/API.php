@@ -274,6 +274,38 @@ class API
     }
 
     /**
+     * Uploads a file to the server and then builds the file, if necessary.
+     *
+     * Create a new File SCO in the folder (a SCO Meeting) and upload the file.
+     *
+     * See {@link https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html}
+     *
+     * @param int $folderId The SCO folder
+     * @param string $name The SCO File name
+     * @param string $filePath The absolute path
+     * @return boolean
+     */
+    public function scoUpload($folderId, $name, $filePath)
+    {
+        $sco = new \Bruno\AdobeConnectClient\SCO();
+        $sco->type = \Bruno\AdobeConnectClient\SCO::TYPE_CONTENT;
+        $sco->folderId = $folderId;
+        $sco->name = $name;
+
+        try {
+            $scoFile = $this->scoCreate($sco);
+
+            if (!$scoFile->scoId) {
+                throw new \Exception('Error to create SCO File');
+            }
+            $this->postResponse('sco-upload', ['sco-id' => $scoFile->scoId], ['file' => new \CURLFile($filePath)]);
+            return true;
+        } catch (\Exception $ex) {
+            return false;
+        }
+    }
+
+    /**
      * Provides information about one principal, either a user or a group.
      *
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/principal-info.html}
@@ -397,7 +429,7 @@ class API
         $params = [
             'user-id' => $userId,
             'password' => $newPassword,
-            'password-verify' => $oldPassword,
+            'password-verify' => $newPassword,
         ];
 
         !empty($oldPassword) and $params['password-old'] = $oldPassword;
@@ -620,5 +652,23 @@ class API
         }
         $this->requestHandler->addParam('session', $this->cookie);
         return $this->requestHandler->getResponse();
+    }
+
+    /**
+     * Post to Server and get the Response of the Request.
+     *
+     * @param string $action The Web Service Action.
+     * @param array $getParams An array where key is the param name and value is the param value.
+     * @param array $postParams An array where key is the param name and value is the param value.
+     * @return \SimpleXMLElement
+     * @throws \DomainException
+     */
+    protected function postResponse($action, array $getParams = [], array $postParams = [])
+    {
+        if (!$this->isLogged()) {
+            throw new \DomainException('Need login before make a request.');
+        }
+        $this->requestHandler->setParams(['action' => $action, 'session' => $this->cookie] + $getParams);
+        return $this->requestHandler->postResponse($postParams);
     }
 }

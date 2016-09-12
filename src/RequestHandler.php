@@ -120,6 +120,28 @@ class RequestHandler
     }
 
     /**
+     * Post to Server and get the response.
+     *
+     * @param array $params
+     * @return \SimpleXMLElement
+     */
+    public function postResponse(array $params = [])
+    {
+        $curl = curl_init($this->getURL());
+        curl_setopt_array($curl, $this->curlOptions);
+        curl_setopt($curl, CURLOPT_POST, 1);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
+        $result = curl_exec($curl);
+        curl_close($curl);
+
+        if (!$result) {
+            throw new \Exception(sprintf('The endpoint "%s" is not returning.', $this->getURL()));
+        }
+
+        return $this->createResponseWithoutHeader($result);
+    }
+
+    /**
      * Get the Final URL
      *
      * @return string
@@ -192,6 +214,7 @@ class RequestHandler
         curl_setopt($curl, CURLOPT_HEADER, $withHeader);
         $result = curl_exec($curl);
         curl_close($curl);
+        echo '<pre>', htmlentities($result), '</pre>';
 
         if (!$result) {
             throw new \Exception(sprintf('The endpoint "%s" is not returning.', $this->getURL()));
