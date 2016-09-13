@@ -276,9 +276,11 @@ class API
     /**
      * Uploads a file to the server and then builds the file, if necessary.
      *
-     * Create a new File SCO in the folder (a SCO Meeting) and upload the file.
+     * Create a new File SCO or update if exists in the folder (a SCO Meeting) and upload the file.
      *
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html}
+     *
+     * Important: the filename (filePath) needs the extension for API purpose.
      *
      * @param int $folderId The SCO folder
      * @param string $name The SCO File name
@@ -287,18 +289,32 @@ class API
      */
     public function scoUpload($folderId, $name, $filePath)
     {
-        $sco = new \Bruno\AdobeConnectClient\SCO();
-        $sco->type = \Bruno\AdobeConnectClient\SCO::TYPE_CONTENT;
-        $sco->folderId = $folderId;
-        $sco->name = $name;
-
         try {
-            $scoFile = $this->scoCreate($sco);
+            $filter = new \Bruno\AdobeConnectClient\Filter();
+            $filter
+                ->equals('folderId', $folderId)
+                ->equals('name', $name)
+                ->equals('type', \Bruno\AdobeConnectClient\SCO::TYPE_CONTENT);
+            $scos = $this->scoContents($folderId, $filter);
+            
+            if (!empty($scos)) {
+                $scoFile = reset($scos);
+            } else {
+                $sco = new \Bruno\AdobeConnectClient\SCO();
+                $sco->type = \Bruno\AdobeConnectClient\SCO::TYPE_CONTENT;
+                $sco->folderId = $folderId;
+                $sco->name = $name;
+                $scoFile = $this->scoCreate($sco);
+            }
 
             if (!$scoFile->scoId) {
                 throw new \Exception('Error to create SCO File');
             }
-            $this->postResponse('sco-upload', ['sco-id' => $scoFile->scoId], ['file' => new \CURLFile($filePath)]);
+            $this->postResponse(
+                'sco-upload',
+                ['sco-id' => $scoFile->scoId],
+                ['file' => new \CURLFile($filePath, mime_content_type($filePath))]
+            );
             return true;
         } catch (\Exception $ex) {
             return false;

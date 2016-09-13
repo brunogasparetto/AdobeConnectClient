@@ -137,8 +137,14 @@ class RequestHandler
         if (!$result) {
             throw new \Exception(sprintf('The endpoint "%s" is not returning.', $this->getURL()));
         }
+        
+        $response = $this->createResponseWithoutHeader($result);
 
-        return $this->createResponseWithoutHeader($result);
+        if (self::STATUS_OK != (string) $response->status->attributes()->code) {
+            unset($response);
+            throw new \Exception('Action with invalid response.');
+        }
+        return $response;
     }
 
     /**
