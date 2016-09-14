@@ -122,22 +122,22 @@ class RequestHandler
     /**
      * Post to Server and get the response.
      *
-     * @param array $params
+     * @param array $postParams The POST params to send. The GET params need be set with setParams method.
      * @return \SimpleXMLElement
      */
-    public function postResponse(array $params = [])
+    public function postResponse(array $postParams = [])
     {
         $curl = curl_init($this->getURL());
         curl_setopt_array($curl, $this->curlOptions);
         curl_setopt($curl, CURLOPT_POST, 1);
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $params);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $postParams);
         $result = curl_exec($curl);
         curl_close($curl);
 
         if (!$result) {
             throw new \Exception(sprintf('The endpoint "%s" is not returning.', $this->getURL()));
         }
-        
+
         $response = $this->createResponseWithoutHeader($result);
 
         if (self::STATUS_OK != (string) $response->status->attributes()->code) {
@@ -145,6 +145,17 @@ class RequestHandler
             throw new \Exception('Action with invalid response.');
         }
         return $response;
+    }
+
+    /**
+     * Add the file to POST and send the request.
+     *
+     * @param string $filePath
+     * @return \SimpleXMLElement
+     */
+    public function sendFile($filePath)
+    {
+        return $this->postResponse(['file' => new \CURLFile($filePath, mime_content_type($filePath))]);
     }
 
     /**

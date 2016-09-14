@@ -221,6 +221,16 @@ class API
                 'permissionId' => Permission::RECORDING_PUBLIC,
                 'principalId' => Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS,
             ]);
+
+            $this->getResponse('acl-field-update', [
+                'acl-id' => $scoId,
+                'field-id' => 'meeting-passcode',
+                'value' => $passcode,
+                'is-mtg-passcode-req' => 'true',
+                'permission-id' => 'view',
+                'principal-id' => 'public-access',
+            ]);
+            return true;
         } catch (\Exception $e) {
             return false;
         }
@@ -324,7 +334,7 @@ class API
      *
      * @param int $folderId The SCO folder
      * @param string $name The SCO File name
-     * @param string $filePath The absolute path
+     * @param string $filePath The absolute path. Needs the file extension for the Adobe Connect API validation.
      * @return boolean
      */
     public function scoUpload($folderId, $name, $filePath)
@@ -350,12 +360,7 @@ class API
             if (!$scoFile->scoId) {
                 throw new \Exception('Error to create SCO File');
             }
-            $this->postResponse(
-                'sco-upload',
-                ['sco-id' => $scoFile->scoId],
-                ['file' => new \CURLFile($filePath, mime_content_type($filePath))]
-            );
-            return true;
+            return $this->sendFile($scoFile->scoId, $filePath);
         } catch (\Exception $ex) {
             return false;
         }
@@ -736,5 +741,25 @@ class API
         }
         $this->requestHandler->setParams(['action' => $action, 'session' => $this->cookie] + $getParams);
         return $this->requestHandler->postResponse($postParams);
+    }
+
+    /**
+     *
+     * @param int $scoId The SCO ID to upload
+     * @param string $filePath The filepath. Needs the file extension.
+     * @return boolean
+     * @throws \DomainException
+     */
+    protected function sendFile($scoId, $filePath)
+    {
+        if (!$this->isLogged()) {
+            throw new \DomainException('Need login before make a request.');
+        }
+        $this->requestHandler->setParams([
+            'action' => 'sco-upload',
+            'session' => $this->cookie,
+            'sco-id' => $scoId,
+        ]);
+        return $this->requestHandler->sendFile($filePath);
     }
 }
