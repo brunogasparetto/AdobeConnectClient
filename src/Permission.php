@@ -46,6 +46,13 @@ class Permission implements Parameter
     const MEETING_PRIVATE = 'denied';
 
     /**
+     * Special permission for Recording
+     *
+     * The recording is public.
+     */
+    const RECORDING_PUBLIC = 'view';
+
+    /**
      * The principal can view, but cannot modify, the SCO.
      * The principal can take a course, attend a meeting as participant, or view a folder’s content.
      */
