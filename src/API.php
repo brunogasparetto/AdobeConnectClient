@@ -216,15 +216,11 @@ class API
                 return false;
             }
 
-            $this->getResponse('acl-field-update', [
-                'acl-id' => $scoId,
-                'field-id' => 'meeting-passcode',
-                'value' => $passcode,
-                'is-mtg-passcode-req' => 'true',
-                'permission-id' => 'view',
-                'principal-id' => 'public-access',
+            return $this->aclFieldUpdate($scoId, 'meetingPasscode', $passcode, [
+                'isMtgPasscodeReq' => 'true',
+                'permissionId' => Permission::RECORDING_PUBLIC,
+                'principalId' => Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS,
             ]);
-            return true;
         } catch (\Exception $e) {
             return false;
         }
