@@ -171,10 +171,18 @@ class API
         }
     }
 
-    public function listRecordings($scoId)
+    /**
+     * Provides a list of recordings (FLV and MP4) for a specified folder.
+     *
+     * See {@link https://helpx.adobe.com/adobe-connect/webservices/list-recordings.html}
+     *
+     * @param int $folderId The SCO folder ID
+     * @return array An array with SCORecord
+     */
+    public function listRecordings($folderId)
     {
         try {
-            $response = $this->getResponse('list-recordings', ['folder-id' => $scoId]);
+            $response = $this->getResponse('list-recordings', ['folder-id' => $folderId]);
             $result = [];
 
             foreach ($response->recordings->sco as $scoElement) {
@@ -183,6 +191,42 @@ class API
             return $result;
         } catch (\Exception $ex) {
             return [];
+        }
+    }
+
+    /**
+     * Set the passcode on a Recording and turned into public.
+     *
+     * Obs: to set the passcode on a Meeting use the aclFieldUpdate method with the
+     * meeting-passcode as the fieldId and the passcode as the value.
+     *
+     * @param int $scoId The Recording SCO ID
+     * @param string $passcode The passcode
+     * @return boolean
+     */
+    public function recordingPasscode($scoId, $passcode)
+    {
+        try {
+            $permission = new Permission();
+            $permission->principalId = Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS;
+            $permission->permissionId = Permission::RECORDING_PUBLIC;
+            $permission->aclId = $scoId;
+
+            if (!$this->permissionUpdate($permission)) {
+                return false;
+            }
+
+            $this->getResponse('acl-field-update', [
+                'acl-id' => $scoId,
+                'field-id' => 'meeting-passcode',
+                'value' => $passcode,
+                'is-mtg-passcode-req' => 'true',
+                'permission-id' => 'view',
+                'principal-id' => 'public-access',
+            ]);
+            return true;
+        } catch (\Exception $e) {
+            return false;
         }
     }
 
@@ -296,7 +340,7 @@ class API
                 ->equals('name', $name)
                 ->equals('type', \Bruno\AdobeConnectClient\SCO::TYPE_CONTENT);
             $scos = $this->scoContents($folderId, $filter);
-            
+
             if (!empty($scos)) {
                 $scoFile = reset($scos);
             } else {
