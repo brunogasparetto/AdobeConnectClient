@@ -605,16 +605,26 @@ class API
      * @param int $aclId SCO ID, Principal ID or Account ID
      * @param string $fieldId The field to update.
      * @param mixed $value The value to update
+     * @param array $extraParams Extra params to send in the request. The keys are the fields.
      * @return boolean
      */
-    public function aclFieldUpdate($aclId, $fieldId, $value)
+    public function aclFieldUpdate($aclId, $fieldId, $value, array $extraParams = [])
     {
+        $params = [
+            'acl-id' => $aclId,
+            'field-id' => Helper\CamelCase::toHyphen($fieldId),
+            'value' => is_bool($value) ? Helper\BooleanStr::toString($value) : $value,
+        ];
+
+        foreach ($extraParams as $extraFieldId => $extraParamValue) {
+            $extraFieldId = Helper\CamelCase::toHyphen($extraFieldId);
+            $params[$extraFieldId] = is_bool($extraParamValue)
+                ? Helper\BooleanStr::toString($extraParamValue)
+                : $extraParamValue;
+        }
+
         try {
-            $this->getResponse('acl-field-update', [
-                'acl-id' => $aclId,
-                'field-id' => $fieldId,
-                'value' => is_bool($value) ? Helper\BooleanStr::toString($value) : $value,
-            ]);
+            $this->getResponse('acl-field-update', $params);
             return true;
         } catch (\Exception $ex) {
             return false;
