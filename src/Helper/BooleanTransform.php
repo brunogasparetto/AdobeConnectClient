@@ -5,7 +5,7 @@ namespace Bruno\AdobeConnectClient\Helper;
 /**
  * Converts Boolean values to string and vice-versa.
  */
-abstract class BooleanStr
+abstract class BooleanTransform
 {
     /**
      * Converts a string to boolean
@@ -28,7 +28,7 @@ abstract class BooleanStr
 
     /**
      * Converts a boolean to string
-     * 
+     *
      * @param boolean $bool
      * @return string
      */

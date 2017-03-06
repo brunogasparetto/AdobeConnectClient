@@ -5,7 +5,7 @@ namespace Bruno\AdobeConnectClient\Helper;
 /**
  * Converts string into Camel Case and vice-versa.
  */
-abstract class CamelCase
+abstract class StringCaseTransform
 {
     /**
      * Converts the Camel Case to Hyphen
@@ -50,7 +50,7 @@ abstract class CamelCase
             $term
         );
     }
-    
+
     /**
      * Converts the Camel Case to a string replace with the letter
      * @param string $term The string to convert
