@@ -25,6 +25,16 @@ class Filter implements Parameter
     protected $prefix = 'filter';
 
     /**
+     * Return a new Filter instance
+     *
+     * @return \Bruno\AdobeConnectClient\Filter
+     */
+    public static function instance()
+    {
+        return new Filter();
+    }
+
+    /**
      * Returns if exactly matches.
      *
      * @param string $field The Field in camelCase

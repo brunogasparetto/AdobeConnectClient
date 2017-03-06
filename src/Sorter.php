@@ -17,6 +17,16 @@ class Sorter implements Parameter
     protected $sorts = [];
 
     /**
+     * Return a new Sorter instance
+     *
+     * @return \Bruno\AdobeConnectClient\Sorter
+     */
+    public static function instance()
+    {
+        return new Sorter();
+    }
+
+    /**
      * Add an ASC sort
      *
      * @param string $field
