@@ -2,8 +2,8 @@
 
 namespace Bruno\AdobeConnectClient;
 
-use \Bruno\AdobeConnectClient\Helper\CamelCase as CC;
-use \Bruno\AdobeConnectClient\Helper\BooleanStr as B;
+use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use \Bruno\AdobeConnectClient\Helper\BooleanTransform as B;
 
 /**
  * Create valid filters using Fluent Interface
@@ -143,7 +143,7 @@ class Filter implements Parameter
      */
     public function removeField($field)
     {
-        $field = CC::toHyphen($field);
+        $field = SCT::toHyphen($field);
         $this->filters = array_filter(
             $this->filters,
             function ($filter) use ($field) {
@@ -173,6 +173,6 @@ class Filter implements Parameter
      */
     protected function setFilter($operator, $field, $value)
     {
-        $this->filters[$this->prefix . '-' . $operator . ($operator ? '-' : '') . CC::toHyphen($field)] = is_bool($value) ? B::toString($value) : $value;
+        $this->filters[$this->prefix . '-' . $operator . ($operator ? '-' : '') . SCT::toHyphen($field)] = is_bool($value) ? B::toString($value) : $value;
     }
 }

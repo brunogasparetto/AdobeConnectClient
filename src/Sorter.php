@@ -2,7 +2,7 @@
 
 namespace Bruno\AdobeConnectClient;
 
-use \Bruno\AdobeConnectClient\Helper\CamelCase as CC;
+use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
 
 /**
  * Create valid sort using Fluent Interface
@@ -24,7 +24,7 @@ class Sorter implements Parameter
      */
     public function asc($field)
     {
-        $this->sorts[CC::toHyphen($field)] = 'asc';
+        $this->sorts[SCT::toHyphen($field)] = 'asc';
         return $this;
     }
 
@@ -36,7 +36,7 @@ class Sorter implements Parameter
      */
     public function desc($field)
     {
-        $this->sorts[CC::toHyphen($field)] = 'desc';
+        $this->sorts[SCT::toHyphen($field)] = 'desc';
         return $this;
     }
 
@@ -48,7 +48,7 @@ class Sorter implements Parameter
      */
     public function removeField($field)
     {
-        $field = CC::toHyphen($field);
+        $field = SCT::toHyphen($field);
 
         if (isset($this->sorts[$field])) {
             unset($this->sorts[$field]);
@@ -67,14 +67,14 @@ class Sorter implements Parameter
             $order = reset($this->sorts);
             $field = key($this->sorts);
 
-            return ['sort-' . CC::toHyphen($field) => $order];
+            return ['sort-' . SCT::toHyphen($field) => $order];
         }
 
         $sorts = [];
         $i = 1;
 
         foreach (array_slice($this->sorts, 0, 2) as $field => $order) {
-            $sorts['sort' . $i . '-' . CC::toHyphen($field)] = $order;
+            $sorts['sort' . $i . '-' . SCT::toHyphen($field)] = $order;
             ++$i;
         }
         return $sorts;

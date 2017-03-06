@@ -613,14 +613,14 @@ class API
     {
         $params = [
             'acl-id' => $aclId,
-            'field-id' => Helper\CamelCase::toHyphen($fieldId),
-            'value' => is_bool($value) ? Helper\BooleanStr::toString($value) : $value,
+            'field-id' => Helper\StringCaseTransform::toHyphen($fieldId),
+            'value' => is_bool($value) ? Helper\BooleanTransform::toString($value) : $value,
         ];
 
         foreach ($extraParams as $extraFieldId => $extraParamValue) {
-            $extraFieldId = Helper\CamelCase::toHyphen($extraFieldId);
+            $extraFieldId = Helper\StringCaseTransform::toHyphen($extraFieldId);
             $params[$extraFieldId] = is_bool($extraParamValue)
-                ? Helper\BooleanStr::toString($extraParamValue)
+                ? Helper\BooleanTransform::toString($extraParamValue)
                 : $extraParamValue;
         }
 
@@ -645,7 +645,7 @@ class API
      */
     public function meetingFeatureUpdate($accountId, $featureId, $enable)
     {
-        $featureId = Helper\CamelCase::toHyphen($featureId);
+        $featureId = Helper\StringCaseTransform::toHyphen($featureId);
 
         if (mb_strpos($featureId, 'fid-') === false) {
             $featureId = 'fid-' . $featureId;
@@ -657,7 +657,7 @@ class API
                 [
                     'account-id' => $accountId,
                     'feature-id' => $featureId,
-                    'enable' => Helper\BooleanStr::toString($enable),
+                    'enable' => Helper\BooleanTransform::toString($enable),
                 ]
             );
             return true;

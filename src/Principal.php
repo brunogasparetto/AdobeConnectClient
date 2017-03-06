@@ -2,8 +2,8 @@
 
 namespace Bruno\AdobeConnectClient;
 
-use \Bruno\AdobeConnectClient\Helper\BooleanStr as B;
-use \Bruno\AdobeConnectClient\Helper\CamelCase as CC;
+use \Bruno\AdobeConnectClient\Helper\BooleanTransform as B;
+use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
 
 /**
  * Adobe Connect Principal
@@ -294,7 +294,7 @@ class Principal implements Parameter
 
         foreach ($fields as $field) {
             $value = $this->$field;
-            $parameters[CC::toHyphen($field)] = is_bool($value) ? B::toString($value) : $value;
+            $parameters[SCT::toHyphen($field)] = is_bool($value) ? B::toString($value) : $value;
         }
         return $parameters;
     }

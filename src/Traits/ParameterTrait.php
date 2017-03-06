@@ -2,8 +2,8 @@
 
 namespace Bruno\AdobeConnectClient\Traits;
 
-use \Bruno\AdobeConnectClient\Helper\CamelCase as CC;
-use \Bruno\AdobeConnectClient\Helper\BooleanStr as B;
+use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use \Bruno\AdobeConnectClient\Helper\BooleanTransform as B;
 
 /**
  * Converts the public properties into an array to use in the WS call
@@ -25,14 +25,14 @@ trait ParameterTrait
             if (empty($value)) {
                 continue;
             }
-            
+
             if (is_bool($value)) {
                 $value = B::toString($value);
             } elseif ($value instanceof \DateTimeInterface) {
                 $value = $value->format(\DateTime::W3C);
             }
-            
-            $parameters[CC::toHyphen($field)] = $value;
+
+            $parameters[SCT::toHyphen($field)] = $value;
         }
 
         return $parameters;
