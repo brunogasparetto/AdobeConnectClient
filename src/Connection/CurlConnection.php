@@ -17,6 +17,12 @@ class CurlConnection implements ConnectionInterface
     protected $host = '';
 
     /**
+     * Temporary headers to simplify headers generation in cURL call
+     * @var array
+     */
+    private $headers = [];
+
+    /**
      * Construct
      *
      * @param string $host The Host URL
@@ -46,42 +52,16 @@ class CurlConnection implements ConnectionInterface
     /**
      * Send a GET request
      *
-     * @param array $queryParams Additional parameters to add in URL. fieldName => value
+     * @param array $queryParams Associative array of additional parameters to add in URL
      * @return \Bruno\AdobeConnectClient\Connection\ResponseInterface
      */
     public function get(array $queryParams = [])
     {
-
-        $headers = [];
-
-        $ch = curl_init($this->getFullURL($queryParams));
-        curl_setopt_array($ch, $this->config);
-        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curlResource, $headerLine) use (&$headers) {
-            $headerSize = strlen($headerLine);
-            $headerLine = trim($headerLine);
-
-            if (!$headerSize or empty($headerLine)) {
-                return $headerSize;
-            }
-
-            $pos = strpos($headerLine, ':');
-
-            if ($pos === false) {
-                return $headerSize;
-            }
-
-            $header = trim(substr($headerLine, 0, $pos));
-
-            if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
-                return $headerSize;
-            }
-            $headers[$header] = explode(';', trim(substr($headerLine, $pos + 1)));
-            return $headerSize;
-        });
+        $ch = $this->prepareCall($queryParams);
         $body = new CurlStream(curl_exec($ch));
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return new CurlResponse($statusCode, $headers, $body);
+        return new CurlResponse($statusCode, $this->headers, $body);
     }
 
     /**
@@ -91,43 +71,34 @@ class CurlConnection implements ConnectionInterface
      * To send files need pass as stream file or SplFileInfo in $postParams
      *
      * @param array $postParams The post parameters. fieldName => value
-     * @param array $queryParams Additional parameters to add in URL. fieldName => value
+     * @param array $queryParams Associative array of additional parameters to add in URL
      * @return \Bruno\AdobeConnectClient\Connection\ResponseInterface
      */
     public function post(array $postParams, array $queryParams = [])
     {
-        $headers = [];
-
-        $ch = curl_init($this->getFullURL($queryParams));
-        curl_setopt_array($ch, $this->config);
+        $ch = $this->prepareCall($queryParams);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
-        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curlResource, $headerLine) use (&$headers) {
-            $headerSize = strlen($headerLine);
-            $headerLine = trim($headerLine);
-
-            if (!$headerSize or empty($headerLine)) {
-                return $headerSize;
-            }
-
-            $pos = strpos($headerLine, ':');
-
-            if ($pos === false) {
-                return $headerSize;
-            }
-
-            $header = trim(substr($headerLine, 0, $pos));
-
-            if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
-                return $headerSize;
-            }
-            $headers[$header] = explode(';', trim(substr($headerLine, $pos + 1)));
-            return $headerSize;
-        });
         $body = new CurlStream(curl_exec($ch));
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return new CurlResponse($statusCode, $headers, $body);
+        return new CurlResponse($statusCode, $this->headers, $body);
+    }
+
+    /**
+     * Reset the headers and prepare the cURL.
+     *
+     * @param array $queryParams Associative array of additional parameters to add in URL
+     * @return resource A cURL resource
+     */
+    private function prepareCall(array $queryParams = [])
+    {
+        $this->headers = [];
+
+        $ch = curl_init($this->getFullURL($queryParams));
+        curl_setopt_array($ch, $this->config);
+        curl_setopt($ch, CURLOPT_HEADERFUNCTION, [$this, 'extractHeader']);
+        return $ch;
     }
 
     /**
@@ -212,5 +183,34 @@ class CurlConnection implements ConnectionInterface
         // Always need this configurations
         $this->config[CURLOPT_RETURNTRANSFER] = true;
         $this->config[CURLOPT_FOLLOWLOCATION] = true;
+    }
+
+    /**
+     * Extract header line and store to posterior use
+     *
+     * @return int The size of header line
+     */
+    private function extractHeader($curlResource, $headerLine)
+    {
+        $headerSize = strlen($headerLine);
+        $headerLine = trim($headerLine);
+
+        if (!$headerSize or empty($headerLine)) {
+            return $headerSize;
+        }
+
+        $pos = strpos($headerLine, ':');
+
+        if ($pos === false) {
+            return $headerSize;
+        }
+
+        $header = trim(substr($headerLine, 0, $pos));
+
+        if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
+            return $headerSize;
+        }
+        $this->headers[$header] = explode(';', trim(substr($headerLine, $pos + 1)));
+        return $headerSize;
     }
 }
