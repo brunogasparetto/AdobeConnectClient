@@ -1,7 +1,7 @@
 <?php
 namespace Bruno\AdobeConnectClient\Connection;
 
-class Stream implements StreamInterface
+class CurlStream implements StreamInterface
 {
     /**
      * @var string
@@ -10,7 +10,7 @@ class Stream implements StreamInterface
 
     public function __construct($content)
     {
-        $this->content = $content;
+        $this->content = is_string($content) ? $content : '';
     }
 
     /**

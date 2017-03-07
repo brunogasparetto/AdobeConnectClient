@@ -4,7 +4,7 @@ namespace Bruno\AdobeConnectClient\Connection;
 /**
  * The server response
  */
-class Response implements ResponseInterface
+class CurlResponse implements ResponseInterface
 {
     /**
      * @var int
@@ -74,7 +74,7 @@ class Response implements ResponseInterface
         $name = $this->normalizeString($name);
 
         foreach ($this->headers as $header => $value) {
-            if ($header === $name) {
+            if ($this->normalizeString($header) === $name) {
                 return $value;
             }
         }

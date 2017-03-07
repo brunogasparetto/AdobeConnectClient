@@ -47,7 +47,7 @@ class CurlConnection implements ConnectionInterface
      * Send a GET request
      *
      * @param array $queryParams Additional parameters to add in URL. fieldName => value
-     * @return Response
+     * @return \Bruno\AdobeConnectClient\Connection\ResponseInterface
      */
     public function get(array $queryParams = [])
     {
@@ -56,20 +56,32 @@ class CurlConnection implements ConnectionInterface
 
         $ch = curl_init($this->getFullURL($queryParams));
         curl_setopt_array($ch, $this->config);
-        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curlResource, $headerLine) use (&$headers)
-            {
-                $pos = strpos($headerLine, ':');
+        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curlResource, $headerLine) use (&$headers) {
+            $headerSize = strlen($headerLine);
+            $headerLine = trim($headerLine);
 
-                if ($pos !== false) {
-                    $headers[trim(substr($headerLine, 0, $pos))] = trim(substr($headerLine, $pos + 1));
-                }
-                return strlen($headerLine);
+            if (!$headerSize) {
+                return $headerSize;
             }
-        );
-        $body = new Stream(curl_exec($ch));
+
+            $pos = strpos($headerLine, ':');
+
+            if ($pos === false) {
+                return $headerSize;
+            }
+
+            $header = trim(substr($headerLine, 0, $pos));
+
+            if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
+                return $headerSize;
+            }
+            $headers[$header] = explode(';', trim(substr($headerLine, $pos + 1)));
+            return $headerSize;
+        });
+        $body = new CurlStream(curl_exec($ch));
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return new Response($statusCode, $headers, $body);
+        return new CurlResponse($statusCode, $headers, $body);
     }
 
     /**
@@ -80,7 +92,7 @@ class CurlConnection implements ConnectionInterface
      *
      * @param array $postParams The post parameters. fieldName => value
      * @param array $queryParams Additional parameters to add in URL. fieldName => value
-     * @return Response
+     * @return \Bruno\AdobeConnectClient\Connection\ResponseInterface
      */
     public function post(array $postParams, array $queryParams = [])
     {
@@ -90,20 +102,32 @@ class CurlConnection implements ConnectionInterface
         curl_setopt_array($ch, $this->config);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
-        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curlResource, $headerLine) use (&$headers)
-            {
-                $pos = strpos($headerLine, ':');
+        curl_setopt($ch, CURLOPT_HEADERFUNCTION, function ($curlResource, $headerLine) use (&$headers) {
+            $headerSize = strlen($headerLine);
+            $headerLine = trim($headerLine);
 
-                if ($pos !== false) {
-                    $headers[trim(substr($headerLine, 0, $pos))] = trim(substr($headerLine, $pos + 1));
-                }
-                return strlen($headerLine);
+            if (!$headerSize) {
+                return $headerSize;
             }
-        );
-        $body = new Stream(curl_exec($ch));
+
+            $pos = strpos($headerLine, ':');
+
+            if ($pos === false) {
+                return $headerSize;
+            }
+
+            $header = trim(substr($headerLine, 0, $pos));
+
+            if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
+                return $headerSize;
+            }
+            $headers[$header] = explode(';', trim(substr($headerLine, $pos + 1)));
+            return $headerSize;
+        });
+        $body = new CurlStream(curl_exec($ch));
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return new Response($statusCode, $headers, $body);
+        return new CurlResponse($statusCode, $headers, $body);
     }
 
     /**
@@ -120,7 +144,7 @@ class CurlConnection implements ConnectionInterface
     /**
      * Convert stream file and \SplFileInfo in \CurlFile
      *
-     * @param array $params Parameters as FieldName => Value
+     * @param array $params Associative array of parameters. FieldName => Value
      * @return array
      */
     private function convertFileParams($params)
