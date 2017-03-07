@@ -89,7 +89,7 @@ class CurlResponse implements ResponseInterface
      */
     public function getHeaderLine($name)
     {
-        return implode(',', $this->getHeader($name));
+        return implode(', ', $this->getHeader($name));
     }
 
     /**
