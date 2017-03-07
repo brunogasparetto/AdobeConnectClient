@@ -16,7 +16,7 @@ interface ResponseInterface
     /**
      * Gets the body of the message.
      *
-     * @return Stream
+     * @return StreamInterface
      */
     public function getBody();
 
