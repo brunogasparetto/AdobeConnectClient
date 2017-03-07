@@ -4,23 +4,43 @@ namespace Bruno\AdobeConnectClient\Connection;
 /**
  * The Connection using cURL
  */
-class CurlConnection extends Connection
+class CurlConnection implements ConnectionInterface
 {
     /**
-     * @var array Options as Option => Value
+     * @var array Associative array of Options. Option => Value
      */
     private $config = [];
 
     /**
-     * Initialize the Connection
+     * @var string $host The host URL
+     */
+    protected $host = '';
+
+    /**
+     * Construct
      *
      * @param string $host The Host URL
      * @param array $config An array to config the Connection
      */
     public function __construct($host, array $config = [])
     {
-        parent::__construct($host);
+        $this->setHost($host);
         $this->setConfig($config);
+    }
+
+    /**
+     * Set the Host URL
+     *
+     * @param string $host The Host URL
+     */
+    public function setHost($host)
+    {
+        $host = filter_var(rtrim($host, " /\n\t"), FILTER_SANITIZE_URL);
+
+        if (!filter_var($host, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
+            throw new \InvalidArgumentException('Connection Host must be a valid URL with scheme');
+        }
+        $this->host = strpos($host, '/api/xml') === false ? $host . '/api/xml' : $host;
     }
 
     /**
@@ -46,9 +66,10 @@ class CurlConnection extends Connection
                 return strlen($headerLine);
             }
         );
-        $body = curl_exec($ch);
+        $body = new Stream(curl_exec($ch));
+        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return new Response($headers, $body);
+        return new Response($statusCode, $headers, $body);
     }
 
     /**
@@ -79,9 +100,10 @@ class CurlConnection extends Connection
                 return strlen($headerLine);
             }
         );
-        $body = curl_exec($ch);
+        $body = new Stream(curl_exec($ch));
+        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return new Response($headers, $body);
+        return new Response($statusCode, $headers, $body);
     }
 
     /**
