@@ -60,7 +60,7 @@ class CurlConnection implements ConnectionInterface
             $headerSize = strlen($headerLine);
             $headerLine = trim($headerLine);
 
-            if (!$headerSize) {
+            if (!$headerSize or empty($headerLine)) {
                 return $headerSize;
             }
 
@@ -106,7 +106,7 @@ class CurlConnection implements ConnectionInterface
             $headerSize = strlen($headerLine);
             $headerLine = trim($headerLine);
 
-            if (!$headerSize) {
+            if (!$headerSize or empty($headerLine)) {
                 return $headerSize;
             }
 
