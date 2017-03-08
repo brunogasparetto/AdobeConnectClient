@@ -2,31 +2,24 @@
 namespace AdobeConnectClient\Connection;
 
 /**
- * The Connection using cURL
+ * Connection using cURL
  */
 class CurlConnection implements ConnectionInterface
 {
-    /**
-     * @var array Associative array of Options. Option => Value
-     */
-    private $config = [];
+    /** @var array Associative array of Options */
+    protected $config = [];
 
-    /**
-     * @var string $host The host URL
-     */
+    /** @var string $host The host URL */
     protected $host = '';
 
-    /**
-     * Temporary headers to simplify headers generation in cURL call
-     * @var array
-     */
-    private $headers = [];
+    /** @var string[] Simplify headers generation in cURL call */
+    protected $headers = [];
 
     /**
-     * Construct
+     * Create the instance using a host URL and config.
      *
      * @param string $host The Host URL
-     * @param array $config An array to config the Connection
+     * @param array $config An array to config cURL. Use CURLOPT_* as index
      */
     public function __construct($host, array $config = [])
     {
@@ -35,9 +28,10 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
-     * Set the Host URL
+     * Set the Host URL.
      *
      * @param string $host The Host URL
+     * @throws \InvalidArgumentException
      */
     public function setHost($host)
     {
@@ -50,9 +44,9 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
-     * Send a GET request
+     * Send a GET request.
      *
-     * @param array $queryParams Associative array of additional parameters to add in URL
+     * @param array $queryParams Associative array to add params in URL
      * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function get(array $queryParams = [])
@@ -65,13 +59,13 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
-     * Send a POST request
+     * Send a POST request.
      *
      * The request need be send as application/x-www-form-urlencoded or multipart/form-data.
-     * To send files need pass as stream file or SplFileInfo in $postParams
+     * The $postParams must accept stream file or \SplFileInfo to send files.
      *
-     * @param array $postParams The post parameters. fieldName => value
-     * @param array $queryParams Associative array of additional parameters to add in URL
+     * @param array $postParams Associative array for the post parameters
+     * @param array $queryParams Associative array to add params in URL
      * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function post(array $postParams, array $queryParams = [])
@@ -86,12 +80,12 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
-     * Reset the headers and prepare the cURL.
+     * Reset the temporary headers and prepare the cURL.
      *
-     * @param array $queryParams Associative array of additional parameters to add in URL
+     * @param array $queryParams Associative array to add params in URL
      * @return resource A cURL resource
      */
-    private function prepareCall(array $queryParams = [])
+    protected function prepareCall(array $queryParams = [])
     {
         $this->headers = [];
 
@@ -102,28 +96,28 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
-     * Get the full URL with query parameters
+     * Get the full URL with query parameters.
      *
-     * @param string $queryParams
+     * @param array $queryParams Associative array
      * @return string
      */
-    private function getFullURL(array $queryParams)
+    protected function getFullURL(array $queryParams)
     {
-        return $this->host . (empty($queryParams) ? '' : '?' . http_build_query($queryParams));
+        return empty($queryParams)
+            ? $this->host
+            : $this->host . '?' . http_build_query($queryParams);
     }
 
     /**
-     * Convert stream file and \SplFileInfo in \CurlFile
+     * Convert stream file and \SplFileInfo in \CurlFile.
      *
-     * @param array $params Associative array of parameters. FieldName => Value
+     * @param array $params Associative array of parameters
      * @return array
      */
-    private function convertFileParams($params)
+    protected function convertFileParams($params)
     {
         foreach ($params as $param => $value) {
-            $fileInfo = $this->fileInfo($value);
-
-            if ($fileInfo) {
+            if (($fileInfo = $this->fileInfo($value))) {
                 $params[$param] = new \CurlFile($fileInfo->path, $fileInfo->mime);
             }
         }
@@ -133,12 +127,12 @@ class CurlConnection implements ConnectionInterface
     /**
      * Get the filepath and mime-type from a file.
      *
-     * If it's a stream file or \SplFileInfo object returns an object with path and mime.
+     * If it's a stream file or \SplFileInfo returns an object with path and mime.
      *
-     * @param mixed $item A stream file or \SplFileInfo object
+     * @param resource|\SplFileInfo $item A stream file or \SplFileInfo object
      * @return stdClass|null Returns null if it's not a valid stream file or \SplFileInfo
      */
-    private function fileInfo($item)
+    protected function fileInfo($item)
     {
         if (is_resource($item)) {
             $streamMeta = stream_get_meta_data($item);
@@ -165,11 +159,11 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
-     * Set the cURL config
+     * Set the cURL config.
      *
-     * @param array $config Items as Option => Value
+     * @param array $config Associative array. Items as Option => Value
      */
-    private function setConfig(array $config)
+    protected function setConfig(array $config)
     {
         $defaults = [
             CURLOPT_CONNECTTIMEOUT => 120,
@@ -186,11 +180,13 @@ class CurlConnection implements ConnectionInterface
     }
 
     /**
-     * Extract header line and store to posterior use
+     * Extract header line and store it to posterior use.
+     *
+     * This method is called by option CURLOPT_HEADERFUNCTION.
      *
      * @return int The size of header line
      */
-    private function extractHeader($curlResource, $headerLine)
+    protected function extractHeader($curlResource, $headerLine)
     {
         $headerSize = strlen($headerLine);
         $headerLine = trim($headerLine);

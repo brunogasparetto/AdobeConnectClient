@@ -1,6 +1,9 @@
 <?php
 namespace AdobeConnectClient\Connection;
 
+/**
+ * Stream Interface.
+ */
 interface StreamInterface
 {
     /**

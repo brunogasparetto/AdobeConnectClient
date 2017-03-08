@@ -1,24 +1,27 @@
 <?php
 namespace AdobeConnectClient\Connection;
 
+/**
+ * Connection Interface
+ */
 interface ConnectionInterface
 {
     /**
-     * Send a GET request
+     * Send a GET request.
      *
-     * @param array $queryParams Additional parameters to add in URL. fieldName => value
+     * @param array $queryParams Associative array to add params in URL
      * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function get(array $queryParams = []);
 
     /**
-     * Send a POST request
+     * Send a POST request.
      *
      * The request need be send as application/x-www-form-urlencoded or multipart/form-data.
-     * To send files need pass as stream file or SplFileInfo in $postParams
+     * The $postParams must accept stream file or SplFileInfo to send files.
      *
-     * @param array $postParams The post parameters. fieldName => value
-     * @param array $queryParams Additional parameters to add in URL. fieldName => value
+     * @param array $postParams Associative array for the post parameters
+     * @param array $queryParams Associative array to add params in URL
      * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function post(array $postParams, array $queryParams = []);

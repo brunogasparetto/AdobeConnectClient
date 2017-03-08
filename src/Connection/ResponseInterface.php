@@ -1,6 +1,9 @@
 <?php
 namespace AdobeConnectClient\Connection;
 
+/**
+ * Response Interface.
+ */
 interface ResponseInterface
 {
     /**

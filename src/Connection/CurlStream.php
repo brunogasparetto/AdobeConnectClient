@@ -1,13 +1,19 @@
 <?php
 namespace AdobeConnectClient\Connection;
 
+/**
+ * Stream for a cURL Connection.
+ */
 class CurlStream implements StreamInterface
 {
-    /**
-     * @var string
-     */
+    /** @var string */
     protected $content = '';
 
+    /**
+     * Create the Stream
+     *
+     * @param string $content
+     */
     public function __construct($content)
     {
         $this->content = is_string($content) ? $content : '';
