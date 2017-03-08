@@ -1,6 +1,6 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
 /**
  * Result for Common Info Action

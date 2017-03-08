@@ -1,8 +1,8 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
-use \Bruno\AdobeConnectClient\Helper\BooleanStr as B;
+use \AdobeConnectClient\Helper\BooleanStr as B;
 
 /**
  * Adobe Connect SCO

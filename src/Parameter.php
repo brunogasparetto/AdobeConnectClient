@@ -1,6 +1,6 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
 /**
  * Grant the items in an array to use in Request

@@ -1,5 +1,5 @@
 <?php
-namespace Bruno\AdobeConnectClient\Connection;
+namespace AdobeConnectClient\Connection;
 
 interface ResponseInterface
 {

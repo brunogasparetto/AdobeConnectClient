@@ -1,6 +1,6 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
 /**
  * Adobe Connect API abstraction
@@ -15,12 +15,12 @@ class API
     private $cookie = '';
 
     /**
-     * @var \Bruno\AdobeConnectClient\RequestHandler $requestHandler The Request Handler
+     * @var \AdobeConnectClient\RequestHandler $requestHandler The Request Handler
      */
     private $requestHandler = null;
 
     /**
-     * @param mixed The Host URL or a \Bruno\AdobeConnectClient\RequestHandler object
+     * @param mixed The Host URL or a \AdobeConnectClient\RequestHandler object
      */
     public function __construct($hostUrlOrRequestHandler)
     {
@@ -112,7 +112,7 @@ class API
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-info.html#common_info}
      *
      * @param string $domain A domain name identifying a Adobe Connect hosted account (optional)
-     * @return \Bruno\AdobeConnectClient\CommonInfo
+     * @return \AdobeConnectClient\CommonInfo
      */
     public function commonInfo($domain = '')
     {
@@ -130,9 +130,9 @@ class API
      * See {@link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sco-contents.html}
      *
      * @param int $scoId Folder ID or SCO ID
-     * @param \Bruno\AdobeConnectClient\Parameter $filter The filters to reduce the response
-     * @param \Bruno\AdobeConnectClient\Parameter $sort The sorter
-     * @return array Array of \Bruno\AdobeConnectClient\SCO
+     * @param \AdobeConnectClient\Parameter $filter The filters to reduce the response
+     * @param \AdobeConnectClient\Parameter $sort The sorter
+     * @return array Array of \AdobeConnectClient\SCO
      */
     public function scoContents($scoId, Parameter $filter = null, Parameter $sort = null)
     {
@@ -159,7 +159,7 @@ class API
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/sco-info.html}
      *
      * @param int $scoId Folder ID or SCO ID
-     * @return \Bruno\AdobeConnectClient\SCO
+     * @return \AdobeConnectClient\SCO
      */
     public function scoInfo($scoId)
     {
@@ -241,8 +241,8 @@ class API
      *
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/sco-update.html}
      *
-     * @param \Bruno\AdobeConnectClient\Parameter $parameter The SCO parameters. Can be a \Bruno\AdobeConnectClient\SCO
-     * @return \Bruno\AdobeConnectClient\SCO
+     * @param \AdobeConnectClient\Parameter $parameter The SCO parameters. Can be a \AdobeConnectClient\SCO
+     * @return \AdobeConnectClient\SCO
      */
     public function scoCreate(Parameter $parameter)
     {
@@ -266,7 +266,7 @@ class API
      *
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/sco-update.html}
      *
-     * @param \Bruno\AdobeConnectClient\Parameter $parameter The SCO parameters. Can be a \Bruno\AdobeConnectClient\SCO
+     * @param \AdobeConnectClient\Parameter $parameter The SCO parameters. Can be a \AdobeConnectClient\SCO
      * @return boolean
      */
     public function scoUpdate(Parameter $parameter)
@@ -340,18 +340,18 @@ class API
     public function scoUpload($folderId, $name, $filePath)
     {
         try {
-            $filter = new \Bruno\AdobeConnectClient\Filter();
+            $filter = new \AdobeConnectClient\Filter();
             $filter
                 ->equals('folderId', $folderId)
                 ->equals('name', $name)
-                ->equals('type', \Bruno\AdobeConnectClient\SCO::TYPE_CONTENT);
+                ->equals('type', \AdobeConnectClient\SCO::TYPE_CONTENT);
             $scos = $this->scoContents($folderId, $filter);
 
             if (!empty($scos)) {
                 $scoFile = reset($scos);
             } else {
-                $sco = new \Bruno\AdobeConnectClient\SCO();
-                $sco->type = \Bruno\AdobeConnectClient\SCO::TYPE_CONTENT;
+                $sco = new \AdobeConnectClient\SCO();
+                $sco->type = \AdobeConnectClient\SCO::TYPE_CONTENT;
                 $sco->folderId = $folderId;
                 $sco->name = $name;
                 $scoFile = $this->scoCreate($sco);
@@ -372,7 +372,7 @@ class API
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/principal-info.html}
      *
      * @param int $principalId The ID of a user or group you want information about.
-     * @return \Bruno\AdobeConnectClient\Principal
+     * @return \AdobeConnectClient\Principal
      */
     public function principalInfo($principalId)
     {
@@ -390,9 +390,9 @@ class API
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/principal-list.html}
      *
      * @param int $groupId The ID of a group. Same as the principal-id of a principal that has a type value of group.
-     * @param \Bruno\AdobeConnectClient\Parameter $filter The filters to reduce the response
-     * @param \Bruno\AdobeConnectClient\Parameter $sort The sorter
-     * @return array Arry of \Bruno\AdobeConnectClient\Principal
+     * @param \AdobeConnectClient\Parameter $filter The filters to reduce the response
+     * @param \AdobeConnectClient\Parameter $sort The sorter
+     * @return array Arry of \AdobeConnectClient\Principal
      */
     public function principalList($groupId = 0, Parameter $filter = null, Parameter $sort = null)
     {
@@ -420,8 +420,8 @@ class API
      *
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html}
      *
-     * @param \Bruno\AdobeConnectClient\Parameter $principal The Principal
-     * @return \Bruno\AdobeConnectClient\Principal
+     * @param \AdobeConnectClient\Parameter $principal The Principal
+     * @return \AdobeConnectClient\Principal
      */
     public function principalCreate(Parameter $principal)
     {
@@ -441,7 +441,7 @@ class API
      *
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html}
      *
-     * @param \Bruno\AdobeConnectClient\Parameter $principal The Principal
+     * @param \AdobeConnectClient\Parameter $principal The Principal
      * @return boolean
      */
     public function principalUpdate(Parameter $principal)
@@ -536,9 +536,9 @@ class API
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html}
      *
      * @param int $aclId SCO ID, Principal ID or Account ID
-     * @param \Bruno\AdobeConnectClient\Parameter $filter The filters to reduce the response
-     * @param \Bruno\AdobeConnectClient\Parameter $sort The sorter
-     * @return array Array of \Bruno\AdobeConnectClient\Principal
+     * @param \AdobeConnectClient\Parameter $filter The filters to reduce the response
+     * @param \AdobeConnectClient\Parameter $sort The sorter
+     * @return array Array of \AdobeConnectClient\Principal
      */
     public function permissionsInfo($aclId, Parameter $filter = null, Parameter $sort = null)
     {
@@ -565,7 +565,7 @@ class API
      *
      * @param int $aclId SCO ID, Principal ID or Account ID
      * @param int $principalId The Principal ID
-     * @return \Bruno\AdobeConnectClient\Permission
+     * @return \AdobeConnectClient\Permission
      */
     public function permissionInfoFromPrincipal($aclId, $principalId)
     {
@@ -585,7 +585,7 @@ class API
      * More informationg about SCO access mode see
      * {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#permission_id}
      *
-     * @param \Bruno\AdobeConnectClient\Parameter $parameter Can be a \Bruno\AdobeConnectClient\Permission
+     * @param \AdobeConnectClient\Parameter $parameter Can be a \AdobeConnectClient\Permission
      * @return boolean True if permission was updated
      */
     public function permissionUpdate(Parameter $parameter)
@@ -669,7 +669,7 @@ class API
     /**
      * Merge a variable-length argument list into array
      *
-     * @param mixed $params An array or \Bruno\AdobeConnectClient\Parameter
+     * @param mixed $params An array or \AdobeConnectClient\Parameter
      * @return array
      */
     protected function mergeParamsInArray(...$params)

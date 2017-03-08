@@ -1,6 +1,6 @@
 <?php
 
-namespace Bruno\AdobeConnectClient\Helper;
+namespace AdobeConnectClient\Helper;
 
 /**
  * Converts Boolean values to string and vice-versa.

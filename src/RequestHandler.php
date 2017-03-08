@@ -1,6 +1,6 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
 /**
  * The Request to the Server

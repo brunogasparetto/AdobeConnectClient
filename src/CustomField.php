@@ -1,6 +1,6 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
 /**
  * Adobe Connect's types constants to Custom Field

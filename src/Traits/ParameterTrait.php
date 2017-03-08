@@ -1,9 +1,9 @@
 <?php
 
-namespace Bruno\AdobeConnectClient\Traits;
+namespace AdobeConnectClient\Traits;
 
-use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
-use \Bruno\AdobeConnectClient\Helper\BooleanTransform as B;
+use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helper\BooleanTransform as B;
 
 /**
  * Converts the public properties into an array to use in the WS call

@@ -1,7 +1,7 @@
 {
     "name": "brunogasparetto/adobe-connect-client",
     "description": "PHP Cliente for Adobe Connect API",
-    "keywords": ["Adobe","Connect", "Client", "API"],
+    "keywords": ["PHP", "Adobe","Connect", "Client", "API"],
     "homepage": "https://github.com/brunogasparetto/AdobeConnectClient",
     "license": "MIT",
     "authors": [
@@ -12,7 +12,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Bruno\\AdobeConnectClient\\": "src/"
+            "AdobeConnectClient\\": "src/"
         }
     },
     "require": {

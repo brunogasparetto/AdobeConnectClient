@@ -1,5 +1,5 @@
 <?php
-namespace Bruno\AdobeConnectClient\Connection;
+namespace AdobeConnectClient\Connection;
 
 /**
  * The Connection using cURL
@@ -53,7 +53,7 @@ class CurlConnection implements ConnectionInterface
      * Send a GET request
      *
      * @param array $queryParams Associative array of additional parameters to add in URL
-     * @return \Bruno\AdobeConnectClient\Connection\ResponseInterface
+     * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function get(array $queryParams = [])
     {
@@ -72,7 +72,7 @@ class CurlConnection implements ConnectionInterface
      *
      * @param array $postParams The post parameters. fieldName => value
      * @param array $queryParams Associative array of additional parameters to add in URL
-     * @return \Bruno\AdobeConnectClient\Connection\ResponseInterface
+     * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function post(array $postParams, array $queryParams = [])
     {

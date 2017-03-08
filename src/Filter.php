@@ -1,9 +1,9 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
-use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
-use \Bruno\AdobeConnectClient\Helper\BooleanTransform as B;
+use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helper\BooleanTransform as B;
 
 /**
  * Create valid filters using Fluent Interface
@@ -27,7 +27,7 @@ class Filter implements Parameter
     /**
      * Return a new Filter instance
      *
-     * @return \Bruno\AdobeConnectClient\Filter
+     * @return \AdobeConnectClient\Filter
      */
     public static function instance()
     {
@@ -39,7 +39,7 @@ class Filter implements Parameter
      *
      * @param string $field The Field in camelCase
      * @param string $value The Value to compare
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function equals($field, $value)
     {
@@ -52,7 +52,7 @@ class Filter implements Parameter
      *
      * @param string $field The Field in camelCase
      * @param string $value The Value to compare
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function like($field, $value)
     {
@@ -65,7 +65,7 @@ class Filter implements Parameter
      *
      * @param string $field The Field in camelCase
      * @param string $value The Value to compare
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function out($field, $value)
     {
@@ -77,7 +77,7 @@ class Filter implements Parameter
      * Limits the results to the number of rows specified.
      *
      * @param int $limit The limit rows
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function rows($limit)
     {
@@ -89,7 +89,7 @@ class Filter implements Parameter
      * Starts the results at the index number specified.
      *
      * @param int $offset The initial index
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function start($offset)
     {
@@ -103,7 +103,7 @@ class Filter implements Parameter
      * @param string $dateField The Date Field in camelCase
      * @param \DateTimeInterface $date The value to compare
      * @param boolean $inclusive Filter inclusive the date
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function dateAfter($dateField, \DateTimeInterface $date, $inclusive = true)
     {
@@ -121,7 +121,7 @@ class Filter implements Parameter
      * @param string $dateField The Date Field in camelCase
      * @param \DateTimeInterface $date The value to compare
      * @param boolean $inclusive Filter inclusive the date
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function dateBefore($dateField, \DateTimeInterface $date, $inclusive = true)
     {
@@ -137,7 +137,7 @@ class Filter implements Parameter
      * Selects all principals that are members of a group, specified in a separate parameter.
      *
      * @param boolean $value The value to compare
-     * @return \Bruno\AdobeConnectClient\Filter Fluent Interface
+     * @return \AdobeConnectClient\Filter Fluent Interface
      */
     public function isMember($value)
     {
@@ -149,7 +149,7 @@ class Filter implements Parameter
      * Remove all filters using the Field
      *
      * @param string $field The Field in camelCase
-     * @return \Bruno\AdobeConnectClient\Filter
+     * @return \AdobeConnectClient\Filter
      */
     public function removeField($field)
     {

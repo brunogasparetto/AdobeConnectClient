@@ -1,5 +1,5 @@
 <?php
-namespace Bruno\AdobeConnectClient\Connection;
+namespace AdobeConnectClient\Connection;
 
 /**
  * The server response
@@ -17,7 +17,7 @@ class CurlResponse implements ResponseInterface
     protected $headers = [];
 
     /**
-     * @var \Bruno\AdobeConnectClient\Connection\StreamInterface The response body
+     * @var \AdobeConnectClient\Connection\StreamInterface The response body
      */
     protected $body = null;
 
@@ -26,7 +26,7 @@ class CurlResponse implements ResponseInterface
      *
      * @param int $statusCode The response status code
      * @param array $headers An array as name => value. Value is an array of strings.
-     * @param \Bruno\AdobeConnectClient\Connection\StreamInterface $body The response body
+     * @param \AdobeConnectClient\Connection\StreamInterface $body The response body
      */
     public function __construct($statusCode, array $headers, StreamInterface $body)
     {
@@ -43,7 +43,7 @@ class CurlResponse implements ResponseInterface
     /**
      * Get the Body
      *
-     * @return \Bruno\AdobeConnectClient\Connection\StreamInterface
+     * @return \AdobeConnectClient\Connection\StreamInterface
      */
     public function getBody()
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
-use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
 
 /**
  * Create valid sort using Fluent Interface
@@ -19,7 +19,7 @@ class Sorter implements Parameter
     /**
      * Return a new Sorter instance
      *
-     * @return \Bruno\AdobeConnectClient\Sorter
+     * @return \AdobeConnectClient\Sorter
      */
     public static function instance()
     {
@@ -30,7 +30,7 @@ class Sorter implements Parameter
      * Add an ASC sort
      *
      * @param string $field
-     * @return \Bruno\AdobeConnectClient\Sorter
+     * @return \AdobeConnectClient\Sorter
      */
     public function asc($field)
     {
@@ -42,7 +42,7 @@ class Sorter implements Parameter
      * Add a DESC sort
      *
      * @param string $field
-     * @return \Bruno\AdobeConnectClient\Sorter
+     * @return \AdobeConnectClient\Sorter
      */
     public function desc($field)
     {
@@ -54,7 +54,7 @@ class Sorter implements Parameter
      * Remove item to sort.
      *
      * @param string $field
-     * @return \Bruno\AdobeConnectClient\Sorter
+     * @return \AdobeConnectClient\Sorter
      */
     public function removeField($field)
     {

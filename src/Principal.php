@@ -1,9 +1,9 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
-use \Bruno\AdobeConnectClient\Helper\BooleanTransform as B;
-use \Bruno\AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helper\BooleanTransform as B;
+use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
 
 /**
  * Adobe Connect Principal
