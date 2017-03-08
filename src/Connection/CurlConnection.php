@@ -20,6 +20,7 @@ class CurlConnection implements ConnectionInterface
      *
      * @param string $host The Host URL
      * @param array $config An array to config cURL. Use CURLOPT_* as index
+     * @throws \InvalidArgumentException if $host is not a valid URL with scheme
      */
     public function __construct($host, array $config = [])
     {
@@ -31,7 +32,7 @@ class CurlConnection implements ConnectionInterface
      * Set the Host URL.
      *
      * @param string $host The Host URL
-     * @throws \InvalidArgumentException
+     * @throws \InvalidArgumentException if argument is not a valid URL with scheme
      */
     public function setHost($host)
     {
@@ -47,15 +48,22 @@ class CurlConnection implements ConnectionInterface
      * Send a GET request.
      *
      * @param array $queryParams Associative array to add params in URL
+     * @throws \UnexpectedValueException if server does not respond
      * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function get(array $queryParams = [])
     {
         $ch = $this->prepareCall($queryParams);
-        $body = new CurlStream(curl_exec($ch));
+        $body = curl_exec($ch);
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ($body === false) {
+            $exception = new \UnexpectedValueException(curl_error($ch), curl_errno($ch));
+            curl_close($ch);
+            throw $exception;
+        }
         curl_close($ch);
-        return new CurlResponse($statusCode, $this->headers, $body);
+        return new CurlResponse($statusCode, $this->headers, new CurlStream($body));
     }
 
     /**
@@ -66,6 +74,7 @@ class CurlConnection implements ConnectionInterface
      *
      * @param array $postParams Associative array for the post parameters
      * @param array $queryParams Associative array to add params in URL
+     * @throws \UnexpectedValueException if server does not respond
      * @return \AdobeConnectClient\Connection\ResponseInterface
      */
     public function post(array $postParams, array $queryParams = [])
@@ -73,10 +82,16 @@ class CurlConnection implements ConnectionInterface
         $ch = $this->prepareCall($queryParams);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
-        $body = new CurlStream(curl_exec($ch));
+        $body = curl_exec($ch);
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+        if ($body === false) {
+            $exception = new \UnexpectedValueException(curl_error($ch), curl_errno($ch));
+            curl_close($ch);
+            throw $exception;
+        }
         curl_close($ch);
-        return new CurlResponse($statusCode, $this->headers, $body);
+        return new CurlResponse($statusCode, $this->headers, new CurlStream($body));
     }
 
     /**
