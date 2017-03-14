@@ -1,10 +1,10 @@
 <?php
-namespace AdobeConnectClient\Connection;
+namespace AdobeConnectClient\Connection\Curl;
 
 /**
  * Stream for a cURL Connection.
  */
-class CurlStream implements StreamInterface
+class Stream implements \AdobeConnectClient\Connection\StreamInterface
 {
     /** @var string */
     protected $content = '';

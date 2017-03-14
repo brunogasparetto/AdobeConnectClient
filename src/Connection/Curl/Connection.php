@@ -1,10 +1,10 @@
 <?php
-namespace AdobeConnectClient\Connection;
+namespace AdobeConnectClient\Connection\Curl;
 
 /**
  * Connection using cURL
  */
-class CurlConnection implements ConnectionInterface
+class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
 {
     /** @var array Associative array of Options */
     protected $config = [];
@@ -32,11 +32,11 @@ class CurlConnection implements ConnectionInterface
      * Set the Host URL.
      *
      * @param string $host The Host URL
-     * @throws \InvalidArgumentException if argument is not a valid URL with scheme
+     * @throws \InvalidArgumentException if $host is not a valid URL with scheme
      */
     public function setHost($host)
     {
-        $host = filter_var(rtrim($host, " /\n\t"), FILTER_SANITIZE_URL);
+        $host = filter_var(trim($host, " ?/\n\t"), FILTER_SANITIZE_URL);
 
         if (!filter_var($host, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
             throw new \InvalidArgumentException('Connection Host must be a valid URL with scheme');
@@ -53,7 +53,7 @@ class CurlConnection implements ConnectionInterface
      */
     public function get(array $queryParams = [])
     {
-        $ch = $this->prepareCall($queryParams);
+        $ch = $this->prepareCurl($queryParams);
         $body = curl_exec($ch);
         $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
@@ -63,7 +63,7 @@ class CurlConnection implements ConnectionInterface
             throw $exception;
         }
         curl_close($ch);
-        return new CurlResponse($statusCode, $this->headers, new CurlStream($body));
+        return new Response($statusCode, $this->headers, new Stream($body));
     }
 
     /**
@@ -79,7 +79,7 @@ class CurlConnection implements ConnectionInterface
      */
     public function post(array $postParams, array $queryParams = [])
     {
-        $ch = $this->prepareCall($queryParams);
+        $ch = $this->prepareCurl($queryParams);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
         $body = curl_exec($ch);
@@ -91,7 +91,7 @@ class CurlConnection implements ConnectionInterface
             throw $exception;
         }
         curl_close($ch);
-        return new CurlResponse($statusCode, $this->headers, new CurlStream($body));
+        return new Response($statusCode, $this->headers, new Stream($body));
     }
 
     /**
@@ -100,27 +100,26 @@ class CurlConnection implements ConnectionInterface
      * @param array $queryParams Associative array to add params in URL
      * @return resource A cURL resource
      */
-    protected function prepareCall(array $queryParams = [])
+    protected function prepareCurl(array $queryParams = [])
     {
         $this->headers = [];
 
         $ch = curl_init($this->getFullURL($queryParams));
         curl_setopt_array($ch, $this->config);
-        curl_setopt($ch, CURLOPT_HEADERFUNCTION, [$this, 'extractHeader']);
         return $ch;
     }
 
     /**
      * Get the full URL with query parameters.
      *
-     * @param array $queryParams Associative array
+     * @param array $queryParams Associative array to add params in URL
      * @return string
      */
     protected function getFullURL(array $queryParams)
     {
         return empty($queryParams)
             ? $this->host
-            : $this->host . '?' . http_build_query($queryParams);
+            : $this->host . '?' . http_build_query($queryParams, '', '&');
     }
 
     /**
@@ -129,7 +128,7 @@ class CurlConnection implements ConnectionInterface
      * @param array $params Associative array of parameters
      * @return array
      */
-    protected function convertFileParams($params)
+    protected function convertFileParams(array $params)
     {
         foreach ($params as $param => $value) {
             if (($fileInfo = $this->fileInfo($value))) {
@@ -192,6 +191,7 @@ class CurlConnection implements ConnectionInterface
         // Always need this configurations
         $this->config[CURLOPT_RETURNTRANSFER] = true;
         $this->config[CURLOPT_FOLLOWLOCATION] = true;
+        $this->config[CURLOPT_HEADERFUNCTION] = [$this, 'extractHeader'];
     }
 
     /**
@@ -199,14 +199,16 @@ class CurlConnection implements ConnectionInterface
      *
      * This method is called by option CURLOPT_HEADERFUNCTION.
      *
+     * @param resource $curlResource
+     * @param string $headerLine
      * @return int The size of header line
      */
     protected function extractHeader($curlResource, $headerLine)
     {
         $headerSize = strlen($headerLine);
-        $headerLine = trim($headerLine);
+        $headerLine = trim($headerLine, " \t\n");
 
-        if (!$headerSize or empty($headerLine)) {
+        if (empty($headerLine)) {
             return $headerSize;
         }
 

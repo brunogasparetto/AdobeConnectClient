@@ -1,10 +1,10 @@
 <?php
-namespace AdobeConnectClient\Connection;
+namespace AdobeConnectClient\Connection\Curl;
 
 /**
  * The server response for cURL Connection.
  */
-class CurlResponse implements ResponseInterface
+class Response implements \AdobeConnectClient\Connection\ResponseInterface
 {
     /** @var int The response status code */
     protected $statusCode = 0;
@@ -22,7 +22,7 @@ class CurlResponse implements ResponseInterface
      * @param array $headers Associative array as name => value. Value is an array of strings
      * @param \AdobeConnectClient\Connection\StreamInterface $body The response body
      */
-    public function __construct($statusCode, array $headers, StreamInterface $body)
+    public function __construct($statusCode, array $headers, \AdobeConnectClient\Connection\StreamInterface $body)
     {
         $this->statusCode = intval($statusCode);
         $this->headers = $headers;
