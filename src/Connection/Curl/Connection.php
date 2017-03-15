@@ -223,7 +223,7 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
         if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
             return $headerSize;
         }
-        $this->headers[$header] = explode(';', trim(substr($headerLine, $pos + 1)));
+        $this->headers[$header] = [trim(substr($headerLine, $pos + 1))];
         return $headerSize;
     }
 }
