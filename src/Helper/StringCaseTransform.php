@@ -38,17 +38,31 @@ abstract class StringCaseTransform
     }
 
     /**
-     * Converts any string to Camel Case
+     * Converts any string to camelCase
      * @param string $term
      * @return string
      */
     public static function toCamelCase($term)
     {
-        return preg_replace_callback(
+        $term = preg_replace_callback(
             '/[\s_-](\w)/',
             function ($matches) {return mb_strtoupper($matches[1]);},
             $term
         );
+        $term[0] = mb_strtolower($term[0]);
+        return $term;
+    }
+
+    /**
+     * Converts any string to CamelCase
+     * @param string $term
+     * @return string
+     */
+    public static function toUpperCamelCase($term)
+    {
+        $term = static::toCamelCase($term);
+        $term[0] = mb_strtoupper($term[0]);
+        return $term;
     }
 
     /**
