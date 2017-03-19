@@ -2,39 +2,28 @@
 
 namespace AdobeConnectClient\Traits;
 
-use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
-use \AdobeConnectClient\Helper\BooleanTransform as B;
-
-/**
- * Converts the public properties into an array to use in the WS call
- *
- * Works only for the not empty properties. False and null are considered empty values.
- */
 trait ParameterTrait
 {
     /**
-     * Convert the public properties into an array to use in the WS call
+     * Retrieves all not null attributes as an associative array
      *
-     * @return array
+     * @return array An associative array
      */
     public function toArray()
     {
-        $parameters = [];
+        $values = [];
 
-        foreach ($this as $field => $value) {
-            if (empty($value)) {
+        foreach ($this as $prop => $value) {
+            if (!isset($value)) {
                 continue;
             }
-
             if (is_bool($value)) {
-                $value = B::toString($value);
-            } elseif ($value instanceof \DateTimeInterface) {
+                $value = \AdobeConnectClient\Helper\BooleanTransform::toString($value);
+            } elseif ($value instanceof \DateTime) {
                 $value = $value->format(\DateTime::W3C);
             }
-
-            $parameters[SCT::toHyphen($field)] = $value;
+            $values[\AdobeConnectClient\Helper\StringCaseTransform::toHyphen($prop)] = $value;
         }
-
-        return $parameters;
+        return $values;
     }
 }
