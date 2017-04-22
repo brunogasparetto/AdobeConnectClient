@@ -45,6 +45,7 @@ class CommonInfo implements EntityInterface
     protected $accountId = null;
 
     /**
+     * Get the Locale
      *
      * @return string
      */
@@ -54,6 +55,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Timezone ID
      *
      * @return int
      */
@@ -63,6 +65,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Cookie
      *
      * @return string
      */
@@ -72,6 +75,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Date
      *
      * @return \DateTimeImmutable
      */
@@ -81,6 +85,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Host
      *
      * @return string
      */
@@ -90,6 +95,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Local Host
      *
      * @return string
      */
@@ -99,6 +105,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Admin Host
      *
      * @return string
      */
@@ -108,6 +115,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the URL
      *
      * @return string
      */
@@ -117,6 +125,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Version
      *
      * @return string
      */
@@ -126,6 +135,7 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Get the Account ID
      *
      * @return int
      */
@@ -135,9 +145,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Locale
      *
      * @param string $locale
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setLocale($locale)
     {
@@ -146,9 +157,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Timezone ID
      *
      * @param int $timeZoneId
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setTimeZoneId($timeZoneId)
     {
@@ -157,9 +169,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Cookie
      *
      * @param string $cookie
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setCookie($cookie)
     {
@@ -168,9 +181,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Date
      *
-     * @param \DateTimeImmutable $date
-     * @return $this Fluent Interface
+     * @param \DateTimeImmutable|string $date
+     * @return CommonInfo Fluent Interface
      */
     public function setDate($date)
     {
@@ -179,9 +193,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Host
      *
      * @param string $host
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setHost($host)
     {
@@ -190,9 +205,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Local Host
      *
      * @param string $localHost
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setLocalHost($localHost)
     {
@@ -201,9 +217,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Admin Host
      *
      * @param string $adminHost
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setAdminHost($adminHost)
     {
@@ -212,9 +229,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the URL
      *
      * @param string $url
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setUrl($url)
     {
@@ -223,9 +241,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Version
      *
      * @param string $version
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setVersion($version)
     {
@@ -234,9 +253,10 @@ class CommonInfo implements EntityInterface
     }
 
     /**
+     * Set the Account ID
      *
      * @param int $accountId
-     * @return $this Fluent Interface
+     * @return CommonInfo Fluent Interface
      */
     public function setAccountId($accountId)
     {

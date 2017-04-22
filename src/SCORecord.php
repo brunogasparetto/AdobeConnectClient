@@ -2,136 +2,522 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Helper\BooleanStr as B;
-
 /**
  * The recording archive from a SCO
  */
-class SCORecord
+class SCORecord implements EntityInterface
 {
-    /**
-     * @var int
-     */
-    public $scoId = 0;
+    use Traits\EntityTrait;
+
+    /** @var int */
+    protected $scoId = null;
+
+    /** @var int */
+    protected $sourceScoId = null;
+
+    /** @var int */
+    protected $folderId = null;
+
+    /** @var string */
+    protected $type = null;
+
+    /** @var string */
+    protected $icon = null;
+
+    /** @var int */
+    protected $displaySeq = null;
+
+    /** @var int */
+    protected $jobId = null;
+
+    /** @var int */
+    protected $accountId = null;
+
+    /** @var string */
+    protected $jobStatus = null;
+
+    /** @var int */
+    protected $encoderServiceJobProgress = null;
+
+    /** @var boolean */
+    protected $isFolder = null;
+
+    /** @var int */
+    protected $noOfDownloads = null;
+
+    /** @var string */
+    protected $name = null;
+
+    /** @var string */
+    protected $urlPath = null;
+
+    /** @var \DateTimeImmutable */
+    protected $dateBegin = null;
+
+    /** @var \DateTimeImmutable */
+    protected $dateEnd= null;
+
+    /** @var \DateTimeImmutable */
+    protected $dateCreated= null;
+
+    /** @var \DateTimeImmutable */
+    protected $dateModified= null;
+
+    /** @var \DateInterval */
+    protected $duration = null;
+
+    /** @var string */
+    protected $filename = null;
 
     /**
-     * @var int
+     * Get the ID
+     *
+     * @return int
      */
-    public $sourceScoId = 0;
-
-    /**
-     * @var int
-     */
-    public $folderId = 0;
-
-    /**
-     * @var string
-     */
-    public $type = '';
-
-    /**
-     * @var string
-     */
-    public $icon = '';
-
-    /**
-     * @var int
-     */
-    public $displaySeq = 0;
-
-    /**
-     * @var int
-     */
-    public $jobId = 0;
-
-    /**
-     * @var int
-     */
-    public $accountId = 0;
-
-    /**
-     * @var string
-     */
-    public $jobStatus = '';
-
-    /**
-     * @var int
-     */
-    public $encoderServiceJobProgress = 0;
-
-    /**
-     * @var bool
-     */
-    public $isFolder = false;
-
-    /**
-     * @var int
-     */
-    public $noOfDownloads = 0;
-
-    /**
-     * @var string
-     */
-    public $name = '';
-
-    /**
-     * @var string
-     */
-    public $urlPath = '';
-
-    /**
-     * @var \DateTimeImmutable
-     */
-    public $dateBegin = null;
-
-    /**
-     * @var \DateTimeImmutable
-     */
-    public $dateEnd= null;
-
-    /**
-     * @var \DateTimeImmutable
-     */
-    public $dateCreated= null;
-
-    /**
-     * @var \DateTimeImmutable
-     */
-    public $dateModified= null;
-
-    /**
-     * @var \DateInterval
-     */
-    public $duration = null;
-
-    /**
-     * @var string
-     */
-    public $filename = '';
-
-    public function __construct(\SimpleXMLElement $xmlElement = null)
+    public function getScoId()
     {
-        if (!$xmlElement) {
-            return;
-        }
-        $this->setWithAttributes($xmlElement->attributes());
-        $this->name = (string) $xmlElement->{'name'};
-        $this->urlPath = (string) $xmlElement->{'url-path'};
-        $this->filename = (string) $xmlElement->{'filename'};
-        $this->dateBegin = new \DateTimeImmutable((string) $xmlElement->{'date-begin'});
-        $this->dateEnd = new \DateTimeImmutable((string) $xmlElement->{'date-end'});
-        $this->dateCreated = new \DateTimeImmutable((string) $xmlElement->{'date-created'});
-        $this->dateModified = new \DateTimeImmutable((string) $xmlElement->{'date-modified'});
-        $this->duration = $this->convertTimeStringToDateInterval((string) $xmlElement->{'duration'});
+        return $this->scoId;
     }
 
     /**
-     * Converts the time duration into a \DateInterval
+     * Get the Source ID
+     *
+     * @return int
+     */
+    public function getSourceScoId()
+    {
+        return $this->sourceScoId;
+    }
+
+    /**
+     * Get the Folder ID
+     * @return int
+     */
+    public function getFolderId()
+    {
+        return $this->folderId;
+    }
+
+    /**
+     * Get the Type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Get the Icon
+     *
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Get the Display Sequence
+     *
+     * @return int
+     */
+    public function getDisplaySeq()
+    {
+        return $this->displaySeq;
+    }
+
+    /**
+     * Get the Job ID
+     *
+     * @return int
+     */
+    public function getJobId()
+    {
+        return $this->jobId;
+    }
+
+    /**
+     * Get the Account ID
+     *
+     * @return int
+     */
+    public function getAccountId()
+    {
+        return $this->accountId;
+    }
+
+    /**
+     * Get the Job Status
+     *
+     * @return string
+     */
+    public function getJobStatus()
+    {
+        return $this->jobStatus;
+    }
+
+    /**
+     * Get the Encoder Service Progress
+     *
+     * @return int
+     */
+    public function getEncoderServiceJobProgress()
+    {
+        return $this->encoderServiceJobProgress;
+    }
+
+    /**
+     * Indicates if is a Folder
+     *
+     * @return boolean
+     */
+    public function getIsFolder()
+    {
+        return $this->isFolder;
+    }
+
+    /**
+     * Get the Number of Downloads
+     *
+     * @return int
+     */
+    public function getNoOfDownloads()
+    {
+        return $this->noOfDownloads;
+    }
+
+    /**
+     * Get the Name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the URL
+     *
+     * @return string
+     */
+    public function getUrlPath()
+    {
+        return $this->urlPath;
+    }
+
+    /**
+     * Get the Begin date
+     *
+     * @return \DateTimeImmutable
+     */
+    public function getDateBegin()
+    {
+        return $this->dateBegin;
+    }
+
+    /**
+     * Get the End date
+     *
+     * @return \DateTimeImmutable
+     */
+    public function getDateEnd()
+    {
+        return $this->dateEnd;
+    }
+
+    /**
+     * Get the Created date
+     *
+     * @return \DateTimeImmutable
+     */
+    public function getDateCreated()
+    {
+        return $this->dateCreated;
+    }
+
+    /**
+     * Get the Modified date
+     *
+     * @return \DateTimeImmutable
+     */
+    public function getDateModified()
+    {
+        return $this->dateModified;
+    }
+
+    /**
+     * Get the Duration
+     *
+     * @return \DateInterval
+     */
+    public function getDuration()
+    {
+        return $this->duration;
+    }
+
+    /**
+     * Get the Filename
+     *
+     * @return string
+     */
+    public function getFilename()
+    {
+        return $this->filename;
+    }
+
+    /**
+     * Set the SCO ID
+     *
+     * @param int $scoId
+     * @return SCORecord Fluent Interface
+     */
+    public function setScoId($scoId)
+    {
+        $this->scoId = $scoId;
+        return $this;
+    }
+
+    /**
+     * Set the Source ID
+     *
+     * @param int $sourceScoId
+     * @return SCORecord Fluent Interface
+     */
+    public function setSourceScoId($sourceScoId)
+    {
+        $this->sourceScoId = $sourceScoId;
+        return $this;
+    }
+
+    /**
+     * Set the Folder ID
+     *
+     * @param int $folderId
+     * @return SCORecord Fluent Interface
+     */
+    public function setFolderId($folderId)
+    {
+        $this->folderId = $folderId;
+        return $this;
+    }
+
+    /**
+     * Set the Type
+     *
+     * @param string $type
+     * @return SCORecord Fluent Interface
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * Set the Icon
+     *
+     * @param string $icon
+     * @return SCORecord Fluent Interface
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+        return $this;
+    }
+
+    /**
+     * Set the Display sequence
+     *
+     * @param int $displaySeq
+     * @return SCORecord Fluent Interface
+     */
+    public function setDisplaySeq($displaySeq)
+    {
+        $this->displaySeq = $displaySeq;
+        return $this;
+    }
+
+    /**
+     * Set the Job ID
+     *
+     * @param int $jobId
+     * @return SCORecord Fluent Interface
+     */
+    public function setJobId($jobId)
+    {
+        $this->jobId = $jobId;
+        return $this;
+    }
+
+    /**
+     * Set the Account ID
+     *
+     * @param int $accountId
+     * @return SCORecord Fluent Interface
+     */
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+        return $this;
+    }
+
+    /**
+     * Set the Job Status
+     *
+     * @param string $jobStatus
+     * @return SCORecord Fluent Interface
+     */
+    public function setJobStatus($jobStatus)
+    {
+        $this->jobStatus = $jobStatus;
+        return $this;
+    }
+
+    /**
+     * Set the Encoder Service Progress
+     *
+     * @param int $encoderServiceJobProgress
+     * @return SCORecord Fluent Interface
+     */
+    public function setEncoderServiceJobProgress($encoderServiceJobProgress)
+    {
+        $this->encoderServiceJobProgress = $encoderServiceJobProgress;
+        return $this;
+    }
+
+    /**
+     * Set if is Folder
+     *
+     * @param boolean $isFolder
+     * @return SCORecord Fluent Interface
+     */
+    public function setIsFolder($isFolder)
+    {
+        $this->isFolder = $isFolder;
+        return $this;
+    }
+
+    /**
+     * Set the Number of Downloads
+     *
+     * @param int $noOfDownloads
+     * @return SCORecord Fluent Interface
+     */
+    public function setNoOfDownloads($noOfDownloads)
+    {
+        $this->noOfDownloads = $noOfDownloads;
+        return $this;
+    }
+
+    /**
+     * Set the Name
+     *
+     * @param string $name
+     * @return SCORecord Fluent Interface
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * Set the URL
+     *
+     * @param string $urlPath
+     * @return SCORecord Fluent Interface
+     */
+    public function setUrlPath($urlPath)
+    {
+        $this->urlPath = $urlPath;
+        return $this;
+    }
+
+    /**
+     * Set the Begin date
+     *
+     * @param \DateTimeImmutable $dateBegin
+     * @return SCORecord Fluent Interface
+     */
+    public function setDateBegin(\DateTimeImmutable $dateBegin)
+    {
+        $this->dateBegin = $dateBegin;
+        return $this;
+    }
+
+    /**
+     * Set the End date
+     *
+     * @param \DateTimeImmutable $dateEnd
+     * @return SCORecord Fluent Interface
+     */
+    public function setDateEnd(\DateTimeImmutable $dateEnd)
+    {
+        $this->dateEnd = $dateEnd;
+        return $this;
+    }
+
+    /**
+     * Set the Created date
+     *
+     * @param \DateTimeImmutable $dateCreated
+     * @return SCORecord Fluent Interface
+     */
+    public function setDateCreated(\DateTimeImmutable $dateCreated)
+    {
+        $this->dateCreated = $dateCreated;
+        return $this;
+    }
+
+    /**
+     * Set the Modified date
+     *
+     * @param \DateTimeImmutable $dateModified
+     * @return SCORecord Fluent Interface
+     */
+    public function setDateModified(\DateTimeImmutable $dateModified)
+    {
+        $this->dateModified = $dateModified;
+        return $this;
+    }
+
+    /**
+     * Set the Duration
+     *
+     * @param \DateInterval|string $duration
+     * @return SCORecord Fluent Interface
+     */
+    public function setDuration($duration)
+    {
+        if (is_string($duration)) {
+            $duration = $this->timeStringToDateInterval($duration);
+        }
+        $this->duration = $duration;
+        return $this;
+    }
+
+    /**
+     * Set the File name
+     *
+     * @param string $filename
+     * @return SCORecord Fluent Interface
+     */
+    public function setFilename($filename)
+    {
+        $this->filename = $filename;
+        return $this;
+    }
+
+    /**
+     * Converts the time duration string into a \DateInterval
      *
      * @param string $timeString A string like hh:mm:ss
      * @return \DateInterval
      */
-    protected function convertTimeStringToDateInterval($timeString)
+    protected function timeStringToDateInterval($timeString)
     {
         return new \DateInterval(
             preg_replace(
@@ -140,21 +526,5 @@ class SCORecord
                 $timeString
             )
         );
-    }
-
-    protected function setWithAttributes(\SimpleXMLElement $xmlAttributes)
-    {
-        $this->accountId = intval($xmlAttributes->{'account-id'});
-        $this->displaySeq = (string) $xmlAttributes->{'display-seq'};
-        $this->folderId = intval($xmlAttributes->{'folder-id'});
-        $this->icon = (string) $xmlAttributes->{'icon'};
-        $this->scoId = intval($xmlAttributes->{'sco-id'});
-        $this->sourceScoId = intval($xmlAttributes->{'source-sco-id'});
-        $this->type = mb_strtolower((string) $xmlAttributes->{'type'});
-        $this->jobId = intval($xmlAttributes->{'job-id'});
-        $this->noOfDownloads = intval($xmlAttributes->{'no-of-downloads'});
-        $this->isFolder = B::toBoolean($xmlAttributes->{'is-folder'});
-        $this->jobStatus = (string) $xmlAttributes->{'job-status'};
-        $this->encoderServiceJobProgress = (string) $xmlAttributes->{'encoder-service-job-progress'};
     }
 }

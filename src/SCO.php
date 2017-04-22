@@ -25,7 +25,7 @@ class SCO implements Parameter, EntityInterface
     const TYPE_CURRICULUM = 'curriculum';
 
     /**
-     * A event.
+     * An event.
      */
     const TYPE_EVENT = 'event';
 
@@ -119,6 +119,7 @@ class SCO implements Parameter, EntityInterface
     protected $updateLinkedItem = null;
 
     /**
+     * Get the Account ID
      *
      * @return int
      */
@@ -128,6 +129,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the  disabled indicator
      *
      * @return boolean
      */
@@ -137,6 +139,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the display sequence
      *
      * @return int
      */
@@ -146,6 +149,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the Folder ID
      *
      * @return int
      */
@@ -155,6 +159,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the icon
      *
      * @return string
      */
@@ -164,6 +169,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the language
      *
      * @return string
      */
@@ -173,6 +179,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the max retries
      *
      * @return int
      */
@@ -182,6 +189,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the SCO ID
      *
      * @return int
      */
@@ -191,6 +199,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the Source ID
      *
      * @return int
      */
@@ -200,6 +209,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the type
      *
      * @return string
      */
@@ -209,6 +219,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the version
      *
      * @return string
      */
@@ -218,6 +229,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the Creation Date
      *
      * @return \DateTimeImmutable
      */
@@ -227,6 +239,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the Modified date
      *
      * @return \DateTimeImmutable
      */
@@ -236,6 +249,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the description
      *
      * @return string
      */
@@ -245,6 +259,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the name
      *
      * @return string
      */
@@ -254,6 +269,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the URL
      *
      * @return string
      */
@@ -263,6 +279,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the time Begins the meeting
      *
      * @return \DateTimeImmutable
      */
@@ -272,6 +289,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the time End the meeting
      *
      * @return \DateTimeImmutable
      */
@@ -281,6 +299,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the Pod layout locked status
      *
      * @return boolean
      */
@@ -290,6 +309,7 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Get the linked item update status
      *
      * @return boolean
      */
@@ -299,8 +319,9 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Account ID
      *
-     * @return int
+     * @return SCO Fluent Interface
      */
     public function setAccountId($accountId)
     {
@@ -309,9 +330,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the disabled status
      *
      * @param boolean $disabled
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setDisabled($disabled)
     {
@@ -320,9 +342,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Display Sequence
      *
      * @param int $displaySeq
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setDisplaySeq($displaySeq)
     {
@@ -331,9 +354,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Folder ID
      *
      * @param int $folderId
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setFolderId($folderId)
     {
@@ -342,9 +366,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Icon
      *
      * @param string $icon
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setIcon($icon)
     {
@@ -353,9 +378,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Language
      *
      * @param string $lang
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setLang($lang)
     {
@@ -364,9 +390,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Max retries
      *
      * @param int $maxRetries
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setMaxRetries($maxRetries)
     {
@@ -375,9 +402,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the SCO ID
      *
      * @param int $scoId
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setScoId($scoId)
     {
@@ -386,9 +414,9 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
-     *
+     * Set the Source ID
      * @param int $sourceScoId
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setSourceScoId($sourceScoId)
     {
@@ -397,9 +425,11 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Type
      *
      * @param string $type
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
+     * @throws \DomainException
      */
     public function setType($type)
     {
@@ -416,16 +446,17 @@ class SCO implements Parameter, EntityInterface
                     self::TYPE_TREE
                 ]
         )) {
-            throw new \DomainException("Type {$type} isn't valid");
+            throw new \DomainException("{$type} isn't a valid SCO Type");
         }
         $this->type = $type;
         return $this;
     }
 
     /**
+     * Set the Version
      *
      * @param string $version
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setVersion($version)
     {
@@ -434,9 +465,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Created Date
      *
      * @param \DateTimeImmutable $dateCreated
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setDateCreated(\DateTimeImmutable $dateCreated)
     {
@@ -445,9 +477,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Modified Date
      *
      * @param \DateTimeImmutable $dateModified
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setDateModified(\DateTimeImmutable $dateModified)
     {
@@ -456,9 +489,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Description
      *
      * @param string $description
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setDescription($description)
     {
@@ -467,9 +501,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Name
      *
      * @param string $name
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setName($name)
     {
@@ -478,9 +513,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the URL
      *
      * @param string $urlPath
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setUrlPath($urlPath)
     {
@@ -489,9 +525,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the time Meeting begin
      *
      * @param \DateTimeImmutable $dateBegin
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setDateBegin(\DateTimeImmutable $dateBegin)
     {
@@ -500,9 +537,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the time Meeting end
      *
      * @param \DateTimeImmutable $dateEnd
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setDateEnd(\DateTimeImmutable $dateEnd)
     {
@@ -511,9 +549,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the Pods Layout locked status
      *
      * @param boolean $meetingPodsLayoutsLocked
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
     {
@@ -522,9 +561,10 @@ class SCO implements Parameter, EntityInterface
     }
 
     /**
+     * Set the linked item status
      *
      * @param boolean $updateLinkedItem
-     * @return $this Fluent Interface
+     * @return SCO Fluent Interface
      */
     public function setUpdateLinkedItem($updateLinkedItem)
     {

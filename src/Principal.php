@@ -12,8 +12,10 @@ use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
  *
  * @todo Maybe a factory for the differents types?
  */
-class Principal implements Parameter
+class Principal implements Parameter, EntityInterface
 {
+    use Traits\EntityTrait;
+
     /**
      * The built-in group Administrators, for Adobe Connect server Administrators.
      */
@@ -87,151 +89,112 @@ class Principal implements Parameter
     /**
      * @var string
      */
-    public $name = '';
+    protected $name = null;
 
     /**
      * @var string
      */
-    public $login = '';
+    protected $login = null;
 
     /**
      * @var int
      */
-    public $displayUid = 0;
+    protected $displayUid = null;
 
     /**
      * @var int
      */
-    public $principalId = 0;
+    protected $principalId = null;
 
     /**
      * @var boolean
      */
-    public $isPrimary = false;
+    protected $isPrimary = null;
 
     /**
      * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
      *
      * @var string
      */
-    public $type = '';
+    protected $type = null;
 
     /**
      * On create: If the principal is a group, use true. If the principal is a user, use false.
      *
      * @var boolean
      */
-    public $hasChildren = false;
+    protected $hasChildren = null;
 
     /**
      * @var string
      */
-    public $permissionId = '';
+    protected $permissionId = null;
 
     /**
      * @var int
      */
-    public $trainingGroupId = 0;
+    protected $trainingGroupId = null;
 
     /**
      * @var boolean
      */
-    public $isEcommerce = false;
+    protected $isEcommerce = null;
 
     /**
      * @var boolean
      */
-    public $isHidden = false;
+    protected $isHidden = null;
 
     /**
      * The new group’s description. Use only when creating a new group.
      *
      * @var string
      */
-    public $description = '';
+    protected $description = null;
 
     /**
      * @var int
      */
-    public $accountId = 0;
+    protected $accountId = null;
 
     /**
      * @var boolean
      */
-    public $disabled = false;
+    protected $disabled = null;
 
     /**
      * Only for User
      *
      * @var string
      */
-    public $email = '';
+    protected $email = null;
 
     /**
      * Only for User
      *
      * @var string
      */
-    public $firstName = '';
+    protected $firstName = null;
 
     /**
      * Only for User
      *
      * @var string
      */
-    public $lastName = '';
+    protected $lastName = null;
 
     /**
      * Only on create a User
      *
      * @var string
      */
-    public $password = '';
+    protected $password = null;
 
     /**
      * Only on create a User
      * @var string
      */
-    public $sendEmail = false;
-
-    /**
-     * @param \SimpleXMLElement $xmlElement
-     */
-    public function __construct(\SimpleXMLElement $principalElement = null)
-    {
-        if (!$principalElement) {
-            return;
-        }
-
-        $this->name = (string) $principalElement->{'name'};
-        $this->login = (string) $principalElement->{'login'};
-        $this->displayUid = (string) $principalElement->{'display-uid'};
-        $this->description = (string) $principalElement->{'description'};
-        $this->email = (string) $principalElement->{'email'};
-        $this->firstName = (string) $principalElement->{'first-name'};
-        $this->lastName = (string) $principalElement->{'last-name'};
-
-        $this->setWithAttributes($principalElement->attributes());
-    }
-
-    /**
-     * Set with the node attributes.
-     *
-     * @param \SimpleXMLElement $xmlAttributes
-     */
-    protected function setWithAttributes(\SimpleXMLElement $xmlAttributes)
-    {
-        $this->principalId = intval($xmlAttributes->{'principal-id'});
-        $this->isPrimary = B::toBoolean((string) $xmlAttributes->{'is-primary'});
-        $this->type = (string) $xmlAttributes->{'type'};
-        $this->hasChildren = B::toBoolean((string) $xmlAttributes->{'has-children'});
-        $this->permissionId = (string) $xmlAttributes->{'permission-id'};
-        $this->trainingGroupId = intval($xmlAttributes->{'training-group-id'});
-        $this->accountId = intval($xmlAttributes->{'account-id'});
-        $this->disabled = B::toBoolean($xmlAttributes->{'disabled'});
-        $this->isEcommerce = B::toBoolean($xmlAttributes->{'is-ecommerce'});
-        $this->isHidden = B::toBoolean($xmlAttributes->{'is-hidden'});
-    }
+    protected $sendEmail = null;
 
     /**
      * The fields for create/update a User
@@ -297,5 +260,404 @@ class Principal implements Parameter
             $parameters[SCT::toHyphen($field)] = is_bool($value) ? B::toString($value) : $value;
         }
         return $parameters;
+    }
+
+    /**
+     * Get the Name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Get the Login
+     *
+     * @return string
+     */
+    public function getLogin()
+    {
+        return $this->login;
+    }
+
+    /**
+     * Get the UID
+     *
+     * @return int
+     */
+    public function getDisplayUid()
+    {
+        return $this->displayUid;
+    }
+
+    /**
+     * Get the ID
+     *
+     * @return int
+     */
+    public function getPrincipalId()
+    {
+        return $this->principalId;
+    }
+
+    /**
+     * Indicate if Is Primary
+     *
+     * @return boolean
+     */
+    public function getIsPrimary()
+    {
+        return $this->isPrimary;
+    }
+
+    /**
+     * Get the Type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Indicate if Has Children
+     *
+     * @return boolean
+     */
+    public function getHasChildren()
+    {
+        return $this->hasChildren;
+    }
+
+    /**
+     * Get the Permission ID
+     *
+     * @return string
+     */
+    public function getPermissionId()
+    {
+        return $this->permissionId;
+    }
+
+    /**
+     * Get the Training Groupd ID
+     *
+     * @return int
+     */
+    public function getTrainingGroupId()
+    {
+        return $this->trainingGroupId;
+    }
+
+    /**
+     * Indicate if Is E-Commerce
+     *
+     * @return boolean
+     */
+    public function getIsEcommerce()
+    {
+        return $this->isEcommerce;
+    }
+
+    /**
+     * Indicate if Is Hidden
+     *
+     * @return boolean
+     */
+    public function getIsHidden()
+    {
+        return $this->isHidden;
+    }
+
+    /**
+     * Get the Description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Get the Account ID
+     *
+     * @return int
+     */
+    public function getAccountId()
+    {
+        return $this->accountId;
+    }
+
+    /**
+     * Indicate if is Disabled
+     *
+     * @return boolean
+     */
+    public function getDisabled()
+    {
+        return $this->disabled;
+    }
+
+    /**
+     * Get the E-Mail
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Get the First Name
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Get the Last Name
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Get the Password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * Indicate if will send E-Mail
+     *
+     * @return boolean
+     */
+    public function getSendEmail()
+    {
+        return $this->sendEmail;
+    }
+
+    /**
+     *
+     * @param type $name
+     * @return Principal Fluent Interface
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $login
+     * @return Principal Fluent Interface
+     */
+    public function setLogin($login)
+    {
+        $this->login = $login;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $displayUid
+     * @return Principal Fluent Interface
+     */
+    public function setDisplayUid($displayUid)
+    {
+        $this->displayUid = $displayUid;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $principalId
+     * @return Principal Fluent Interface
+     */
+    public function setPrincipalId($principalId)
+    {
+        $this->principalId = $principalId;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $isPrimary
+     * @return Principal Fluent Interface
+     */
+    public function setIsPrimary($isPrimary)
+    {
+        $this->isPrimary = $isPrimary;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $type
+     * @return Principal Fluent Interface
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $hasChildren
+     * @return Principal Fluent Interface
+     */
+    public function setHasChildren($hasChildren)
+    {
+        $this->hasChildren = $hasChildren;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $permissionId
+     * @return Principal Fluent Interface
+     */
+    public function setPermissionId($permissionId)
+    {
+        $this->permissionId = $permissionId;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $trainingGroupId
+     * @return Principal Fluent Interface
+     */
+    public function setTrainingGroupId($trainingGroupId)
+    {
+        $this->trainingGroupId = $trainingGroupId;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $isEcommerce
+     * @return Principal Fluent Interface
+     */
+    public function setIsEcommerce($isEcommerce)
+    {
+        $this->isEcommerce = $isEcommerce;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $isHidden
+     * @return Principal Fluent Interface
+     */
+    public function setIsHidden($isHidden)
+    {
+        $this->isHidden = $isHidden;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $description
+     * @return Principal Fluent Interface
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $accountId
+     * @return Principal Fluent Interface
+     */
+    public function setAccountId($accountId)
+    {
+        $this->accountId = $accountId;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $disabled
+     * @return Principal Fluent Interface
+     */
+    public function setDisabled($disabled)
+    {
+        $this->disabled = $disabled;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $email
+     * @return Principal Fluent Interface
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $firstName
+     * @return Principal Fluent Interface
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $lastName
+     * @return Principal Fluent Interface
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $password
+     * @return Principal Fluent Interface
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    /**
+     *
+     * @param type $sendEmail
+     * @return Principal Fluent Interface
+     */
+    public function setSendEmail($sendEmail)
+    {
+        $this->sendEmail = $sendEmail;
+        return $this;
     }
 }
