@@ -17,6 +17,13 @@ class Sorter implements ParameterInterface
     protected $sorts = [];
 
     /**
+     * Prefix to use in sorts
+     *
+     * @var string
+     */
+    protected $prefix = 'sort';
+
+    /**
      * Return a new Sorter instance
      *
      * @return \AdobeConnectClient\Sorter
@@ -77,14 +84,14 @@ class Sorter implements ParameterInterface
             $order = \reset($this->sorts);
             $field = \key($this->sorts);
 
-            return ['sort-' . SCT::toHyphen($field) => $order];
+            return [$this->prefix . '-' . SCT::toHyphen($field) => $order];
         }
 
         $sorts = [];
         $i = 1;
 
         foreach (\array_slice($this->sorts, 0, 2) as $field => $order) {
-            $sorts['sort' . $i . '-' . SCT::toHyphen($field)] = $order;
+            $sorts[$this->prefix . $i . '-' . SCT::toHyphen($field)] = $order;
             ++$i;
         }
         return $sorts;
