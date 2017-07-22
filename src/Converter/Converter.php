@@ -13,10 +13,8 @@ class Converter
         switch (mb_strtolower($response->getHeaderLine('Content-Type'))) {
             case 'text/xml':
                 return ConverterXML::convert($response);
-                break;
             default:
                 throw new \DomainException('Type "' . $response->getHeaderLine() . '" not implemented.');
-                break;
         }
     }
 }
