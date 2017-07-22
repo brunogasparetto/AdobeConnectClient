@@ -30,7 +30,7 @@ class Sorter implements ParameterInterface
      */
     public static function instance()
     {
-        return new Sorter();
+        return new static;
     }
 
     /**

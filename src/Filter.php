@@ -31,7 +31,7 @@ class Filter implements ParameterInterface
      */
     public static function instance()
     {
-        return new Filter();
+        return new static;
     }
 
     /**
@@ -185,7 +185,7 @@ class Filter implements ParameterInterface
     {
         $filterName = $this->prefix
             . '-'
-            . ($operator ? $operator . '-' : '-')
+            . ($operator ? $operator . '-' : '')
             . SCT::toHyphen($field);
 
         $this->filters[$filterName] = \is_bool($value) ? BT::toString($value) : $value;
