@@ -10,7 +10,7 @@ use \AdobeConnectClient\Helper\BooleanTransform as B;
  *
  * See {@link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/filter-definition.html}
  */
-class Filter implements Parameter
+class Filter implements ParameterInterface
 {
     /**
      * @var array

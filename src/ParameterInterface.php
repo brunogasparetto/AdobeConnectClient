@@ -5,10 +5,10 @@ namespace AdobeConnectClient;
 /**
  * Grant the items in an array to use in Request
  */
-interface Parameter
+interface ParameterInterface
 {
     /**
-     * Convert the items into an array with keys as param name and value as param value to send in the Request
+     * Converts the attributes in an associative array
      *
      * @return array
      */

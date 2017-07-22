@@ -12,7 +12,7 @@ use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
  *
  * @todo Maybe a factory for the differents types?
  */
-class Principal implements Parameter, EntityInterface
+class Principal implements ParameterInterface, EntityInterface
 {
     use Traits\EntityTrait;
 
