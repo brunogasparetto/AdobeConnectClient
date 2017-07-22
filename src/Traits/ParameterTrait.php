@@ -2,6 +2,9 @@
 
 namespace AdobeConnectClient\Traits;
 
+use \AdobeConnectClient\Helper\BooleanTransform as BT;
+use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
+
 trait ParameterTrait
 {
     /**
@@ -18,11 +21,11 @@ trait ParameterTrait
                 continue;
             }
             if (is_bool($value)) {
-                $value = \AdobeConnectClient\Helper\BooleanTransform::toString($value);
+                $value = BT::toString($value);
             } elseif ($value instanceof \DateTime) {
                 $value = $value->format(\DateTime::W3C);
             }
-            $values[\AdobeConnectClient\Helper\StringCaseTransform::toHyphen($prop)] = $value;
+            $values[SCT::toHyphen($prop)] = $value;
         }
         return $values;
     }
