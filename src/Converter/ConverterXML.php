@@ -26,7 +26,7 @@ class ConverterXML implements ConverterInterface
      * @throws \InvalidArgumentException if data is invalid
      * @return array
      */
-    public static function convert($response)
+    public static function convert(\AdobeConnectClient\Connection\ResponseInterface $response)
     {
         $xml = simplexml_load_string($response->getBody());
 
