@@ -36,12 +36,12 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      */
     public function setHost($host)
     {
-        $host = filter_var(trim($host, " ?/\n\t"), FILTER_SANITIZE_URL);
+        $host = \filter_var(\trim($host, " ?/\n\t"), FILTER_SANITIZE_URL);
 
-        if (!filter_var($host, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
+        if (!\filter_var($host, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
             throw new \InvalidArgumentException('Connection Host must be a valid URL with scheme');
         }
-        $this->host = strpos($host, '/api/xml') === false ? $host . '/api/xml' : $host;
+        $this->host = \strpos($host, '/api/xml') === false ? $host . '/api/xml' : $host;
     }
 
     /**
@@ -54,15 +54,15 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
     public function get(array $queryParams = [])
     {
         $ch = $this->prepareCurl($queryParams);
-        $body = curl_exec($ch);
-        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $body = \curl_exec($ch);
+        $statusCode = \curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if ($body === false) {
             $exception = new \UnexpectedValueException(curl_error($ch), curl_errno($ch));
-            curl_close($ch);
+            \curl_close($ch);
             throw $exception;
         }
-        curl_close($ch);
+        \curl_close($ch);
         return new Response($statusCode, $this->headers, new Stream($body));
     }
 
@@ -80,17 +80,17 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
     public function post(array $postParams, array $queryParams = [])
     {
         $ch = $this->prepareCurl($queryParams);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
-        $body = curl_exec($ch);
-        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        \curl_setopt($ch, CURLOPT_POST, 1);
+        \curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
+        $body = \curl_exec($ch);
+        $statusCode = \curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if ($body === false) {
             $exception = new \UnexpectedValueException(curl_error($ch), curl_errno($ch));
-            curl_close($ch);
+            \curl_close($ch);
             throw $exception;
         }
-        curl_close($ch);
+        \curl_close($ch);
         return new Response($statusCode, $this->headers, new Stream($body));
     }
 
@@ -104,8 +104,8 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
     {
         $this->headers = [];
 
-        $ch = curl_init($this->getFullURL($queryParams));
-        curl_setopt_array($ch, $this->config);
+        $ch = \curl_init($this->getFullURL($queryParams));
+        \curl_setopt_array($ch, $this->config);
         return $ch;
     }
 
@@ -119,7 +119,7 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
     {
         return empty($queryParams)
             ? $this->host
-            : $this->host . '?' . http_build_query($queryParams, '', '&');
+            : $this->host . '?' . \http_build_query($queryParams, '', '&');
     }
 
     /**
@@ -148,24 +148,24 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      */
     protected function fileInfo($item)
     {
-        if (is_resource($item)) {
-            $streamMeta = stream_get_meta_data($item);
+        if (\is_resource($item)) {
+            $streamMeta = \stream_get_meta_data($item);
 
             if ($streamMeta['wrapper_type'] !== 'plainfile') {
                 return null;
             }
             $path = $streamMeta['uri'];
-            $mime = mime_content_type($path);
+            $mime = \mime_content_type($path);
 
         } elseif ($item instanceof \SplFileInfo and $item->getType() === 'file') {
             $path = $item->getPathname();
-            $mime = mime_content_type($path);
+            $mime = \mime_content_type($path);
 
         } else {
             return null;
         }
 
-        $info = new stdClass;
+        $info = new \stdClass;
         $info->path = $path;
         $info->mime = $mime;
 
@@ -205,25 +205,25 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      */
     protected function extractHeader($curlResource, $headerLine)
     {
-        $headerSize = strlen($headerLine);
-        $headerLine = trim($headerLine, " \t\n");
+        $headerSize = \strlen($headerLine);
+        $headerLine = \trim($headerLine, " \t\n");
 
         if (empty($headerLine)) {
             return $headerSize;
         }
 
-        $pos = strpos($headerLine, ':');
+        $pos = \strpos($headerLine, ':');
 
         if ($pos === false) {
             return $headerSize;
         }
 
-        $header = trim(substr($headerLine, 0, $pos));
+        $header = \trim(\substr($headerLine, 0, $pos));
 
-        if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
+        if (!\in_array($header, ['Set-Cookie', 'Content-Type'])) {
             return $headerSize;
         }
-        $this->headers[$header] = [trim(substr($headerLine, $pos + 1))];
+        $this->headers[$header] = [\trim(\substr($headerLine, $pos + 1))];
         return $headerSize;
     }
 }

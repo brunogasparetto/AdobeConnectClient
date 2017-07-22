@@ -7,7 +7,7 @@ namespace AdobeConnectClient\Connection\Curl;
 class Response implements \AdobeConnectClient\Connection\ResponseInterface
 {
     use \AdobeConnectClient\Traits\HttpReasonPhraseTrait;
-    
+
     /** @var int The response status code */
     protected $statusCode = 0;
 
@@ -26,7 +26,7 @@ class Response implements \AdobeConnectClient\Connection\ResponseInterface
      */
     public function __construct($statusCode, array $headers, \AdobeConnectClient\Connection\StreamInterface $body)
     {
-        $this->statusCode = intval($statusCode);
+        $this->statusCode = \intval($statusCode);
         $this->headers = $headers;
         $this->body = $body;
     }
@@ -104,7 +104,7 @@ class Response implements \AdobeConnectClient\Connection\ResponseInterface
      */
     public function getHeaderLine($name)
     {
-        return implode(', ', $this->getHeader($name));
+        return \implode(', ', $this->getHeader($name));
     }
 
     /**
@@ -114,6 +114,6 @@ class Response implements \AdobeConnectClient\Connection\ResponseInterface
      */
     protected function normalizeString($string)
     {
-        return mb_strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $string));
+        return \mb_strtolower(\preg_replace('/[^a-zA-Z0-9]/', '', $string));
     }
 }

@@ -154,10 +154,10 @@ class Filter implements ParameterInterface
     public function removeField($field)
     {
         $field = SCT::toHyphen($field);
-        $this->filters = array_filter(
+        $this->filters = \array_filter(
             $this->filters,
             function ($filter) use ($field) {
-                return mb_strpos($filter, $field) === false;
+                return \mb_strpos($filter, $field) === false;
             },
             ARRAY_FILTER_USE_KEY
         );
@@ -188,6 +188,6 @@ class Filter implements ParameterInterface
             . ($operator ? $operator . '-' : '-')
             . SCT::toHyphen($field);
 
-        $this->filters[$filterName] = is_bool($value) ? BT::toString($value) : $value;
+        $this->filters[$filterName] = \is_bool($value) ? BT::toString($value) : $value;
     }
 }

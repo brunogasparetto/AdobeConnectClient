@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Traits;
 
-use \AdobeConnectClient\Helper\StringCaseTransform;
+use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
 
 trait EntityTrait
 {
@@ -13,13 +13,13 @@ trait EntityTrait
     public function setAttributes(array $attributes)
     {
         foreach ($attributes as $attr => $value) {
-            if (is_array($value)) {
+            if (\is_array($value)) {
                 $this->setAttributes($value);
                 continue;
             }
-            $attributeSetMethod = 'set' . StringCaseTransform::toUpperCamelCase($attr);
+            $attributeSetMethod = 'set' . SCT::toUpperCamelCase($attr);
 
-            if (method_exists($this, $attributeSetMethod)) {
+            if (\method_exists($this, $attributeSetMethod)) {
                 $this->$attributeSetMethod($value);
             }
         }

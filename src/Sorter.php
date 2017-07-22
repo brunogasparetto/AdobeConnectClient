@@ -73,9 +73,9 @@ class Sorter implements ParameterInterface
      */
     public function toArray()
     {
-        if (count($this->sorts) === 1) {
-            $order = reset($this->sorts);
-            $field = key($this->sorts);
+        if (\count($this->sorts) === 1) {
+            $order = \reset($this->sorts);
+            $field = \key($this->sorts);
 
             return ['sort-' . SCT::toHyphen($field) => $order];
         }
@@ -83,7 +83,7 @@ class Sorter implements ParameterInterface
         $sorts = [];
         $i = 1;
 
-        foreach (array_slice($this->sorts, 0, 2) as $field => $order) {
+        foreach (\array_slice($this->sorts, 0, 2) as $field => $order) {
             $sorts['sort' . $i . '-' . SCT::toHyphen($field)] = $order;
             ++$i;
         }

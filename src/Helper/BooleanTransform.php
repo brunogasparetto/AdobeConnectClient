@@ -11,18 +11,18 @@ abstract class BooleanTransform
      * Converts a string to boolean
      *
      * @param string $str
-     * @return boolean
+     * @return bool
      */
     public static function toBoolean($str)
     {
-        $str = mb_strtolower($str);
+        $str = \mb_strtolower($str);
 
         if ($str === 'false' or $str === 'off') {
             return false;
         } elseif ($str === 'true' or $str === 'on') {
             return true;
         } else {
-            return boolval($str);
+            return \boolval($str);
         }
     }
 
@@ -34,6 +34,6 @@ abstract class BooleanTransform
      */
     public static function toString($bool)
     {
-        return boolval($bool) ? 'true' : 'false';
+        return \boolval($bool) ? 'true' : 'false';
     }
 }

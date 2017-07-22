@@ -257,7 +257,7 @@ class Principal implements ParameterInterface, EntityInterface
 
         foreach ($fields as $field) {
             $value = $this->$field;
-            $parameters[SCT::toHyphen($field)] = is_bool($value) ? B::toString($value) : $value;
+            $parameters[SCT::toHyphen($field)] = \is_bool($value) ? B::toString($value) : $value;
         }
         return $parameters;
     }

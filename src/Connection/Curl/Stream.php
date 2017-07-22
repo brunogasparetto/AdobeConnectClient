@@ -16,7 +16,7 @@ class Stream implements \AdobeConnectClient\Connection\StreamInterface
      */
     public function __construct($content)
     {
-        $this->content = is_string($content) ? $content : '';
+        $this->content = \is_string($content) ? $content : '';
     }
 
     /**
