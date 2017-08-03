@@ -2,6 +2,9 @@
 
 namespace AdobeConnectClient;
 
+use DateTimeImmutable;
+use AdobeConnectClient\Helpers\BooleanTransform as BT;
+
 /**
  * Adobe Connect SCO
  *
@@ -90,10 +93,10 @@ class SCO implements ParameterInterface
     /** @var string */
     protected $version = null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateCreated = null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateModified = null;
 
     /** @var string */
@@ -105,10 +108,10 @@ class SCO implements ParameterInterface
     /** @var string */
     protected $urlPath = null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateBegin = null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateEnd = null;
 
     /** @var boolean */
@@ -230,7 +233,7 @@ class SCO implements ParameterInterface
     /**
      * Get the Creation Date
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateCreated()
     {
@@ -240,7 +243,7 @@ class SCO implements ParameterInterface
     /**
      * Get the Modified date
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateModified()
     {
@@ -280,7 +283,7 @@ class SCO implements ParameterInterface
     /**
      * Get the time Begins the meeting
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateBegin()
     {
@@ -290,7 +293,7 @@ class SCO implements ParameterInterface
     /**
      * Get the time End the meeting
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateEnd()
     {
@@ -324,7 +327,7 @@ class SCO implements ParameterInterface
      */
     public function setAccountId($accountId)
     {
-        $this->accountId = $accountId;
+        $this->accountId = (int) $accountId;
         return $this;
     }
 
@@ -336,7 +339,7 @@ class SCO implements ParameterInterface
      */
     public function setDisabled($disabled)
     {
-        $this->disabled = $disabled;
+        $this->disabled = BT::toBoolean($disabled);
         return $this;
     }
 
@@ -348,7 +351,7 @@ class SCO implements ParameterInterface
      */
     public function setDisplaySeq($displaySeq)
     {
-        $this->displaySeq = $displaySeq;
+        $this->displaySeq = (int) $displaySeq;
         return $this;
     }
 
@@ -360,7 +363,7 @@ class SCO implements ParameterInterface
      */
     public function setFolderId($folderId)
     {
-        $this->folderId = $folderId;
+        $this->folderId = (int) $folderId;
         return $this;
     }
 
@@ -372,7 +375,7 @@ class SCO implements ParameterInterface
      */
     public function setIcon($icon)
     {
-        $this->icon = $icon;
+        $this->icon = (string) $icon;
         return $this;
     }
 
@@ -384,7 +387,7 @@ class SCO implements ParameterInterface
      */
     public function setLang($lang)
     {
-        $this->lang = $lang;
+        $this->lang = (string) $lang;
         return $this;
     }
 
@@ -396,7 +399,7 @@ class SCO implements ParameterInterface
      */
     public function setMaxRetries($maxRetries)
     {
-        $this->maxRetries = $maxRetries;
+        $this->maxRetries = (int) $maxRetries;
         return $this;
     }
 
@@ -408,7 +411,7 @@ class SCO implements ParameterInterface
      */
     public function setScoId($scoId)
     {
-        $this->scoId = $scoId;
+        $this->scoId = (int) $scoId;
         return $this;
     }
 
@@ -419,7 +422,7 @@ class SCO implements ParameterInterface
      */
     public function setSourceScoId($sourceScoId)
     {
-        $this->sourceScoId = $sourceScoId;
+        $this->sourceScoId = (int) $sourceScoId;
         return $this;
     }
 
@@ -459,31 +462,43 @@ class SCO implements ParameterInterface
      */
     public function setVersion($version)
     {
-        $this->version = $version;
+        $this->version = (string) $version;
         return $this;
     }
 
     /**
      * Set the Created Date
      *
-     * @param \DateTimeImmutable $dateCreated
+     * @param string|DateTimeImmutable $dateCreated
      * @return SCO Fluent Interface
      */
-    public function setDateCreated(\DateTimeImmutable $dateCreated)
+    public function setDateCreated($dateCreated)
     {
-        $this->dateCreated = $dateCreated;
+        if (is_string($dateCreated)) {
+            $this->dateCreated = new DateTimeImmutable($dateCreated);
+        } elseif ($dateCreated instanceof DateTimeImmutable) {
+            $this->dateCreated = $dateCreated;
+        } else {
+            throw new \InvalidArgumentException('Date Created must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
     /**
      * Set the Modified Date
      *
-     * @param \DateTimeImmutable $dateModified
+     * @param string|DateTimeImmutable $dateModified
      * @return SCO Fluent Interface
      */
-    public function setDateModified(\DateTimeImmutable $dateModified)
+    public function setDateModified($dateModified)
     {
-        $this->dateModified = $dateModified;
+        if (is_string($dateModified)) {
+            $this->dateModified = new DateTimeImmutable($dateModified);
+        } elseif ($dateModified instanceof DateTimeImmutable) {
+            $this->dateModified = $dateModified;
+        } else {
+            throw new \InvalidArgumentException('Date Modified must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
@@ -495,7 +510,7 @@ class SCO implements ParameterInterface
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = (string) $description;
         return $this;
     }
 
@@ -507,7 +522,7 @@ class SCO implements ParameterInterface
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
 
@@ -519,31 +534,43 @@ class SCO implements ParameterInterface
      */
     public function setUrlPath($urlPath)
     {
-        $this->urlPath = $urlPath;
+        $this->urlPath = (string) $urlPath;
         return $this;
     }
 
     /**
      * Set the time Meeting begin
      *
-     * @param \DateTimeImmutable $dateBegin
+     * @param string|DateTimeImmutable $dateBegin
      * @return SCO Fluent Interface
      */
-    public function setDateBegin(\DateTimeImmutable $dateBegin)
+    public function setDateBegin($dateBegin)
     {
-        $this->dateBegin = $dateBegin;
+        if (is_string($dateBegin)) {
+            $this->dateBegin = new DateTimeImmutable($dateBegin);
+        } elseif ($dateBegin instanceof DateTimeImmutable) {
+            $this->dateBegin = $dateBegin;
+        } else {
+            throw new \InvalidArgumentException('Date Begin must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
     /**
      * Set the time Meeting end
      *
-     * @param \DateTimeImmutable $dateEnd
+     * @param string|DateTimeImmutable $dateEnd
      * @return SCO Fluent Interface
      */
-    public function setDateEnd(\DateTimeImmutable $dateEnd)
+    public function setDateEnd($dateEnd)
     {
-        $this->dateEnd = $dateEnd;
+        if (is_string($dateEnd)) {
+            $this->dateEnd = new DateTimeImmutable($dateEnd);
+        } elseif ($dateEnd instanceof DateTimeImmutable) {
+            $this->dateEnd = $dateEnd;
+        } else {
+            throw new \InvalidArgumentException('Date End must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
@@ -555,7 +582,7 @@ class SCO implements ParameterInterface
      */
     public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
     {
-        $this->meetingPodsLayoutsLocked = $meetingPodsLayoutsLocked;
+        $this->meetingPodsLayoutsLocked = BT::toBoolean($meetingPodsLayoutsLocked);
         return $this;
     }
 
@@ -567,7 +594,7 @@ class SCO implements ParameterInterface
      */
     public function setUpdateLinkedItem($updateLinkedItem)
     {
-        $this->updateLinkedItem = $updateLinkedItem;
+        $this->updateLinkedItem = BT::toBoolean($updateLinkedItem);
         return $this;
     }
 }
