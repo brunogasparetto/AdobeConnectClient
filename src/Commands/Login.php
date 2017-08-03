@@ -16,7 +16,7 @@ use AdobeConnectClient\Helpers\HeaderParse;
  */
 class Login extends CommandAbstract
 {
-    /** @var array Associative array */
+    /** @var array */
     protected $parameters;
 
     /**

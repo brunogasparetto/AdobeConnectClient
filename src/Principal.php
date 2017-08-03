@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Helpers\BooleanTransform as B;
+use \AdobeConnectClient\Helpers\BooleanTransform as BT;
 use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
@@ -105,7 +105,7 @@ class Principal implements ParameterInterface
     protected $principalId = null;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $isPrimary = null;
 
@@ -119,7 +119,7 @@ class Principal implements ParameterInterface
     /**
      * On create: If the principal is a group, use true. If the principal is a user, use false.
      *
-     * @var boolean
+     * @var bool
      */
     protected $hasChildren = null;
 
@@ -134,12 +134,12 @@ class Principal implements ParameterInterface
     protected $trainingGroupId = null;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $isEcommerce = null;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $isHidden = null;
 
@@ -156,7 +156,7 @@ class Principal implements ParameterInterface
     protected $accountId = null;
 
     /**
-     * @var boolean
+     * @var bool
      */
     protected $disabled = null;
 
@@ -257,8 +257,8 @@ class Principal implements ParameterInterface
             $value = $this->$field;
 
             if (isset($value)) {
-                $parameters[SCT::toHyphen($field)] = \is_bool($value)
-                    ? B::toString($value)
+                $parameters[SCT::toHyphen($field)] = is_bool($value)
+                    ? BT::toString($value)
                     : $value;
             }
         }
@@ -308,7 +308,7 @@ class Principal implements ParameterInterface
     /**
      * Indicate if Is Primary
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsPrimary()
     {
@@ -328,7 +328,7 @@ class Principal implements ParameterInterface
     /**
      * Indicate if Has Children
      *
-     * @return boolean
+     * @return bool
      */
     public function getHasChildren()
     {
@@ -358,7 +358,7 @@ class Principal implements ParameterInterface
     /**
      * Indicate if Is E-Commerce
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsEcommerce()
     {
@@ -368,7 +368,7 @@ class Principal implements ParameterInterface
     /**
      * Indicate if Is Hidden
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsHidden()
     {
@@ -398,7 +398,7 @@ class Principal implements ParameterInterface
     /**
      * Indicate if is Disabled
      *
-     * @return boolean
+     * @return bool
      */
     public function getDisabled()
     {
@@ -448,7 +448,7 @@ class Principal implements ParameterInterface
     /**
      * Indicate if will send E-Mail
      *
-     * @return boolean
+     * @return bool
      */
     public function getSendEmail()
     {
@@ -457,45 +457,45 @@ class Principal implements ParameterInterface
 
     /**
      *
-     * @param type $name
+     * @param string $name
      * @return Principal Fluent Interface
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
 
     /**
      *
-     * @param type $login
+     * @param string $login
      * @return Principal Fluent Interface
      */
     public function setLogin($login)
     {
-        $this->login = $login;
+        $this->login = (string) $login;
         return $this;
     }
 
     /**
      *
-     * @param type $displayUid
+     * @param int $displayUid
      * @return Principal Fluent Interface
      */
     public function setDisplayUid($displayUid)
     {
-        $this->displayUid = $displayUid;
+        $this->displayUid = (int) $displayUid;
         return $this;
     }
 
     /**
      *
-     * @param type $principalId
+     * @param int $principalId
      * @return Principal Fluent Interface
      */
     public function setPrincipalId($principalId)
     {
-        $this->principalId = $principalId;
+        $this->principalId = (int) $principalId;
         return $this;
     }
 
@@ -506,7 +506,7 @@ class Principal implements ParameterInterface
      */
     public function setIsPrimary($isPrimary)
     {
-        $this->isPrimary = $isPrimary;
+        $this->isPrimary = BT::toBoolean($isPrimary);
         return $this;
     }
 
@@ -514,76 +514,100 @@ class Principal implements ParameterInterface
      *
      * @param type $type
      * @return Principal Fluent Interface
+     * @throws \DomainException
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = (string) $type;
+
+        if (!in_array(
+                $this->type,
+                [
+                    self::TYPE_ADMINS,
+                    self::TYPE_AUTHORS,
+                    self::TYPE_COURSE_ADMINS,
+                    self::TYPE_EVENT_ADMINS,
+                    self::TYPE_EVENT_GROUP,
+                    self::TYPE_EVERYONE,
+                    self::TYPE_EXTERNAL_GROUP,
+                    self::TYPE_EXTERNAL_USER,
+                    self::TYPE_GROUP,
+                    self::TYPE_GUEST,
+                    self::TYPE_LEARNERS,
+                    self::TYPE_LIVE_ADMINS,
+                    self::TYPE_SEMINAR_ADMINS,
+                    self::TYPE_USER,
+                ]
+        )) {
+            throw new \DomainException("{$type} isn't a valid Principal Type");
+        }
+
         return $this;
     }
 
     /**
      *
-     * @param type $hasChildren
+     * @param bool $hasChildren
      * @return Principal Fluent Interface
      */
     public function setHasChildren($hasChildren)
     {
-        $this->hasChildren = $hasChildren;
+        $this->hasChildren = BT::toBoolean($hasChildren);
         return $this;
     }
 
     /**
      *
-     * @param type $permissionId
+     * @param string $permissionId
      * @return Principal Fluent Interface
      */
     public function setPermissionId($permissionId)
     {
-        $this->permissionId = $permissionId;
+        $this->permissionId = (string) $permissionId;
         return $this;
     }
 
     /**
      *
-     * @param type $trainingGroupId
+     * @param int $trainingGroupId
      * @return Principal Fluent Interface
      */
     public function setTrainingGroupId($trainingGroupId)
     {
-        $this->trainingGroupId = $trainingGroupId;
+        $this->trainingGroupId = (int) $trainingGroupId;
         return $this;
     }
 
     /**
      *
-     * @param type $isEcommerce
+     * @param bool $isEcommerce
      * @return Principal Fluent Interface
      */
     public function setIsEcommerce($isEcommerce)
     {
-        $this->isEcommerce = $isEcommerce;
+        $this->isEcommerce = BT::toBoolean($isEcommerce);
         return $this;
     }
 
     /**
      *
-     * @param type $isHidden
+     * @param bool $isHidden
      * @return Principal Fluent Interface
      */
     public function setIsHidden($isHidden)
     {
-        $this->isHidden = $isHidden;
+        $this->isHidden = BT::toBoolean($isHidden);
         return $this;
     }
 
     /**
      *
-     * @param type $description
+     * @param string $description
      * @return Principal Fluent Interface
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->description = (string) $description;
         return $this;
     }
 
@@ -600,56 +624,56 @@ class Principal implements ParameterInterface
 
     /**
      *
-     * @param type $disabled
+     * @param bool $disabled
      * @return Principal Fluent Interface
      */
     public function setDisabled($disabled)
     {
-        $this->disabled = $disabled;
+        $this->disabled = BT::toBoolean($disabled);
         return $this;
     }
 
     /**
      *
-     * @param type $email
+     * @param string $email
      * @return Principal Fluent Interface
      */
     public function setEmail($email)
     {
-        $this->email = $email;
+        $this->email = (string) $email;
         return $this;
     }
 
     /**
      *
-     * @param type $firstName
+     * @param string $firstName
      * @return Principal Fluent Interface
      */
     public function setFirstName($firstName)
     {
-        $this->firstName = $firstName;
+        $this->firstName = (string) $firstName;
         return $this;
     }
 
     /**
      *
-     * @param type $lastName
+     * @param string $lastName
      * @return Principal Fluent Interface
      */
     public function setLastName($lastName)
     {
-        $this->lastName = $lastName;
+        $this->lastName = (string) $lastName;
         return $this;
     }
 
     /**
      *
-     * @param type $password
+     * @param string $password
      * @return Principal Fluent Interface
      */
     public function setPassword($password)
     {
-        $this->password = $password;
+        $this->password = (string) $password;
         return $this;
     }
 
@@ -660,7 +684,7 @@ class Principal implements ParameterInterface
      */
     public function setSendEmail($sendEmail)
     {
-        $this->sendEmail = $sendEmail;
+        $this->sendEmail = BT::toBoolean($sendEmail);
         return $this;
     }
 }

@@ -5,7 +5,7 @@ namespace AdobeConnectClient\Commands;
 use AdobeConnectClient\CommandAbstract;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\SetEntityAttributes;
+use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 use AdobeConnectClient\CommonInfo as CommonInfoEntity;
 
 /**
@@ -16,7 +16,6 @@ use AdobeConnectClient\CommonInfo as CommonInfoEntity;
 class CommonInfo extends CommandAbstract
 {
     /**
-     *
      * @return CommonInfo
      */
     public function execute()
@@ -26,8 +25,7 @@ class CommonInfo extends CommandAbstract
         );
         StatusValidate::validate($response['status']);
         $commonInfo = new CommonInfoEntity();
-        SetEntityAttributes::setAttributes($commonInfo, $response['common']);
+        FillObject::setAttributes($commonInfo, $response['common']);
         return $commonInfo;
     }
-
 }
