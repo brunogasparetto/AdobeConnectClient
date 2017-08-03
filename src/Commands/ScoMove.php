@@ -4,48 +4,43 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\CommandAbstract;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\SCO;
+use AdobeConnectClient\ParameterInterface;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 
-/**
- * Gets the Sco info
- *
- * @see https://helpx.adobe.com/adobe-connect/webservices/sco-info.html
- */
-class ScoInfo extends CommandAbstract
+class ScoMove extends CommandAbstract
 {
     /** @var int */
     protected $scoId;
 
+    /** @var int */
+    protected $folderId;
+
     /**
      * @param Client $client
      * @param int $scoId
+     * @param int $folderId
      */
-    public function __construct(Client $client, $scoId)
+    public function __construct(Client $client, $scoId, $folderId)
     {
         parent::__construct($client);
-        $this->scoId = intval($scoId);
+        $this->scoId = (int) $scoId;
+        $this->folderId = (int) $folderId;
     }
 
-    /**
-     * @return SCO
-     */
     public function execute()
     {
         $responseConverted = Converter::convert(
             $this->client->getConnection()->get([
-                'action' => 'sco-info',
+                'action' => 'sco-move',
                 'sco-id' => $this->scoId,
+                'folder-id' => $this->folderId,
                 'session' => $this->client->getSession()
             ])
         );
 
         StatusValidate::validate($responseConverted['status']);
 
-        $sco = new SCO();
-        FillObject::setAttributes($sco, $responseConverted['sco']);
-        return $sco;
+        return true;
     }
 }

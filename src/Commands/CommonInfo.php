@@ -29,5 +29,4 @@ class CommonInfo extends CommandAbstract
         SetEntityAttributes::setAttributes($commonInfo, $response['common']);
         return $commonInfo;
     }
-
 }
