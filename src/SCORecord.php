@@ -2,6 +2,10 @@
 
 namespace AdobeConnectClient;
 
+use \DateTimeImmutable;
+use \DateInterval;
+use AdobeConnectClient\Helpers\BooleanTransform as BT;
+
 /**
  * The recording archive from a SCO
  */
@@ -49,19 +53,19 @@ class SCORecord
     /** @var string */
     protected $urlPath = null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateBegin = null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateEnd= null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateCreated= null;
 
-    /** @var \DateTimeImmutable */
+    /** @var DateTimeImmutable */
     protected $dateModified= null;
 
-    /** @var \DateInterval */
+    /** @var DateInterval */
     protected $duration = null;
 
     /** @var string */
@@ -209,7 +213,7 @@ class SCORecord
     /**
      * Get the Begin date
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateBegin()
     {
@@ -219,7 +223,7 @@ class SCORecord
     /**
      * Get the End date
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateEnd()
     {
@@ -229,7 +233,7 @@ class SCORecord
     /**
      * Get the Created date
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateCreated()
     {
@@ -239,7 +243,7 @@ class SCORecord
     /**
      * Get the Modified date
      *
-     * @return \DateTimeImmutable
+     * @return DateTimeImmutable
      */
     public function getDateModified()
     {
@@ -249,7 +253,7 @@ class SCORecord
     /**
      * Get the Duration
      *
-     * @return \DateInterval
+     * @return DateInterval
      */
     public function getDuration()
     {
@@ -274,7 +278,7 @@ class SCORecord
      */
     public function setScoId($scoId)
     {
-        $this->scoId = $scoId;
+        $this->scoId = (int) $scoId;
         return $this;
     }
 
@@ -286,7 +290,7 @@ class SCORecord
      */
     public function setSourceScoId($sourceScoId)
     {
-        $this->sourceScoId = $sourceScoId;
+        $this->sourceScoId = (int) $sourceScoId;
         return $this;
     }
 
@@ -298,7 +302,7 @@ class SCORecord
      */
     public function setFolderId($folderId)
     {
-        $this->folderId = $folderId;
+        $this->folderId = (int) $folderId;
         return $this;
     }
 
@@ -310,7 +314,7 @@ class SCORecord
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->type = (string) $type;
         return $this;
     }
 
@@ -322,7 +326,7 @@ class SCORecord
      */
     public function setIcon($icon)
     {
-        $this->icon = $icon;
+        $this->icon = (string) $icon;
         return $this;
     }
 
@@ -334,7 +338,7 @@ class SCORecord
      */
     public function setDisplaySeq($displaySeq)
     {
-        $this->displaySeq = $displaySeq;
+        $this->displaySeq = (int) $displaySeq;
         return $this;
     }
 
@@ -346,7 +350,7 @@ class SCORecord
      */
     public function setJobId($jobId)
     {
-        $this->jobId = $jobId;
+        $this->jobId = (int) $jobId;
         return $this;
     }
 
@@ -358,7 +362,7 @@ class SCORecord
      */
     public function setAccountId($accountId)
     {
-        $this->accountId = $accountId;
+        $this->accountId = (int) $accountId;
         return $this;
     }
 
@@ -370,7 +374,7 @@ class SCORecord
      */
     public function setJobStatus($jobStatus)
     {
-        $this->jobStatus = $jobStatus;
+        $this->jobStatus = (string) $jobStatus;
         return $this;
     }
 
@@ -382,7 +386,7 @@ class SCORecord
      */
     public function setEncoderServiceJobProgress($encoderServiceJobProgress)
     {
-        $this->encoderServiceJobProgress = $encoderServiceJobProgress;
+        $this->encoderServiceJobProgress = (int) $encoderServiceJobProgress;
         return $this;
     }
 
@@ -394,7 +398,7 @@ class SCORecord
      */
     public function setIsFolder($isFolder)
     {
-        $this->isFolder = $isFolder;
+        $this->isFolder = BT::toBoolean($isFolder);
         return $this;
     }
 
@@ -406,7 +410,7 @@ class SCORecord
      */
     public function setNoOfDownloads($noOfDownloads)
     {
-        $this->noOfDownloads = $noOfDownloads;
+        $this->noOfDownloads = (int) $noOfDownloads;
         return $this;
     }
 
@@ -418,7 +422,7 @@ class SCORecord
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->name = (string) $name;
         return $this;
     }
 
@@ -430,62 +434,86 @@ class SCORecord
      */
     public function setUrlPath($urlPath)
     {
-        $this->urlPath = $urlPath;
+        $this->urlPath = (string) $urlPath;
         return $this;
     }
 
     /**
      * Set the Begin date
      *
-     * @param \DateTimeImmutable $dateBegin
+     * @param string|DateTimeImmutable $dateBegin
      * @return SCORecord Fluent Interface
      */
-    public function setDateBegin(\DateTimeImmutable $dateBegin)
+    public function setDateBegin($dateBegin)
     {
-        $this->dateBegin = $dateBegin;
+        if (is_string($dateBegin)) {
+            $this->dateBegin = new DateTimeImmutable($dateBegin);
+        } elseif ($dateBegin instanceof DateTimeImmutable) {
+            $this->dateBegin = $dateBegin;
+        } else {
+            throw new \InvalidArgumentException('Date Begin must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
     /**
      * Set the End date
      *
-     * @param \DateTimeImmutable $dateEnd
+     * @param string|DateTimeImmutable $dateEnd
      * @return SCORecord Fluent Interface
      */
-    public function setDateEnd(\DateTimeImmutable $dateEnd)
+    public function setDateEnd($dateEnd)
     {
-        $this->dateEnd = $dateEnd;
+        if (is_string($dateEnd)) {
+            $this->dateEnd = new DateTimeImmutable($dateEnd);
+        } elseif ($dateEnd instanceof DateTimeImmutable) {
+            $this->dateEnd = $dateEnd;
+        } else {
+            throw new \InvalidArgumentException('Date End must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
     /**
      * Set the Created date
      *
-     * @param \DateTimeImmutable $dateCreated
+     * @param string|DateTimeImmutable $dateCreated
      * @return SCORecord Fluent Interface
      */
-    public function setDateCreated(\DateTimeImmutable $dateCreated)
+    public function setDateCreated($dateCreated)
     {
-        $this->dateCreated = $dateCreated;
+        if (is_string($dateCreated)) {
+            $this->dateCreated = new DateTimeImmutable($dateCreated);
+        } elseif ($dateCreated instanceof DateTimeImmutable) {
+            $this->dateCreated = $dateCreated;
+        } else {
+            throw new \InvalidArgumentException('Date Created must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
     /**
      * Set the Modified date
      *
-     * @param \DateTimeImmutable $dateModified
+     * @param string|DateTimeImmutable $dateModified
      * @return SCORecord Fluent Interface
      */
-    public function setDateModified(\DateTimeImmutable $dateModified)
+    public function setDateModified($dateModified)
     {
-        $this->dateModified = $dateModified;
+        if (is_string($dateModified)) {
+            $this->dateModified = new DateTimeImmutable($dateModified);
+        } elseif ($dateModified instanceof DateTimeImmutable) {
+            $this->dateModified = $dateModified;
+        } else {
+            throw new \InvalidArgumentException('Date Modified must be a valid date string or a DateTimeImmutable object');
+        }
         return $this;
     }
 
     /**
      * Set the Duration
      *
-     * @param \DateInterval|string $duration
+     * @param DateInterval|string $duration
      * @return SCORecord Fluent Interface
      */
     public function setDuration($duration)
@@ -505,7 +533,7 @@ class SCORecord
      */
     public function setFilename($filename)
     {
-        $this->filename = $filename;
+        $this->filename = (string) $filename;
         return $this;
     }
 
@@ -513,11 +541,11 @@ class SCORecord
      * Converts the time duration string into a \DateInterval
      *
      * @param string $timeString A string like hh:mm:ss
-     * @return \DateInterval
+     * @return DateInterval
      */
     protected function timeStringToDateInterval($timeString)
     {
-        return new \DateInterval(
+        return new DateInterval(
             preg_replace(
                 '/(\d{2}):(\d{2}):(\d{2}).*/',
                 'PT$1H$2M$3S',
