@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Converter;
 
 use InvalidArgumentException;
 use AdobeConnectClient\Connection\ResponseInterface;
-use AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 class ConverterXML implements ConverterInterface
 {

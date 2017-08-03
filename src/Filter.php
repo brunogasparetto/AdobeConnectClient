@@ -2,8 +2,8 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
-use \AdobeConnectClient\Helper\BooleanTransform as BT;
+use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helpers\BooleanTransform as BT;
 
 /**
  * Create valid filters using Fluent Interface

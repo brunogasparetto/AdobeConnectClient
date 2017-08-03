@@ -2,8 +2,8 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Helper\BooleanTransform as B;
-use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helpers\BooleanTransform as B;
+use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
  * Adobe Connect Principal

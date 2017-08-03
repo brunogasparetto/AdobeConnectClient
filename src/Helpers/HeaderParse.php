@@ -1,5 +1,5 @@
 <?php
-namespace AdobeConnectClient\Helper;
+namespace AdobeConnectClient\Helpers;
 
 /**
  * https://github.com/guzzle/psr7

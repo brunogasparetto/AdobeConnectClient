@@ -7,7 +7,9 @@ use AdobeConnectClient\Connection\ConnectionInterface;
 
 /**
  * @method bool login(string $login, string $password) Login in the Service.
- * @method CommonInfo commonInfo() Retrieves the Common Info
+ * @method bool logout() Ends the service session
+ * @method CommonInfo commonInfo() Gets the Common Info
+ * @method SCO scoInfo(int $scoId) Gets the info about a SCO
  */
 class Client
 {
@@ -17,6 +19,9 @@ class Client
     /** @var string The Session Cookie */
     protected $sessionCookie = '';
 
+    /**
+     * @param ConnectionInterface $connection The Connection handler
+     */
     public function __construct(ConnectionInterface $connection)
     {
         $this->connection = $connection;
@@ -61,13 +66,13 @@ class Client
         $className = 'AdobeConnectClient\\Commands\\' . $commandName;
 
         if (!class_exists($className)) {
-            throw new \DomainException(sprintf('"%s" is not defined as command', $className));
+            throw new \BadMethodCallException(sprintf('"%s" is not defined as command', $commandName));
         }
 
         $reflection = new ReflectionClass($className);
 
         if (!$reflection->isSubclassOf(CommandAbstract::class)) {
-            throw new \BadMethodCallException(sprintf('"%s" is not a valid command', $className));
+            throw new \DomainException(sprintf('"%s" is not a valid command', $className));
         }
         array_unshift($arguments, $this);
         return $reflection->newInstanceArgs($arguments)->execute();

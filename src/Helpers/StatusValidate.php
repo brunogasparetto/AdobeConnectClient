@@ -1,11 +1,11 @@
 <?php
 
-namespace AdobeConnectClient\Helper;
+namespace AdobeConnectClient\Helpers;
 
-use AdobeConnectClient\Exception\InvalidException;
-use AdobeConnectClient\Exception\NoAccessException;
-use AdobeConnectClient\Exception\NoDataException;
-use AdobeConnectClient\Exception\TooMuchDataException;
+use AdobeConnectClient\Exceptions\InvalidException;
+use AdobeConnectClient\Exceptions\NoAccessException;
+use AdobeConnectClient\Exceptions\NoDataException;
+use AdobeConnectClient\Exceptions\TooMuchDataException;
 
 abstract class StatusValidate
 {

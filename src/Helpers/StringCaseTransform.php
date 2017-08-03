@@ -1,6 +1,6 @@
 <?php
 
-namespace AdobeConnectClient\Helper;
+namespace AdobeConnectClient\Helpers;
 
 /**
  * Converts string into Camel Case and vice-versa.

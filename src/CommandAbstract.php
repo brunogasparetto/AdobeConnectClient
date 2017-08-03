@@ -2,6 +2,9 @@
 
 namespace AdobeConnectClient;
 
+/**
+ * The Commands base class
+ */
 abstract class CommandAbstract
 {
     /** @var Client */
@@ -9,7 +12,6 @@ abstract class CommandAbstract
 
     /**
      * @param Client $client
-     * @param array $parameters An associative array
      */
     public function __construct(Client $client)
     {

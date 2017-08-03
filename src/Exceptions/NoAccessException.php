@@ -1,5 +1,5 @@
 <?php
 
-namespace AdobeConnectClient\Exception;
+namespace AdobeConnectClient\Exceptions;
 
 class NoAccessException extends \Exception {}

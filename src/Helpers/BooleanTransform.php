@@ -1,6 +1,6 @@
 <?php
 
-namespace AdobeConnectClient\Helper;
+namespace AdobeConnectClient\Helpers;
 
 /**
  * Converts Boolean values to string and vice-versa.

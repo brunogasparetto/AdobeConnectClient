@@ -1,8 +1,8 @@
 <?php
 
-namespace AdobeConnectClient\Helper;
+namespace AdobeConnectClient\Helpers;
 
-use AdobeConnectClient\Helper\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 abstract class SetEntityAttributes
 {
