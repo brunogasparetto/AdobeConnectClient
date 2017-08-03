@@ -7,6 +7,7 @@ use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Exceptions\NoDataException;
 use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Helpers\HeaderParse;
 
 /**
  * Call the Login action and save the session cookie.
@@ -44,7 +45,8 @@ class Login extends CommandAbstract
             $this->client->setSession('');
             return false;
         }
-        $this->client->setSession($response->getHeader('Set-Cookie'));
+        $cookieHeader = HeaderParse::parse($response->getHeader('Set-Cookie'));
+        $this->client->setSession($cookieHeader[0]['BREEZESESSION']);
         return true;
     }
 

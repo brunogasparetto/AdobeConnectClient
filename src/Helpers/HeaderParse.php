@@ -48,7 +48,7 @@ abstract class HeaderParse
      * @param string|array $header Header to normalize.
      * @return array Returns the normalized header field values.
      */
-    public static function normalize($header)
+    private static function normalize($header)
     {
         if (!is_array($header)) {
             return array_map('trim', explode(',', $header));
