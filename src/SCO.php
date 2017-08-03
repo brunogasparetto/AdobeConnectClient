@@ -8,10 +8,9 @@ namespace AdobeConnectClient;
  * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
  *
  */
-class SCO implements ParameterInterface, EntityInterface
+class SCO implements ParameterInterface
 {
     use Traits\ParameterTrait;
-    use Traits\EntityTrait;
 
     /**
      * A viewable file uploaded to the server.

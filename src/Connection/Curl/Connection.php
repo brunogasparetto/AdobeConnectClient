@@ -1,10 +1,18 @@
 <?php
+
 namespace AdobeConnectClient\Connection\Curl;
+
+use SplFileInfo;
+use CurlFile;
+use InvalidArgumentException;
+use UnexpectedValueException;
+use AdobeConnectClient\Connection\ConnectionInterface;
+use AdobeConnectClient\Connection\ResponseInterface;
 
 /**
  * Connection using cURL
  */
-class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
+class Connection implements ConnectionInterface
 {
     /** @var array Associative array of Options */
     protected $config = [];
@@ -20,7 +28,7 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      *
      * @param string $host The Host URL
      * @param array $config An array to config cURL. Use CURLOPT_* as index
-     * @throws \InvalidArgumentException if $host is not a valid URL with scheme
+     * @throws InvalidArgumentException if $host is not a valid URL with scheme
      */
     public function __construct($host, array $config = [])
     {
@@ -32,37 +40,37 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      * Set the Host URL.
      *
      * @param string $host The Host URL
-     * @throws \InvalidArgumentException if $host is not a valid URL with scheme
+     * @throws InvalidArgumentException if $host is not a valid URL with scheme
      */
     public function setHost($host)
     {
-        $host = \filter_var(\trim($host, " ?/\n\t"), FILTER_SANITIZE_URL);
+        $host = filter_var(trim($host, " ?/\n\t"), FILTER_SANITIZE_URL);
 
-        if (!\filter_var($host, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
-            throw new \InvalidArgumentException('Connection Host must be a valid URL with scheme');
+        if (!filter_var($host, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
+            throw new InvalidArgumentException('Connection Host must be a valid URL with scheme');
         }
-        $this->host = \strpos($host, '/api/xml') === false ? $host . '/api/xml' : $host;
+        $this->host = strpos($host, '/api/xml') === false ? $host . '/api/xml' : $host;
     }
 
     /**
      * Send a GET request.
      *
      * @param array $queryParams Associative array to add params in URL
-     * @throws \UnexpectedValueException if server does not respond
-     * @return \AdobeConnectClient\Connection\ResponseInterface
+     * @throws UnexpectedValueException if server does not respond
+     * @return ResponseInterface
      */
     public function get(array $queryParams = [])
     {
         $ch = $this->prepareCurl($queryParams);
-        $body = \curl_exec($ch);
-        $statusCode = \curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $body = curl_exec($ch);
+        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if ($body === false) {
-            $exception = new \UnexpectedValueException(curl_error($ch), curl_errno($ch));
-            \curl_close($ch);
+            $exception = new UnexpectedValueException(curl_error($ch), curl_errno($ch));
+            curl_close($ch);
             throw $exception;
         }
-        \curl_close($ch);
+        curl_close($ch);
         return new Response($statusCode, $this->headers, new Stream($body));
     }
 
@@ -74,23 +82,23 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      *
      * @param array $postParams Associative array for the post parameters
      * @param array $queryParams Associative array to add params in URL
-     * @throws \UnexpectedValueException if server does not respond
-     * @return \AdobeConnectClient\Connection\ResponseInterface
+     * @throws UnexpectedValueException if server does not respond
+     * @return ResponseInterface
      */
     public function post(array $postParams, array $queryParams = [])
     {
         $ch = $this->prepareCurl($queryParams);
-        \curl_setopt($ch, CURLOPT_POST, 1);
-        \curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
-        $body = \curl_exec($ch);
-        $statusCode = \curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $this->convertFileParams($postParams));
+        $body = curl_exec($ch);
+        $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
         if ($body === false) {
-            $exception = new \UnexpectedValueException(curl_error($ch), curl_errno($ch));
-            \curl_close($ch);
+            $exception = new UnexpectedValueException(curl_error($ch), curl_errno($ch));
+            curl_close($ch);
             throw $exception;
         }
-        \curl_close($ch);
+        curl_close($ch);
         return new Response($statusCode, $this->headers, new Stream($body));
     }
 
@@ -104,8 +112,8 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
     {
         $this->headers = [];
 
-        $ch = \curl_init($this->getFullURL($queryParams));
-        \curl_setopt_array($ch, $this->config);
+        $ch = curl_init($this->getFullURL($queryParams));
+        curl_setopt_array($ch, $this->config);
         return $ch;
     }
 
@@ -119,11 +127,11 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
     {
         return empty($queryParams)
             ? $this->host
-            : $this->host . '?' . \http_build_query($queryParams, '', '&');
+            : $this->host . '?' . http_build_query($queryParams, '', '&');
     }
 
     /**
-     * Convert stream file and \SplFileInfo in \CurlFile.
+     * Convert stream file and SplFileInfo in CurlFile.
      *
      * @param array $params Associative array of parameters
      * @return array
@@ -131,9 +139,12 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
     protected function convertFileParams(array $params)
     {
         foreach ($params as $param => $value) {
-            if (($fileInfo = $this->fileInfo($value))) {
-                $params[$param] = new \CurlFile($fileInfo->path, $fileInfo->mime);
+            $fileInfo = $this->fileInfo($value);
+
+            if (empty($fileInfo)) {
+                continue;
             }
+            $params[$param] = new CurlFile($fileInfo['path'], $fileInfo['mime']);
         }
         return $params;
     }
@@ -143,33 +154,32 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      *
      * If it's a stream file or \SplFileInfo returns an object with path and mime.
      *
-     * @param resource|\SplFileInfo $item A stream file or \SplFileInfo object
-     * @return stdClass|null Returns null if it's not a valid stream file or \SplFileInfo
+     * @param resource|SplFileInfo $item A stream file or SplFileInfo object
+     * @return stdClass|null Returns null if it's not a valid stream file or SplFileInfo
      */
     protected function fileInfo($item)
     {
-        if (\is_resource($item)) {
-            $streamMeta = \stream_get_meta_data($item);
+        if (is_resource($item)) {
+            $streamMeta = stream_get_meta_data($item);
 
             if ($streamMeta['wrapper_type'] !== 'plainfile') {
                 return null;
             }
             $path = $streamMeta['uri'];
-            $mime = \mime_content_type($path);
+            $mime = mime_content_type($path);
 
-        } elseif ($item instanceof \SplFileInfo and $item->getType() === 'file') {
+        } elseif ($item instanceof SplFileInfo and $item->getType() === 'file') {
             $path = $item->getPathname();
-            $mime = \mime_content_type($path);
+            $mime = mime_content_type($path);
 
         } else {
             return null;
         }
 
-        $info = new \stdClass;
-        $info->path = $path;
-        $info->mime = $mime;
-
-        return $info;
+        return [
+            'path' => $path,
+            'mime' => $mime
+        ];
     }
 
     /**
@@ -205,25 +215,25 @@ class Connection implements \AdobeConnectClient\Connection\ConnectionInterface
      */
     protected function extractHeader($curlResource, $headerLine)
     {
-        $headerSize = \strlen($headerLine);
-        $headerLine = \trim($headerLine, " \t\n");
+        $headerSize = strlen($headerLine);
+        $headerLine = trim($headerLine, " \t\n");
 
         if (empty($headerLine)) {
             return $headerSize;
         }
 
-        $pos = \strpos($headerLine, ':');
+        $pos = strpos($headerLine, ':');
 
         if ($pos === false) {
             return $headerSize;
         }
 
-        $header = \trim(\substr($headerLine, 0, $pos));
+        $header = trim(substr($headerLine, 0, $pos));
 
-        if (!\in_array($header, ['Set-Cookie', 'Content-Type'])) {
+        if (!in_array($header, ['Set-Cookie', 'Content-Type'])) {
             return $headerSize;
         }
-        $this->headers[$header] = [\trim(\substr($headerLine, $pos + 1))];
+        $this->headers[$header] = [trim(substr($headerLine, $pos + 1))];
         return $headerSize;
     }
 }

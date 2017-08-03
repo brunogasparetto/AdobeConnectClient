@@ -7,10 +7,9 @@ namespace AdobeConnectClient;
  *
  * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#permission_id}
  */
-class Permission implements ParameterInterface, EntityInterface
+class Permission implements ParameterInterface
 {
     use Traits\ParameterTrait;
-    use Traits\EntityTrait;
 
     /**
      * Special permission for Meeting

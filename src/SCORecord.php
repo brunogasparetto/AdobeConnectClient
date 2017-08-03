@@ -5,10 +5,8 @@ namespace AdobeConnectClient;
 /**
  * The recording archive from a SCO
  */
-class SCORecord implements EntityInterface
+class SCORecord
 {
-    use Traits\EntityTrait;
-
     /** @var int */
     protected $scoId = null;
 

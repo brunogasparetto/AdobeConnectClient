@@ -2,6 +2,11 @@
 
 namespace AdobeConnectClient\Helper;
 
+use AdobeConnectClient\Exception\InvalidException;
+use AdobeConnectClient\Exception\NoAccessException;
+use AdobeConnectClient\Exception\NoDataException;
+use AdobeConnectClient\Exception\TooMuchDataException;
+
 abstract class StatusValidate
 {
     public static function validate(array $status)
@@ -9,18 +14,18 @@ abstract class StatusValidate
         switch ($status['code']) {
             case 'invalid':
                 $invalid = $status['invalid'];
-                throw new \AdobeConnectClient\Exception\InvalidException(
+                throw new InvalidException(
                     "{$invalid['field']} {$invalid['subcode']}"
                 );
 
             case 'no-access':
-                throw new \AdobeConnectClient\Exception\NoAccessException($status['subcode']);
+                throw new NoAccessException($status['subcode']);
 
             case 'no-data':
-                throw new \AdobeConnectClient\Exception\NoDataException();
+                throw new NoDataException();
 
             case 'too-much-data':
-                throw new \AdobeConnectClient\Exception\TooMuchDataException();
+                throw new TooMuchDataException();
         }
     }
 }

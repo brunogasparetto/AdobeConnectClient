@@ -5,10 +5,8 @@ namespace AdobeConnectClient;
 /**
  * Result for Common Info Action
  */
-class CommonInfo implements EntityInterface
+class CommonInfo
 {
-    use Traits\EntityTrait;
-
     /** @var string */
     protected $locale = null;
 
@@ -164,7 +162,7 @@ class CommonInfo implements EntityInterface
      */
     public function setTimeZoneId($timeZoneId)
     {
-        $this->timeZoneId = $timeZoneId;
+        $this->timeZoneId = (int) $timeZoneId;
         return $this;
     }
 
@@ -260,7 +258,7 @@ class CommonInfo implements EntityInterface
      */
     public function setAccountId($accountId)
     {
-        $this->accountId = $accountId;
+        $this->accountId = (int) $accountId;
         return $this;
     }
 }

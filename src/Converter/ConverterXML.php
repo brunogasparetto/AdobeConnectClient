@@ -1,5 +1,10 @@
 <?php
+
 namespace AdobeConnectClient\Converter;
+
+use InvalidArgumentException;
+use AdobeConnectClient\Connection\ResponseInterface;
+use AdobeConnectClient\Helper\StringCaseTransform as SCT;
 
 class ConverterXML implements ConverterInterface
 {
@@ -22,16 +27,16 @@ class ConverterXML implements ConverterInterface
      *         ],
      *     ];
      *
-     * @param \AdobeConnectClient\Connection\ResponseInterface $response
-     * @throws \InvalidArgumentException if data is invalid
+     * @param ResponseInterface $response
+     * @throws InvalidArgumentException if data is invalid
      * @return array
      */
-    public static function convert(\AdobeConnectClient\Connection\ResponseInterface $response)
+    public static function convert(ResponseInterface $response)
     {
         $xml = simplexml_load_string($response->getBody());
 
         if ($xml === false) {
-            throw new \InvalidArgumentException('The response body needs be a valid XML');
+            throw new InvalidArgumentException('The response body needs be a valid XML');
         }
         return static::normalize(json_decode(json_encode($xml), true));
     }
@@ -55,7 +60,7 @@ class ConverterXML implements ConverterInterface
             if (is_array($value)) {
                 $value = static::normalize($value);
             }
-            $ret[\AdobeConnectClient\Helper\StringCaseTransform::toCamelCase($key)] = $value;
+            $ret[SCT::toCamelCase($key)] = $value;
         }
 
         return $ret;

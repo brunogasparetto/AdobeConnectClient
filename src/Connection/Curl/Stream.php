@@ -1,10 +1,13 @@
 <?php
+
 namespace AdobeConnectClient\Connection\Curl;
+
+use AdobeConnectClient\Connection\StreamInterface;
 
 /**
  * Stream for a cURL Connection.
  */
-class Stream implements \AdobeConnectClient\Connection\StreamInterface
+class Stream implements StreamInterface
 {
     /** @var string */
     protected $content = '';
@@ -16,7 +19,7 @@ class Stream implements \AdobeConnectClient\Connection\StreamInterface
      */
     public function __construct($content)
     {
-        $this->content = \is_string($content) ? $content : '';
+        $this->content = is_string($content) ? $content : '';
     }
 
     /**

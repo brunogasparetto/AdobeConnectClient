@@ -44,12 +44,12 @@ abstract class StringCaseTransform
      */
     public static function toCamelCase($term)
     {
-        $term = \preg_replace_callback(
+        $term = preg_replace_callback(
             '/[\s_-](\w)/',
-            function ($matches) {return \mb_strtoupper($matches[1]);},
+            function ($matches) {return mb_strtoupper($matches[1]);},
             $term
         );
-        $term[0] = \mb_strtolower($term[0]);
+        $term[0] = mb_strtolower($term[0]);
         return $term;
     }
 
@@ -61,7 +61,7 @@ abstract class StringCaseTransform
     public static function toUpperCamelCase($term)
     {
         $term = static::toCamelCase($term);
-        $term[0] = \mb_strtoupper($term[0]);
+        $term[0] = mb_strtoupper($term[0]);
         return $term;
     }
 
@@ -73,6 +73,6 @@ abstract class StringCaseTransform
      */
     protected static function camelCaseTransform($term, $letter)
     {
-        return \mb_strtolower(\preg_replace('/([A-Z])/', $letter . '$1', $term));
+        return mb_strtolower(preg_replace('/([A-Z])/', $letter . '$1', $term));
     }
 }

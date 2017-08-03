@@ -1,5 +1,8 @@
 <?php
+
 namespace AdobeConnectClient\Converter;
+
+use AdobeConnectClient\Connection\ResponseInterface;
 
 interface ConverterInterface
 {
@@ -22,9 +25,9 @@ interface ConverterInterface
      *         ],
      *     ];
      *
-     * @param \AdobeConnectClient\Connection\ResponseInterface $response
+     * @param ResponseInterface $response
      * @throws \InvalidArgumentException if data is invalid
      * @return array
      */
-    public static function convert(\AdobeConnectClient\Connection\ResponseInterface $response);
+    public static function convert(ResponseInterface $response);
 }

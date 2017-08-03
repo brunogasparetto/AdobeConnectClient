@@ -12,10 +12,8 @@ use \AdobeConnectClient\Helper\StringCaseTransform as SCT;
  *
  * @todo Maybe a factory for the differents types?
  */
-class Principal implements ParameterInterface, EntityInterface
+class Principal implements ParameterInterface
 {
-    use Traits\EntityTrait;
-
     /**
      * The built-in group Administrators, for Adobe Connect server Administrators.
      */

@@ -1,12 +1,17 @@
 <?php
+
 namespace AdobeConnectClient\Connection\Curl;
+
+use AdobeConnectClient\Connection\ResponseInterface;
+use AdobeConnectClient\Connection\StreamInterface;
+use AdobeConnectClient\Traits\HttpReasonPhraseTrait;
 
 /**
  * The server response for cURL Connection.
  */
-class Response implements \AdobeConnectClient\Connection\ResponseInterface
+class Response implements ResponseInterface
 {
-    use \AdobeConnectClient\Traits\HttpReasonPhraseTrait;
+    use HttpReasonPhraseTrait;
 
     /** @var int The response status code */
     protected $statusCode = 0;
@@ -14,7 +19,7 @@ class Response implements \AdobeConnectClient\Connection\ResponseInterface
     /** @var array An associative array */
     protected $headers = [];
 
-    /** @var \AdobeConnectClient\Connection\StreamInterface The response body */
+    /** @var StreamInterface The response body */
     protected $body = null;
 
     /**
@@ -22,11 +27,11 @@ class Response implements \AdobeConnectClient\Connection\ResponseInterface
      *
      * @param int $statusCode The response status code
      * @param array $headers Associative array as name => value. Value is an array of strings
-     * @param \AdobeConnectClient\Connection\StreamInterface $body The response body
+     * @param StreamInterface $body The response body
      */
-    public function __construct($statusCode, array $headers, \AdobeConnectClient\Connection\StreamInterface $body)
+    public function __construct($statusCode, array $headers, StreamInterface $body)
     {
-        $this->statusCode = \intval($statusCode);
+        $this->statusCode = intval($statusCode);
         $this->headers = $headers;
         $this->body = $body;
     }
@@ -104,7 +109,7 @@ class Response implements \AdobeConnectClient\Connection\ResponseInterface
      */
     public function getHeaderLine($name)
     {
-        return \implode(', ', $this->getHeader($name));
+        return implode(', ', $this->getHeader($name));
     }
 
     /**
@@ -114,6 +119,6 @@ class Response implements \AdobeConnectClient\Connection\ResponseInterface
      */
     protected function normalizeString($string)
     {
-        return \mb_strtolower(\preg_replace('/[^a-zA-Z0-9]/', '', $string));
+        return mb_strtolower(preg_replace('/[^a-zA-Z0-9]/', '', $string));
     }
 }
