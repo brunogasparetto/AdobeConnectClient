@@ -7,7 +7,7 @@ use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 /**
  * Create valid sort using Fluent Interface
  *
- * See {@link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sort-definition.html}
+ * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sort-definition.html
  */
 class Sorter implements ParameterInterface
 {
@@ -26,7 +26,7 @@ class Sorter implements ParameterInterface
     /**
      * Return a new Sorter instance
      *
-     * @return \AdobeConnectClient\Sorter
+     * @return Sorter
      */
     public static function instance()
     {
@@ -37,7 +37,7 @@ class Sorter implements ParameterInterface
      * Add an ASC sort
      *
      * @param string $field
-     * @return \AdobeConnectClient\Sorter
+     * @return Sorter
      */
     public function asc($field)
     {
@@ -49,7 +49,7 @@ class Sorter implements ParameterInterface
      * Add a DESC sort
      *
      * @param string $field
-     * @return \AdobeConnectClient\Sorter
+     * @return Sorter
      */
     public function desc($field)
     {
@@ -61,7 +61,7 @@ class Sorter implements ParameterInterface
      * Remove item to sort.
      *
      * @param string $field
-     * @return \AdobeConnectClient\Sorter
+     * @return Sorter
      */
     public function removeField($field)
     {
@@ -80,9 +80,9 @@ class Sorter implements ParameterInterface
      */
     public function toArray()
     {
-        if (\count($this->sorts) === 1) {
-            $order = \reset($this->sorts);
-            $field = \key($this->sorts);
+        if (count($this->sorts) === 1) {
+            $order = reset($this->sorts);
+            $field = key($this->sorts);
 
             return [$this->prefix . '-' . SCT::toHyphen($field) => $order];
         }
@@ -90,11 +90,10 @@ class Sorter implements ParameterInterface
         $sorts = [];
         $i = 1;
 
-        foreach (\array_slice($this->sorts, 0, 2) as $field => $order) {
+        foreach (array_slice($this->sorts, 0, 2) as $field => $order) {
             $sorts[$this->prefix . $i . '-' . SCT::toHyphen($field)] = $order;
             ++$i;
         }
         return $sorts;
     }
-
 }
