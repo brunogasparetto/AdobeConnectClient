@@ -2,9 +2,8 @@
 
 namespace AdobeConnectClient\Traits;
 
-use DateTime;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
 use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Override the methods to turn into a valid ParameterInterface
@@ -24,12 +23,7 @@ trait ParameterTrait
             if (!isset($value)) {
                 continue;
             }
-            if (is_bool($value)) {
-                $value = BT::toString($value);
-            } elseif ($value instanceof DateTime) {
-                $value = $value->format(DateTime::W3C);
-            }
-            $values[SCT::toHyphen($prop)] = $value;
+            $values[SCT::toHyphen($prop)] = VT::toString($value);
         }
         return $values;
     }
