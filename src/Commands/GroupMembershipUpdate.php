@@ -6,7 +6,7 @@ use AdobeConnectClient\Commands\CommandAbstract;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Adds one principal to a group, or removes one principal from a group.
@@ -32,7 +32,7 @@ class GroupMembershipUpdate extends CommandAbstract
             'action' => 'group-membership-update',
             'group-id' => (int) $groupId,
             'principal-id' => (int) $principalId,
-            'is-member' => BT::toString($isMember),
+            'is-member' => VT::toString($isMember),
             'session' => $client->getSession()
         ];
     }

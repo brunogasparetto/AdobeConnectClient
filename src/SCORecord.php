@@ -4,7 +4,6 @@ namespace AdobeConnectClient;
 
 use DateTimeImmutable;
 use DateInterval;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
@@ -399,7 +398,7 @@ class SCORecord
      */
     public function setIsFolder($isFolder)
     {
-        $this->isFolder = BT::toBoolean($isFolder);
+        $this->isFolder = VT::toBoolean($isFolder);
         return $this;
     }
 

@@ -4,7 +4,6 @@ namespace AdobeConnectClient;
 
 use DateTimeInterface;
 use DateTime;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
 use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
 

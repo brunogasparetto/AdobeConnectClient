@@ -3,7 +3,7 @@
 namespace AdobeConnectClient;
 
 use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
-use \AdobeConnectClient\Helpers\BooleanTransform as BT;
+use \AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Create valid filters using Fluent Interface
@@ -188,6 +188,6 @@ class Filter implements ParameterInterface
             . ($operator ? $operator . '-' : '')
             . SCT::toHyphen($field);
 
-        $this->filters[$filterName] = \is_bool($value) ? BT::toString($value) : $value;
+        $this->filters[$filterName] = \is_bool($value) ? VT::toString($value) : $value;
     }
 }

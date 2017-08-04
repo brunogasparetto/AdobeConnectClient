@@ -3,7 +3,7 @@
 namespace AdobeConnectClient;
 
 use DateTimeImmutable;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Adobe Connect SCO
@@ -344,7 +344,7 @@ class SCO implements ParameterInterface
      */
     public function setDisabled($disabled)
     {
-        $this->disabled = BT::toBoolean($disabled);
+        $this->disabled = VT::toBoolean($disabled);
         return $this;
     }
 
@@ -587,7 +587,7 @@ class SCO implements ParameterInterface
      */
     public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
     {
-        $this->meetingPodsLayoutsLocked = BT::toBoolean($meetingPodsLayoutsLocked);
+        $this->meetingPodsLayoutsLocked = VT::toBoolean($meetingPodsLayoutsLocked);
         return $this;
     }
 
@@ -599,7 +599,7 @@ class SCO implements ParameterInterface
      */
     public function setUpdateLinkedItem($updateLinkedItem)
     {
-        $this->updateLinkedItem = BT::toBoolean($updateLinkedItem);
+        $this->updateLinkedItem = VT::toBoolean($updateLinkedItem);
         return $this;
     }
 }

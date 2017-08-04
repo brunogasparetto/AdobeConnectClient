@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Helpers\BooleanTransform as BT;
+use \AdobeConnectClient\Helpers\ValueTransform as VT;
 use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
@@ -263,7 +263,7 @@ class Principal implements ParameterInterface
 
             if (isset($value)) {
                 $parameters[SCT::toHyphen($field)] = is_bool($value)
-                    ? BT::toString($value)
+                    ? VT::toString($value)
                     : $value;
             }
         }
@@ -511,7 +511,7 @@ class Principal implements ParameterInterface
      */
     public function setIsPrimary($isPrimary)
     {
-        $this->isPrimary = BT::toBoolean($isPrimary);
+        $this->isPrimary = VT::toBoolean($isPrimary);
         return $this;
     }
 
@@ -557,7 +557,7 @@ class Principal implements ParameterInterface
      */
     public function setHasChildren($hasChildren)
     {
-        $this->hasChildren = BT::toBoolean($hasChildren);
+        $this->hasChildren = VT::toBoolean($hasChildren);
         return $this;
     }
 
@@ -590,7 +590,7 @@ class Principal implements ParameterInterface
      */
     public function setIsEcommerce($isEcommerce)
     {
-        $this->isEcommerce = BT::toBoolean($isEcommerce);
+        $this->isEcommerce = VT::toBoolean($isEcommerce);
         return $this;
     }
 
@@ -601,7 +601,7 @@ class Principal implements ParameterInterface
      */
     public function setIsHidden($isHidden)
     {
-        $this->isHidden = BT::toBoolean($isHidden);
+        $this->isHidden = VT::toBoolean($isHidden);
         return $this;
     }
 
@@ -634,7 +634,7 @@ class Principal implements ParameterInterface
      */
     public function setDisabled($disabled)
     {
-        $this->disabled = BT::toBoolean($disabled);
+        $this->disabled = VT::toBoolean($disabled);
         return $this;
     }
 
@@ -689,7 +689,7 @@ class Principal implements ParameterInterface
      */
     public function setSendEmail($sendEmail)
     {
-        $this->sendEmail = BT::toBoolean($sendEmail);
+        $this->sendEmail = VT::toBoolean($sendEmail);
         return $this;
     }
 }

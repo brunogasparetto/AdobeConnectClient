@@ -5,7 +5,6 @@ namespace AdobeConnectClient\Helpers;
 use DateTimeInterface;
 use DateTime;
 use DateTimeImmutable;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
 
 /**
  * Converts the value into a type.
@@ -25,7 +24,7 @@ abstract class ValueTransform
         }
 
         if (is_bool($value)) {
-            return BT::toString($value);
+            return $value ? 'true' : 'false';
         }
 
         if ($value instanceof DateTimeInterface) {
@@ -50,5 +49,18 @@ abstract class ValueTransform
         }
 
         return new DateTimeImmutable((string) $value);
+    }
+
+    public static function toBoolean($str)
+    {
+        $str = mb_strtolower($str);
+
+        if ($str === 'false' or $str === 'off') {
+            return false;
+        } elseif ($str === 'true' or $str === 'on') {
+            return true;
+        } else {
+            return boolval($str);
+        }
     }
 }
