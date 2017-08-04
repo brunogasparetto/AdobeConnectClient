@@ -4,6 +4,8 @@ namespace AdobeConnectClient;
 
 /**
  * The Commands base class
+ *
+ * When override the __construct keep the Client as first parameter.
  */
 abstract class CommandAbstract
 {
@@ -21,7 +23,6 @@ abstract class CommandAbstract
     /**
      * Executes the command and return a mixed value
      *
-     * @param  mixed $...
      * @return mixed
      */
     abstract public function execute();
