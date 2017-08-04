@@ -2,9 +2,10 @@
 
 namespace AdobeConnectClient;
 
-use \DateTimeImmutable;
-use \DateInterval;
+use DateTimeImmutable;
+use DateInterval;
 use AdobeConnectClient\Helpers\BooleanTransform as BT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * The recording archive from a SCO
@@ -446,13 +447,7 @@ class SCORecord
      */
     public function setDateBegin($dateBegin)
     {
-        if (is_string($dateBegin)) {
-            $this->dateBegin = new DateTimeImmutable($dateBegin);
-        } elseif ($dateBegin instanceof DateTimeImmutable) {
-            $this->dateBegin = $dateBegin;
-        } else {
-            throw new \InvalidArgumentException('Date Begin must be a valid date string or a DateTimeImmutable object');
-        }
+        $this->dateBegin = VT::toDateTimeImmutable($dateBegin);
         return $this;
     }
 
@@ -464,13 +459,7 @@ class SCORecord
      */
     public function setDateEnd($dateEnd)
     {
-        if (is_string($dateEnd)) {
-            $this->dateEnd = new DateTimeImmutable($dateEnd);
-        } elseif ($dateEnd instanceof DateTimeImmutable) {
-            $this->dateEnd = $dateEnd;
-        } else {
-            throw new \InvalidArgumentException('Date End must be a valid date string or a DateTimeImmutable object');
-        }
+        $this->dateEnd = VT::toDateTimeImmutable($dateEnd);
         return $this;
     }
 
@@ -482,13 +471,7 @@ class SCORecord
      */
     public function setDateCreated($dateCreated)
     {
-        if (is_string($dateCreated)) {
-            $this->dateCreated = new DateTimeImmutable($dateCreated);
-        } elseif ($dateCreated instanceof DateTimeImmutable) {
-            $this->dateCreated = $dateCreated;
-        } else {
-            throw new \InvalidArgumentException('Date Created must be a valid date string or a DateTimeImmutable object');
-        }
+        $this->dateCreated = VT::toDateTimeImmutable($dateCreated);
         return $this;
     }
 
@@ -500,13 +483,7 @@ class SCORecord
      */
     public function setDateModified($dateModified)
     {
-        if (is_string($dateModified)) {
-            $this->dateModified = new DateTimeImmutable($dateModified);
-        } elseif ($dateModified instanceof DateTimeImmutable) {
-            $this->dateModified = $dateModified;
-        } else {
-            throw new \InvalidArgumentException('Date Modified must be a valid date string or a DateTimeImmutable object');
-        }
+        $this->dateModified = VT::toDateTimeImmutable($dateModified);
         return $this;
     }
 
