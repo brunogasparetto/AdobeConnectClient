@@ -32,7 +32,7 @@ class UserUpdatePassword extends CommandAbstract
             'password' => $newPassword,
             'user-id' => (int) $userId,
             'password-verify' => $newPassword,
-            'section' => $client->getSession()
+            'session' => $client->getSession()
         ];
 
         if (!empty($oldPassword)) {

@@ -4,37 +4,31 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\CommandAbstract;
 use AdobeConnectClient\Client;
+use AdobeConnectClient\ParameterInterface;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
 
 /**
- * Adds one principal to a group, or removes one principal from a group.
+ * Updates the principal's permissions to access a SCO or the access mode if the acl-id is a Meeting
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/group-membership-update.html
+ * @see https://helpx.adobe.com/adobe-connect/webservices/permissions-update.html
+ * @see https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#permission_id for SCO access mode
  */
-class GroupMembershipUpdate extends CommandAbstract
+class PermissionUpdate extends CommandAbstract
 {
     /** @var array */
     protected $parameters;
 
-    /**
-     * @param Client $client
-     * @param int $groupId
-     * @param int $principalId
-     * @param bool $isMember
-     */
-    public function __construct(Client $client, $groupId, $principalId, $isMember)
+    public function __construct(Client $client, ParameterInterface $permission)
     {
         parent::__construct($client);
 
         $this->parameters = [
-            'action' => 'group-membership-update',
-            'group-id' => (int) $groupId,
-            'principal-id' => (int) $principalId,
-            'is-member' => BT::toString($isMember),
+            'action' => 'permissions-update',
             'session' => $client->getSession()
         ];
+
+        $this->parameters += $permission->toArray();
     }
 
     /**

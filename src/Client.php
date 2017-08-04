@@ -27,6 +27,13 @@ use AdobeConnectClient\Connection\ConnectionInterface;
  * @method Principal[] principalList(int $groupId = 0, ParameterInterface $filter = null, ParameterInterface $sorter = null) Provides a complete list of users and groups, including primary groups.
  * @method bool userUpdatePassword(int $userId, string $newPassword, string $oldPassword = '') Changes user’s password
  * @method bool groupMembershipUpdate(int $groupId, int $principalId, bool $isMember) Add or remove a principal from a group
+ * @method bool permissionUpdate(ParameterInterface $permission) Updates the principal's permissions to access a SCO or the access mode if the acl-id is a Meeting
+ * @method Permission[] permissionsInfo(int $aclId, ParameterInterface $filter, ParameterInterface $sorter) Get a list of principals who have permissions to act on a SCO, Principal or Account
+ * @method Permission permissionInfoFromPrincipal(int $aclId, int $principalId) Get the Principal's permission in a SCO, Principal or Account
+ * @method bool meetingFeatureUpdate(int $accountId, string $featureId, bool $enable) Set a feature
+ * @method bool aclFieldUpdate(int $aclId, string $fieldId, mixed $value, ParameterInterface $extraParams = null) Updates the passed in Field for the specified ACL
+ * @method bool recordingPasscode(int $scoId, string $passcode) Set the passcode on a Recording and turned into public
+ * @method bool scoUpload(int $folderId, string $resourceName, resource|SplFileInfo $file) Uploads a file and then builds the file
  */
 class Client
 {

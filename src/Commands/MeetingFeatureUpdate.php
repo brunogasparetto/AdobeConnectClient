@@ -7,39 +7,44 @@ use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\BooleanTransform as BT;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
- * Adds one principal to a group, or removes one principal from a group.
+ * Set a feature
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/group-membership-update.html
+ * @see https://helpx.adobe.com/adobe-connect/webservices/meeting-feature-update.html
  */
-class GroupMembershipUpdate extends CommandAbstract
+class MeetingFeatureUpdate extends CommandAbstract
 {
     /** @var array */
     protected $parameters;
 
     /**
      * @param Client $client
-     * @param int $groupId
-     * @param int $principalId
-     * @param bool $isMember
+     * @param int $accountId
+     * @param string $featureId
+     * @param bool $enable
      */
-    public function __construct(Client $client, $groupId, $principalId, $isMember)
+    public function __construct(Client $client, $accountId, $featureId, $enable)
     {
         parent::__construct($client);
 
         $this->parameters = [
-            'action' => 'group-membership-update',
-            'group-id' => (int) $groupId,
-            'principal-id' => (int) $principalId,
-            'is-member' => BT::toString($isMember),
+            'action' => 'meeting-feature-update',
+            'account-id' => (int) $accountId,
+            'enable' => BT::toString($enable),
             'session' => $client->getSession()
         ];
+
+        $featureId = SCT::toHyphen($featureId);
+
+        if (mb_strpos($featureId, 'fid-') === false) {
+            $featureId = 'fid-' . $featureId;
+        }
+
+        $this->parameters['feature-id'] = $featureId;
     }
 
-    /**
-     * @return bool
-     */
     public function execute()
     {
         $responseConverted = Converter::convert(

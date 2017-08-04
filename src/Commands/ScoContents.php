@@ -34,9 +34,8 @@ class ScoContents extends CommandAbstract
         parent::__construct($client);
 
         $this->parameters = [
-            'sco-id' => $this->scoId,
-            'session' => $this->client->getSession(),
-            'sco-id' => (int) $scoId
+            'sco-id' => (int) $scoId,
+            'session' => $this->client->getSession()
         ];
 
         if ($filter) {
