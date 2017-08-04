@@ -20,9 +20,13 @@ use AdobeConnectClient\Connection\ConnectionInterface;
  * @method bool scoMove(int $scoId, int $folderId) Move the SCO to other Folder
  * @method SCO[] scoContents(int $scoId, ParameterInterface $filter = null, ParameterInterface $sorter = null) Get the SCO Contents from a folder or from other SCO
  * @method SCORecord[] listRecordings(int $folderId) Provides a list of recordings for a specified folder or SCO
- * @method Principal[] principalList(int $groupId = 0, ParameterInterface $filter = null, ParameterInterface $sorter = null) Provides a complete list of users and groups, including primary groups.
+ * @method Principal principalInfo(int $principalId) Gets the info about an user or group
  * @method Principal principalCreate(ParameterInterface $principal) Create a Principal.
  * @method bool principalUpdate(ParameterInterface $principal) Update a Principal.
+ * @method bool principalDelete(int $principalId) Remove one principal, either user or group
+ * @method Principal[] principalList(int $groupId = 0, ParameterInterface $filter = null, ParameterInterface $sorter = null) Provides a complete list of users and groups, including primary groups.
+ * @method bool userUpdatePassword(int $userId, string $newPassword, string $oldPassword = '') Changes user’s password
+ * @method bool groupMembershipUpdate(int $groupId, int $principalId, bool $isMember) Add or remove a principal from a group
  */
 class Client
 {

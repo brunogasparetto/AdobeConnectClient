@@ -41,7 +41,6 @@ class ScoUpdate extends CommandAbstract
         }
 
         $responseConverted = Converter::convert($this->client->getConnection()->get($this->parameters));
-
         StatusValidate::validate($responseConverted['status']);
         return true;
     }
