@@ -1,6 +1,8 @@
 <?php
 
-namespace AdobeConnectClient;
+namespace AdobeConnectClient\Commands;
+
+use AdobeConnectClient\Client;
 
 /**
  * The Commands base class

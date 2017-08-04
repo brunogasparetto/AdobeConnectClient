@@ -3,7 +3,7 @@
 namespace AdobeConnectClient\Commands;
 
 use SplFileInfo;
-use AdobeConnectClient\CommandAbstract;
+use AdobeConnectClient\Commands\CommandAbstract;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Filter;
 use AdobeConnectClient\SCO;

@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\CommandAbstract;
+use AdobeConnectClient\Commands\CommandAbstract;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Permission;
 use AdobeConnectClient\Parameter;

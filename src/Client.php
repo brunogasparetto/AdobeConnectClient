@@ -3,6 +3,7 @@
 namespace AdobeConnectClient;
 
 use ReflectionClass;
+use AdobeConnectClient\Commands\CommandAbstract;
 use AdobeConnectClient\Connection\ConnectionInterface;
 
 /**
