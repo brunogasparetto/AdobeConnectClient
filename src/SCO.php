@@ -120,6 +120,11 @@ class SCO implements ParameterInterface
     /** @var boolean */
     protected $updateLinkedItem = null;
 
+    public static function instance()
+    {
+        return new static;
+    }
+
     /**
      * Get the Account ID
      *

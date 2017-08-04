@@ -230,6 +230,11 @@ class Principal implements ParameterInterface
         ];
     }
 
+    public static function instance()
+    {
+        return new static;
+    }
+
     /**
      * Converts the items into an array with keys as param name and value as param value to send in the Request.
      * Only used to Create or Update an User or a Group.

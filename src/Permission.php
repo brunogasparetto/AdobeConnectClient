@@ -126,6 +126,11 @@ class Permission implements ParameterInterface
      */
     protected $principalId = null;
 
+    public static function instance()
+    {
+        return new static;
+    }
+
     /**
      * Get the ACL ID.
      *
