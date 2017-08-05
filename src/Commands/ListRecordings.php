@@ -36,6 +36,7 @@ class ListRecordings extends Command
     {
         $response = Converter::convert(
             $this->client->getConnection()->get([
+                'action' => 'list-recordings',
                 'folder-id' => $this->folderId,
                 'session' => $this->client->getSession()
             ])
