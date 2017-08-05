@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\ParameterInterface;
+use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
@@ -20,9 +20,9 @@ class PrincipalUpdate extends Command
 
     /**
      * @param Client $client
-     * @param ParameterInterface $principal
+     * @param Arrayable $principal
      */
-    public function __construct(Client $client, ParameterInterface $principal)
+    public function __construct(Client $client, Arrayable $principal)
     {
         parent::__construct($client);
 

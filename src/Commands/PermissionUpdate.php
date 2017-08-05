@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\ParameterInterface;
+use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
@@ -19,7 +19,7 @@ class PermissionUpdate extends Command
     /** @var array */
     protected $parameters;
 
-    public function __construct(Client $client, ParameterInterface $permission)
+    public function __construct(Client $client, Arrayable $permission)
     {
         parent::__construct($client);
 

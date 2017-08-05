@@ -11,7 +11,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
  *
  */
-class SCO implements ParameterInterface
+class SCO implements Arrayable
 {
     use Traits\ParameterTrait;
 

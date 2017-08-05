@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\ParameterInterface;
+use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
@@ -26,9 +26,9 @@ class AclFieldUpdate extends Command
      * @param int $aclId
      * @param string $fieldId
      * @param mixed $value
-     * @param ParameterInterface $extraParams
+     * @param Arrayable $extraParams
      */
-    public function __construct(Client $client, $aclId, $fieldId, $value, ParameterInterface $extraParams = null)
+    public function __construct(Client $client, $aclId, $fieldId, $value, Arrayable $extraParams = null)
     {
         parent::__construct($client);
 

@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\ParameterInterface;
+use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -26,14 +26,14 @@ class ScoContents extends Command
     /**
      * @param Client $client
      * @param int $scoId
-     * @param ParameterInterface $filter
-     * @param ParameterInterface $sorter
+     * @param Arrayable $filter
+     * @param Arrayable $sorter
      */
     public function __construct(
         Client $client,
         $scoId,
-        ParameterInterface $filter = null,
-        ParameterInterface $sorter = null
+        Arrayable $filter = null,
+        Arrayable $sorter = null
     ) {
         parent::__construct($client);
 

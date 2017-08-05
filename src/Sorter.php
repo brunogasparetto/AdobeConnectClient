@@ -9,7 +9,7 @@ use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
  *
  * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sort-definition.html
  */
-class Sorter implements ParameterInterface
+class Sorter implements Arrayable
 {
     /**
      * @var array

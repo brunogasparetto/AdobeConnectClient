@@ -10,7 +10,7 @@ use \AdobeConnectClient\Helpers\ValueTransform as VT;
  *
  * See {@link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/filter-definition.html}
  */
-class Filter implements ParameterInterface
+class Filter implements Arrayable
 {
     /**
      * @var array

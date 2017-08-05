@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\ParameterInterface;
+use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -17,10 +17,10 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  */
 class ScoCreate extends Command
 {
-    /** @var ParameterInterface */
+    /** @var Arrayable */
     protected $parameters;
 
-    public function __construct(Client $client, ParameterInterface $sco)
+    public function __construct(Client $client, Arrayable $sco)
     {
         parent::__construct($client);
 

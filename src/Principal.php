@@ -12,7 +12,7 @@ use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
  *
  * @todo Maybe a factory for the differents types?
  */
-class Principal implements ParameterInterface
+class Principal implements Arrayable
 {
     /**
      * The built-in group Administrators, for Adobe Connect server Administrators.

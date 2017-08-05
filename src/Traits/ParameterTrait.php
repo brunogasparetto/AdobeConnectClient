@@ -6,7 +6,7 @@ use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
- * Override the methods to turn into a valid ParameterInterface
+ * Override the methods to turn into a valid Arrayable
  */
 trait ParameterTrait
 {

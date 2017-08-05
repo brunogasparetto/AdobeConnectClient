@@ -10,7 +10,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
 /**
  * A generic Parameter class to extra parameters.
  */
-class Parameter implements ParameterInterface
+class Parameter implements Arrayable
 {
     /** @var array */
     protected $parameters = [];

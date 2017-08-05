@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\ParameterInterface;
+use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
@@ -23,14 +23,14 @@ class PrincipalList extends Command
     /**
      * @param Client $client
      * @param int $groupId The ID of a group. Same as the principal-id of a principal that has a type value of group.
-     * @param ParameterInterface $filter
-     * @param ParameterInterface $sorter
+     * @param Arrayable $filter
+     * @param Arrayable $sorter
      */
     public function __construct(
         Client $client,
         $groupId = 0,
-        ParameterInterface $filter = null,
-        ParameterInterface $sorter = null
+        Arrayable $filter = null,
+        Arrayable $sorter = null
     ) {
         parent::__construct($client);
 
