@@ -4,14 +4,14 @@ namespace AdobeConnectClient\Connection\Curl;
 
 use AdobeConnectClient\Connection\ResponseInterface;
 use AdobeConnectClient\Connection\StreamInterface;
-use AdobeConnectClient\Traits\HttpReasonPhraseTrait;
+use AdobeConnectClient\Traits\HttpReasonPhrase;
 
 /**
  * The server response for cURL Connection.
  */
 class Response implements ResponseInterface
 {
-    use HttpReasonPhraseTrait;
+    use HttpReasonPhrase;
 
     /** @var int The response status code */
     protected $statusCode = 0;

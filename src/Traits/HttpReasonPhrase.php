@@ -5,7 +5,7 @@ namespace AdobeConnectClient\Traits;
 /**
  * Need exists the statusCode attribute.
  */
-trait HttpReasonPhraseTrait
+trait HttpReasonPhrase
 {
     /**
      * Gets the response reason phrase associated with the status code.
