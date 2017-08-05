@@ -56,8 +56,6 @@ class ScoUpload extends Command
      */
     public function execute()
     {
-        $sco = $this->getSco();
-
         $response = Converter::convert(
             $this->client->getConnection()->post(
                 [
@@ -65,7 +63,7 @@ class ScoUpload extends Command
                 ],
                 [
                     'action' => 'sco-upload',
-                    'sco-id' => $sco->getScoId(),
+                    'sco-id' => $this->getSco()->getScoId(),
                     'session' => $this->client->getSession()
                 ]
             )
@@ -75,7 +73,7 @@ class ScoUpload extends Command
     }
 
     /**
-     * Get the SCO if exists or create a new SCO
+     * Get the SCO content if exists or create one
      *
      * @return SCO
      */
@@ -86,16 +84,22 @@ class ScoUpload extends Command
             ->equals('name', $this->resourceName)
             ->equals('type', SCO::TYPE_CONTENT);
 
-        try {
-            $scos = $this->client->scoContents($this->folderId, $filter);
-            return reset($scos);
-        } catch (NoDataException $ex) {
-            $sco = SCO::instance()
+        $scos = $this->client->scoContents($this->folderId, $filter);
+        return empty($scos) ? $this->createSco() : reset($scos);
+    }
+
+    /**
+     * Create a SCO content
+     *
+     * @return SCO
+     */
+    protected function createSco()
+    {
+        return $this->client->scoCreate(
+            SCO::instance()
                 ->setType(SCO::TYPE_CONTENT)
                 ->setFolderId($this->folderId)
-                ->setName($this->resourceName);
-
-            return $this->client->scoCreate($sco);
-        }
+                ->setName($this->resourceName)
+        );
     }
 }
