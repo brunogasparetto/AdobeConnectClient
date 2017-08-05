@@ -120,6 +120,11 @@ class SCO implements Arrayable
     /** @var boolean */
     protected $updateLinkedItem = null;
 
+    /**
+     * Create a new SCO Instance
+     *
+     * @return SCO
+     */
     public static function instance()
     {
         return new static;

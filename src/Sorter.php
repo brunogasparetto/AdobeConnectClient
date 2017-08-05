@@ -7,7 +7,7 @@ use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 /**
  * Create valid sort using Fluent Interface
  *
- * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sort-definition.html
+ * @link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sort-definition.html
  */
 class Sorter implements Arrayable
 {

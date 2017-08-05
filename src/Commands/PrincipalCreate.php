@@ -13,7 +13,7 @@ use AdobeConnectClient\Principal;
 /**
  * Create a Principal.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/principal-update.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html
  */
 class PrincipalCreate extends Command
 {

@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 /**
  * Set a feature
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/meeting-feature-update.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/meeting-feature-update.html
  */
 class MeetingFeatureUpdate extends Command
 {

@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Provides information about one principal, either a user or a group.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/principal-info.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/principal-info.html
  */
 class PrincipalInfo extends Command
 {

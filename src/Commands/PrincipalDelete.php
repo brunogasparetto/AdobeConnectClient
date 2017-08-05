@@ -10,7 +10,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
 /**
  * Remove one principal, either user or group.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/principals-delete.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/principals-delete.html
  */
 class PrincipalDelete extends Command
 {

@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\HeaderParse;
 /**
  * Call the Login action and save the session cookie.
  *
- * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/login.html
+ * @link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/login.html
  */
 class Login extends Command
 {

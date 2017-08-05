@@ -15,7 +15,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  *
  * Use the filter to reduce excessive data returns.
  *
- * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sco-contents.html
+ * @link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sco-contents.html
  *
  */
 class ScoContents extends Command

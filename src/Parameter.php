@@ -15,6 +15,11 @@ class Parameter implements Arrayable
     /** @var array */
     protected $parameters = [];
 
+    /**
+     * Returns a new Parameter instance
+     *
+     * @return Parameter
+     */
     public static function instance()
     {
         return new static;

@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Provides a list of recordings (FLV and MP4) for a specified folder or SCO
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/list-recordings.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/list-recordings.html
  */
 class ListRecordings extends Command
 {

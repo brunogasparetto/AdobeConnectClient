@@ -7,7 +7,7 @@ use AdobeConnectClient\Command;
 /**
  * Ends the session
  *
- * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/logout.html
+ * @link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/logout.html
  */
 class Logout extends Command
 {

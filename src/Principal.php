@@ -230,6 +230,11 @@ class Principal implements Arrayable
         ];
     }
 
+    /**
+     * Returns a new Principal instance
+     *
+     * @return Principal
+     */
     public static function instance()
     {
         return new static;

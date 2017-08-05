@@ -11,7 +11,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
 /**
  * Update a SCO.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/sco-update.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/sco-update.html
  */
 class ScoUpdate extends Command
 {

@@ -13,7 +13,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Create a SCO.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/sco-update.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/sco-update.html
  */
 class ScoCreate extends Command
 {

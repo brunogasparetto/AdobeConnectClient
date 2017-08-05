@@ -5,7 +5,7 @@ namespace AdobeConnectClient;
 /**
  * Adobe Connect Permission
  *
- * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#permission_id}
+ * @link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#permission_id
  */
 class Permission implements Arrayable
 {
@@ -126,6 +126,11 @@ class Permission implements Arrayable
      */
     protected $principalId = null;
 
+    /**
+     * Returns a new Permission instance
+     *
+     * @return Permission
+     */
     public static function instance()
     {
         return new static;

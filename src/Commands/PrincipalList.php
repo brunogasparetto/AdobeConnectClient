@@ -13,7 +13,7 @@ use AdobeConnectClient\Principal;
 /**
  * Provides a complete list of users and groups, including primary groups.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/principal-list.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/principal-list.html
  */
 class PrincipalList extends Command
 {

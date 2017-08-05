@@ -10,7 +10,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
 /**
  * Changes user’s password.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/user-update-pwd.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/user-update-pwd.html
  */
 class UserUpdatePassword extends Command
 {

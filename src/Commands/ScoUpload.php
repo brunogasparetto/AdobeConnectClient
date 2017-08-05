@@ -16,7 +16,7 @@ use AdobeConnectClient\Exceptions\NoDataException;
  *
  * Create a new File SCO or update if exists in the folder (a SCO Meeting) and upload the file.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html
  *
  * Important: the filename (filePath) needs the extension for Adobe Connect purpose.
  */

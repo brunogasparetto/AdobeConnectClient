@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Gets the Sco info
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/sco-info.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/sco-info.html
  */
 class ScoInfo extends Command
 {

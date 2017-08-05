@@ -11,7 +11,7 @@ use AdobeConnectClient\CommonInfo as CommonInfoEntity;
 /**
  * Gets the common info
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/common-info.html#common_info
+ * @link https://helpx.adobe.com/adobe-connect/webservices/common-info.html#common_info
  */
 class CommonInfo extends Command
 {

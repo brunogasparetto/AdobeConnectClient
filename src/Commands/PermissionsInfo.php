@@ -13,7 +13,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Get a list of principals who have permissions to act on a SCO, Principal or Account
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html
  */
 class PermissionsInfo extends Command
 {

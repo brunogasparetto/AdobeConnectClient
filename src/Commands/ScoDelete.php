@@ -10,7 +10,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
 /**
  * Deletes one or more objects (SCOs).
 *
-* @see https://helpx.adobe.com/adobe-connect/webservices/sco-delete.html
+* @link https://helpx.adobe.com/adobe-connect/webservices/sco-delete.html
  */
 class ScoDelete extends Command
 {

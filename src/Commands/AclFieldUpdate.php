@@ -13,7 +13,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
 /**
  * Updates the passed in field-id for the specified SCO, Principal or Account.
  *
- * @see https://helpx.adobe.com/adobe-connect/webservices/acl-field-update.html
+ * @link https://helpx.adobe.com/adobe-connect/webservices/acl-field-update.html
  */
 class AclFieldUpdate extends Command
 {
