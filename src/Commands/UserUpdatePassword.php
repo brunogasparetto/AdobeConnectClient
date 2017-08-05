@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/user-update-pwd.html
  */
-class UserUpdatePassword extends CommandAbstract
+class UserUpdatePassword extends Command
 {
     /** @var array */
     protected $parameters;

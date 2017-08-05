@@ -3,7 +3,7 @@
 namespace AdobeConnectClient\Commands;
 
 use SplFileInfo;
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Filter;
 use AdobeConnectClient\SCO;
@@ -20,7 +20,7 @@ use AdobeConnectClient\Exceptions\NoDataException;
  *
  * Important: the filename (filePath) needs the extension for Adobe Connect purpose.
  */
-class ScoUpload extends CommandAbstract
+class ScoUpload extends Command
 {
     /** @var int */
     protected $folderId;

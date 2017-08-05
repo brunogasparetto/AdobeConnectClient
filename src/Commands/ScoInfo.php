@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
@@ -14,7 +14,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/sco-info.html
  */
-class ScoInfo extends CommandAbstract
+class ScoInfo extends Command
 {
     /** @var int */
     protected $scoId;

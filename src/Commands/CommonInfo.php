@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
@@ -13,7 +13,7 @@ use AdobeConnectClient\CommonInfo as CommonInfoEntity;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/common-info.html#common_info
  */
-class CommonInfo extends CommandAbstract
+class CommonInfo extends Command
 {
     /**
      * @return CommonInfo

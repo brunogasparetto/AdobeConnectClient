@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Permission;
 use AdobeConnectClient\Parameter;
@@ -13,7 +13,7 @@ use AdobeConnectClient\Parameter;
  * Obs: to set the passcode on a Meeting use the aclFieldUpdate method with the
  * meeting-passcode as the fieldId and the passcode as the value.
  */
-class RecordingPasscode extends CommandAbstract
+class RecordingPasscode extends Command
 {
     /** @var int */
     protected $scoId;

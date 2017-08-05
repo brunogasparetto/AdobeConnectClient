@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -14,7 +14,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/principal-info.html
  */
-class PrincipalInfo extends CommandAbstract
+class PrincipalInfo extends Command
 {
     /** @var int */
     protected $principalId;

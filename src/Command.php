@@ -1,6 +1,6 @@
 <?php
 
-namespace AdobeConnectClient\Commands;
+namespace AdobeConnectClient;
 
 use AdobeConnectClient\Client;
 
@@ -9,7 +9,7 @@ use AdobeConnectClient\Client;
  *
  * When override the __construct keep the Client as first parameter.
  */
-abstract class CommandAbstract
+abstract class Command
 {
     /** @var Client */
     protected $client;

@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\ParameterInterface;
 use AdobeConnectClient\Permission;
@@ -15,7 +15,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html
  */
-class PermissionsInfo extends CommandAbstract
+class PermissionsInfo extends Command
 {
     /** @var array */
     protected $parameters;

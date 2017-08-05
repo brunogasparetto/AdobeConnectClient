@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\ParameterInterface;
 use AdobeConnectClient\Converter\Converter;
@@ -13,7 +13,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/principal-update.html
  */
-class PrincipalUpdate extends CommandAbstract
+class PrincipalUpdate extends Command
 {
     /** @var array */
     protected $parameters;

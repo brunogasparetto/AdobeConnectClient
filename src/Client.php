@@ -3,7 +3,6 @@
 namespace AdobeConnectClient;
 
 use ReflectionClass;
-use AdobeConnectClient\Commands\CommandAbstract;
 use AdobeConnectClient\Connection\ConnectionInterface;
 
 /**
@@ -93,7 +92,7 @@ class Client
 
         $reflection = new ReflectionClass($className);
 
-        if (!$reflection->isSubclassOf(CommandAbstract::class)) {
+        if (!$reflection->isSubclassOf(Command::class)) {
             throw new \DomainException(sprintf('"%s" is not a valid command', $className));
         }
         array_unshift($arguments, $this);

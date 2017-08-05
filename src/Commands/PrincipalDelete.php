@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/principals-delete.html
  */
-class PrincipalDelete extends CommandAbstract
+class PrincipalDelete extends Command
 {
     /** @var int */
     protected $principalId;

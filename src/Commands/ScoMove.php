@@ -2,13 +2,13 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\ParameterInterface;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
-class ScoMove extends CommandAbstract
+class ScoMove extends Command
 {
     /** @var int */
     protected $scoId;

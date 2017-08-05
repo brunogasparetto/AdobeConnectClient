@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\ParameterInterface;
 use AdobeConnectClient\Converter\Converter;
@@ -15,7 +15,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/acl-field-update.html
  */
-class AclFieldUpdate extends CommandAbstract
+class AclFieldUpdate extends Command
 {
     /** @var array */
     protected $parameters;

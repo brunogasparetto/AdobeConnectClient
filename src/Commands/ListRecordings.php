@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\SCORecord;
 use AdobeConnectClient\Converter\Converter;
@@ -14,7 +14,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/list-recordings.html
  */
-class ListRecordings extends CommandAbstract
+class ListRecordings extends Command
 {
     /** @var int */
     protected $folderId;

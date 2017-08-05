@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Exceptions\NoDataException;
@@ -14,7 +14,7 @@ use AdobeConnectClient\Helpers\HeaderParse;
  *
  * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/login.html
  */
-class Login extends CommandAbstract
+class Login extends Command
 {
     /** @var array */
     protected $parameters;

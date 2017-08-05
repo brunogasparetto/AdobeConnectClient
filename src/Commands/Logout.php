@@ -2,14 +2,14 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 
 /**
  * Ends the session
  *
  * @see https://helpx.adobe.com/content/help/en/adobe-connect/webservices/logout.html
  */
-class Logout extends CommandAbstract
+class Logout extends Command
 {
     public function execute()
     {

@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Commands\CommandAbstract;
+use AdobeConnectClient\Command;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Permission;
 use AdobeConnectClient\Converter\Converter;
@@ -14,7 +14,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  *
  * @see https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html
  */
-class PermissionInfoFromPrincipal extends CommandAbstract
+class PermissionInfoFromPrincipal extends Command
 {
     /** @var int */
     protected $aclId;
