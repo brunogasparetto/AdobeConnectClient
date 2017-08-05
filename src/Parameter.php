@@ -44,13 +44,18 @@ class Parameter implements Arrayable
         $parameter = SCT::toHyphen($parameter);
 
         if (isset($this->parameters[$parameter])) {
-            unset($this->parameters[SCT::toHyphen($parameter)]);
+            unset($this->parameters[$parameter]);
         }
         return $this;
     }
 
     /**
-     * @return array
+     * Retrieves all not null attributes in an associative array
+     *
+     * The keys in hash style: Ex: is-member
+     * The values as string
+     *
+     * @return string[]
      */
     public function toArray()
     {

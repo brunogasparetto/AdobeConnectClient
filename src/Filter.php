@@ -2,8 +2,9 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use DateTimeInterface;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Create valid filters using Fluent Interface
@@ -27,7 +28,7 @@ class Filter implements Arrayable
     /**
      * Return a new Filter instance
      *
-     * @return \AdobeConnectClient\Filter
+     * @return Filter
      */
     public static function instance()
     {
@@ -39,7 +40,7 @@ class Filter implements Arrayable
      *
      * @param string $field The Field in camelCase
      * @param string $value The Value to compare
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
     public function equals($field, $value)
     {
@@ -52,7 +53,7 @@ class Filter implements Arrayable
      *
      * @param string $field The Field in camelCase
      * @param string $value The Value to compare
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
     public function like($field, $value)
     {
@@ -65,7 +66,7 @@ class Filter implements Arrayable
      *
      * @param string $field The Field in camelCase
      * @param string $value The Value to compare
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
     public function out($field, $value)
     {
@@ -77,7 +78,7 @@ class Filter implements Arrayable
      * Limits the results to the number of rows specified.
      *
      * @param int $limit The limit rows
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
     public function rows($limit)
     {
@@ -89,7 +90,7 @@ class Filter implements Arrayable
      * Starts the results at the index number specified.
      *
      * @param int $offset The initial index
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
     public function start($offset)
     {
@@ -103,9 +104,9 @@ class Filter implements Arrayable
      * @param string $dateField The Date Field in camelCase
      * @param \DateTimeInterface $date The value to compare
      * @param boolean $inclusive Filter inclusive the date
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
-    public function dateAfter($dateField, \DateTimeInterface $date, $inclusive = true)
+    public function dateAfter($dateField, DateTimeInterface $date, $inclusive = true)
     {
         $this->setFilter(
             $inclusive ? 'gte' : 'gt',
@@ -121,9 +122,9 @@ class Filter implements Arrayable
      * @param string $dateField The Date Field in camelCase
      * @param \DateTimeInterface $date The value to compare
      * @param boolean $inclusive Filter inclusive the date
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
-    public function dateBefore($dateField, \DateTimeInterface $date, $inclusive = true)
+    public function dateBefore($dateField, DateTimeInterface $date, $inclusive = true)
     {
         $this->setFilter(
             $inclusive ? 'lte' : 'lt',
@@ -137,7 +138,7 @@ class Filter implements Arrayable
      * Selects all principals that are members of a group, specified in a separate parameter.
      *
      * @param boolean $value The value to compare
-     * @return \AdobeConnectClient\Filter Fluent Interface
+     * @return Filter Fluent Interface
      */
     public function isMember($value)
     {
@@ -149,15 +150,15 @@ class Filter implements Arrayable
      * Remove all filters using the Field
      *
      * @param string $field The Field in camelCase
-     * @return \AdobeConnectClient\Filter
+     * @return Filter
      */
     public function removeField($field)
     {
         $field = SCT::toHyphen($field);
-        $this->filters = \array_filter(
+        $this->filters = array_filter(
             $this->filters,
             function ($filter) use ($field) {
-                return \mb_strpos($filter, $field) === false;
+                return mb_strpos($filter, $field) === false;
             },
             ARRAY_FILTER_USE_KEY
         );
@@ -165,9 +166,12 @@ class Filter implements Arrayable
     }
 
     /**
-     * Convert the items in an array for filter parameter
+     * Retrieves all not null attributes in an associative array
      *
-     * @return array
+     * The keys in hash style: Ex: is-member
+     * The values as string
+     *
+     * @return string[]
      */
     public function toArray()
     {
@@ -188,6 +192,6 @@ class Filter implements Arrayable
             . ($operator ? $operator . '-' : '')
             . SCT::toHyphen($field);
 
-        $this->filters[$filterName] = \is_bool($value) ? VT::toString($value) : $value;
+        $this->filters[$filterName] = VT::toString($value);
     }
 }

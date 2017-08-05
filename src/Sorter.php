@@ -74,9 +74,12 @@ class Sorter implements Arrayable
     }
 
     /**
-     * Convert the items in an array for sort parameter
+     * Retrieves all not null attributes in an associative array
      *
-     * @return array
+     * The keys in hash style: Ex: is-member
+     * The values as string
+     *
+     * @return string[]
      */
     public function toArray()
     {

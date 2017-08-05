@@ -236,10 +236,12 @@ class Principal implements Arrayable
     }
 
     /**
-     * Converts the items into an array with keys as param name and value as param value to send in the Request.
-     * Only used to Create or Update an User or a Group.
+     * Retrieves all not null attributes in an associative array
      *
-     * @return array
+     * The keys in hash style: Ex: is-member
+     * The values as string
+     *
+     * @return string[]
      */
     public function toArray()
     {
@@ -262,9 +264,7 @@ class Principal implements Arrayable
             $value = $this->$field;
 
             if (isset($value)) {
-                $parameters[SCT::toHyphen($field)] = is_bool($value)
-                    ? VT::toString($value)
-                    : $value;
+                $parameters[SCT::toHyphen($field)] = VT::toString($value);
             }
         }
         return $parameters;

@@ -9,7 +9,7 @@ namespace AdobeConnectClient;
  */
 class Permission implements Arrayable
 {
-    use Traits\ParameterTrait;
+    use Traits\Arrayable;
 
     /**
      * Special permission for Meeting

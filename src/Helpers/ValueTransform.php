@@ -30,6 +30,8 @@ abstract class ValueTransform
         if ($value instanceof DateTimeInterface) {
             return $value->format(DateTime::W3C);
         }
+
+        return (string) $value;
     }
 
     /**

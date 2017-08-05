@@ -10,7 +10,10 @@ interface Arrayable
     /**
      * Converts the attributes in an associative array
      *
-     * @return array
+     * The keys need be in hash style: Ex: is-member
+     * The values need be a string
+     *
+     * @return string[]
      */
     public function toArray();
 }

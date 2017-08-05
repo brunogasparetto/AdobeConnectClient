@@ -13,7 +13,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  */
 class SCO implements Arrayable
 {
-    use Traits\ParameterTrait;
+    use Traits\Arrayable;
 
     /**
      * A viewable file uploaded to the server.

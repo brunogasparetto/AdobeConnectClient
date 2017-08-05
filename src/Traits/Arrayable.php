@@ -8,12 +8,15 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
 /**
  * Override the methods to turn into a valid Arrayable
  */
-trait ParameterTrait
+trait Arrayable
 {
     /**
-     * Retrieves all not null attributes as an associative array
+     * Retrieves all not null attributes in an associative array
      *
-     * @return array An associative array
+     * The keys in hash style: Ex: is-member
+     * The values as string
+     *
+     * @return string[]
      */
     public function toArray()
     {
