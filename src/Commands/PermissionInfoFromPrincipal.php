@@ -39,7 +39,7 @@ class PermissionInfoFromPrincipal extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get([
                 'action' => 'permissions-info',
                 'acl-id' => $this->aclId,
@@ -47,9 +47,9 @@ class PermissionInfoFromPrincipal extends Command
                 'session' => $this->client->getSession()
             ])
         );
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
         $permission = new Permission();
-        FillObject::setAttributes($permission, $responseConverted['permission']);
+        FillObject::setAttributes($permission, $response['permission']);
         return $permission;
     }
 }

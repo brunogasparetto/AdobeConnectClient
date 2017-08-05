@@ -58,7 +58,7 @@ class ScoUpload extends Command
     {
         $sco = $this->getSco();
 
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->post(
                 [
                     'file' => $this->file
@@ -70,7 +70,7 @@ class ScoUpload extends Command
                 ]
             )
         );
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
         return true;
     }
 

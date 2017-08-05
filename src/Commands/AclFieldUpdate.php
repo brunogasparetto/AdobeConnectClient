@@ -50,10 +50,10 @@ class AclFieldUpdate extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get($this->parameters)
         );
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
         return true;
     }
 }

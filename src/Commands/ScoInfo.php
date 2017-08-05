@@ -34,18 +34,16 @@ class ScoInfo extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get([
                 'action' => 'sco-info',
                 'sco-id' => $this->scoId,
                 'session' => $this->client->getSession()
             ])
         );
-
-        StatusValidate::validate($responseConverted['status']);
-
+        StatusValidate::validate($response['status']);
         $sco = new SCO();
-        FillObject::setAttributes($sco, $responseConverted['sco']);
+        FillObject::setAttributes($sco, $response['sco']);
         return $sco;
     }
 }

@@ -54,14 +54,14 @@ class PermissionsInfo extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get($this->parameters)
         );
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         $permissions = [];
 
-        foreach ($responseConverted['permissions'] as $permissionAttributes) {
+        foreach ($response['permissions'] as $permissionAttributes) {
             $permission = new Permission();
             FillObject::setAttributes($permission, $permissionAttributes);
             $permissions[] = $permission;

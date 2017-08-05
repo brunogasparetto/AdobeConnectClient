@@ -33,7 +33,7 @@ class ScoDelete extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get([
                 'action' => 'sco-delete',
                 'sco-id' => $this->scoId,
@@ -41,7 +41,7 @@ class ScoDelete extends Command
             ])
         );
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         return true;
     }

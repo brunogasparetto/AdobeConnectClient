@@ -28,7 +28,7 @@ class PrincipalDelete extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get([
                 'action' => 'principals-delete',
                 'principal-id' => $this->principalId,
@@ -36,7 +36,7 @@ class PrincipalDelete extends Command
             ])
         );
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         return true;
     }

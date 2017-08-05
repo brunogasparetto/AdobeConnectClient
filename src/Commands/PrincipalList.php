@@ -57,13 +57,13 @@ class PrincipalList extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         $principals = [];
 
-        foreach ($responseConverted['principalList'] as $principalAttributes) {
+        foreach ($response['principalList'] as $principalAttributes) {
             $principal = new Principal();
             FillObject::setAttributes($principal, $principalAttributes);
             $principals[] = $principal;

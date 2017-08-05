@@ -30,7 +30,7 @@ class ScoMove extends Command
 
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get([
                 'action' => 'sco-move',
                 'sco-id' => $this->scoId,
@@ -39,7 +39,7 @@ class ScoMove extends Command
             ])
         );
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         return true;
     }

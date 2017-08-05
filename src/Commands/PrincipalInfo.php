@@ -30,7 +30,7 @@ class PrincipalInfo extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get([
                 'action' => 'principal-info',
                 'principal-id' => $this->principalId,
@@ -38,10 +38,10 @@ class PrincipalInfo extends Command
             ])
         );
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         $principal = new Principal();
-        FillObject::setAttributes($principal, $responseConverted['principal']);
+        FillObject::setAttributes($principal, $response['principal']);
         return $principal;
     }
 }

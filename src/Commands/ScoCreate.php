@@ -42,12 +42,12 @@ class ScoCreate extends Command
             unset($this->parameters['sco-id']);
         }
 
-        $responseConverted = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         $sco = new SCO();
-        FillObject::setAttributes($sco, $responseConverted['sco']);
+        FillObject::setAttributes($sco, $response['sco']);
         return $sco;
     }
 }

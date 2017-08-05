@@ -34,18 +34,18 @@ class ListRecordings extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert(
+        $response = Converter::convert(
             $this->client->getConnection()->get([
                 'folder-id' => $this->folderId,
                 'session' => $this->client->getSession()
             ])
         );
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         $recordings = [];
 
-        foreach ($responseConverted['recordings'] as $recordingAttributes) {
+        foreach ($response['recordings'] as $recordingAttributes) {
             $scoRecording = new SCORecord();
             FillObject::setAttributes($scoRecording, $recordingAttributes);
             $recordings[] = $scoRecording;

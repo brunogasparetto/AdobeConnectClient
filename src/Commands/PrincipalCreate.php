@@ -45,12 +45,12 @@ class PrincipalCreate extends Command
             unset($this->parameters['principal-id']);
         }
 
-        $responseConverted = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
 
-        StatusValidate::validate($responseConverted['status']);
+        StatusValidate::validate($response['status']);
 
         $principal = new Principal();
-        FillObject::setAttributes($principal, $responseConverted['principal']);
+        FillObject::setAttributes($principal, $response['principal']);
         return $principal;
     }
 }

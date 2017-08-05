@@ -40,8 +40,8 @@ class ScoUpdate extends Command
             unset($this->parameters['folder-id']);
         }
 
-        $responseConverted = Converter::convert($this->client->getConnection()->get($this->parameters));
-        StatusValidate::validate($responseConverted['status']);
+        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
+        StatusValidate::validate($response['status']);
         return true;
     }
 }

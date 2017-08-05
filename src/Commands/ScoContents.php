@@ -38,6 +38,7 @@ class ScoContents extends Command
         parent::__construct($client);
 
         $this->parameters = [
+            'action' => 'sco-contents',
             'sco-id' => (int) $scoId,
             'session' => $this->client->getSession()
         ];
@@ -56,16 +57,13 @@ class ScoContents extends Command
      */
     public function execute()
     {
-        $responseConverted = Converter::convert($this->client->getConnection()->get($this->parameters));
-
-        StatusValidate::validate($responseConverted['status']);
-
-        $this->parameters = null;
+        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
+        StatusValidate::validate($response['status']);
 
         $scos = [];
 
-        foreach ($responseConverted['scos'] as $scoAttributes) {
-            $sco = new SCO();
+        foreach ($response['scos'] as $scoAttributes) {
+            $sco = new SCO;
             FillObject::setAttributes($sco, $scoAttributes);
             $scos[] = $sco;
         }
