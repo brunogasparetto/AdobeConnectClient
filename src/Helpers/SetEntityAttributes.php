@@ -15,7 +15,7 @@ abstract class SetEntityAttributes
      * @param mixed $object
      * @param mixed $attributes
      */
-    public static function setAttributes($object, $attributes)
+    public static function setAttributes(&$object, $attributes)
     {
         foreach ($attributes as $attr => $value) {
             if (is_array($value)) {
