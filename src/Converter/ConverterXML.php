@@ -38,7 +38,26 @@ class ConverterXML implements ConverterInterface
         if ($xml === false) {
             throw new InvalidArgumentException('The response body needs be a valid XML');
         }
-        return static::normalize(json_decode(json_encode($xml), true));
+
+        $result = [];
+
+        foreach ($xml as $element) {
+            // If it has attributes it's an element
+            if (!empty($element->attributes())) {
+                $result[$element->getName()] = static::normalize(json_decode(json_encode($element), true));
+                continue;
+            }
+
+            // if it doesn't have attributes it is a collection
+            $elementName = $element->getName();
+            $result[$elementName] = [];
+
+            foreach ($element->children() as $elementChild) {
+                $result[$elementName][] = static::normalize(json_decode(json_encode($elementChild), true));
+            }
+        }
+
+        return $result;
     }
 
     /**
