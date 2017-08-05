@@ -29,8 +29,12 @@ class ScoContents extends Command
      * @param ParameterInterface $filter
      * @param ParameterInterface $sorter
      */
-    public function __construct(Client $client, $scoId, ParameterInterface $filter = null, ParameterInterface $sorter = null)
-    {
+    public function __construct(
+        Client $client,
+        $scoId,
+        ParameterInterface $filter = null,
+        ParameterInterface $sorter = null
+    ) {
         parent::__construct($client);
 
         $this->parameters = [

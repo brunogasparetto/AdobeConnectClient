@@ -26,8 +26,12 @@ class PermissionsInfo extends Command
      * @param ParameterInterface $filter
      * @param ParameterInterface $sorter
      */
-    public function __construct(Client $client, $aclId, ParameterInterface $filter = null, ParameterInterface $sorter = null)
-    {
+    public function __construct(
+        Client $client,
+        $aclId,
+        ParameterInterface $filter = null,
+        ParameterInterface $sorter = null
+    ) {
         parent::__construct($client);
 
         $this->parameters = [

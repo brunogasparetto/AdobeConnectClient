@@ -2,4 +2,6 @@
 
 namespace AdobeConnectClient\Exceptions;
 
-class NoAccessException extends \Exception {}
+class NoAccessException extends \Exception
+{
+}

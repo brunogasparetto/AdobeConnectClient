@@ -2,4 +2,6 @@
 
 namespace AdobeConnectClient\Exceptions;
 
-class InvalidException extends \Exception {}
+class InvalidException extends \Exception
+{
+}

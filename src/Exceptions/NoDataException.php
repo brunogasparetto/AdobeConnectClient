@@ -2,4 +2,7 @@
 
 namespace AdobeConnectClient\Exceptions;
 
-class NoDataException extends \Exception {}
+class NoDataException extends \Exception
+{
+
+}

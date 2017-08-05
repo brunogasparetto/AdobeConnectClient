@@ -526,23 +526,23 @@ class Principal implements ParameterInterface
         $this->type = (string) $type;
 
         if (!in_array(
-                $this->type,
-                [
-                    self::TYPE_ADMINS,
-                    self::TYPE_AUTHORS,
-                    self::TYPE_COURSE_ADMINS,
-                    self::TYPE_EVENT_ADMINS,
-                    self::TYPE_EVENT_GROUP,
-                    self::TYPE_EVERYONE,
-                    self::TYPE_EXTERNAL_GROUP,
-                    self::TYPE_EXTERNAL_USER,
-                    self::TYPE_GROUP,
-                    self::TYPE_GUEST,
-                    self::TYPE_LEARNERS,
-                    self::TYPE_LIVE_ADMINS,
-                    self::TYPE_SEMINAR_ADMINS,
-                    self::TYPE_USER,
-                ]
+            $this->type,
+            [
+                self::TYPE_ADMINS,
+                self::TYPE_AUTHORS,
+                self::TYPE_COURSE_ADMINS,
+                self::TYPE_EVENT_ADMINS,
+                self::TYPE_EVENT_GROUP,
+                self::TYPE_EVERYONE,
+                self::TYPE_EXTERNAL_GROUP,
+                self::TYPE_EXTERNAL_USER,
+                self::TYPE_GROUP,
+                self::TYPE_GUEST,
+                self::TYPE_LEARNERS,
+                self::TYPE_LIVE_ADMINS,
+                self::TYPE_SEMINAR_ADMINS,
+                self::TYPE_USER,
+            ]
         )) {
             throw new \DomainException("{$type} isn't a valid Principal Type");
         }

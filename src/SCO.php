@@ -441,17 +441,17 @@ class SCO implements ParameterInterface
     public function setType($type)
     {
         if (!in_array(
-                $type,
-                [
-                    self::TYPE_CONTENT,
-                    self::TYPE_CURRICULUM,
-                    self::TYPE_EVENT,
-                    self::TYPE_FOLDER,
-                    self::TYPE_LINK,
-                    self::TYPE_MEETING,
-                    self::TYPE_SESSION,
-                    self::TYPE_TREE
-                ]
+            $type,
+            [
+                self::TYPE_CONTENT,
+                self::TYPE_CURRICULUM,
+                self::TYPE_EVENT,
+                self::TYPE_FOLDER,
+                self::TYPE_LINK,
+                self::TYPE_MEETING,
+                self::TYPE_SESSION,
+                self::TYPE_TREE
+            ]
         )) {
             throw new \DomainException("{$type} isn't a valid SCO Type");
         }
@@ -484,7 +484,9 @@ class SCO implements ParameterInterface
         } elseif ($dateCreated instanceof DateTimeImmutable) {
             $this->dateCreated = $dateCreated;
         } else {
-            throw new \InvalidArgumentException('Date Created must be a valid date string or a DateTimeImmutable object');
+            throw new \InvalidArgumentException(
+                'Date Created must be a valid date string or a DateTimeImmutable object'
+            );
         }
         return $this;
     }
@@ -502,7 +504,9 @@ class SCO implements ParameterInterface
         } elseif ($dateModified instanceof DateTimeImmutable) {
             $this->dateModified = $dateModified;
         } else {
-            throw new \InvalidArgumentException('Date Modified must be a valid date string or a DateTimeImmutable object');
+            throw new \InvalidArgumentException(
+                'Date Modified must be a valid date string or a DateTimeImmutable object'
+            );
         }
         return $this;
     }

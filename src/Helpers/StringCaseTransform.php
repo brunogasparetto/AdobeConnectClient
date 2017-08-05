@@ -46,7 +46,9 @@ abstract class StringCaseTransform
     {
         $term = preg_replace_callback(
             '/[\s_-](\w)/',
-            function ($matches) {return mb_strtoupper($matches[1]);},
+            function ($matches) {
+                return mb_strtoupper($matches[1]);
+            },
             $term
         );
         $term[0] = mb_strtolower($term[0]);

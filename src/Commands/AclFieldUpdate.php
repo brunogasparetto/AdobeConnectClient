@@ -43,7 +43,6 @@ class AclFieldUpdate extends Command
         if ($extraParams) {
             $this->parameters += $extraParams->toArray();
         }
-
     }
 
     /**

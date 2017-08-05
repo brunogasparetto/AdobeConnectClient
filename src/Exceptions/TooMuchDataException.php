@@ -2,4 +2,7 @@
 
 namespace AdobeConnectClient\Exceptions;
 
-class TooMuchDataException extends \Exception {}
+class TooMuchDataException extends \Exception
+{
+
+}

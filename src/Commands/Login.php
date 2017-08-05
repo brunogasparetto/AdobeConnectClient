@@ -49,5 +49,4 @@ class Login extends Command
         $this->client->setSession($cookieHeader[0]['BREEZESESSION']);
         return true;
     }
-
 }

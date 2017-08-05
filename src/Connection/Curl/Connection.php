@@ -167,11 +167,9 @@ class Connection implements ConnectionInterface
             }
             $path = $streamMeta['uri'];
             $mime = mime_content_type($path);
-
         } elseif ($item instanceof SplFileInfo and $item->getType() === 'file') {
             $path = $item->getPathname();
             $mime = mime_content_type($path);
-
         } else {
             return null;
         }
