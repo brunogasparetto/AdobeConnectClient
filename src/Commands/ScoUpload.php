@@ -9,7 +9,6 @@ use AdobeConnectClient\Filter;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Exceptions\NoDataException;
 
 /**
  * Uploads a file to the server and then builds the file, if necessary.
@@ -79,12 +78,13 @@ class ScoUpload extends Command
      */
     protected function getSco()
     {
-        $filter = Filter::instance()
-            ->equals('folderId', $this->folderId)
-            ->equals('name', $this->resourceName)
-            ->equals('type', SCO::TYPE_CONTENT);
-
-        $scos = $this->client->scoContents($this->folderId, $filter);
+        $scos = $this->client->scoContents(
+            $this->folderId,
+            Filter::instance()
+                ->equals('folderId', $this->folderId)
+                ->equals('name', $this->resourceName)
+                ->equals('type', SCO::TYPE_CONTENT)
+        );
         return empty($scos) ? $this->createSco() : reset($scos);
     }
 
