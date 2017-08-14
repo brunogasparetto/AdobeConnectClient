@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -21,22 +20,17 @@ class PrincipalList extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param int $groupId The ID of a group. Same as the principal-id of a principal that has a type value of group.
      * @param Arrayable $filter
      * @param Arrayable $sorter
      */
     public function __construct(
-        Client $client,
         $groupId = 0,
         Arrayable $filter = null,
         Arrayable $sorter = null
     ) {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'principal-list',
-            'session' => $this->client->getSession()
         ];
 
         if ($groupId) {
@@ -55,9 +49,13 @@ class PrincipalList extends Command
     /**
      * @return Principal[]
      */
-    public function execute()
+    protected function process()
     {
-        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert(
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
+        );
 
         StatusValidate::validate($response['status']);
 

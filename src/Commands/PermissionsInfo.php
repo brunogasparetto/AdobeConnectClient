@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Permission;
 use AdobeConnectClient\Converter\Converter;
@@ -21,23 +20,18 @@ class PermissionsInfo extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param int $aclId SCO ID, Principal ID or Account ID
      * @param Arrayable $filter
      * @param Arrayable $sorter
      */
     public function __construct(
-        Client $client,
         $aclId,
         Arrayable $filter = null,
         Arrayable $sorter = null
     ) {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'permissions-info',
             'acl-id' => (int) $aclId,
-            'session' => $client->getSession()
         ];
 
         if ($filter) {
@@ -52,10 +46,12 @@ class PermissionsInfo extends Command
     /**
      * @return Permission[]
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get($this->parameters)
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
         );
         StatusValidate::validate($response['status']);
 

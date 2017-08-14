@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Permission;
 use AdobeConnectClient\Parameter;
 
@@ -22,13 +21,11 @@ class RecordingPasscode extends Command
     protected $passcode;
 
     /**
-     * @param Client $client
      * @param int $scoId
      * @param string $passcode
      */
-    public function __construct(Client $client, $scoId, $passcode)
+    public function __construct($scoId, $passcode)
     {
-        parent::__construct($client);
         $this->scoId = (int) $scoId;
         $this->passcode = (string) $passcode;
     }
@@ -36,7 +33,7 @@ class RecordingPasscode extends Command
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         $permission = new Permission();
         $permission->setAclId($this->scoId);
@@ -49,6 +46,11 @@ class RecordingPasscode extends Command
             ->set('permissionId', Permission::RECORDING_PUBLIC)
             ->set('principalId', Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS);
 
-        return $this->client->aclFieldUpdate($this->scoId, 'meetingPasscode', $this->passcode, $parameters);
+        return $this->client->aclFieldUpdate(
+            $this->scoId,
+            'meetingPasscode',
+            $this->passcode,
+            $parameters
+        );
     }
 }

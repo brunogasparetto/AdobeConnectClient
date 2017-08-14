@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
@@ -19,19 +18,17 @@ class ScoDelete extends Command
 
     /**
      *
-     * @param Client $client
      * @param int $scoId The SCO ID or Folder ID
      */
-    public function __construct(Client $client, $scoId)
+    public function __construct($scoId)
     {
-        parent::__construct($client);
         $this->scoId = (int) $scoId;
     }
 
     /**
      * @return boolean
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
             $this->client->getConnection()->get([

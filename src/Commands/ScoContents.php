@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
@@ -24,23 +23,18 @@ class ScoContents extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param int $scoId
      * @param Arrayable $filter
      * @param Arrayable $sorter
      */
     public function __construct(
-        Client $client,
         $scoId,
         Arrayable $filter = null,
         Arrayable $sorter = null
     ) {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'sco-contents',
             'sco-id' => (int) $scoId,
-            'session' => $this->client->getSession()
         ];
 
         if ($filter) {
@@ -55,9 +49,13 @@ class ScoContents extends Command
     /**
      * @return SCO[]
      */
-    public function execute()
+    protected function process()
     {
-        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert(
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
+        );
         StatusValidate::validate($response['status']);
 
         $scos = [];

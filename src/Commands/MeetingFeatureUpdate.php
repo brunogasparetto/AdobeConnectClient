@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\BooleanTransform as BT;
@@ -20,20 +19,16 @@ class MeetingFeatureUpdate extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param int $accountId
      * @param string $featureId
      * @param bool $enable
      */
-    public function __construct(Client $client, $accountId, $featureId, $enable)
+    public function __construct($accountId, $featureId, $enable)
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'meeting-feature-update',
             'account-id' => (int) $accountId,
             'enable' => BT::toString($enable),
-            'session' => $client->getSession()
         ];
 
         $featureId = SCT::toHyphen($featureId);
@@ -45,10 +40,12 @@ class MeetingFeatureUpdate extends Command
         $this->parameters['feature-id'] = $featureId;
     }
 
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get($this->parameters)
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
         );
         StatusValidate::validate($response['status']);
         return true;

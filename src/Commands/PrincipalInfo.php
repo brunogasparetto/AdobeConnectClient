@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Principal;
@@ -19,16 +18,18 @@ class PrincipalInfo extends Command
     /** @var int */
     protected $principalId;
 
-    public function __construct(Client $client, $principalId)
+    /**
+     * @param int $principalId
+     */
+    public function __construct($principalId)
     {
-        parent::__construct($client);
         $this->principalId = (int) $principalId;
     }
 
     /**
      * @return Principal
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
             $this->client->getConnection()->get([

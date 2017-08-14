@@ -3,8 +3,8 @@
 namespace AdobeConnectClient\Commands;
 
 use SplFileInfo;
+use InvalidArgumentException;
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Filter;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
@@ -32,19 +32,16 @@ class ScoUpload extends Command
 
     /**
      *
-     * @param Client $client
      * @param int $folderId The Folder (SCO ID) owned the file
      * @param type $resourceName
      * @param SplFileInfo $file
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
-    public function __construct(Client $client, $folderId, $resourceName, $file)
+    public function __construct($folderId, $resourceName, $file)
     {
         if (!is_resource($file) && !($file instanceof SplFileInfo)) {
-            throw new \InvalidArgumentException('File need be a valid resource or a SplFileInfo object');
+            throw new InvalidArgumentException('File need be a valid resource or a SplFileInfo object');
         }
-
-        parent::__construct($client);
         $this->folderId = (int) $folderId;
         $this->resourceName = (string) $resourceName;
         $this->file = $file;
@@ -53,7 +50,7 @@ class ScoUpload extends Command
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
             $this->client->getConnection()->post(

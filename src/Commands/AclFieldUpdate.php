@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -22,22 +21,18 @@ class AclFieldUpdate extends Command
 
     /**
      *
-     * @param Client $client
      * @param int $aclId
      * @param string $fieldId
      * @param mixed $value
      * @param Arrayable $extraParams
      */
-    public function __construct(Client $client, $aclId, $fieldId, $value, Arrayable $extraParams = null)
+    public function __construct($aclId, $fieldId, $value, Arrayable $extraParams = null)
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'acl-field-update',
             'acl-id' => $aclId,
             'field-id' => SCT::toHyphen($fieldId),
             'value' => VT::toString($value),
-            'session' => $client->getSession()
         ];
 
         if ($extraParams) {
@@ -48,10 +43,12 @@ class AclFieldUpdate extends Command
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get($this->parameters)
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
         );
         StatusValidate::validate($response['status']);
         return true;

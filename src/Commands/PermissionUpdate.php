@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -19,13 +18,13 @@ class PermissionUpdate extends Command
     /** @var array */
     protected $parameters;
 
-    public function __construct(Client $client, Arrayable $permission)
+    /**
+     * @param Arrayable $permission
+     */
+    public function __construct(Arrayable $permission)
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'permissions-update',
-            'session' => $client->getSession()
         ];
 
         $this->parameters += $permission->toArray();
@@ -34,10 +33,12 @@ class PermissionUpdate extends Command
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get($this->parameters)
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
         );
         StatusValidate::validate($response['status']);
         return true;

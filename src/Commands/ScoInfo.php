@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -20,19 +19,17 @@ class ScoInfo extends Command
     protected $scoId;
 
     /**
-     * @param Client $client
      * @param int $scoId
      */
-    public function __construct(Client $client, $scoId)
+    public function __construct($scoId)
     {
-        parent::__construct($client);
         $this->scoId = intval($scoId);
     }
 
     /**
      * @return SCO
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
             $this->client->getConnection()->get([

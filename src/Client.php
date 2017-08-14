@@ -4,6 +4,7 @@ namespace AdobeConnectClient;
 
 use ReflectionClass;
 use AdobeConnectClient\Connection\ConnectionInterface;
+use Connection\ResponseInterface;
 
 /**
  * Manage the commands service and the session.
@@ -12,7 +13,7 @@ use AdobeConnectClient\Connection\ConnectionInterface;
  *
  * @method bool login(string $login, string $password) Login in the Service.
  * @method bool logout() Ends the service session
- * @method CommonInfo commonInfo() Gets the Common Info
+ * @method CommonInfo commonInfo(string $domain = '') Gets the Common Info
  * @method SCO scoInfo(int $scoId) Gets the info about a SCO
  * @method SCO scoCreate(Arrayable $sco) Create a SCO
  * @method bool scoUpdate(Arrayable $sco) Update a SCO
@@ -95,7 +96,9 @@ class Client
         if (!$reflection->isSubclassOf(Command::class)) {
             throw new \DomainException(sprintf('"%s" is not a valid command', $className));
         }
-        array_unshift($arguments, $this);
-        return $reflection->newInstanceArgs($arguments)->execute();
+
+        return $reflection->newInstanceArgs($arguments)
+            ->setClient($this)
+            ->execute();
     }
 }

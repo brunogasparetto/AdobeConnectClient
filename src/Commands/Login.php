@@ -20,13 +20,11 @@ class Login extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param string $login
      * @param string $password
      */
-    public function __construct(Client $client, $login, $password)
+    public function __construct($login, $password)
     {
-        parent::__construct($client);
         $this->parameters = [
             'action' => 'login',
             'login' => (string) $login,
@@ -34,7 +32,7 @@ class Login extends Command
         ];
     }
 
-    public function execute()
+    protected function process()
     {
         $response = $this->client->getConnection()->get($this->parameters);
         $responseConverted = Converter::convert($response);

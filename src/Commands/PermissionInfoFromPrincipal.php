@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Permission;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -23,13 +22,11 @@ class PermissionInfoFromPrincipal extends Command
     protected $principalId;
 
     /**
-     * @param Client $client
      * @param int $aclId
      * @param int $principalId
      */
-    public function __construct(Client $client, $aclId, $principalId)
+    public function __construct($aclId, $principalId)
     {
-        parent::__construct($client);
         $this->aclId = (int) $aclId;
         $this->principalId = (int) $principalId;
     }
@@ -37,7 +34,7 @@ class PermissionInfoFromPrincipal extends Command
     /**
      * @return Permission
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
             $this->client->getConnection()->get([

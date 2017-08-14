@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -18,13 +17,13 @@ class ScoUpdate extends Command
     /** @var Arrayable */
     protected $parameters;
 
-    public function __construct(Client $client, Arrayable $sco)
+    /**
+     * @param Arrayable $sco
+     */
+    public function __construct(Arrayable $sco)
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'sco-update',
-            'session' => $this->client->getSession()
         ];
 
         $this->parameters += $sco->toArray();
@@ -33,14 +32,18 @@ class ScoUpdate extends Command
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         // Only use the SCO ID. To change Folder use scoMove
         if (isset($this->parameters['folder-id'])) {
             unset($this->parameters['folder-id']);
         }
 
-        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert(
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
+        );
         StatusValidate::validate($response['status']);
         return true;
     }

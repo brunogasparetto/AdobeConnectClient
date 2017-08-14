@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\SCO;
 use AdobeConnectClient\Converter\Converter;
@@ -20,13 +19,13 @@ class ScoCreate extends Command
     /** @var Arrayable */
     protected $parameters;
 
-    public function __construct(Client $client, Arrayable $sco)
+    /**
+     * @param Arrayable $sco
+     */
+    public function __construct(Arrayable $sco)
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'sco-update',
-            'session' => $this->client->getSession()
         ];
 
         $this->parameters += $sco->toArray();
@@ -35,14 +34,18 @@ class ScoCreate extends Command
     /**
      * @return SCO
      */
-    public function execute()
+    protected function process()
     {
         // Create a SCO only in a folder
         if (isset($this->parameters['sco-id'])) {
             unset($this->parameters['sco-id']);
         }
 
-        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert(
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
+        );
 
         StatusValidate::validate($response['status']);
 

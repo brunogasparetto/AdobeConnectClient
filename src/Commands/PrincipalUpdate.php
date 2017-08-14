@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Arrayable;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -19,16 +18,12 @@ class PrincipalUpdate extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param Arrayable $principal
      */
-    public function __construct(Client $client, Arrayable $principal)
+    public function __construct(Arrayable $principal)
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'principal-update',
-            'session' => $this->client->getSession()
         ];
 
         $this->parameters += $principal->toArray();
@@ -37,7 +32,7 @@ class PrincipalUpdate extends Command
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         foreach (['password', 'type', 'has-children'] as $prohibited) {
             if (isset($this->parameters[$prohibited])) {
@@ -45,7 +40,11 @@ class PrincipalUpdate extends Command
             }
         }
 
-        $response = Converter::convert($this->client->getConnection()->get($this->parameters));
+        $response = Converter::convert(
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
+        );
         StatusValidate::validate($response['status']);
         return true;
     }

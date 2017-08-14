@@ -11,7 +11,7 @@ use AdobeConnectClient\Command;
  */
 class Logout extends Command
 {
-    public function execute()
+    protected function process()
     {
         $this->client->getConnection()->get([
             'action' => 'logout',

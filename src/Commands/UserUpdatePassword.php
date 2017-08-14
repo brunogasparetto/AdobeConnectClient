@@ -18,21 +18,17 @@ class UserUpdatePassword extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param int $userId The Principal Id for user
      * @param string $newPassword
      * @param string $oldPassword
      */
-    public function __construct(Client $client, $userId, $newPassword, $oldPassword = '')
+    public function __construct($userId, $newPassword, $oldPassword = '')
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'user-update-pwd',
             'password' => $newPassword,
             'user-id' => (int) $userId,
             'password-verify' => $newPassword,
-            'session' => $client->getSession()
         ];
 
         if (!empty($oldPassword)) {
@@ -43,10 +39,12 @@ class UserUpdatePassword extends Command
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get($this->parameters)
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
         );
         StatusValidate::validate($response['status']);
         return true;

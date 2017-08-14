@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
@@ -19,31 +18,29 @@ class GroupMembershipUpdate extends Command
     protected $parameters;
 
     /**
-     * @param Client $client
      * @param int $groupId
      * @param int $principalId
      * @param bool $isMember
      */
-    public function __construct(Client $client, $groupId, $principalId, $isMember)
+    public function __construct($groupId, $principalId, $isMember)
     {
-        parent::__construct($client);
-
         $this->parameters = [
             'action' => 'group-membership-update',
             'group-id' => (int) $groupId,
             'principal-id' => (int) $principalId,
             'is-member' => VT::toString($isMember),
-            'session' => $client->getSession()
         ];
     }
 
     /**
      * @return bool
      */
-    public function execute()
+    protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get($this->parameters)
+            $this->client->getConnection()->get(
+                $this->parameters + ['session' => $this->client->getSession()]
+            )
         );
         StatusValidate::validate($response['status']);
         return true;
