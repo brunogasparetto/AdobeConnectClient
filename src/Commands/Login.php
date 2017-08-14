@@ -34,7 +34,7 @@ class Login extends Command
 
     protected function process()
     {
-        $response = $this->client->getConnection()->get($this->parameters);
+        $response = $this->client->doGet($this->parameters);
         $responseConverted = Converter::convert($response);
 
         try {

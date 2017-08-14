@@ -32,7 +32,7 @@ class PrincipalInfo extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get([
+            $this->client->doGet([
                 'action' => 'principal-info',
                 'principal-id' => $this->principalId,
                 'session' => $this->client->getSession()

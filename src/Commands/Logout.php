@@ -13,7 +13,7 @@ class Logout extends Command
 {
     protected function process()
     {
-        $this->client->getConnection()->get([
+        $this->client->doGet([
             'action' => 'logout',
             'session' => $this->client->getSession()
         ]);

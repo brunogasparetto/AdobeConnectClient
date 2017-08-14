@@ -32,7 +32,7 @@ class ListRecordings extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get([
+            $this->client->doGet([
                 'action' => 'list-recordings',
                 'folder-id' => $this->folderId,
                 'session' => $this->client->getSession()

@@ -27,7 +27,7 @@ class ScoMove extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get([
+            $this->client->doGet([
                 'action' => 'sco-move',
                 'sco-id' => $this->scoId,
                 'folder-id' => $this->folderId,

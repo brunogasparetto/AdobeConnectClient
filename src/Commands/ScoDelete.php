@@ -31,7 +31,7 @@ class ScoDelete extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get([
+            $this->client->doGet([
                 'action' => 'sco-delete',
                 'sco-id' => $this->scoId,
                 'session' => $this->client->getSession()

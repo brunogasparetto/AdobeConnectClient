@@ -53,14 +53,6 @@ class Client
     }
 
     /**
-     * @return ConnectionInterface
-     */
-    public function getConnection()
-    {
-        return $this->connection;
-    }
-
-    /**
      * @return string
      */
     public function getSession()
@@ -100,5 +92,26 @@ class Client
         return $reflection->newInstanceArgs($arguments)
             ->setClient($this)
             ->execute();
+    }
+
+    /**
+     *
+     * @param array $parameters
+     * @return ResponseInterface
+     */
+    public function doGet(array $parameters)
+    {
+        return $this->connection->get($parameters);
+    }
+
+    /**
+     *
+     * @param array $postParams
+     * @param array $queryParams
+     * @return ResponseInterface
+     */
+    public function doPost(array $postParams, array $queryParams = [])
+    {
+        return $this->connection->post($postParams, $queryParams);
     }
 }

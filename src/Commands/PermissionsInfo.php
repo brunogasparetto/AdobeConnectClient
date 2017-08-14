@@ -49,7 +49,7 @@ class PermissionsInfo extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get(
+            $this->client->doGet(
                 $this->parameters + ['session' => $this->client->getSession()]
             )
         );

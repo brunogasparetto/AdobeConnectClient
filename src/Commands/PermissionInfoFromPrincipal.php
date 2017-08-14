@@ -37,7 +37,7 @@ class PermissionInfoFromPrincipal extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get([
+            $this->client->doGet([
                 'action' => 'permissions-info',
                 'acl-id' => $this->aclId,
                 'principal-id' => $this->principalId,

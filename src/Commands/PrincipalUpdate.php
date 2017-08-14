@@ -41,7 +41,7 @@ class PrincipalUpdate extends Command
         }
 
         $response = Converter::convert(
-            $this->client->getConnection()->get(
+            $this->client->doGet(
                 $this->parameters + ['session' => $this->client->getSession()]
             )
         );

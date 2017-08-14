@@ -42,7 +42,7 @@ class CommonInfo extends Command
         }
 
         $response = Converter::convert(
-            $this->client->getConnection()->get($parameters)
+            $this->client->doGet($parameters)
         );
         StatusValidate::validate($response['status']);
         $commonInfo = new CommonInfoEntity();

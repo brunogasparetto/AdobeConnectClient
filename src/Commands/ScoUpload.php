@@ -53,7 +53,7 @@ class ScoUpload extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->post(
+            $this->client->doPost(
                 [
                     'file' => $this->file
                 ],

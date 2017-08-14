@@ -32,7 +32,7 @@ class ScoInfo extends Command
     protected function process()
     {
         $response = Converter::convert(
-            $this->client->getConnection()->get([
+            $this->client->doGet([
                 'action' => 'sco-info',
                 'sco-id' => $this->scoId,
                 'session' => $this->client->getSession()
