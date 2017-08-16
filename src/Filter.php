@@ -142,7 +142,7 @@ class Filter implements Arrayable
      */
     public function isMember($value)
     {
-        $this->setFilter('', 'is-member', $value);
+        $this->setFilter('', 'ismember', $value);
         return $this;
     }
 
