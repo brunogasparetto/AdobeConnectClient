@@ -7,9 +7,7 @@ use AdobeConnectClient\Connection\ConnectionInterface;
 use Connection\ResponseInterface;
 
 /**
- * Manage the commands service and the session.
- *
- * All Commands are in Commands folder and extends CommandAbstract.
+ * The Client to Adobe Connect API
  *
  * @method bool login(string $login, string $password) Login in the Service.
  * @method bool logout() Ends the service session

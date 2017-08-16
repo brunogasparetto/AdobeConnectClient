@@ -6,9 +6,12 @@ use AdobeConnectClient\Client;
 use BadMethodCallException;
 
 /**
- * The Commands base class
+ * The Commands base class is an abstraction to Web Service actions
  *
- * When override the __construct keep the Client as first parameter.
+ * Need set the Client dependency to execute the command.
+ * @see https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html
+ *
+ * @todo Create all items
  */
 abstract class Command
 {

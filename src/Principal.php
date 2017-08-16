@@ -2,6 +2,7 @@
 
 namespace AdobeConnectClient;
 
+use DomainException;
 use \AdobeConnectClient\Helpers\ValueTransform as VT;
 use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
@@ -243,8 +244,7 @@ class Principal implements Arrayable
     /**
      * Retrieves all not null attributes in an associative array
      *
-     * The keys in hash style: Ex: is-member
-     * The values as string
+     * @todo Returns fields for all types
      *
      * @return string[]
      */
@@ -511,7 +511,7 @@ class Principal implements Arrayable
 
     /**
      *
-     * @param type $isPrimary
+     * @param bool $isPrimary
      * @return Principal Fluent Interface
      */
     public function setIsPrimary($isPrimary)
@@ -522,9 +522,9 @@ class Principal implements Arrayable
 
     /**
      *
-     * @param type $type
+     * @param string $type
      * @return Principal Fluent Interface
-     * @throws \DomainException
+     * @throws DomainException
      */
     public function setType($type)
     {
@@ -549,7 +549,7 @@ class Principal implements Arrayable
                 self::TYPE_USER,
             ]
         )) {
-            throw new \DomainException("{$type} isn't a valid Principal Type");
+            throw new DomainException("{$type} isn't a valid Principal Type");
         }
 
         return $this;
@@ -623,7 +623,7 @@ class Principal implements Arrayable
 
     /**
      *
-     * @param type $accountId
+     * @param int $accountId
      * @return Principal Fluent Interface
      */
     public function setAccountId($accountId)
@@ -689,7 +689,7 @@ class Principal implements Arrayable
 
     /**
      *
-     * @param type $sendEmail
+     * @param bool $sendEmail
      * @return Principal Fluent Interface
      */
     public function setSendEmail($sendEmail)

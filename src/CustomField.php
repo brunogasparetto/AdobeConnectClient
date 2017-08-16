@@ -7,6 +7,8 @@ namespace AdobeConnectClient;
  *
  * @link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type
  *
+ * @todo Check if this is useful
+ *
  */
 abstract class CustomField
 {

@@ -33,7 +33,7 @@ class ScoUpload extends Command
     /**
      *
      * @param int $folderId The Folder (SCO ID) owned the file
-     * @param type $resourceName
+     * @param string $resourceName
      * @param SplFileInfo $file
      * @throws InvalidArgumentException
      */
