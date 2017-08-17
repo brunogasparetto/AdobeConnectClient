@@ -1,0 +1,57 @@
+---
+title: PHP Adobe Connect Client - The Client
+layout: default
+---
+
+# The Client #
+
+The Client class has all the actions (the endpoints) to Adobe Connect Web Service.
+
+The action's name are the same as the endpoints from [Adobe Connect Web Service](https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html),
+but in camelCase instead of hyphen.
+
+Some actions are a sequence of abstractions from many endpoints, like the recordingPasscode action.
+
+All the actions methods can throw exceptions.
+
+```php
+<?php
+use AdobeConnectClient\Connection\Curl\Connection;
+use AdobeConnectClient\Client;
+
+$connection = new Connection('https://hostname.adobeconnect.com');
+$client = new Client($connection);
+
+// NoAccessException if not logged in
+$sco = $client->scoInfo(12345);
+```
+
+You can use Filter and Sorter in some actions.
+
+
+```php
+<?php
+use AdobeConnectClient\Connection\Curl\Connection;
+use AdobeConnectClient\Client;
+use AdobeConnectClient\Filter;
+use AdobeConnectClient\Sorter;
+
+$connection = new Connection('https://hostname.adobeconnect.com');
+$client = new Client($connection);
+
+$folderId = 12345;
+
+$filter = Filter::instance()
+    ->like('name', 'Test')
+    ->dateAfter('dateBegin', new DateTimeImmutable());
+
+$sorter = Sorter::instance()
+    ->asc('dateBegin');
+
+$scos = $client->scoContents($folderId, $filter, $sorter);
+```
+
+```php
+<?php
+
+```
