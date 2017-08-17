@@ -49,4 +49,4 @@ $connection->get(['action' => 'test']);
 
 ***
 
-[Back](/)
+[Back to Index]({{site.github.url}})

@@ -27,4 +27,4 @@ SOFTWARE.
 
 ***
 
-[Voltar](index)
+[Back to Index]({{site.github.url}})

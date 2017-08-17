@@ -88,4 +88,4 @@ $scos = $client->scoContents($folderId, $filter, $sorter);
 
 ***
 
-[Back]({{site.url}})
+[Back to Index]({{site.github.url}})
