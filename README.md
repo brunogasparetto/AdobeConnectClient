@@ -47,6 +47,25 @@ $sorter = Sorter::instance()
 $scos = $client->scoContents($folderId, $filter, $sorter);
 ```
 
+The **AdobeConnectClient\Connection\Curl\Connection** class accept an array of options
+to configure the CURL.
+
+```php
+use AdobeConnectClient\Connection\Curl\Connection;
+use AdobeConnectClient\Client;
+
+// For tests with no SSL
+$connection = new Connection(
+  'https://hostname.adobeconnect.com',
+  [
+    CURLOPT_SSL_VERIFYHOST => 0,
+    CURLOPT_SSL_VERIFYPEER => 0,
+  ]
+);
+$client =  new Client($connection);
+$commonInfo = $client->commonInfo();
+```
+
 ### IMPORTANT ###
 
 All Client actions are throwable.
