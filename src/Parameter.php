@@ -1,16 +1,69 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
+
+use DateTimeInterface;
+use DateTime;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
- * Grant the items in an array to use in Request
+ * A generic Parameter class to extra parameters.
  */
-interface Parameter
+class Parameter implements Arrayable
 {
+    /** @var array */
+    protected $parameters = [];
+
     /**
-     * Convert the items into an array with keys as param name and value as param value to send in the Request
+     * Returns a new Parameter instance
      *
-     * @return array
+     * @return Parameter
      */
-    public function toArray();
+    public static function instance()
+    {
+        return new static;
+    }
+
+    /**
+     * Add a parameter
+     *
+     * @param string $parameter
+     * @param mixed $value
+     * @return Parameter Fluent Interface
+     */
+    public function set($parameter, $value)
+    {
+        $this->parameters[SCT::toHyphen($parameter)] = VT::toString($value);
+        return $this;
+    }
+
+    /**
+     * Remove a parameter
+     *
+     * @param string $parameter
+     * @return Parameter Fluent Interface
+     */
+    public function remove($parameter)
+    {
+        $parameter = SCT::toHyphen($parameter);
+
+        if (isset($this->parameters[$parameter])) {
+            unset($this->parameters[$parameter]);
+        }
+        return $this;
+    }
+
+    /**
+     * Retrieves all not null attributes in an associative array
+     *
+     * The keys in hash style: Ex: is-member
+     * The values as string
+     *
+     * @return string[]
+     */
+    public function toArray()
+    {
+        return $this->parameters;
+    }
 }

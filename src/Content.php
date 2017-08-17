@@ -1,11 +1,13 @@
 <?php
 
-namespace Bruno\AdobeConnectClient;
+namespace AdobeConnectClient;
 
 /**
  * Adobe Connect's types constants to Content
  *
  * @link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type
+ *
+ * @todo Check if this is useful
  *
  */
 abstract class Content
