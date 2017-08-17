@@ -28,14 +28,13 @@ $client =  new Client($connection);
 $commonInfo = $client->commonInfo();
 ```
 
-You can use filters and sorters in some actions.
-
 ## More Info ##
 
-- [The Client](client)
-- [The Connection](connection)
+- [Client](client)
+- [Connection](connection)
 
-See the [API Docs](apidocs)
+
+For more info see the [API Docs](apidocs)
 
 ## Objectives ##
 
