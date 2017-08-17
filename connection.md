@@ -1,5 +1,5 @@
 ---
-title: PHP Adobe Connect Client - Connection
+title: Connection
 layout: default
 ---
 

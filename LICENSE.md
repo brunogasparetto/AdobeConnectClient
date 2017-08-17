@@ -1,5 +1,5 @@
 ---
-title: PHP Adobe Connect Client - License
+title: License
 layout: default
 ---
 

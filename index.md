@@ -1,5 +1,5 @@
 ---
-title: PHP Adobe Connect Client
+title: Adobe Connect Client - PHP
 layout: default
 ---
 
@@ -32,6 +32,7 @@ $commonInfo = $client->commonInfo();
 
 - [Client](client)
 - [Connection](connection)
+- [Entities](entities)
 
 
 For more info see the [API Docs](apidocs)

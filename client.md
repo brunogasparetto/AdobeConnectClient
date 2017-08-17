@@ -1,9 +1,9 @@
 ---
-title: PHP Adobe Connect Client - The Client
+title: The Client
 layout: default
 ---
 
-# The Client #
+# Client #
 
 The Client class has all the actions (the endpoints) to Adobe Connect Web Service.
 
