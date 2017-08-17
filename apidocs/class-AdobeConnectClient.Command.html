@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class AdobeConnectClient\Command</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-AdobeConnectClient.html">
+						AdobeConnectClient<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AdobeConnectClient.Commands.html">
+						Commands					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Connection.html">
+						Connection<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AdobeConnectClient.Connection.Curl.html">
+						Curl					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Converter.html">
+						Converter					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Helpers.html">
+						Helpers					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Traits.html">
+						Traits					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-AdobeConnectClient.Client.html">Client</a></li>
+				<li class="active"><a href="class-AdobeConnectClient.Command.html">Command</a></li>
+				<li><a href="class-AdobeConnectClient.CommonInfo.html">CommonInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Content.html">Content</a></li>
+				<li><a href="class-AdobeConnectClient.CustomField.html">CustomField</a></li>
+				<li><a href="class-AdobeConnectClient.Filter.html">Filter</a></li>
+				<li><a href="class-AdobeConnectClient.Parameter.html">Parameter</a></li>
+				<li><a href="class-AdobeConnectClient.Permission.html">Permission</a></li>
+				<li><a href="class-AdobeConnectClient.Principal.html">Principal</a></li>
+				<li><a href="class-AdobeConnectClient.SCO.html">SCO</a></li>
+				<li><a href="class-AdobeConnectClient.SCORecord.html">SCORecord</a></li>
+				<li><a href="class-AdobeConnectClient.Sorter.html">Sorter</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-AdobeConnectClient.Arrayable.html">Arrayable</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-AdobeConnectClient.html" title="Summary of AdobeConnectClient"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Command</h1>
+
+
+	<div class="description">
+	<p>The Commands base class is an abstraction to Web Service actions</p>
+
+<p>Need set the Client dependency to execute the command.</p>
+	</div>
+
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-AdobeConnectClient.Commands.AclFieldUpdate.html">AdobeConnectClient\Commands\AclFieldUpdate</a>, 
+			<a href="class-AdobeConnectClient.Commands.CommonInfo.html">AdobeConnectClient\Commands\CommonInfo</a>, 
+			<a href="class-AdobeConnectClient.Commands.PrincipalCreate.html">AdobeConnectClient\Commands\PrincipalCreate</a>, 
+			<a href="class-AdobeConnectClient.Commands.PrincipalDelete.html">AdobeConnectClient\Commands\PrincipalDelete</a>, 
+			<a href="class-AdobeConnectClient.Commands.PrincipalInfo.html">AdobeConnectClient\Commands\PrincipalInfo</a>, 
+			<a href="class-AdobeConnectClient.Commands.PrincipalList.html">AdobeConnectClient\Commands\PrincipalList</a>, 
+			<a href="class-AdobeConnectClient.Commands.PrincipalUpdate.html">AdobeConnectClient\Commands\PrincipalUpdate</a>, 
+			<a href="class-AdobeConnectClient.Commands.RecordingPasscode.html">AdobeConnectClient\Commands\RecordingPasscode</a>, 
+			<a href="class-AdobeConnectClient.Commands.ScoContents.html">AdobeConnectClient\Commands\ScoContents</a>, 
+			<a href="class-AdobeConnectClient.Commands.ScoCreate.html">AdobeConnectClient\Commands\ScoCreate</a>, 
+			<a href="class-AdobeConnectClient.Commands.ScoDelete.html">AdobeConnectClient\Commands\ScoDelete</a>, 
+			<a href="class-AdobeConnectClient.Commands.ScoInfo.html">AdobeConnectClient\Commands\ScoInfo</a>, 
+			<a href="class-AdobeConnectClient.Commands.GroupMembershipUpdate.html">AdobeConnectClient\Commands\GroupMembershipUpdate</a>, 
+			<a href="class-AdobeConnectClient.Commands.ScoMove.html">AdobeConnectClient\Commands\ScoMove</a>, 
+			<a href="class-AdobeConnectClient.Commands.ScoUpdate.html">AdobeConnectClient\Commands\ScoUpdate</a>, 
+			<a href="class-AdobeConnectClient.Commands.ScoUpload.html">AdobeConnectClient\Commands\ScoUpload</a>, 
+			<a href="class-AdobeConnectClient.Commands.UserUpdatePassword.html">AdobeConnectClient\Commands\UserUpdatePassword</a>, 
+			<a href="class-AdobeConnectClient.Commands.ListRecordings.html">AdobeConnectClient\Commands\ListRecordings</a>, 
+			<a href="class-AdobeConnectClient.Commands.Login.html">AdobeConnectClient\Commands\Login</a>, 
+			<a href="class-AdobeConnectClient.Commands.Logout.html">AdobeConnectClient\Commands\Logout</a>, 
+			<a href="class-AdobeConnectClient.Commands.MeetingFeatureUpdate.html">AdobeConnectClient\Commands\MeetingFeatureUpdate</a>, 
+			<a href="class-AdobeConnectClient.Commands.PermissionInfoFromPrincipal.html">AdobeConnectClient\Commands\PermissionInfoFromPrincipal</a>, 
+			<a href="class-AdobeConnectClient.Commands.PermissionsInfo.html">AdobeConnectClient\Commands\PermissionsInfo</a>, 
+			<a href="class-AdobeConnectClient.Commands.PermissionUpdate.html">AdobeConnectClient\Commands\PermissionUpdate</a>
+	</div>
+
+
+
+
+
+
+	<div class="info">
+		<b>Abstract</b><br>
+		
+		<b>Namespace:</b> <a href="namespace-AdobeConnectClient.html">AdobeConnectClient</a><br>
+		
+
+				<b>See:</b>
+				https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html<br>
+			<b>Located at</b> <a href="source-class-AdobeConnectClient.Command.html#8-51" title="Go to source code">Command.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="setClient" id="_setClient">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-AdobeConnectClient.Command.html">AdobeConnectClient\Command</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_setClient">#</a>
+		<code><a href="source-class-AdobeConnectClient.Command.html#21-29" title="Go to source code">setClient</a>( <span><code><a href="class-AdobeConnectClient.Client.html">AdobeConnectClient\Client</a></code> <var>$client</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$client</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AdobeConnectClient.Command.html">AdobeConnectClient\Command</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="execute" id="_execute">
+
+		<td class="attributes"><code>
+			 public 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_execute">#</a>
+		<code><a href="source-class-AdobeConnectClient.Command.html#31-43" title="Go to source code">execute</a>( )</code>
+
+		<div class="description short">
+			<p>Executes the command and return a mixed value</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Executes the command and return a mixed value</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					BadMethodCallException
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process" id="_process">
+
+		<td class="attributes"><code>
+			abstract protected 
+
+			mixed
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process">#</a>
+		<code><a href="source-class-AdobeConnectClient.Command.html#45-50" title="Go to source code">process</a>( )</code>
+
+		<div class="description short">
+			<p>Process the command and return a mixed value</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Process the command and return a mixed value</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					mixed
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="client" id="$client">
+		<td class="attributes"><code>
+			protected  
+			<code><a href="class-AdobeConnectClient.Client.html">AdobeConnectClient\Client</a></code>
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AdobeConnectClient.Command.html#18-19" title="Go to source code"><var>$client</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$client" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

@@ -49,4 +49,4 @@ $connection->get(['action' => 'test']);
 
 ***
 
-[Voltar](index)
+[Back](/)

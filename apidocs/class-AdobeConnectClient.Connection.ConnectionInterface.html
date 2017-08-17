@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Interface AdobeConnectClient\Connection\ConnectionInterface</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-AdobeConnectClient.html">
+						AdobeConnectClient<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AdobeConnectClient.Commands.html">
+						Commands					</a>
+
+						</li>
+				<li class="active">
+					<a href="namespace-AdobeConnectClient.Connection.html">
+						Connection<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AdobeConnectClient.Connection.Curl.html">
+						Curl					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Converter.html">
+						Converter					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Helpers.html">
+						Helpers					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Traits.html">
+						Traits					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li class="active"><a href="class-AdobeConnectClient.Connection.ConnectionInterface.html">ConnectionInterface</a></li>
+				<li><a href="class-AdobeConnectClient.Connection.ResponseInterface.html">ResponseInterface</a></li>
+				<li><a href="class-AdobeConnectClient.Connection.StreamInterface.html">StreamInterface</a></li>
+			</ul>
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-AdobeConnectClient.Connection.html" title="Summary of AdobeConnectClient\Connection"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Interface ConnectionInterface</h1>
+
+
+	<div class="description">
+	<p>Connection Interface</p>
+	</div>
+
+
+
+
+
+	<div>
+		<h4>Direct known implementers</h4>
+			<a href="class-AdobeConnectClient.Connection.Curl.Connection.html">AdobeConnectClient\Connection\Curl\Connection</a>
+	</div>
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-AdobeConnectClient.html">AdobeConnectClient</a>\<a href="namespace-AdobeConnectClient.Connection.html">Connection</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-AdobeConnectClient.Connection.ConnectionInterface.html#4-30" title="Go to source code">Connection/ConnectionInterface.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="get" id="_get">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-AdobeConnectClient.Connection.ResponseInterface.html">AdobeConnectClient\Connection\ResponseInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_get">#</a>
+		<code><a href="source-class-AdobeConnectClient.Connection.ConnectionInterface.html#9-16" title="Go to source code">get</a>( <span>array <var>$queryParams</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Send a GET request.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Send a GET request.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$queryParams</var></dt>
+					<dd>Associative array to add params in URL</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AdobeConnectClient.Connection.ResponseInterface.html">AdobeConnectClient\Connection\ResponseInterface</a></code>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					UnexpectedValueException<br>if server does not respond
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="post" id="_post">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-AdobeConnectClient.Connection.ResponseInterface.html">AdobeConnectClient\Connection\ResponseInterface</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_post">#</a>
+		<code><a href="source-class-AdobeConnectClient.Connection.ConnectionInterface.html#18-29" title="Go to source code">post</a>( <span>array <var>$postParams</var></span>, <span>array <var>$queryParams</var> = []</span> )</code>
+
+		<div class="description short">
+			<p>Send a POST request.</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Send a POST request.</p>
+
+<p>The request need be send as application/x-www-form-urlencoded or multipart/form-data.
+The $postParams must accept stream file or SplFileInfo to send files.</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$postParams</var></dt>
+					<dd>Associative array for the post parameters</dd>
+					<dt><var>$queryParams</var></dt>
+					<dd>Associative array to add params in URL</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AdobeConnectClient.Connection.ResponseInterface.html">AdobeConnectClient\Connection\ResponseInterface</a></code>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					UnexpectedValueException<br>if server does not respond
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

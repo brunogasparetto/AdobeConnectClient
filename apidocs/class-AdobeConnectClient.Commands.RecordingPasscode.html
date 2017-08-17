@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class AdobeConnectClient\Commands\RecordingPasscode</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-AdobeConnectClient.html">
+						AdobeConnectClient<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-AdobeConnectClient.Commands.html">
+						Commands					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Connection.html">
+						Connection<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AdobeConnectClient.Connection.Curl.html">
+						Curl					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Converter.html">
+						Converter					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Helpers.html">
+						Helpers					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Traits.html">
+						Traits					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-AdobeConnectClient.Commands.AclFieldUpdate.html">AclFieldUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.CommonInfo.html">CommonInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.GroupMembershipUpdate.html">GroupMembershipUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ListRecordings.html">ListRecordings</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.Login.html">Login</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.Logout.html">Logout</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.MeetingFeatureUpdate.html">MeetingFeatureUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PermissionInfoFromPrincipal.html">PermissionInfoFromPrincipal</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PermissionsInfo.html">PermissionsInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PermissionUpdate.html">PermissionUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalCreate.html">PrincipalCreate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalDelete.html">PrincipalDelete</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalInfo.html">PrincipalInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalList.html">PrincipalList</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalUpdate.html">PrincipalUpdate</a></li>
+				<li class="active"><a href="class-AdobeConnectClient.Commands.RecordingPasscode.html">RecordingPasscode</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoContents.html">ScoContents</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoCreate.html">ScoCreate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoDelete.html">ScoDelete</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoInfo.html">ScoInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoMove.html">ScoMove</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoUpdate.html">ScoUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoUpload.html">ScoUpload</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.UserUpdatePassword.html">UserUpdatePassword</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-AdobeConnectClient.Commands.html" title="Summary of AdobeConnectClient\Commands"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class RecordingPasscode</h1>
+
+
+	<div class="description">
+	<p>Set the passcode on a Recording and turned into public.</p>
+
+<p>Obs: to set the passcode on a Meeting use the aclFieldUpdate method with the
+meeting-passcode as the fieldId and the passcode as the value.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-AdobeConnectClient.Command.html"><span>AdobeConnectClient\Command</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>AdobeConnectClient\Commands\RecordingPasscode</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-AdobeConnectClient.html">AdobeConnectClient</a>\<a href="namespace-AdobeConnectClient.Commands.html">Commands</a><br>
+		
+
+			<b>Located at</b> <a href="source-class-AdobeConnectClient.Commands.RecordingPasscode.html#9-56" title="Go to source code">Commands/RecordingPasscode.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-AdobeConnectClient.Commands.RecordingPasscode.html#23-31" title="Go to source code">__construct</a>( <span>integer <var>$scoId</var></span>, <span>string <var>$passcode</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$scoId</var></dt>
+					<dd></dd>
+					<dt><var>$passcode</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process" id="_process">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process">#</a>
+		<code><a href="source-class-AdobeConnectClient.Commands.RecordingPasscode.html#33-55" title="Go to source code">process</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-AdobeConnectClient.Command.html#methods">AdobeConnectClient\Command</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AdobeConnectClient.Command.html#_execute">execute()</a>, 
+			<a href="class-AdobeConnectClient.Command.html#_setClient">setClient()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="scoId" id="$scoId">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AdobeConnectClient.Commands.RecordingPasscode.html#17-18" title="Go to source code"><var>$scoId</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$scoId" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="passcode" id="$passcode">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AdobeConnectClient.Commands.RecordingPasscode.html#20-21" title="Go to source code"><var>$passcode</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$passcode" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-AdobeConnectClient.Command.html#properties">AdobeConnectClient\Command</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AdobeConnectClient.Command.html#$client"><var>$client</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

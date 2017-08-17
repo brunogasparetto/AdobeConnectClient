@@ -33,7 +33,9 @@ You can use filters and sorters in some actions.
 ## More Info ##
 
 - [The Client](client)
-- [Connection](connection)
+- [The Connection](connection)
+
+See the [API Docs](apidocs)
 
 ## Objectives ##
 

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class AdobeConnectClient\Commands\ScoUpload</title>
+
+	<link rel="stylesheet" href="resources/style.css?c2f33731c1948fbed7c333554678bfa68d4817da">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-AdobeConnectClient.html">
+						AdobeConnectClient<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-AdobeConnectClient.Commands.html">
+						Commands					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Connection.html">
+						Connection<span></span>
+					</a>
+
+						<ul>
+				<li>
+					<a href="namespace-AdobeConnectClient.Connection.Curl.html">
+						Curl					</a>
+
+						</li>
+							</ul></li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Converter.html">
+						Converter					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Exceptions.html">
+						Exceptions					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Helpers.html">
+						Helpers					</a>
+
+						</li>
+				<li>
+					<a href="namespace-AdobeConnectClient.Traits.html">
+						Traits					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-AdobeConnectClient.Commands.AclFieldUpdate.html">AclFieldUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.CommonInfo.html">CommonInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.GroupMembershipUpdate.html">GroupMembershipUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ListRecordings.html">ListRecordings</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.Login.html">Login</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.Logout.html">Logout</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.MeetingFeatureUpdate.html">MeetingFeatureUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PermissionInfoFromPrincipal.html">PermissionInfoFromPrincipal</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PermissionsInfo.html">PermissionsInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PermissionUpdate.html">PermissionUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalCreate.html">PrincipalCreate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalDelete.html">PrincipalDelete</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalInfo.html">PrincipalInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalList.html">PrincipalList</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.PrincipalUpdate.html">PrincipalUpdate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.RecordingPasscode.html">RecordingPasscode</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoContents.html">ScoContents</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoCreate.html">ScoCreate</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoDelete.html">ScoDelete</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoInfo.html">ScoInfo</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoMove.html">ScoMove</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.ScoUpdate.html">ScoUpdate</a></li>
+				<li class="active"><a href="class-AdobeConnectClient.Commands.ScoUpload.html">ScoUpload</a></li>
+				<li><a href="class-AdobeConnectClient.Commands.UserUpdatePassword.html">UserUpdatePassword</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-AdobeConnectClient.Commands.html" title="Summary of AdobeConnectClient\Commands"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class ScoUpload</h1>
+
+
+	<div class="description">
+	<p>Uploads a file to the server and then builds the file, if necessary.</p>
+
+<p>Create a new File SCO or update if exists in the folder (a SCO Meeting) and upload the file.</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-AdobeConnectClient.Command.html"><span>AdobeConnectClient\Command</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>AdobeConnectClient\Commands\ScoUpload</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-AdobeConnectClient.html">AdobeConnectClient</a>\<a href="namespace-AdobeConnectClient.Commands.html">Commands</a><br>
+		
+
+				<b>Link:</b>
+				<a href="https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html">Important: the filename (filePath) needs the extension for Adobe Connect purpose.</a><br>
+			<b>Located at</b> <a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#13-102" title="Go to source code">Commands/ScoUpload.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="__construct" id="___construct">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___construct">#</a>
+		<code><a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#33-48" title="Go to source code">__construct</a>( <span>integer <var>$folderId</var></span>, <span>string <var>$resourceName</var></span>, <span>SplFileInfo <var>$file</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$folderId</var></dt>
+					<dd>The Folder (SCO ID) owned the file</dd>
+					<dt><var>$resourceName</var></dt>
+					<dd></dd>
+					<dt><var>$file</var></dt>
+					<dd></dd>
+				</dl></div>
+
+
+				<h4>Throws</h4>
+				<div class="list">
+					InvalidArgumentException
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="process" id="_process">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_process">#</a>
+		<code><a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#50-69" title="Go to source code">process</a>( )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="getSco" id="_getSco">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-AdobeConnectClient.SCO.html">AdobeConnectClient\SCO</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_getSco">#</a>
+		<code><a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#71-86" title="Go to source code">getSco</a>( )</code>
+
+		<div class="description short">
+			<p>Get the SCO content if exists or create one</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Get the SCO content if exists or create one</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AdobeConnectClient.SCO.html">AdobeConnectClient\SCO</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="createSco" id="_createSco">
+
+		<td class="attributes"><code>
+			 protected 
+
+			<code><a href="class-AdobeConnectClient.SCO.html">AdobeConnectClient\SCO</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_createSco">#</a>
+		<code><a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#88-101" title="Go to source code">createSco</a>( )</code>
+
+		<div class="description short">
+			<p>Create a SCO content</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Create a SCO content</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-AdobeConnectClient.SCO.html">AdobeConnectClient\SCO</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-AdobeConnectClient.Command.html#methods">AdobeConnectClient\Command</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AdobeConnectClient.Command.html#_execute">execute()</a>, 
+			<a href="class-AdobeConnectClient.Command.html#_setClient">setClient()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary properties" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="folderId" id="$folderId">
+		<td class="attributes"><code>
+			protected  
+			integer
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#24-25" title="Go to source code"><var>$folderId</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$folderId" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="resourceName" id="$resourceName">
+		<td class="attributes"><code>
+			protected  
+			string
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#27-28" title="Go to source code"><var>$resourceName</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$resourceName" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	<tr data-order="file" id="$file">
+		<td class="attributes"><code>
+			protected  
+			resource|SplFileInfo
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-AdobeConnectClient.Commands.ScoUpload.html#30-31" title="Go to source code"><var>$file</var></a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</td>
+		<td class="value">
+			<div>
+				<a href="#$file" class="anchor">#</a>
+				<code></code>
+			</div>
+		</td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-AdobeConnectClient.Command.html#properties">AdobeConnectClient\Command</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-AdobeConnectClient.Command.html#$client"><var>$client</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		 API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>
