@@ -44,110 +44,114 @@ You can use filters and sorters in some actions.
 
 The Original Endpoints.
 
-- [] account-expiry-info
-- [] acl-field-info
-- [] acl-field-list
-- [x] acl-field-update
-- [] acl-preference-update
-- [] asset-interaction-delete
-- [] asset-interaction-response-update
-- [] asset-interactions-order-update
-- [] cancel-recording-job
-- [x] common-info
-- [] concurrent-training-user-graph
-- [] curriculum-contents
-- [] custom-field-update
-- [] custom-fields
-- [] custom-fields-delete
-- [] event-guest-invite
-- [] event-notification-status-update
-- [] event-register
-- [] events-attendance
-- [] expiry-settings-info
-- [] expiry-settings-update
-- [] first-time-user-url
-- [] get-my-and-shared-events
-- [] get-recording-job
-- [x] group-membership-update
-- [] learning-path-info
-- [] learning-path-update
-- [] limited-administrator-permissions-update
-- [] limited-administrator-permissionsinfo
-- [x] list-recordings
-- [x] login
-- [x] logout
-- [] meeting-disclaimer-info
-- [] meeting-disclaimer-update
-- [x] meeting-feature-update
-- [] notification-list
-- [x] permissions-info
-- [] permissions-reset
-- [x] permissions-update
-- [x] principal-info
-- [x] principal-list
-- [] principal-list-by-field
-- [x] principal-update
-- [x] principals-delete
-- [] process-recording
-- [] quota-threshold-exceeded
-- [] quota-threshold-info
-- [] quota-threshold-update
-- [] report-active-meetings
-- [] report-asset-response-info
-- [] report-bulk-consolidated-transactions
-- [] report-bulk-objects
-- [] report-bulk-questions
-- [] report-bulk-slide-views
-- [] report-bulk-users
-- [] report-course-status
-- [] report-curriculum-taker
-- [] report-event-participants-complete-information
-- [] report-meeting-attendance
-- [] report-meeting-concurrent-users
-- [] report-meeting-session-users
-- [] report-meeting-sessions
-- [] report-meeting-summary
-- [] report-my-courses
-- [] report-my-events
-- [] report-my-meetings
-- [] report-my-training
-- [] report-quiz-interactions
-- [] report-quiz-question-answer-distribution
-- [] report-quiz-question-distribution
-- [] report-quiz-question-response
-- [] report-quiz-summary
-- [] report-quiz-takers
-- [] report-quotas
-- [] report-sco-slides
-- [] report-sco-views
-- [] report-user-training-transcripts
-- [] report-user-trainings-taken
-- [] revert-recording
-- [] sco-by-url
-- [x] sco-contents
-- [x] sco-delete
-- [] sco-expanded-contents
-- [x] sco-info
-- [x] sco-move
-- [] sco-nav
-- [] sco-search
-- [] sco-search-by-field
-- [] sco-session-seminar-list
-- [] sco-shortcuts
-- [x] sco-update
-- [x] sco-upload
-- [] seminar-session-sco-update
-- [] telephony-profile-dial-in-number-update
-- [] update-sco-url
-- [] user-accounts
-- [] user-transcript-update
-- [x] user-update-pwd
+Endpoint|Status
+--------|------
+account-expiry-info|Pending
+acl-field-info|Pending
+acl-field-list|Pending
+acl-field-update|**Done**
+acl-preference-update|Pending
+asset-interaction-delete|Pending
+asset-interaction-response-update|Pending
+asset-interactions-order-update|Pending
+cancel-recording-job|Pending
+common-info|**Done**
+concurrent-training-user-graph|Pending
+curriculum-contents|Pending
+custom-field-update|Pending
+custom-fields|Pending
+custom-fields-delete|Pending
+event-guest-invite|Pending
+event-notification-status-update|Pending
+event-register|Pending
+events-attendance|Pending
+expiry-settings-info|Pending
+expiry-settings-update|Pending
+first-time-user-url|Pending
+get-my-and-shared-events|Pending
+get-recording-job|Pending
+group-membership-update|**Done**
+learning-path-info|Pending
+learning-path-update|Pending
+limited-administrator-permissions-update|Pending
+limited-administrator-permissionsinfo|Pending
+list-recordings|**Done**
+login|**Done**
+logout|**Done**
+meeting-disclaimer-info|Pending
+meeting-disclaimer-update|Pending
+meeting-feature-update|**Done**
+notification-list|Pending
+permissions-info|Pending
+permissions-reset|Pending
+permissions-update|**Done**
+principal-info|**Done**
+principal-list|**Done**
+principal-list-by-field|Pending
+principal-update|**Done**
+principals-delete|**Done**
+process-recording|Pending
+quota-threshold-exceeded|Pending
+quota-threshold-info|Pending
+quota-threshold-update|Pending
+report-active-meetings|Pending
+report-asset-response-info|Pending
+report-bulk-consolidated-transactions|Pending
+report-bulk-objects|Pending
+report-bulk-questions|Pending
+report-bulk-slide-views|Pending
+report-bulk-users|Pending
+report-course-status|Pending
+report-curriculum-taker|Pending
+report-event-participants-complete-information|Pending
+report-meeting-attendance|Pending
+report-meeting-concurrent-users|Pending
+report-meeting-session-users|Pending
+report-meeting-sessions|Pending
+report-meeting-summary|Pending
+report-my-courses|Pending
+report-my-events|Pending
+report-my-meetings|Pending
+report-my-training|Pending
+report-quiz-interactions|Pending
+report-quiz-question-answer-distribution|Pending
+report-quiz-question-distribution|Pending
+report-quiz-question-response|Pending
+report-quiz-summary|Pending
+report-quiz-takers|Pending
+report-quotas|Pending
+report-sco-slides|Pending
+report-sco-views|Pending
+report-user-training-transcripts|Pending
+report-user-trainings-taken|Pending
+revert-recording|Pending
+sco-by-url|Pending
+sco-contents|**Done**
+sco-delete|**Done**
+sco-expanded-contents|Pending
+sco-info|**Done**
+sco-move|**Done**
+sco-nav|Pending
+sco-search|Pending
+sco-search-by-field|Pending
+sco-session-seminar-list|Pending
+sco-shortcuts|Pending
+sco-update|**Done**
+sco-upload|**Done**
+seminar-session-sco-update|Pending
+telephony-profile-dial-in-number-update|Pending
+update-sco-url|Pending
+user-accounts|Pending
+user-transcript-update|Pending
+user-update-pwd|**Done**
 
 Additional actions to simplify access.
 
-- [x] listRecordings
-- [x] principalCreate
-- [x] scoCreate
+Action|Status
+------|------
+listRecordings|**Done**
+principalCreate|**Done**
+scoCreate|**Done**
 
 ***
 
