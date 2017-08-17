@@ -1,3 +1,8 @@
+---
+layout: default
+title: PHP Adobe Connect Client
+---
+
 # Client for Adobe Connect API v9.5.4
 
 This library offers a simple way to comunicate with Adobe Connect Web Service
