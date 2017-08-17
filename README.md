@@ -4,7 +4,7 @@ Not all actions are implemented, but many actions are in development and some ot
 
 ## Installation ##
 
-The package is available on [Packagist](https://packagist.org/packages/respect/relational). You can install it using [Composer](http://getcomposer.org/)
+The package is available on [Packagist](https://packagist.org/packages/brunogasparetto/adobe-connect-client). You can install it using [Composer](http://getcomposer.org/)
 
 ```bash
 $ composer require brunogasparetto/adobe-connect-client
