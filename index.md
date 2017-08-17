@@ -1,5 +1,6 @@
 ---
 title: PHP Adobe Connect Client
+layout: default
 ---
 
 # Client for Adobe Connect API v9.5.4
@@ -17,6 +18,7 @@ $ composer require brunogasparetto/adobe-connect-client
 ## Usage
 
 ```php
+<?php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
 
@@ -28,6 +30,7 @@ $commonInfo = $client->commonInfo();
 You can use filters and sorters in some actions.
 
 ```php
+<?php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\SCO;
@@ -55,6 +58,7 @@ The **AdobeConnectClient\Connection\Curl\Connection** class accept an array of o
 to configure the CURL.
 
 ```php
+<?php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
 
@@ -75,6 +79,7 @@ $commonInfo = $client->commonInfo();
 All Client actions are throwable.
 
 ```php
+<?php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
 use AdobeConnectClient\Exceptions\NoAccessException;
