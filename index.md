@@ -44,103 +44,103 @@ You can use filters and sorters in some actions.
 
 The Original Endpoints.
 
-- [ ] account-expiry-info
-- [ ] acl-field-info
-- [ ] acl-field-list
+- [] account-expiry-info
+- [] acl-field-info
+- [] acl-field-list
 - [x] acl-field-update
-- [ ] acl-preference-update
-- [ ] asset-interaction-delete
-- [ ] asset-interaction-response-update
-- [ ] asset-interactions-order-update
-- [ ] cancel-recording-job
+- [] acl-preference-update
+- [] asset-interaction-delete
+- [] asset-interaction-response-update
+- [] asset-interactions-order-update
+- [] cancel-recording-job
 - [x] common-info
-- [ ] concurrent-training-user-graph
-- [ ] curriculum-contents
-- [ ] custom-field-update
-- [ ] custom-fields
-- [ ] custom-fields-delete
-- [ ] event-guest-invite
-- [ ] event-notification-status-update
-- [ ] event-register
-- [ ] events-attendance
-- [ ] expiry-settings-info
-- [ ] expiry-settings-update
-- [ ] first-time-user-url
-- [ ] get-my-and-shared-events
-- [ ] get-recording-job
+- [] concurrent-training-user-graph
+- [] curriculum-contents
+- [] custom-field-update
+- [] custom-fields
+- [] custom-fields-delete
+- [] event-guest-invite
+- [] event-notification-status-update
+- [] event-register
+- [] events-attendance
+- [] expiry-settings-info
+- [] expiry-settings-update
+- [] first-time-user-url
+- [] get-my-and-shared-events
+- [] get-recording-job
 - [x] group-membership-update
-- [ ] learning-path-info
-- [ ] learning-path-update
-- [ ] limited-administrator-permissions-update
-- [ ] limited-administrator-permissionsinfo
+- [] learning-path-info
+- [] learning-path-update
+- [] limited-administrator-permissions-update
+- [] limited-administrator-permissionsinfo
 - [x] list-recordings
 - [x] login
 - [x] logout
-- [ ] meeting-disclaimer-info
-- [ ] meeting-disclaimer-update
+- [] meeting-disclaimer-info
+- [] meeting-disclaimer-update
 - [x] meeting-feature-update
-- [ ] notification-list
+- [] notification-list
 - [x] permissions-info
-- [ ] permissions-reset
+- [] permissions-reset
 - [x] permissions-update
 - [x] principal-info
 - [x] principal-list
-- [ ] principal-list-by-field
+- [] principal-list-by-field
 - [x] principal-update
 - [x] principals-delete
-- [ ] process-recording
-- [ ] quota-threshold-exceeded
-- [ ] quota-threshold-info
-- [ ] quota-threshold-update
-- [ ] report-active-meetings
-- [ ] report-asset-response-info
-- [ ] report-bulk-consolidated-transactions
-- [ ] report-bulk-objects
-- [ ] report-bulk-questions
-- [ ] report-bulk-slide-views
-- [ ] report-bulk-users
-- [ ] report-course-status
-- [ ] report-curriculum-taker
-- [ ] report-event-participants-complete-information
-- [ ] report-meeting-attendance
-- [ ] report-meeting-concurrent-users
-- [ ] report-meeting-session-users
-- [ ] report-meeting-sessions
-- [ ] report-meeting-summary
-- [ ] report-my-courses
-- [ ] report-my-events
-- [ ] report-my-meetings
-- [ ] report-my-training
-- [ ] report-quiz-interactions
-- [ ] report-quiz-question-answer-distribution
-- [ ] report-quiz-question-distribution
-- [ ] report-quiz-question-response
-- [ ] report-quiz-summary
-- [ ] report-quiz-takers
-- [ ] report-quotas
-- [ ] report-sco-slides
-- [ ] report-sco-views
-- [ ] report-user-training-transcripts
-- [ ] report-user-trainings-taken
-- [ ] revert-recording
-- [ ] sco-by-url
+- [] process-recording
+- [] quota-threshold-exceeded
+- [] quota-threshold-info
+- [] quota-threshold-update
+- [] report-active-meetings
+- [] report-asset-response-info
+- [] report-bulk-consolidated-transactions
+- [] report-bulk-objects
+- [] report-bulk-questions
+- [] report-bulk-slide-views
+- [] report-bulk-users
+- [] report-course-status
+- [] report-curriculum-taker
+- [] report-event-participants-complete-information
+- [] report-meeting-attendance
+- [] report-meeting-concurrent-users
+- [] report-meeting-session-users
+- [] report-meeting-sessions
+- [] report-meeting-summary
+- [] report-my-courses
+- [] report-my-events
+- [] report-my-meetings
+- [] report-my-training
+- [] report-quiz-interactions
+- [] report-quiz-question-answer-distribution
+- [] report-quiz-question-distribution
+- [] report-quiz-question-response
+- [] report-quiz-summary
+- [] report-quiz-takers
+- [] report-quotas
+- [] report-sco-slides
+- [] report-sco-views
+- [] report-user-training-transcripts
+- [] report-user-trainings-taken
+- [] revert-recording
+- [] sco-by-url
 - [x] sco-contents
 - [x] sco-delete
-- [ ] sco-expanded-contents
+- [] sco-expanded-contents
 - [x] sco-info
 - [x] sco-move
-- [ ] sco-nav
-- [ ] sco-search
-- [ ] sco-search-by-field
-- [ ] sco-session-seminar-list
-- [ ] sco-shortcuts
+- [] sco-nav
+- [] sco-search
+- [] sco-search-by-field
+- [] sco-session-seminar-list
+- [] sco-shortcuts
 - [x] sco-update
 - [x] sco-upload
-- [ ] seminar-session-sco-update
-- [ ] telephony-profile-dial-in-number-update
-- [ ] update-sco-url
-- [ ] user-accounts
-- [ ] user-transcript-update
+- [] seminar-session-sco-update
+- [] telephony-profile-dial-in-number-update
+- [] update-sco-url
+- [] user-accounts
+- [] user-transcript-update
 - [x] user-update-pwd
 
 Additional actions to simplify access.
