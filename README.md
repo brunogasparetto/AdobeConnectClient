@@ -71,4 +71,4 @@ $client->scoInfo(123);
 
 ***
 
-- [License](LICENSE.md)
+- [License](LICENSE)
