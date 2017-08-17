@@ -86,11 +86,6 @@ $sorter = Sorter::instance()
 $scos = $client->scoContents($folderId, $filter, $sorter);
 ```
 
-```php
-<?php
-
-```
-
 ***
 
 [Voltar](index)

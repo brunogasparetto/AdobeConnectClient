@@ -149,7 +149,7 @@ Additional actions to simplify access.
 
 Action|Status
 ------|------
-listRecordings|**Done**
+recordingPasscode|**Done**
 principalCreate|**Done**
 scoCreate|**Done**
 
