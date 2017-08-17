@@ -88,4 +88,4 @@ $scos = $client->scoContents($folderId, $filter, $sorter);
 
 ***
 
-[Back](/)
+[Back](site.url)
