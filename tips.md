@@ -62,3 +62,6 @@ $passcode = 'secretphrase';
 header("Location: {$host}{$recordingURL}?recording-passcode={$passcode}");
 ```
 
+***
+
+[Back to Index]({{site.github.url}})
