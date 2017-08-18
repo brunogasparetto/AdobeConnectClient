@@ -74,7 +74,13 @@ $sco = Permission::instance()
     ->setPermissionId(Permission::PRINCIPAL_HOST);
 ```
 
-## SCORecord ##
+***
+
+## Entities not arrayable ##
+
+These entities are only returned by the web service. 
+
+### SCORecord ###
 
 The SCO Record is a special SCO for a meeting recording and it is not send to service.
 
@@ -97,7 +103,7 @@ foreach ($scoRecords as $scoRecord) {
 }
 ```
 
-## CommonInfo ##
+### CommonInfo ###
 
 The CommonInfo is only to receive information about the server (the common-info endpoint).
 
