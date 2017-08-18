@@ -33,6 +33,7 @@ $commonInfo = $client->commonInfo();
 - [Client](client)
 - [Connection](connection)
 - [Entities](entities)
+- [Tips](tips)
 
 
 For more info see the [API Docs](apidocs)
