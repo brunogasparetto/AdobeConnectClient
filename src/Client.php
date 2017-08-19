@@ -4,7 +4,8 @@ namespace AdobeConnectClient;
 
 use ReflectionClass;
 use AdobeConnectClient\Connection\ConnectionInterface;
-use Connection\ResponseInterface;
+use AdobeConnect\Connection\ResponseInterface;
+use AdobeConnect\Helpers\StringCaseTransform as SCT;
 
 /**
  * The Client to Adobe Connect API
@@ -75,7 +76,7 @@ class Client
      */
     public function __call($commandName, array $arguments = [])
     {
-        $className = 'AdobeConnectClient\\Commands\\' . $commandName;
+        $className = 'AdobeConnectClient\\Commands\\' . SCT::toUpperCamelCase($commandName);
 
         if (!class_exists($className)) {
             throw new \BadMethodCallException(sprintf('"%s" is not defined as command', $commandName));
