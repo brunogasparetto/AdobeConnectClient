@@ -4,8 +4,8 @@ namespace AdobeConnectClient;
 
 use ReflectionClass;
 use AdobeConnectClient\Connection\ConnectionInterface;
-use AdobeConnect\Connection\ResponseInterface;
-use AdobeConnect\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Connection\ResponseInterface;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
  * The Client to Adobe Connect API
