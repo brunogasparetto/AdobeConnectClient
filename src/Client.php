@@ -33,7 +33,7 @@ use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
  * @method bool meetingFeatureUpdate(int $accountId, string $featureId, bool $enable) Set a feature
  * @method bool aclFieldUpdate(int $aclId, string $fieldId, mixed $value, Arrayable $extraParams = null) Updates the passed in Field for the specified ACL
  * @method bool recordingPasscode(int $scoId, string $passcode) Set the passcode on a Recording and turned into public
- * @method bool scoUpload(int $folderId, string $resourceName, resource|SplFileInfo $file) Uploads a file and then builds the file
+ * @method int|null scoUpload(int $folderId, string $resourceName, resource|SplFileInfo $file) Uploads a file and then builds the file
  */
 class Client
 {

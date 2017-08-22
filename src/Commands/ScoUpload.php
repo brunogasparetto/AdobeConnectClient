@@ -17,7 +17,12 @@ use AdobeConnectClient\Helpers\StatusValidate;
  *
  * @link https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html
  *
- * Important: the filename (filePath) needs the extension for Adobe Connect purpose.
+ * The filename (filePath) needs the extension for Adobe Connect purpose.
+ *
+ * The Adobe Connect API Documentation says to call the sco-info and analyse the status info
+ * to determine if upload is ready, but the sco-info does not inform the status attribute.
+ *
+ * So we analyse the files array wich is returned by the sco-upload, but this info is deprecated.
  */
 class ScoUpload extends Command
 {
@@ -48,10 +53,12 @@ class ScoUpload extends Command
     }
 
     /**
-     * @return bool
+     * @return int|null The Content SCO ID or null if fail
      */
     protected function process()
     {
+        $sco = $this->getSco();
+
         $response = Converter::convert(
             $this->client->doPost(
                 [
@@ -59,13 +66,13 @@ class ScoUpload extends Command
                 ],
                 [
                     'action' => 'sco-upload',
-                    'sco-id' => $this->getSco()->getScoId(),
+                    'sco-id' => $sco->getScoId(),
                     'session' => $this->client->getSession()
                 ]
             )
         );
         StatusValidate::validate($response['status']);
-        return true;
+        return empty($response['files']) ? null : $sco->getScoId();
     }
 
     /**
