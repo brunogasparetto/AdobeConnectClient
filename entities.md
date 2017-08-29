@@ -37,7 +37,7 @@ A Principal is user, group and others not objects.
 <?php
 use AdobeConnectClient\Principal;
 
-$sco = Principal::instance()
+$principal = Principal::instance()
     ->setType(Principal::TYPE_USER)
     ->setFirstName('Adobe')
     ->setLastName('Connect');
@@ -47,6 +47,10 @@ $sco = Principal::instance()
 
 The Permission normally involves a Principal and a SCO, but exists special permissions
 to applied only in a SCO.
+
+The Principal ID for a Permission can be the ID of a Principal or a special string from Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS constant.
+
+The Permission ID is one of the Permission::MEETING_* constants to the SCO (meeting) or Permission::PRINCIPAL_* constants for the Principal.
 
 Examples:
 
@@ -124,7 +128,7 @@ foreach ($scoRecords as $scoRecord) {
 
 ### CommonInfo
 
-The CommonInfo is only to receive information about the server (the common-info endpoint).
+The CommonInfo receive information about the server (the common-info endpoint).
 
 ```php
 <?php
