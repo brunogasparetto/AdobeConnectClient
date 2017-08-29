@@ -1,52 +1,37 @@
 ---
-title: Connection
 layout: default
+title: Connection
+permalink: /connection/
+order: 2
 ---
 
-# Connection #
+# Connection
 
-The Connection sends GET and POST requests to Adobe Connect Web Service.
+To access the Adobe Connect you can use any library wich implements the ConnectionInterface and returns a ResponseInterface.
 
-You can use any connection which implements the ConnectionInterface.
-
-## CurlConnection ##
-
-This package implements the Connection with CURL.
-
-The constructor accepts the server URL to access the Web Service and an array
-of options to configure the CURL.
+The package has one Connection class using CURL.
 
 ```php
 <?php
 use AdobeConnectClient\Connection\Curl\Connection;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
-
-// only for example
-
-$connection = new Connection(
-    'https://hostname.adobeconnect.com',
-    [
-        CURLOPT_SSL_VERIFYHOST => 0,
-        CURLOPT_SSL_VERIFYPEER  => 0,
-    ]
-);
 ```
 
-The Connection throws exceptions if URL is invalid or can't access the service.
+The CURL Connection accepts an array to config the CURL.
 
 ```php
 <?php
 use AdobeConnectClient\Connection\Curl\Connection;
 
-// throws InvalidArgumentException
-$connection = new Connection('invalid');
-
-// throws UnexpectedValueException if not access the service
-$connection->get(['action' => 'test']);
+$connection = new Connection(
+    'https://hostname.adobeconnect.com',
+    [
+        CURLOPT_CONNECTTIMEOUT => 0,
+        CURLOPT_TIMEOUT=> 300
+    ]
+);
 ```
+If the hostname is invalid it will throw an InvalidArgumentException.
 
-
-***
-
-[Back to Index]({{site.github.url}})
+If the server does not respond it will throw an UnexpectedValueException.

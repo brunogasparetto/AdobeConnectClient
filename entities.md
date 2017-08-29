@@ -1,14 +1,19 @@
 ---
-title: Entities
 layout: default
+title: Entities
+permalink: /entities/
+order: 4
 ---
 
-# API Entities #
+# The Entities
 
-The entities have get/set methods and all are arrayable with the toArray method,
-which returns an associative array formatted as the Adobe Connect Service needs.
+The package use two types of objects to send and receive info from Adobe Connect.
 
-## SCO ##
+## Entities to Send and Receive
+
+Entities are objects with get and set methods and all of them are Arrayable, returning an associative array formatted as the Adobe Connect API needs.
+
+### SCO
 
 All objects on Adobe Connect are SCO, Shareable Content Objects. These objects
 are encapsulate in SCO class entity.
@@ -24,9 +29,9 @@ $sco = SCO::instance()
     ->setFolderId(12345);
 ```
 
-## Principal ##
+### Principal
 
-A Principal is an user, group and others not objects.
+A Principal is user, group and others not objects.
 
 ```php
 <?php
@@ -38,7 +43,7 @@ $sco = Principal::instance()
     ->setLastName('Connect');
 ```
 
-## Permission ##
+### Permission
 
 The Permission normally involves a Principal and a SCO, but exists special permissions
 to applied only in a SCO.
@@ -49,40 +54,54 @@ Set a SCO Meeting to public access to anyone with the URL.
 
 ```php
 <?php
+use AdobeConnectClient\Connection\Curl\Connection;
+use AdobeConnectClient\Client;
 use AdobeConnectClient\Permission;
+
+$connection = new Connection('https://hostname.adobeconnect.com');
+$client =  new Client($connection);
+$client->login('username', 'password');
 
 $scoId = 12345;
 
-$sco = Permission::instance()
+$permission = Permission::instance()
     ->setAclId($scoId)
     ->setPrincipalId(Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS)
     ->setPermissionId(Permission::MEETING_ANYONE_WITH_URL);
+
+$client->permissionUpdate($permission);
 ```
 
 Set a User (Principal) as Host in a Meeting
 
 ```php
 <?php
+use AdobeConnectClient\Connection\Curl\Connection;
+use AdobeConnectClient\Client;
 use AdobeConnectClient\Permission;
+
+$connection = new Connection('https://hostname.adobeconnect.com');
+$client =  new Client($connection);
+$client->login('username', 'password');
 
 $scoId = 12345;
 $principalId = 987654;
 
-$sco = Permission::instance()
+$permission = Permission::instance()
     ->setAclId($scoId)
     ->setPrincipalId($principalId)
     ->setPermissionId(Permission::PRINCIPAL_HOST);
+
+$client->permissionUpdate($permission);
 ```
 
-***
+## Entities only to receive
 
-## Entities not arrayable ##
+These objects are only returned by the web service.
 
-These entities are only returned by the web service. 
+### SCORecord
 
-### SCORecord ###
-
-The SCO Record is a special SCO for a meeting recording and it is not send to service.
+The SCO Record is a special SCO for a meeting recording.
 
 ```php
 <?php
@@ -103,7 +122,7 @@ foreach ($scoRecords as $scoRecord) {
 }
 ```
 
-### CommonInfo ###
+### CommonInfo
 
 The CommonInfo is only to receive information about the server (the common-info endpoint).
 
@@ -118,7 +137,3 @@ $commonInfo = $client->commonInfo();
 
 echo $commonInfo->getVersion();
 ```
-
-***
-
-[Back to Index]({{site.github.url}})

@@ -1,6 +1,8 @@
 ---
-title: Tips
 layout: default
+title: Tips
+permalink: /tips/
+order: 6
 ---
 
 # Some Tips #
@@ -15,10 +17,10 @@ use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
 
 $host = 'https://hostname.adobeconnect.com';
-$scoURL = '/urltosco/';
+$scoURL = '/url_to_sco/';
 
 $connection = new Connection($host);
-$client =  new Client($connection);
+$client = new Client($connection);
 
 $client->login('username', 'password');
 $session = $client->getSession();
@@ -28,7 +30,7 @@ header("Location: {$host}{$scoURL}?session={$session}");
 
 ## Redirect a user to Private Meeting with Passcode ##
 
-To redirect a user to Private Meeting with Passcode the user needs be logged in the API 
+To redirect a user to Private Meeting with Passcode the user needs be logged in the API
 and so append the session and passcode in the URL.
 
 ```php
@@ -37,8 +39,8 @@ use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
 
 $host = 'https://hostname.adobeconnect.com';
-$scoURL = '/urltosco/';
-$passcode = 'secretphrase';
+$scoURL = '/url_to_sco/';
+$passcode = 'secret_phrase';
 
 $connection = new Connection($host);
 $client =  new Client($connection);
@@ -56,12 +58,8 @@ To redirect a user to Public Recording with Passcode append the passcode in the 
 ```php
 <?php
 $host = 'https://hostname.adobeconnect.com';
-$recordingURL = '/urltoscorecording/';
-$passcode = 'secretphrase';
+$recordingURL = '/url_to_sco_recording/';
+$passcode = 'secret_phrase';
 
 header("Location: {$host}{$recordingURL}?recording-passcode={$passcode}");
 ```
-
-***
-
-[Back to Index]({{site.github.url}})

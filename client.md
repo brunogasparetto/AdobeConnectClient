@@ -1,18 +1,17 @@
 ---
-title: The Client
 layout: default
+title: Client
+permalink: /client/
+order: 3
 ---
 
-# Client #
+# Client
 
-The Client class has all the actions (the endpoints) to Adobe Connect Web Service.
+The Client is responsible to load the action Command (all actions are Commands and represents an endpoint) and persist the session cookie.
 
-The action's name are the same as the endpoints from [Adobe Connect Web Service](https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html),
-but in camelCase instead of hyphen.
+To connect in Adobe Connect is necessary a ConnectionInterface object.
 
-Some actions are a sequence of endpoints, like the recordingPasscode action.
-
-All the actions methods can throw exceptions.
+**All actions can throw an Exception.**
 
 ```php
 <?php
@@ -21,71 +20,34 @@ use AdobeConnectClient\Client;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
 $client = new Client($connection);
-
-// NoAccessException if not logged in
-$sco = $client->scoInfo(12345);
+$client->login('username', 'password');
 ```
 
-Except for the commonInfo action all of them needs a logged user.
+Many actions throw the AdobeConnectClient\Exceptions\NoAccessException if is not logged.
+
+When the login action is called and a valid username and password are passed the Client set the session phrase. You can retrieve the session phrase to use it in other page script or to redirect the logged user to a meeting.
 
 ```php
 <?php
+// page1.php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
 $client = new Client($connection);
 
-// returns bool
 $client->login('username', 'password');
-
-// returns a SCO object if logged
-$sco = $client->scoInfo(12345);
-```
-
-You can get/set the session phrase when execute many actions in different calls.
-
-```php
-<?php
-use AdobeConnectClient\Connection\Curl\Connection;
-use AdobeConnectClient\Client;
-
-$connection = new Connection('https://hostname.adobeconnect.com');
-$client = new Client($connection);
-
-// returns bool
-$client->login('username', 'password');
-
 $sessionPhrase = $client->getSession();
+// persist the $sessionPhrase
 
-// In other script called
-$client->setSession($sessionPhrase);
-```
-
-You can use Filter and Sorter in some actions.
-
-```php
-<?php
+// page2.php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\Filter;
-use AdobeConnectClient\Sorter;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
 $client = new Client($connection);
 
-$folderId = 12345;
-
-$filter = Filter::instance()
-    ->like('name', 'Test')
-    ->dateAfter('dateBegin', new DateTimeImmutable());
-
-$sorter = Sorter::instance()
-    ->asc('dateBegin');
-
-$scos = $client->scoContents($folderId, $filter, $sorter);
+// retrieve the $sessionPhrase
+$client->setSession($sessionPhrase);
+$sco = $client->scoInfo(12345);
 ```
-
-***
-
-[Back to Index]({{site.github.url}})
