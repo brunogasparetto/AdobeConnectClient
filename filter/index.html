@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.3.0 -->
+<title>Filter/Sorter | Adobe Connect Client</title>
+<meta property="og:title" content="Filter/Sorter" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="PHP Library to use Adobe Connect API v9.5.4." />
+<meta property="og:description" content="PHP Library to use Adobe Connect API v9.5.4." />
+<link rel="canonical" href="http://localhost:4000/filter/" />
+<meta property="og:url" content="http://localhost:4000/filter/" />
+<meta property="og:site_name" content="Adobe Connect Client" />
+<script type="application/ld+json">
+{"name":null,"description":"PHP Library to use Adobe Connect API v9.5.4.","author":null,"@type":"WebPage","url":"http://localhost:4000/filter/","publisher":null,"image":null,"headline":"Filter/Sorter","dateModified":null,"datePublished":null,"sameAs":null,"mainEntityOfPage":null,"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <meta name="description" content="PHP Library to use Adobe Connect API v9.5.4."/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/assets/css/style.css?v=527efe25bf187d1644adba1c24d3cfb78ce61096">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Adobe Connect Client</h1>
+      <h2 class="project-tagline">PHP Library to use Adobe Connect API v9.5.4.</h2>
+      
+        <a href="http://github.com/brunogasparetto/AdobeConnectClient" class="btn">View on GitHub</a>
+      
+      
+    </section>
+
+    <section class="main-content">
+      <h1 id="filter">Filter</h1>
+
+<p>Some actions accept filtering the result and the Adobe Connect Docs recomends filtering
+to reduce the response size.</p>
+
+<p>The Filter use Influent Interface.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">AdobeConnectClient\Connection\Curl\Connection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AdobeConnectClient\Client</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AdobeConnectClient\Filter</span><span class="p">;</span>
+
+<span class="nv">$connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Connection</span><span class="p">(</span><span class="s1">'https://hostname.adobeconnect.com'</span><span class="p">);</span>
+<span class="nv">$client</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="nv">$connection</span><span class="p">);</span>
+
+<span class="nv">$folderId</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
+
+<span class="nv">$filter</span> <span class="o">=</span> <span class="nx">Filter</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">like</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Test'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">dateAfter</span><span class="p">(</span><span class="s1">'dateBegin'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">DateTimeImmutable</span><span class="p">());</span>
+
+<span class="nv">$scos</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">scoContents</span><span class="p">(</span><span class="nv">$folderId</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="sorter">Sorter</h1>
+
+<p>Some actions accpet sorter the result, but max two fields in a request.</p>
+
+<p>The Sorter use Influent Interface.</p>
+
+<div class="language-php highlighter-rouge"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">use</span> <span class="nx">AdobeConnectClient\Connection\Curl\Connection</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AdobeConnectClient\Client</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AdobeConnectClient\Filter</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">AdobeConnectClient\Sorter</span><span class="p">;</span>
+
+<span class="nv">$connection</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Connection</span><span class="p">(</span><span class="s1">'https://hostname.adobeconnect.com'</span><span class="p">);</span>
+<span class="nv">$client</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">Client</span><span class="p">(</span><span class="nv">$connection</span><span class="p">);</span>
+
+<span class="nv">$folderId</span> <span class="o">=</span> <span class="mi">12345</span><span class="p">;</span>
+
+<span class="nv">$filter</span> <span class="o">=</span> <span class="nx">Filter</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">like</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span> <span class="s1">'Test'</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">dateAfter</span><span class="p">(</span><span class="s1">'dateBegin'</span><span class="p">,</span> <span class="k">new</span> <span class="nx">DateTimeImmutable</span><span class="p">());</span>
+
+<span class="nv">$sorter</span> <span class="o">=</span> <span class="nx">Sorter</span><span class="o">::</span><span class="na">instance</span><span class="p">()</span>
+    <span class="o">-&gt;</span><span class="na">asc</span><span class="p">(</span><span class="s1">'dateBegin'</span><span class="p">);</span>
+
+<span class="nv">$scos</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">scoContents</span><span class="p">(</span><span class="nv">$folderId</span><span class="p">,</span> <span class="nv">$filter</span><span class="p">,</span> <span class="nv">$sorter</span><span class="p">);</span>
+</code></pre>
+</div>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="http://github.com/brunogasparetto/AdobeConnectClient">AdobeConnectClient</a> is maintained by <a href="http://github.com/brunogasparetto">brunogasparetto</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+
+    
+  </body>
+</html>
