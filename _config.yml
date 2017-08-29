@@ -16,8 +16,8 @@
 title: Adobe Connect Client
 email: brunogasparetto@gmail.com
 description: PHP Library to use Adobe Connect API v9.5.4.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://brunogasparetto.github.io/AdobeConnectClient" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "/AdobeConnectClient" # the subpath of your site, e.g. /blog
+url: "https://brunogasparetto.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 repository: brunogasparetto/AdobeConnectClient

@@ -316,3 +316,9 @@ a:hover { text-decoration: underline; }
 .site-footer-owner { display: block; font-weight: bold; }
 
 .site-footer-credits { color: #819198; }
+
+.menu { background-image: linear-gradient(120deg, #155799, #159957); margin: 0; padding: 10px 0; border-top: 1px solid #FFF; position: sticky; top: 0; }
+.menu ul { display: flex; list-style: none; margin: 0; padding: 0; }
+.menu li { flex-grow: 1; text-align: center; }
+.menu li.active a { color: #0FF; }
+.menu a { color: #FFF; }
