@@ -7,6 +7,7 @@
     <meta name="theme-color" content="#157878">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <title>{{ site.title | default: site.github.repository_name }}</title>
   </head>
   <body>
     <section class="page-header">
@@ -29,7 +30,7 @@
             <li {% if item.url == page.url %}class="active"{% endif %}><a href="{{ site.baseurl }}{{ item.url }}">{{ item.title }}</a></li>
           {% endif %}
         {% endfor %}
-            <li><a href="/apidocs/">API</a></li>
+            <li><a href="{{ site.baseurl }}/apidocs/">API</a></li>
       </ul>
     </nav>
 
