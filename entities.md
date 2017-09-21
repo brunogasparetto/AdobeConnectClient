@@ -32,7 +32,7 @@ $sco = SCO::instance()
 
 ### Principal
 
-A Principal is user, group and others not objects.
+A Principal is an user, group and others not objects.
 
 ```php
 <?php
@@ -53,7 +53,7 @@ The Principal ID for a Permission can be the ID of a Principal or a special stri
 
 The Permission ID is one of the Permission::MEETING_* constants to the SCO (meeting) or Permission::PRINCIPAL_* constants for the Principal.
 
-Examples:
+#### Examples:
 
 Set a SCO Meeting to public access to anyone with the URL.
 
