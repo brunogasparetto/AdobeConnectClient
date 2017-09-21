@@ -25,6 +25,7 @@ SCO normally are meetings, events, folders, contents etc.
 use AdobeConnectClient\SCO;
 
 $sco = SCO::instance()
+    ->setName('A new SCO')
     ->setType(SCO::TYPE_MEETING)
     ->setFolderId(12345);
 ```
