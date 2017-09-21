@@ -51,3 +51,30 @@ $client = new Client($connection);
 $client->setSession($sessionPhrase);
 $sco = $client->scoInfo(12345);
 ```
+
+The Adobe Connect Web Service use actions named update to create and update an item, but this package renamed the actions with **create** and **update**.
+
+```php
+<?php
+use AdobeConnectClient\Connection\Curl\Connection;
+use AdobeConnectClient\Client;
+use AdobeConnectClient\SCO;
+
+$connection = new Connection('https://hostname.adobeconnect.com');
+$client = new Client($connection);
+
+$client->login('username', 'password');
+
+$sco = SCO::instance()
+    ->setName('SCO New')
+    ->setType(SCO::TYPE_MEETING)
+    ->setFolderId(12345);
+
+// Call the sco-update action to create
+$newSCO = $client->scoCreate($sco);
+
+$newSCO->setName('SCO Updated');
+
+// Call the sco-update action to update
+$client->scoUpdate($sco);
+```
