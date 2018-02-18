@@ -19,7 +19,7 @@ class Response implements ResponseInterface
     protected $statusCode = 0;
 
     /**
-     * @var @var array An associative array
+     * @var array An associative array
      */
     protected $headers = [];
 
