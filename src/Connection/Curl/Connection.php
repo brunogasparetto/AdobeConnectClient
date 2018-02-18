@@ -20,7 +20,7 @@ class Connection implements ConnectionInterface
     /** @var string $host The host URL */
     protected $host = '';
 
-    /** @var string[] Simplify headers generation in cURL call */
+    /** @var array [string => string[]] Simplify headers generation in cURL call */
     protected $headers = [];
 
     /**
