@@ -3,7 +3,7 @@
 namespace AdobeConnectClient\Connection\Curl;
 
 use SplFileInfo;
-use CurlFile;
+use CURLFile;
 use InvalidArgumentException;
 use UnexpectedValueException;
 use AdobeConnectClient\Connection\ConnectionInterface;
@@ -131,7 +131,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Convert stream file and SplFileInfo in CurlFile.
+     * Convert stream file and SplFileInfo in CURLFile.
      *
      * @param array $params Associative array of parameters
      * @return array
@@ -144,7 +144,7 @@ class Connection implements ConnectionInterface
             if (empty($fileInfo)) {
                 continue;
             }
-            $params[$param] = new CurlFile($fileInfo['path'], $fileInfo['mime']);
+            $params[$param] = new CURLFile($fileInfo['path'], $fileInfo['mime']);
         }
         return $params;
     }
