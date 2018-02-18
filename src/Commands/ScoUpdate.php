@@ -14,7 +14,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
  */
 class ScoUpdate extends Command
 {
-    /** @var Arrayable */
+    /** @var array */
     protected $parameters;
 
     /**

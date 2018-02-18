@@ -16,7 +16,7 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  */
 class ScoCreate extends Command
 {
-    /** @var Arrayable */
+    /** @var array */
     protected $parameters;
 
     /**
