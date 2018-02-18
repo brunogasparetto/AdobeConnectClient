@@ -14,13 +14,19 @@ use AdobeConnectClient\Connection\ResponseInterface;
  */
 class Connection implements ConnectionInterface
 {
-    /** @var array Associative array of Options */
+    /**
+     * @var array Associative array of Options
+     */
     protected $config = [];
 
-    /** @var string $host The host URL */
+    /**
+     * @var string $host The host URL
+     */
     protected $host = '';
 
-    /** @var array [string => string[]] Simplify headers generation in cURL call */
+    /**
+     * @var array [string => string[]] Simplify headers generation in cURL call
+     */
     protected $headers = [];
 
     /**

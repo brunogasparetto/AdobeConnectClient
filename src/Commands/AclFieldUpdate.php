@@ -12,11 +12,13 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
 /**
  * Updates the passed in field-id for the specified SCO, Principal or Account.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/acl-field-update.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/acl-field-update.html}
  */
 class AclFieldUpdate extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
@@ -24,7 +26,7 @@ class AclFieldUpdate extends Command
      * @param int $aclId
      * @param string $fieldId
      * @param mixed $value
-     * @param Arrayable $extraParams
+     * @param Arrayable|null $extraParams
      */
     public function __construct($aclId, $fieldId, $value, Arrayable $extraParams = null)
     {
@@ -41,6 +43,8 @@ class AclFieldUpdate extends Command
     }
 
     /**
+     * Execute the command
+     *
      * @return bool
      */
     protected function process()

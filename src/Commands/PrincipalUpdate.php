@@ -10,11 +10,13 @@ use AdobeConnectClient\Helpers\StatusValidate;
 /**
  * Update a Principal.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html}
  */
 class PrincipalUpdate extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**

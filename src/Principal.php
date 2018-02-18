@@ -17,71 +17,85 @@ class Principal implements Arrayable
 {
     /**
      * The built-in group Administrators, for Adobe Connect server Administrators.
+     * @var string
      */
     const TYPE_ADMINS = 'admins';
 
     /**
      * The built-in group Authors, for authors.
+     * @var string
      */
     const TYPE_AUTHORS = 'authors';
 
     /**
      * The built-in group Training Managers, for training managers.
+     * @var string
      */
     const TYPE_COURSE_ADMINS = 'course-admins';
 
     /**
      * The built-in group Event Managers, for anyone who can create an Adobe Connect meeting.
+     * @var string
      */
     const TYPE_EVENT_ADMINS = 'event-admins';
 
     /**
      * The group of users invited to an event.
+     * @var string
      */
     const TYPE_EVENT_GROUP = 'event-group';
 
     /**
      * All Adobe Connect users.
+     * @var string
      */
     const TYPE_EVERYONE = 'everyone';
 
     /**
      * A group authenticated from an external network.
+     * @var string
      */
     const TYPE_EXTERNAL_GROUP = 'external-group';
 
     /**
      * A user authenticated from an external network.
+     * @var string
      */
     const TYPE_EXTERNAL_USER = 'external-user';
 
     /**
      * A group that a user or Administrator creates.
+     * @var string
      */
     const TYPE_GROUP = 'group';
 
     /**
      * A non-registered user who enters an Adobe Connect meeting room.
+     * @var string
      */
     const TYPE_GUEST = 'guest';
 
     /**
      * The built-in group learners, for users who take courses.
+     * @var string
      */
     const TYPE_LEARNERS = 'learners';
 
     /**
      * The built-in group Meeting Hosts, for Adobe Connect meeting hosts.
+     * @var string
      */
     const TYPE_LIVE_ADMINS = 'live-admins';
 
     /**
      * The built-in group Seminar Hosts, for seminar hosts.
+     * @var string
      */
     const TYPE_SEMINAR_ADMINS = 'seminar-admins';
 
     /**
      * A registered user on the server.
+     * @var string
      */
     const TYPE_USER = 'user';
 

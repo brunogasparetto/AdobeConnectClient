@@ -13,13 +13,19 @@ class Response implements ResponseInterface
 {
     use HttpReasonPhrase;
 
-    /** @var int The response status code */
+    /**
+     * @var int The response status code
+     */
     protected $statusCode = 0;
 
-    /** @var array An associative array */
+    /**
+     * @var @var array An associative array
+     */
     protected $headers = [];
 
-    /** @var StreamInterface The response body */
+    /**
+     * @var StreamInterface The response body
+     */
     protected $body = null;
 
     /**
@@ -115,6 +121,7 @@ class Response implements ResponseInterface
     /**
      * Normalize the string to compare with others strings
      *
+     * @param string $string
      * @return string
      */
     protected function normalizeString($string)

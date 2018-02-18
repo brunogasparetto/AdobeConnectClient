@@ -3,7 +3,6 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Exceptions\NoDataException;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -12,11 +11,13 @@ use AdobeConnectClient\Helpers\HeaderParse;
 /**
  * Call the Login action and save the session cookie.
  *
- * @link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/login.html
+ * More info see {@link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/login.html}
  */
 class Login extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
@@ -32,6 +33,9 @@ class Login extends Command
         ];
     }
 
+    /**
+     * @return bool
+     */
     protected function process()
     {
         $response = $this->client->doGet($this->parameters);

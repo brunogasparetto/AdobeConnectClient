@@ -6,12 +6,21 @@ use AdobeConnectClient\Command;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
+/**
+ * Move a SCO to other folder
+ *
+ * More Info see {@link https://helpx.adobe.com/adobe-connect/webservices/sco-move.html}
+ */
 class ScoMove extends Command
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $scoId;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $folderId;
 
     /**
@@ -24,6 +33,9 @@ class ScoMove extends Command
         $this->folderId = (int) $folderId;
     }
 
+/**
+ * @return bool
+ */
     protected function process()
     {
         $response = Converter::convert(

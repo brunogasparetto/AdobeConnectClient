@@ -9,13 +9,15 @@ use BadMethodCallException;
  * The Commands base class is an abstraction to Web Service actions
  *
  * Need set the Client dependency to execute the command.
- * @see https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html
+ * For a list of actions see {@link https://helpx.adobe.com/adobe-connect/webservices/topics/action-reference.html}
  *
  * @todo Create all items
  */
 abstract class Command
 {
-    /** @var Client */
+    /**
+     * @var Client
+     */
     protected $client;
 
     /**

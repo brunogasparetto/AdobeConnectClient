@@ -2,8 +2,6 @@
 
 namespace AdobeConnectClient;
 
-use DateTimeInterface;
-use DateTime;
 use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
 
@@ -12,7 +10,9 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  */
 class Parameter implements Arrayable
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters = [];
 
     /**

@@ -14,18 +14,20 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
  *
  * Use the filter to reduce excessive data returns.
  *
- * @link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sco-contents.html
+ * More info see {@link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/sco-contents.html}
  *
  */
 class ScoContents extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
      * @param int $scoId
-     * @param Arrayable $filter
-     * @param Arrayable $sorter
+     * @param Arrayable|null $filter
+     * @param Arrayable|null $sorter
      */
     public function __construct(
         $scoId,

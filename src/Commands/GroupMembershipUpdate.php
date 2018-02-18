@@ -10,11 +10,13 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
 /**
  * Adds one principal to a group, or removes one principal from a group.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/group-membership-update.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/group-membership-update.html}
  */
 class GroupMembershipUpdate extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**

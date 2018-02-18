@@ -15,7 +15,7 @@ use AdobeConnectClient\Helpers\StatusValidate;
  *
  * Create a new File SCO or update if exists in the folder (a SCO Meeting) and upload the file.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/sco-upload.html}
  *
  * The filename (filePath) needs the extension for Adobe Connect purpose.
  *
@@ -26,13 +26,19 @@ use AdobeConnectClient\Helpers\StatusValidate;
  */
 class ScoUpload extends Command
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $folderId;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $resourceName;
 
-    /** @var resource|SplFileInfo */
+    /**
+     * @var SplFileInfo|resource
+     */
     protected $file;
 
     /**

@@ -12,17 +12,19 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Get a list of principals who have permissions to act on a SCO, Principal or Account
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html}
  */
 class PermissionsInfo extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
      * @param int $aclId SCO ID, Principal ID or Account ID
-     * @param Arrayable $filter
-     * @param Arrayable $sorter
+     * @param Arrayable|null $filter
+     * @param Arrayable|null $sorter
      */
     public function __construct(
         $aclId,

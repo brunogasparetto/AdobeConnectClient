@@ -4,7 +4,7 @@ namespace AdobeConnectClient\Helpers;
 /**
  * Parses a Header
  *
- * @link https://github.com/guzzle/psr7
+ * See {@link https://github.com/guzzle/psr7}
  */
 abstract class HeaderParse
 {

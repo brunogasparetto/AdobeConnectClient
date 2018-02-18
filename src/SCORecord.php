@@ -11,64 +11,104 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  */
 class SCORecord
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $scoId = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $sourceScoId = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $folderId = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $type = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $icon = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $displaySeq = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $jobId = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $accountId = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $jobStatus = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $encoderServiceJobProgress = null;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     protected $isFolder = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $noOfDownloads = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $name = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $urlPath = null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateBegin = null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateEnd= null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateCreated= null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateModified= null;
 
-    /** @var DateInterval */
+    /**
+     * @var DateInterval
+     */
     protected $duration = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $filename = null;
 
     /**

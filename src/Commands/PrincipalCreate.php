@@ -12,11 +12,13 @@ use AdobeConnectClient\Principal;
 /**
  * Create a Principal.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/principal-update.html}
  */
 class PrincipalCreate extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
