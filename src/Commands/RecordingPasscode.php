@@ -14,10 +14,14 @@ use AdobeConnectClient\Parameter;
  */
 class RecordingPasscode extends Command
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $scoId;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $passcode;
 
     /**

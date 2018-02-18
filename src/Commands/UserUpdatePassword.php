@@ -3,18 +3,19 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Client;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
 /**
  * Changes user’s password.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/user-update-pwd.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/user-update-pwd.html}
  */
 class UserUpdatePassword extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**

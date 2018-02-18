@@ -11,11 +11,13 @@ use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 /**
  * Set a feature
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/meeting-feature-update.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/meeting-feature-update.html}
  */
 class MeetingFeatureUpdate extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
@@ -40,6 +42,9 @@ class MeetingFeatureUpdate extends Command
         $this->parameters['feature-id'] = $featureId;
     }
 
+    /**
+     * @return bool
+     */
     protected function process()
     {
         $response = Converter::convert(

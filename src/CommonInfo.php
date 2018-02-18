@@ -9,39 +9,56 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  */
 class CommonInfo
 {
-    /** @var string */
+    /**
+     *  @var string
+     */
     protected $locale = null;
 
     /**
-     * Time Zone ID list in
-     * {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
+     * Time Zone ID list in {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
      *
      * @var int
      */
     protected $timeZoneId = null;
 
-    /** @var string */
+    /**
+     *  @var string
+     */
     protected $cookie = null;
 
-    /** @var \DateTimeImmutable */
+    /**
+     * @var \DateTimeImmutable
+     */
     protected $date = null;
 
-    /** @var string */
+    /**
+     *  @var string
+     */
     protected $host = null;
 
-    /** @var string */
+    /**
+     *  @var string
+     */
     protected $localHost = null;
 
-    /** @var string */
+    /**
+     *  @var string
+     */
     protected $adminHost = null;
 
-    /** @var string */
+    /**
+     *  @var string
+     */
     protected $url = null;
 
-    /** @var string */
+    /**
+     *  @var string
+     */
     protected $version = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $accountId = null;
 
     /**

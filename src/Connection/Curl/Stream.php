@@ -9,7 +9,9 @@ use AdobeConnectClient\Connection\StreamInterface;
  */
 class Stream implements StreamInterface
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $content = '';
 
     /**

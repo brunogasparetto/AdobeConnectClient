@@ -7,10 +7,13 @@ use AdobeConnectClient\Command;
 /**
  * Ends the session
  *
- * @link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/logout.html
+ * More info see {@link https://helpx.adobe.com/content/help/en/adobe-connect/webservices/logout.html}
  */
 class Logout extends Command
 {
+    /**
+     * @return bool
+     */
     protected function process()
     {
         $this->client->doGet([

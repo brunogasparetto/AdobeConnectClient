@@ -12,10 +12,13 @@ use AdobeConnectClient\CommonInfo as CommonInfoEntity;
 /**
  * Gets the common info
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/common-info.html#common_info
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/common-info.html#common_info}
  */
 class CommonInfo extends Command
 {
+    /**
+     * @var string
+     */
     protected $domain = '';
 
     /**

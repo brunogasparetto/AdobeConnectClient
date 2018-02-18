@@ -39,7 +39,7 @@ class Filter implements Arrayable
      * Returns if exactly matches.
      *
      * @param string $field The Field in camelCase
-     * @param string $value The Value to compare
+     * @param mixed $value The Value to compare
      * @return Filter Fluent Interface
      */
     public function equals($field, $value)
@@ -52,7 +52,7 @@ class Filter implements Arrayable
      * Returns even if is not an exact match.
      *
      * @param string $field The Field in camelCase
-     * @param string $value The Value to compare
+     * @param mixed $value The Value to compare
      * @return Filter Fluent Interface
      */
     public function like($field, $value)
@@ -65,7 +65,7 @@ class Filter implements Arrayable
      * Filters out or excludes.
      *
      * @param string $field The Field in camelCase
-     * @param string $value The Value to compare
+     * @param mixed $value The Value to compare
      * @return Filter Fluent Interface
      */
     public function out($field, $value)
@@ -137,7 +137,7 @@ class Filter implements Arrayable
     /**
      * Selects all principals that are members of a group, specified in a separate parameter.
      *
-     * @param bool $value The value to compare
+     * @param mixed $value The value to compare
      * @return Filter Fluent Interface
      */
     public function isMember($value)
@@ -183,7 +183,7 @@ class Filter implements Arrayable
      *
      * @param string $operator
      * @param string $field
-     * @param string $value
+     * @param mixed $value
      */
     protected function setFilter($operator, $field, $value)
     {

@@ -19,43 +19,51 @@ class SCO implements Arrayable
     /**
      * A viewable file uploaded to the server.
      * For example, an FLV file, an HTML file, an image, a pod, and so on.
+     * @var string
      */
     const TYPE_CONTENT = 'content';
 
     /**
      * A curriculum.
+     * @var string
      */
     const TYPE_CURRICULUM = 'curriculum';
 
     /**
      * An event.
+     * @var string
      */
     const TYPE_EVENT = 'event';
 
     /**
      * A folder on the server’s hard disk that contains content.
+     * @var string
      */
     const TYPE_FOLDER = 'folder';
 
     /**
      * A reference to another SCO. These links are used by curriculums to link to other SCOs.
      * When content is added to a curriculum, a link is created from the curriculum to the content.
+     * @var string
      */
     const TYPE_LINK = 'link';
 
     /**
      * An Adobe Connect meeting.
+     * @var string
      */
     const TYPE_MEETING = 'meeting';
 
     /**
      * One occurrence of a recurring Adobe Connect meeting.
+     * @var string
      */
     const TYPE_SESSION = 'session';
 
     /**
      * The root of a folder hierarchy. A tree’s root is treated as an independent hierarchy;
      * you can’t determine the parent folder of a tree from inside the tree.
+     * @var string
      */
     const TYPE_TREE = 'tree';
 
@@ -64,61 +72,99 @@ class SCO implements Arrayable
      */
     protected $accountId = null;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     protected $disabled = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $displaySeq = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $folderId = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $icon = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $lang = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $maxRetries = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $scoId = null;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $sourceScoId = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $type = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $version = null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateCreated = null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateModified = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $description = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $name = null;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $urlPath = null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateBegin = null;
 
-    /** @var DateTimeImmutable */
+    /**
+     * @var DateTimeImmutable
+     */
     protected $dateEnd = null;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     protected $meetingPodsLayoutsLocked = null;
 
-    /** @var bool */
+    /**
+     * @var bool
+     */
     protected $updateLinkedItem = null;
 
     /**
@@ -334,6 +380,7 @@ class SCO implements Arrayable
     /**
      * Set the Account ID
      *
+     * @param int $accountId The account ID
      * @return SCO Fluent Interface
      */
     public function setAccountId($accountId)

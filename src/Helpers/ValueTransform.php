@@ -53,16 +53,30 @@ abstract class ValueTransform
         return new DateTimeImmutable((string) $value);
     }
 
-    public static function toBoolean($str)
+    /**
+     * Transform the value into a boolean type.
+     *
+     * @param  mixed $value The value to transform
+     * @return bool
+     */
+    public static function toBoolean($value)
     {
-        $str = mb_strtolower($str);
-
-        if ($str === 'false' or $str === 'off') {
-            return false;
-        } elseif ($str === 'true' or $str === 'on') {
-            return true;
-        } else {
-            return boolval($str);
+        if (!is_string($value)) {
+            return boolval($value);
         }
+
+        $value = mb_strtolower($value);
+
+        return $value === 'true' or $value === 'on'
+            ? true
+            : false;
+
+        if ($value === 'false' or $value === 'off') {
+            return false;
+        } elseif ($value === 'true' or $value === 'on') {
+            return true;
+        }
+
+        return false;
     }
 }

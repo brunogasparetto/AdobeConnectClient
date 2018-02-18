@@ -37,10 +37,14 @@ use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
  */
 class Client
 {
-    /** @var ConnectionInterface */
+    /**
+     * @var ConnectionInterface
+     */
     protected $connection;
 
-    /** @var string The Session Cookie */
+    /**
+     * @var string The Session Cookie
+     */
     protected $sessionCookie = '';
 
     /**

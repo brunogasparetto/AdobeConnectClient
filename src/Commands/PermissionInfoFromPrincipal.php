@@ -11,14 +11,18 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Get the Principal's permission in a SCO, Principal or Account
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/permissions-info.html}
  */
 class PermissionInfoFromPrincipal extends Command
 {
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $aclId;
 
-    /** @var int */
+    /**
+     * @var int
+     */
     protected $principalId;
 
     /**

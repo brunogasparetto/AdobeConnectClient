@@ -12,17 +12,19 @@ use AdobeConnectClient\Principal;
 /**
  * Provides a complete list of users and groups, including primary groups.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/principal-list.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/principal-list.html}
  */
 class PrincipalList extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
      * @param int $groupId The ID of a group. Same as the principal-id of a principal that has a type value of group.
-     * @param Arrayable $filter
-     * @param Arrayable $sorter
+     * @param Arrayable|null $filter
+     * @param Arrayable|null $sorter
      */
     public function __construct(
         $groupId = 0,

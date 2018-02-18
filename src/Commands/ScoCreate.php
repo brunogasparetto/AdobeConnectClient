@@ -12,11 +12,13 @@ use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 /**
  * Create a SCO.
  *
- * @link https://helpx.adobe.com/adobe-connect/webservices/sco-update.html
+ * More info see {@link https://helpx.adobe.com/adobe-connect/webservices/sco-update.html}
  */
 class ScoCreate extends Command
 {
-    /** @var array */
+    /**
+     * @var array
+     */
     protected $parameters;
 
     /**
