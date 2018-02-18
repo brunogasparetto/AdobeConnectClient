@@ -41,7 +41,7 @@ class SCORecord
     /** @var int */
     protected $encoderServiceJobProgress = null;
 
-    /** @var boolean */
+    /** @var bool */
     protected $isFolder = null;
 
     /** @var int */
@@ -173,7 +173,7 @@ class SCORecord
     /**
      * Indicates if is a Folder
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsFolder()
     {
@@ -393,7 +393,7 @@ class SCORecord
     /**
      * Set if is Folder
      *
-     * @param boolean $isFolder
+     * @param bool $isFolder
      * @return SCORecord Fluent Interface
      */
     public function setIsFolder($isFolder)

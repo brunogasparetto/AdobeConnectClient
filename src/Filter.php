@@ -103,7 +103,7 @@ class Filter implements Arrayable
      *
      * @param string $dateField The Date Field in camelCase
      * @param \DateTimeInterface $date The value to compare
-     * @param boolean $inclusive Filter inclusive the date
+     * @param bool $inclusive Filter inclusive the date
      * @return Filter Fluent Interface
      */
     public function dateAfter($dateField, DateTimeInterface $date, $inclusive = true)
@@ -121,7 +121,7 @@ class Filter implements Arrayable
      *
      * @param string $dateField The Date Field in camelCase
      * @param \DateTimeInterface $date The value to compare
-     * @param boolean $inclusive Filter inclusive the date
+     * @param bool $inclusive Filter inclusive the date
      * @return Filter Fluent Interface
      */
     public function dateBefore($dateField, DateTimeInterface $date, $inclusive = true)
@@ -137,7 +137,7 @@ class Filter implements Arrayable
     /**
      * Selects all principals that are members of a group, specified in a separate parameter.
      *
-     * @param boolean $value The value to compare
+     * @param bool $value The value to compare
      * @return Filter Fluent Interface
      */
     public function isMember($value)

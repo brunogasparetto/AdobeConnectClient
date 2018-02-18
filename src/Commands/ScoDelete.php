@@ -26,7 +26,7 @@ class ScoDelete extends Command
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     protected function process()
     {

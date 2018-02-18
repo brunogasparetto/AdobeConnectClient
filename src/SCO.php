@@ -64,7 +64,7 @@ class SCO implements Arrayable
      */
     protected $accountId = null;
 
-    /** @var boolean */
+    /** @var bool */
     protected $disabled = null;
 
     /** @var int */
@@ -115,10 +115,10 @@ class SCO implements Arrayable
     /** @var DateTimeImmutable */
     protected $dateEnd = null;
 
-    /** @var boolean */
+    /** @var bool */
     protected $meetingPodsLayoutsLocked = null;
 
-    /** @var boolean */
+    /** @var bool */
     protected $updateLinkedItem = null;
 
     /**
@@ -144,7 +144,7 @@ class SCO implements Arrayable
     /**
      * Get the  disabled indicator
      *
-     * @return boolean
+     * @return bool
      */
     public function getDisabled()
     {
@@ -314,7 +314,7 @@ class SCO implements Arrayable
     /**
      * Get the Pod layout locked status
      *
-     * @return boolean
+     * @return bool
      */
     public function getMeetingPodsLayoutsLocked()
     {
@@ -324,7 +324,7 @@ class SCO implements Arrayable
     /**
      * Get the linked item update status
      *
-     * @return boolean
+     * @return bool
      */
     public function getUpdateLinkedItem()
     {
@@ -345,7 +345,7 @@ class SCO implements Arrayable
     /**
      * Set the disabled status
      *
-     * @param boolean $disabled
+     * @param bool $disabled
      * @return SCO Fluent Interface
      */
     public function setDisabled($disabled)
@@ -564,7 +564,7 @@ class SCO implements Arrayable
     /**
      * Set the Pods Layout locked status
      *
-     * @param boolean $meetingPodsLayoutsLocked
+     * @param bool $meetingPodsLayoutsLocked
      * @return SCO Fluent Interface
      */
     public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
@@ -576,7 +576,7 @@ class SCO implements Arrayable
     /**
      * Set the linked item status
      *
-     * @param boolean $updateLinkedItem
+     * @param bool $updateLinkedItem
      * @return SCO Fluent Interface
      */
     public function setUpdateLinkedItem($updateLinkedItem)
