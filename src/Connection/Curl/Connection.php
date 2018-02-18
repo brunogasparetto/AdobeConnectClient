@@ -155,7 +155,7 @@ class Connection implements ConnectionInterface
      * If it's a stream file or \SplFileInfo returns an object with path and mime.
      *
      * @param resource|SplFileInfo $item A stream file or SplFileInfo object
-     * @return stdClass|null Returns null if it's not a valid stream file or SplFileInfo
+     * @return array|null Returns null if it's not a valid stream file or SplFileInfo
      */
     protected function fileInfo($item)
     {
