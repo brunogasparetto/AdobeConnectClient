@@ -2,6 +2,8 @@
 
 namespace AdobeConnectClient;
 
+use AdobeConnectClient\Helpers\ValueTransform as VT;
+
 /**
  * Result for Common Info Action
  */
@@ -181,12 +183,12 @@ class CommonInfo
     /**
      * Set the Date
      *
-     * @param \DateTimeImmutable|string $date
+     * @param \DateTimeInterface|string $date
      * @return CommonInfo Fluent Interface
      */
     public function setDate($date)
     {
-        $this->date = $date instanceof \DateTime ? $date : new \DateTimeImmutable($date);
+        $this->date = VT::toDateTimeImmutable($date);
         return $this;
     }
 

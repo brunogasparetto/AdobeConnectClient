@@ -2,6 +2,7 @@
 
 namespace AdobeConnectClient;
 
+use DateTimeInterface;
 use DateTimeImmutable;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
 
@@ -479,40 +480,24 @@ class SCO implements Arrayable
     /**
      * Set the Created Date
      *
-     * @param string|DateTimeImmutable $dateCreated
+     * @param DateTimeInterface|string $dateCreated
      * @return SCO Fluent Interface
      */
     public function setDateCreated($dateCreated)
     {
-        if (is_string($dateCreated)) {
-            $this->dateCreated = new DateTimeImmutable($dateCreated);
-        } elseif ($dateCreated instanceof DateTimeImmutable) {
-            $this->dateCreated = $dateCreated;
-        } else {
-            throw new \InvalidArgumentException(
-                'Date Created must be a valid date string or a DateTimeImmutable object'
-            );
-        }
+        $this->dateCreated = VT::toDateTimeImmutable($dateCreated);
         return $this;
     }
 
     /**
      * Set the Modified Date
      *
-     * @param string|DateTimeImmutable $dateModified
+     * @param DateTimeInterface|string $dateModified
      * @return SCO Fluent Interface
      */
     public function setDateModified($dateModified)
     {
-        if (is_string($dateModified)) {
-            $this->dateModified = new DateTimeImmutable($dateModified);
-        } elseif ($dateModified instanceof DateTimeImmutable) {
-            $this->dateModified = $dateModified;
-        } else {
-            throw new \InvalidArgumentException(
-                'Date Modified must be a valid date string or a DateTimeImmutable object'
-            );
-        }
+        $this->dateModified = VT::toDateTimeImmutable($dateModified);
         return $this;
     }
 
@@ -555,36 +540,24 @@ class SCO implements Arrayable
     /**
      * Set the time Meeting begin
      *
-     * @param string|DateTimeImmutable $dateBegin
+     * @param DateTimeInterface|string $dateBegin
      * @return SCO Fluent Interface
      */
     public function setDateBegin($dateBegin)
     {
-        if (is_string($dateBegin)) {
-            $this->dateBegin = new DateTimeImmutable($dateBegin);
-        } elseif ($dateBegin instanceof DateTimeImmutable) {
-            $this->dateBegin = $dateBegin;
-        } else {
-            throw new \InvalidArgumentException('Date Begin must be a valid date string or a DateTimeImmutable object');
-        }
+        $this->dateBegin = VT::toDateTimeImmutable($dateBegin);
         return $this;
     }
 
     /**
      * Set the time Meeting end
      *
-     * @param string|DateTimeImmutable $dateEnd
+     * @param DateTimeInterface|string $dateEnd
      * @return SCO Fluent Interface
      */
     public function setDateEnd($dateEnd)
     {
-        if (is_string($dateEnd)) {
-            $this->dateEnd = new DateTimeImmutable($dateEnd);
-        } elseif ($dateEnd instanceof DateTimeImmutable) {
-            $this->dateEnd = $dateEnd;
-        } else {
-            throw new \InvalidArgumentException('Date End must be a valid date string or a DateTimeImmutable object');
-        }
+        $this->dateEnd = VT::toDateTimeImmutable($dateEnd);
         return $this;
     }
 
