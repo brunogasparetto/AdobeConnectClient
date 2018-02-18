@@ -5,7 +5,7 @@ namespace AdobeConnectClient\Commands;
 use AdobeConnectClient\Command;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\BooleanTransform as BT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
@@ -28,7 +28,7 @@ class MeetingFeatureUpdate extends Command
         $this->parameters = [
             'action' => 'meeting-feature-update',
             'account-id' => (int) $accountId,
-            'enable' => BT::toString($enable),
+            'enable' => VT::toString($enable),
         ];
 
         $featureId = SCT::toHyphen($featureId);
