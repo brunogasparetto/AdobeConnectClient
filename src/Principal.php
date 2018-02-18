@@ -191,7 +191,7 @@ class Principal implements Arrayable
 
     /**
      * Only on create a User
-     * @var string
+     * @var bool
      */
     protected $sendEmail = null;
 
