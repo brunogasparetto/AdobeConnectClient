@@ -2,11 +2,11 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Command;
-use AdobeConnectClient\SCORecord;
-use AdobeConnectClient\Converter\Converter;
-use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use \AdobeConnectClient\Command;
+use \AdobeConnectClient\Entities\SCORecord;
+use \AdobeConnectClient\Converter\Converter;
+use \AdobeConnectClient\Helpers\StatusValidate;
+use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 
 /**
  * Provides a list of recordings (FLV and MP4) for a specified folder or SCO

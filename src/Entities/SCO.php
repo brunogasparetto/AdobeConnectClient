@@ -1,10 +1,12 @@
 <?php
 
-namespace AdobeConnectClient;
+namespace AdobeConnectClient\Entities;
 
-use DateTimeInterface;
-use DateTimeImmutable;
-use AdobeConnectClient\Helpers\ValueTransform as VT;
+use \DateTimeInterface;
+use \DateTimeImmutable;
+use \AdobeConnectClient\ArrayableInterface;
+use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use \AdobeConnectClient\Traits\Arrayable as ArrayableTrait;
 
 /**
  * Adobe Connect SCO
@@ -14,7 +16,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  */
 class SCO implements ArrayableInterface
 {
-    use Traits\Arrayable;
+    use ArrayableTrait;
 
     /**
      * A viewable file uploaded to the server.
@@ -381,7 +383,7 @@ class SCO implements ArrayableInterface
      * Set the Account ID
      *
      * @param int $accountId The account ID
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setAccountId($accountId)
     {
@@ -393,7 +395,7 @@ class SCO implements ArrayableInterface
      * Set the disabled status
      *
      * @param bool $disabled
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setDisabled($disabled)
     {
@@ -405,7 +407,7 @@ class SCO implements ArrayableInterface
      * Set the Display Sequence
      *
      * @param int $displaySeq
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setDisplaySeq($displaySeq)
     {
@@ -417,7 +419,7 @@ class SCO implements ArrayableInterface
      * Set the Folder ID
      *
      * @param int $folderId
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setFolderId($folderId)
     {
@@ -429,7 +431,7 @@ class SCO implements ArrayableInterface
      * Set the Icon
      *
      * @param string $icon
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setIcon($icon)
     {
@@ -441,7 +443,7 @@ class SCO implements ArrayableInterface
      * Set the Language
      *
      * @param string $lang
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setLang($lang)
     {
@@ -453,7 +455,7 @@ class SCO implements ArrayableInterface
      * Set the Max retries
      *
      * @param int $maxRetries
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setMaxRetries($maxRetries)
     {
@@ -465,7 +467,7 @@ class SCO implements ArrayableInterface
      * Set the SCO ID
      *
      * @param int $scoId
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setScoId($scoId)
     {
@@ -476,7 +478,7 @@ class SCO implements ArrayableInterface
     /**
      * Set the Source ID
      * @param int $sourceScoId
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setSourceScoId($sourceScoId)
     {
@@ -488,7 +490,7 @@ class SCO implements ArrayableInterface
      * Set the Type
      *
      * @param string $type
-     * @return SCO Fluent Interface
+     * @return SCO
      * @throws \DomainException
      */
     public function setType($type)
@@ -516,7 +518,7 @@ class SCO implements ArrayableInterface
      * Set the Version
      *
      * @param string $version
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setVersion($version)
     {
@@ -528,7 +530,7 @@ class SCO implements ArrayableInterface
      * Set the Created Date
      *
      * @param DateTimeInterface|string $dateCreated
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setDateCreated($dateCreated)
     {
@@ -540,7 +542,7 @@ class SCO implements ArrayableInterface
      * Set the Modified Date
      *
      * @param DateTimeInterface|string $dateModified
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setDateModified($dateModified)
     {
@@ -552,7 +554,7 @@ class SCO implements ArrayableInterface
      * Set the Description
      *
      * @param string $description
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setDescription($description)
     {
@@ -564,7 +566,7 @@ class SCO implements ArrayableInterface
      * Set the Name
      *
      * @param string $name
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setName($name)
     {
@@ -576,7 +578,7 @@ class SCO implements ArrayableInterface
      * Set the URL
      *
      * @param string $urlPath
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setUrlPath($urlPath)
     {
@@ -588,7 +590,7 @@ class SCO implements ArrayableInterface
      * Set the time Meeting begin
      *
      * @param DateTimeInterface|string $dateBegin
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setDateBegin($dateBegin)
     {
@@ -600,7 +602,7 @@ class SCO implements ArrayableInterface
      * Set the time Meeting end
      *
      * @param DateTimeInterface|string $dateEnd
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setDateEnd($dateEnd)
     {
@@ -612,7 +614,7 @@ class SCO implements ArrayableInterface
      * Set the Pods Layout locked status
      *
      * @param bool $meetingPodsLayoutsLocked
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
     {
@@ -624,7 +626,7 @@ class SCO implements ArrayableInterface
      * Set the linked item status
      *
      * @param bool $updateLinkedItem
-     * @return SCO Fluent Interface
+     * @return SCO
      */
     public function setUpdateLinkedItem($updateLinkedItem)
     {

@@ -1,10 +1,10 @@
 <?php
 
-namespace AdobeConnectClient;
+namespace AdobeConnectClient\Entities;
 
-use DateTimeImmutable;
-use DateInterval;
-use AdobeConnectClient\Helpers\ValueTransform as VT;
+use \DateTimeImmutable;
+use \DateInterval;
+use \AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * The recording archive from a SCO
@@ -314,7 +314,7 @@ class SCORecord
      * Set the SCO ID
      *
      * @param int $scoId
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setScoId($scoId)
     {
@@ -326,7 +326,7 @@ class SCORecord
      * Set the Source ID
      *
      * @param int $sourceScoId
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setSourceScoId($sourceScoId)
     {
@@ -338,7 +338,7 @@ class SCORecord
      * Set the Folder ID
      *
      * @param int $folderId
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setFolderId($folderId)
     {
@@ -350,7 +350,7 @@ class SCORecord
      * Set the Type
      *
      * @param string $type
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setType($type)
     {
@@ -362,7 +362,7 @@ class SCORecord
      * Set the Icon
      *
      * @param string $icon
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setIcon($icon)
     {
@@ -374,7 +374,7 @@ class SCORecord
      * Set the Display sequence
      *
      * @param int $displaySeq
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setDisplaySeq($displaySeq)
     {
@@ -386,7 +386,7 @@ class SCORecord
      * Set the Job ID
      *
      * @param int $jobId
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setJobId($jobId)
     {
@@ -398,7 +398,7 @@ class SCORecord
      * Set the Account ID
      *
      * @param int $accountId
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setAccountId($accountId)
     {
@@ -410,7 +410,7 @@ class SCORecord
      * Set the Job Status
      *
      * @param string $jobStatus
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setJobStatus($jobStatus)
     {
@@ -422,7 +422,7 @@ class SCORecord
      * Set the Encoder Service Progress
      *
      * @param int $encoderServiceJobProgress
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setEncoderServiceJobProgress($encoderServiceJobProgress)
     {
@@ -434,7 +434,7 @@ class SCORecord
      * Set if is Folder
      *
      * @param bool $isFolder
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setIsFolder($isFolder)
     {
@@ -446,7 +446,7 @@ class SCORecord
      * Set the Number of Downloads
      *
      * @param int $noOfDownloads
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setNoOfDownloads($noOfDownloads)
     {
@@ -458,7 +458,7 @@ class SCORecord
      * Set the Name
      *
      * @param string $name
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setName($name)
     {
@@ -470,7 +470,7 @@ class SCORecord
      * Set the URL
      *
      * @param string $urlPath
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setUrlPath($urlPath)
     {
@@ -482,7 +482,7 @@ class SCORecord
      * Set the Begin date
      *
      * @param string|DateTimeImmutable $dateBegin
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setDateBegin($dateBegin)
     {
@@ -494,7 +494,7 @@ class SCORecord
      * Set the End date
      *
      * @param string|DateTimeImmutable $dateEnd
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setDateEnd($dateEnd)
     {
@@ -506,7 +506,7 @@ class SCORecord
      * Set the Created date
      *
      * @param string|DateTimeImmutable $dateCreated
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setDateCreated($dateCreated)
     {
@@ -518,7 +518,7 @@ class SCORecord
      * Set the Modified date
      *
      * @param string|DateTimeImmutable $dateModified
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setDateModified($dateModified)
     {
@@ -530,7 +530,7 @@ class SCORecord
      * Set the Duration
      *
      * @param DateInterval|string $duration
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setDuration($duration)
     {
@@ -545,7 +545,7 @@ class SCORecord
      * Set the File name
      *
      * @param string $filename
-     * @return SCORecord Fluent Interface
+     * @return SCORecord
      */
     public function setFilename($filename)
     {

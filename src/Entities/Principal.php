@@ -1,8 +1,9 @@
 <?php
 
-namespace AdobeConnectClient;
+namespace AdobeConnectClient\Entities;
 
-use DomainException;
+use \DomainException;
+use \AdobeConnectClient\ArrayableInterface;
 use \AdobeConnectClient\Helpers\ValueTransform as VT;
 use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
@@ -482,7 +483,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $name
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setName($name)
     {
@@ -493,7 +494,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $login
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setLogin($login)
     {
@@ -504,7 +505,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param int $displayUid
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setDisplayUid($displayUid)
     {
@@ -515,7 +516,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param int $principalId
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setPrincipalId($principalId)
     {
@@ -526,7 +527,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param bool $isPrimary
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setIsPrimary($isPrimary)
     {
@@ -537,7 +538,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $type
-     * @return Principal Fluent Interface
+     * @return Principal
      * @throws DomainException
      */
     public function setType($type)
@@ -572,7 +573,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param bool $hasChildren
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setHasChildren($hasChildren)
     {
@@ -583,7 +584,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $permissionId
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setPermissionId($permissionId)
     {
@@ -594,7 +595,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param int $trainingGroupId
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setTrainingGroupId($trainingGroupId)
     {
@@ -605,7 +606,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param bool $isEcommerce
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setIsEcommerce($isEcommerce)
     {
@@ -616,7 +617,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param bool $isHidden
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setIsHidden($isHidden)
     {
@@ -627,7 +628,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $description
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setDescription($description)
     {
@@ -638,7 +639,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param int $accountId
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setAccountId($accountId)
     {
@@ -649,7 +650,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param bool $disabled
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setDisabled($disabled)
     {
@@ -660,7 +661,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $email
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setEmail($email)
     {
@@ -671,7 +672,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $firstName
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setFirstName($firstName)
     {
@@ -682,7 +683,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $lastName
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setLastName($lastName)
     {
@@ -693,7 +694,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param string $password
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setPassword($password)
     {
@@ -704,7 +705,7 @@ class Principal implements ArrayableInterface
     /**
      *
      * @param bool $sendEmail
-     * @return Principal Fluent Interface
+     * @return Principal
      */
     public function setSendEmail($sendEmail)
     {

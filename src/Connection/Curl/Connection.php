@@ -2,12 +2,12 @@
 
 namespace AdobeConnectClient\Connection\Curl;
 
-use SplFileInfo;
-use CURLFile;
-use InvalidArgumentException;
-use UnexpectedValueException;
-use AdobeConnectClient\Connection\ConnectionInterface;
-use AdobeConnectClient\Connection\ResponseInterface;
+use \SplFileInfo;
+use \CURLFile;
+use \InvalidArgumentException;
+use \UnexpectedValueException;
+use \AdobeConnectClient\Connection\ConnectionInterface;
+use \AdobeConnectClient\Connection\ResponseInterface;
 
 /**
  * Connection using cURL

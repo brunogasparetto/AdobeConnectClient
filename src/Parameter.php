@@ -2,8 +2,8 @@
 
 namespace AdobeConnectClient;
 
-use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
-use AdobeConnectClient\Helpers\ValueTransform as VT;
+use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * A generic Parameter class to extra parameters.

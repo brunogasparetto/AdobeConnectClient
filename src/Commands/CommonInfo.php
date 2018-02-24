@@ -2,12 +2,12 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Command;
-use AdobeConnectClient\Converter\Converter;
-use AdobeConnectClient\Helpers\ValueTransform as VT;
-use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
-use AdobeConnectClient\CommonInfo as CommonInfoEntity;
+use \AdobeConnectClient\Command;
+use \AdobeConnectClient\Converter\Converter;
+use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use \AdobeConnectClient\Helpers\StatusValidate;
+use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use \AdobeConnectClient\Entities\CommonInfo as CommonInfoEntity;
 
 /**
  * Gets the common info

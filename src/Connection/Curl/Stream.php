@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Connection\Curl;
 
-use AdobeConnectClient\Connection\StreamInterface;
+use \AdobeConnectClient\Connection\StreamInterface;
 
 /**
  * Stream for a cURL Connection.

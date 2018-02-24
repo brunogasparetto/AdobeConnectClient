@@ -2,11 +2,11 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Command;
-use AdobeConnectClient\Converter\Converter;
-use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\ValueTransform as VT;
-use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use \AdobeConnectClient\Command;
+use \AdobeConnectClient\Converter\Converter;
+use \AdobeConnectClient\Helpers\StatusValidate;
+use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
  * Set a feature

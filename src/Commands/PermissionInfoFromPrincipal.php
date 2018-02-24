@@ -2,11 +2,11 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Command;
-use AdobeConnectClient\Permission;
-use AdobeConnectClient\Converter\Converter;
-use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use \AdobeConnectClient\Command;
+use \AdobeConnectClient\Entities\Permission;
+use \AdobeConnectClient\Converter\Converter;
+use \AdobeConnectClient\Helpers\StatusValidate;
+use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 
 /**
  * Get the Principal's permission in a SCO, Principal or Account

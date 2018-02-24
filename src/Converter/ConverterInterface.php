@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Converter;
 
-use AdobeConnectClient\Connection\ResponseInterface;
+use \AdobeConnectClient\Connection\ResponseInterface;
 
 interface ConverterInterface
 {

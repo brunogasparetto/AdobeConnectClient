@@ -2,12 +2,12 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Command;
-use AdobeConnectClient\ArrayableInterface;
-use AdobeConnectClient\Permission;
-use AdobeConnectClient\Converter\Converter;
-use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use \AdobeConnectClient\Command;
+use \AdobeConnectClient\ArrayableInterface;
+use \AdobeConnectClient\Entities\Permission;
+use \AdobeConnectClient\Converter\Converter;
+use \AdobeConnectClient\Helpers\StatusValidate;
+use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 
 /**
  * Get a list of principals who have permissions to act on a SCO, Principal or Account

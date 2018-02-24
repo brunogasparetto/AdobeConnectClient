@@ -2,12 +2,12 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Command;
-use AdobeConnectClient\ArrayableInterface;
-use AdobeConnectClient\Converter\Converter;
-use AdobeConnectClient\Helpers\StatusValidate;
-use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
-use AdobeConnectClient\Principal;
+use \AdobeConnectClient\Command;
+use \AdobeConnectClient\ArrayableInterface;
+use \AdobeConnectClient\Converter\Converter;
+use \AdobeConnectClient\Helpers\StatusValidate;
+use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use \AdobeConnectClient\Entities\Principal;
 
 /**
  * Create a Principal.

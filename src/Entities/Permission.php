@@ -1,6 +1,9 @@
 <?php
 
-namespace AdobeConnectClient;
+namespace AdobeConnectClient\Entities;
+
+use \AdobeConnectClient\ArrayableInterface;
+use \AdobeConnectClient\Traits\Arrayable;
 
 /**
  * Adobe Connect Permission
@@ -9,7 +12,7 @@ namespace AdobeConnectClient;
  */
 class Permission implements ArrayableInterface
 {
-    use Traits\Arrayable;
+    use Arrayable;
 
     /**
      * Special permission for Meeting
@@ -186,7 +189,7 @@ class Permission implements ArrayableInterface
      * Set the ACL ID. It is a SCO ID or Principal ID.
      *
      * @param int $aclId
-     * @return \AdobeConnectClient\Permission Fluent Interface
+     * @return Permission
      */
     public function setAclId($aclId)
     {
@@ -200,7 +203,7 @@ class Permission implements ArrayableInterface
      * @see PRINCIPAL_* constants
      *
      * @param string $permissionId
-     * @return \AdobeConnectClient\Permission Fluent Interface
+     * @return Permission
      */
     public function setPermissionId($permissionId)
     {
@@ -214,7 +217,7 @@ class Permission implements ArrayableInterface
      * If setting a Meeting this can be a special permission using MEETING_* constants
      *
      * @param int|string $principalId
-     * @return \AdobeConnectClient\Permission Fluent Interface
+     * @return Permission
      */
     public function setPrincipalId($principalId)
     {

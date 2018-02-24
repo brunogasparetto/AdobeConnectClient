@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Helpers;
 
-use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
  * Set object attributes

@@ -2,9 +2,9 @@
 
 namespace AdobeConnectClient\Connection\Curl;
 
-use AdobeConnectClient\Connection\ResponseInterface;
-use AdobeConnectClient\Connection\StreamInterface;
-use AdobeConnectClient\Traits\HttpReasonPhrase;
+use \AdobeConnectClient\Connection\ResponseInterface;
+use \AdobeConnectClient\Connection\StreamInterface;
+use \AdobeConnectClient\Traits\HttpReasonPhrase;
 
 /**
  * The server response for cURL Connection.

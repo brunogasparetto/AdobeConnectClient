@@ -2,10 +2,10 @@
 
 namespace AdobeConnectClient\Commands;
 
-use AdobeConnectClient\Command;
-use AdobeConnectClient\ArrayableInterface;
-use AdobeConnectClient\Converter\Converter;
-use AdobeConnectClient\Helpers\StatusValidate;
+use \AdobeConnectClient\Command;
+use \AdobeConnectClient\ArrayableInterface;
+use \AdobeConnectClient\Converter\Converter;
+use \AdobeConnectClient\Helpers\StatusValidate;
 
 /**
  * Update a Principal.

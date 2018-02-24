@@ -2,10 +2,10 @@
 
 namespace AdobeConnectClient\Helpers;
 
-use AdobeConnectClient\Exceptions\InvalidException;
-use AdobeConnectClient\Exceptions\NoAccessException;
-use AdobeConnectClient\Exceptions\NoDataException;
-use AdobeConnectClient\Exceptions\TooMuchDataException;
+use \AdobeConnectClient\Exceptions\InvalidException;
+use \AdobeConnectClient\Exceptions\NoAccessException;
+use \AdobeConnectClient\Exceptions\NoDataException;
+use \AdobeConnectClient\Exceptions\TooMuchDataException;
 
 /**
  * Validate the status code
