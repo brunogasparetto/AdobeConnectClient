@@ -14,7 +14,7 @@ abstract class StringCaseTransform
      */
     public static function toHyphen($term)
     {
-        return self::camelCaseTransform(self::toCamelCase($term), '-');
+        return static::camelCaseTransform(static::toCamelCase($term), '-');
     }
 
     /**
@@ -24,7 +24,7 @@ abstract class StringCaseTransform
      */
     public static function toDash($term)
     {
-        return self::camelCaseTransform(self::toCamelCase($term), '_');
+        return static::camelCaseTransform(static::toCamelCase($term), '_');
     }
 
     /**
@@ -34,7 +34,7 @@ abstract class StringCaseTransform
      */
     public static function toSpace($term)
     {
-        return self::camelCaseTransform(self::toCamelCase($term), ' ');
+        return static::camelCaseTransform(static::toCamelCase($term), ' ');
     }
 
     /**
