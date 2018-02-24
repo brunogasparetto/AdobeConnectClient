@@ -3,7 +3,7 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Arrayable;
+use AdobeConnectClient\ArrayableInterface;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
@@ -21,9 +21,9 @@ class PermissionUpdate extends Command
     protected $parameters;
 
     /**
-     * @param Arrayable $permission
+     * @param ArrayableInterface $permission
      */
-    public function __construct(Arrayable $permission)
+    public function __construct(ArrayableInterface $permission)
     {
         $this->parameters = [
             'action' => 'permissions-update',

@@ -3,7 +3,7 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Arrayable;
+use AdobeConnectClient\ArrayableInterface;
 use AdobeConnectClient\Permission;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
@@ -23,13 +23,13 @@ class PermissionsInfo extends Command
 
     /**
      * @param int $aclId SCO ID, Principal ID or Account ID
-     * @param Arrayable|null $filter
-     * @param Arrayable|null $sorter
+     * @param ArrayableInterface|null $filter
+     * @param ArrayableInterface|null $sorter
      */
     public function __construct(
         $aclId,
-        Arrayable $filter = null,
-        Arrayable $sorter = null
+        ArrayableInterface $filter = null,
+        ArrayableInterface $sorter = null
     ) {
         $this->parameters = [
             'action' => 'permissions-info',

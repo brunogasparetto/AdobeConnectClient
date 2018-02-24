@@ -3,7 +3,7 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Arrayable;
+use AdobeConnectClient\ArrayableInterface;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 
@@ -20,9 +20,9 @@ class PrincipalUpdate extends Command
     protected $parameters;
 
     /**
-     * @param Arrayable $principal
+     * @param ArrayableInterface $principal
      */
-    public function __construct(Arrayable $principal)
+    public function __construct(ArrayableInterface $principal)
     {
         $this->parameters = [
             'action' => 'principal-update',

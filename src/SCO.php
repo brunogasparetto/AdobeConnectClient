@@ -12,7 +12,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
  * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
  *
  */
-class SCO implements Arrayable
+class SCO implements ArrayableInterface
 {
     use Traits\Arrayable;
 

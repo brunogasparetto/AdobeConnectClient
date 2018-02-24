@@ -8,7 +8,7 @@ use AdobeConnectClient\Helpers\ValueTransform as VT;
 /**
  * A generic Parameter class to extra parameters.
  */
-class Parameter implements Arrayable
+class Parameter implements ArrayableInterface
 {
     /**
      * @var array

@@ -3,7 +3,7 @@
 namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
-use AdobeConnectClient\Arrayable;
+use AdobeConnectClient\ArrayableInterface;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
@@ -26,9 +26,9 @@ class AclFieldUpdate extends Command
      * @param int $aclId
      * @param string $fieldId
      * @param mixed $value
-     * @param Arrayable|null $extraParams
+     * @param ArrayableInterface|null $extraParams
      */
-    public function __construct($aclId, $fieldId, $value, Arrayable $extraParams = null)
+    public function __construct($aclId, $fieldId, $value, ArrayableInterface $extraParams = null)
     {
         $this->parameters = [
             'action' => 'acl-field-update',

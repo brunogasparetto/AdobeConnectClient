@@ -7,7 +7,7 @@ namespace AdobeConnectClient;
  *
  * See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#permission_id}
  */
-class Permission implements Arrayable
+class Permission implements ArrayableInterface
 {
     use Traits\Arrayable;
 
