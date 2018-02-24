@@ -67,16 +67,12 @@ abstract class ValueTransform
 
         $value = mb_strtolower($value);
 
-        return $value === 'true' or $value === 'on'
-            ? true
-            : false;
-
         if ($value === 'false' or $value === 'off') {
             return false;
         } elseif ($value === 'true' or $value === 'on') {
             return true;
         }
 
-        return false;
+        return boolval($value);
     }
 }
