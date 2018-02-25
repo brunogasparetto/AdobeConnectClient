@@ -3,6 +3,7 @@
 namespace AdobeConnectClient\Tests;
 
 use AdobeConnectClient\Sorter;
+use AdobeConnectClient\ArrayableInterface;
 use PHPUnit\Framework\TestCase;
 
 class SorterTest extends TestCase
@@ -10,6 +11,11 @@ class SorterTest extends TestCase
     public function testInstance()
     {
         $this->assertInstanceOf(Sorter::class, Sorter::instance());
+    }
+
+    public function testArrayable()
+    {
+        $this->assertInstanceOf(ArrayableInterface::class, Sorter::instance());
     }
 
     public function testAsc()

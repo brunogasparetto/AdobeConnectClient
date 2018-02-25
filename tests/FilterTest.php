@@ -5,6 +5,7 @@ namespace AdobeConnectClient\Tests;
 use DateTime;
 use DateTimeImmutable;
 use AdobeConnectClient\Filter;
+use AdobeConnectClient\ArrayableInterface;
 use PHPUnit\Framework\TestCase;
 
 class FilterTest extends TestCase
@@ -12,6 +13,11 @@ class FilterTest extends TestCase
     public function testInstance()
     {
         $this->assertInstanceOf(Filter::class, Filter::instance());
+    }
+
+    public function testArrayable()
+    {
+        $this->assertInstanceOf(ArrayableInterface::class, Filter::instance());
     }
 
     public function testEquals()

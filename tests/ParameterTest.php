@@ -3,6 +3,7 @@
 namespace AdobeConnectClient\Tests;
 
 use AdobeConnectClient\Parameter;
+use AdobeConnectClient\ArrayableInterface;
 use PHPUnit\Framework\TestCase;
 
 class ParameterTest extends TestCase
@@ -10,6 +11,11 @@ class ParameterTest extends TestCase
     public function testInstance()
     {
         $this->assertInstanceOf(Parameter::class, Parameter::instance());
+    }
+
+    public function testArrayable()
+    {
+        $this->assertInstanceOf(ArrayableInterface::class, Parameter::instance());
     }
 
     public function testSet()
