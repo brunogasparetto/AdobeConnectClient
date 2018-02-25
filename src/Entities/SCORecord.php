@@ -4,6 +4,8 @@ namespace AdobeConnectClient\Entities;
 
 use DateTimeImmutable;
 use DateInterval;
+use Exception;
+use InvalidArgumentException;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
@@ -314,223 +316,187 @@ class SCORecord
      * Set the SCO ID
      *
      * @param int $scoId
-     * @return SCORecord
      */
     public function setScoId($scoId)
     {
         $this->scoId = (int) $scoId;
-        return $this;
     }
 
     /**
      * Set the Source ID
      *
      * @param int $sourceScoId
-     * @return SCORecord
      */
     public function setSourceScoId($sourceScoId)
     {
         $this->sourceScoId = (int) $sourceScoId;
-        return $this;
     }
 
     /**
      * Set the Folder ID
      *
      * @param int $folderId
-     * @return SCORecord
      */
     public function setFolderId($folderId)
     {
         $this->folderId = (int) $folderId;
-        return $this;
     }
 
     /**
      * Set the Type
      *
      * @param string $type
-     * @return SCORecord
      */
     public function setType($type)
     {
         $this->type = (string) $type;
-        return $this;
     }
 
     /**
      * Set the Icon
      *
      * @param string $icon
-     * @return SCORecord
      */
     public function setIcon($icon)
     {
         $this->icon = (string) $icon;
-        return $this;
     }
 
     /**
      * Set the Display sequence
      *
      * @param int $displaySeq
-     * @return SCORecord
      */
     public function setDisplaySeq($displaySeq)
     {
         $this->displaySeq = (int) $displaySeq;
-        return $this;
     }
 
     /**
      * Set the Job ID
      *
      * @param int $jobId
-     * @return SCORecord
      */
     public function setJobId($jobId)
     {
         $this->jobId = (int) $jobId;
-        return $this;
     }
 
     /**
      * Set the Account ID
      *
      * @param int $accountId
-     * @return SCORecord
      */
     public function setAccountId($accountId)
     {
         $this->accountId = (int) $accountId;
-        return $this;
     }
 
     /**
      * Set the Job Status
      *
      * @param string $jobStatus
-     * @return SCORecord
      */
     public function setJobStatus($jobStatus)
     {
         $this->jobStatus = (string) $jobStatus;
-        return $this;
     }
 
     /**
      * Set the Encoder Service Progress
      *
      * @param int $encoderServiceJobProgress
-     * @return SCORecord
      */
     public function setEncoderServiceJobProgress($encoderServiceJobProgress)
     {
         $this->encoderServiceJobProgress = (int) $encoderServiceJobProgress;
-        return $this;
     }
 
     /**
      * Set if is Folder
      *
      * @param bool $isFolder
-     * @return SCORecord
      */
     public function setIsFolder($isFolder)
     {
         $this->isFolder = VT::toBoolean($isFolder);
-        return $this;
     }
 
     /**
      * Set the Number of Downloads
      *
      * @param int $noOfDownloads
-     * @return SCORecord
      */
     public function setNoOfDownloads($noOfDownloads)
     {
         $this->noOfDownloads = (int) $noOfDownloads;
-        return $this;
     }
 
     /**
      * Set the Name
      *
      * @param string $name
-     * @return SCORecord
      */
     public function setName($name)
     {
         $this->name = (string) $name;
-        return $this;
     }
 
     /**
      * Set the URL
      *
      * @param string $urlPath
-     * @return SCORecord
      */
     public function setUrlPath($urlPath)
     {
         $this->urlPath = (string) $urlPath;
-        return $this;
     }
 
     /**
      * Set the Begin date
      *
      * @param string|DateTimeImmutable $dateBegin
-     * @return SCORecord
      */
     public function setDateBegin($dateBegin)
     {
         $this->dateBegin = VT::toDateTimeImmutable($dateBegin);
-        return $this;
     }
 
     /**
      * Set the End date
      *
      * @param string|DateTimeImmutable $dateEnd
-     * @return SCORecord
      */
     public function setDateEnd($dateEnd)
     {
         $this->dateEnd = VT::toDateTimeImmutable($dateEnd);
-        return $this;
     }
 
     /**
      * Set the Created date
      *
      * @param string|DateTimeImmutable $dateCreated
-     * @return SCORecord
      */
     public function setDateCreated($dateCreated)
     {
         $this->dateCreated = VT::toDateTimeImmutable($dateCreated);
-        return $this;
     }
 
     /**
      * Set the Modified date
      *
      * @param string|DateTimeImmutable $dateModified
-     * @return SCORecord
      */
     public function setDateModified($dateModified)
     {
         $this->dateModified = VT::toDateTimeImmutable($dateModified);
-        return $this;
     }
 
     /**
      * Set the Duration
      *
      * @param DateInterval|string $duration
-     * @return SCORecord
+     * @throws InvalidArgumentException
      */
     public function setDuration($duration)
     {
@@ -538,19 +504,16 @@ class SCORecord
             $duration = $this->timeStringToDateInterval($duration);
         }
         $this->duration = $duration;
-        return $this;
     }
 
     /**
      * Set the File name
      *
      * @param string $filename
-     * @return SCORecord
      */
     public function setFilename($filename)
     {
         $this->filename = (string) $filename;
-        return $this;
     }
 
     /**
@@ -558,15 +521,20 @@ class SCORecord
      *
      * @param string $timeString A string like hh:mm:ss
      * @return DateInterval
+     * @throws InvalidArgumentException
      */
     protected function timeStringToDateInterval($timeString)
     {
-        return new DateInterval(
-            preg_replace(
-                '/(\d{2}):(\d{2}):(\d{2}).*/',
-                'PT$1H$2M$3S',
-                $timeString
-            )
-        );
+        try {
+            return new DateInterval(
+                preg_replace(
+                    '/(\d{2}):(\d{2}):(\d{2}).*/',
+                    'PT$1H$2M$3S',
+                    $timeString
+                )
+            );
+        } catch (Exception $e) {
+            throw new InvalidArgumentException('Timestring is not a valid interval');
+        }
     }
 }

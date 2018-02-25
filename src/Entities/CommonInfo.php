@@ -165,119 +165,99 @@ class CommonInfo
      * Set the Locale
      *
      * @param string $locale
-     * @return CommonInfo Fluent Interface
      */
     public function setLocale($locale)
     {
         $this->locale = $locale;
-        return $this;
     }
 
     /**
      * Set the Timezone ID
      *
      * @param int $timeZoneId
-     * @return CommonInfo Fluent Interface
      */
     public function setTimeZoneId($timeZoneId)
     {
         $this->timeZoneId = (int) $timeZoneId;
-        return $this;
     }
 
     /**
      * Set the Cookie
      *
      * @param string $cookie
-     * @return CommonInfo Fluent Interface
      */
     public function setCookie($cookie)
     {
         $this->cookie = $cookie;
-        return $this;
     }
 
     /**
      * Set the Date
      *
      * @param \DateTimeInterface|string $date
-     * @return CommonInfo Fluent Interface
      */
     public function setDate($date)
     {
         $this->date = VT::toDateTimeImmutable($date);
-        return $this;
     }
 
     /**
      * Set the Host
      *
      * @param string $host
-     * @return CommonInfo Fluent Interface
      */
     public function setHost($host)
     {
         $this->host = $host;
-        return $this;
     }
 
     /**
      * Set the Local Host
      *
      * @param string $localHost
-     * @return CommonInfo Fluent Interface
      */
     public function setLocalHost($localHost)
     {
         $this->localHost = $localHost;
-        return $this;
     }
 
     /**
      * Set the Admin Host
      *
      * @param string $adminHost
-     * @return CommonInfo Fluent Interface
      */
     public function setAdminHost($adminHost)
     {
         $this->adminHost = $adminHost;
-        return $this;
     }
 
     /**
      * Set the URL
      *
      * @param string $url
-     * @return CommonInfo Fluent Interface
      */
     public function setUrl($url)
     {
         $this->url = $url;
-        return $this;
     }
 
     /**
      * Set the Version
      *
      * @param string $version
-     * @return CommonInfo Fluent Interface
      */
     public function setVersion($version)
     {
         $this->version = $version;
-        return $this;
     }
 
     /**
      * Set the Account ID
      *
      * @param int $accountId
-     * @return CommonInfo Fluent Interface
      */
     public function setAccountId($accountId)
     {
         $this->accountId = (int) $accountId;
-        return $this;
     }
 }
