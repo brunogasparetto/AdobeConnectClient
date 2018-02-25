@@ -65,4 +65,12 @@ class PermissionTest extends TestCase
             $permission->toArray()
         );
     }
+
+    public function testFluentInterface()
+    {
+        $permission = Permission::instance();
+        $this->assertInstanceOf(Permission::class, $permission->setPrincipalId(5));
+        $this->assertInstanceOf(Permission::class, $permission->setPermissionId(Permission::MEETING_ANYONE_WITH_URL));
+        $this->assertInstanceOf(Permission::class, $permission->setAclId(1));
+    }
 }

@@ -47,4 +47,11 @@ class ParameterTest extends TestCase
         $expected = [];
         $this->assertEquals($expected, $parameter->toArray());
     }
+
+    public function testFluentInterface()
+    {
+        $parameter = Parameter::instance();
+        $this->assertInstanceOf(Parameter::class, $parameter->set('parameter', 'value'));
+        $this->assertInstanceOf(Parameter::class, $parameter->remove('parameter'));
+    }
 }

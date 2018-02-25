@@ -84,4 +84,12 @@ class SorterTest extends TestCase
         $sorter->removeField('dateStart');
         $this->assertEquals(['sort-name' => 'desc'], $sorter->toArray());
     }
+
+    public function testFluentInterface()
+    {
+        $sorter = Sorter::instance();
+        $this->assertInstanceOf(Sorter::class, $sorter->asc('name'));
+        $this->assertInstanceOf(Sorter::class, $sorter->desc('name'));
+        $this->assertInstanceOf(Sorter::class, $sorter->removeField('name'));
+    }
 }

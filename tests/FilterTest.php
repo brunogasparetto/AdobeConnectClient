@@ -131,4 +131,20 @@ class FilterTest extends TestCase
         $expected['filter-lt-date-end'] = $date->format(DateTime::W3C);
         $this->assertEquals($expected, $filter->toArray());
     }
+
+    public function testFluentInterface()
+    {
+        $filter = Filter::instance();
+        $dateNow = new DateTimeImmutable();
+
+        $this->assertInstanceOf(Filter::class, $filter->equals('field', 'value'));
+        $this->assertInstanceOf(Filter::class, $filter->like('field', 'value'));
+        $this->assertInstanceOf(Filter::class, $filter->out('field', 'value'));
+        $this->assertInstanceOf(Filter::class, $filter->rows(1));
+        $this->assertInstanceOf(Filter::class, $filter->start(1));
+        $this->assertInstanceOf(Filter::class, $filter->dateAfter('dateBegin', $dateNow));
+        $this->assertInstanceOf(Filter::class, $filter->dateBefore('dateBegin', $dateNow));
+        $this->assertInstanceOf(Filter::class, $filter->isMember(true));
+        $this->assertInstanceOf(Filter::class, $filter->removeField('field'));
+    }
 }

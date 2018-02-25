@@ -5,7 +5,6 @@ namespace AdobeConnectClient\Tests\Entities;
 use DomainException;
 use AdobeConnectClient\Entities\Principal;
 use AdobeConnectClient\ArrayableInterface;
-use AdobeConnectClient\Entities\Permission;
 use PHPUnit\Framework\TestCase;
 
 class PrincipalTest extends TestCase
@@ -135,9 +134,9 @@ class PrincipalTest extends TestCase
     public function testPermissionId()
     {
         $principal = Principal::instance()
-            ->setPermissionId(Permission::PRINCIPAL_HOST);
+            ->setPermissionId(Principal::TYPE_ADMINS);
 
-        $this->assertEquals(Permission::PRINCIPAL_HOST, $principal->getPermissionId());
+        $this->assertEquals(Principal::TYPE_ADMINS, $principal->getPermissionId());
     }
 
     public function testTrainingGroupId()
@@ -395,5 +394,30 @@ class PrincipalTest extends TestCase
             ->setDescription('Description');
 
         $this->assertEquals([], $principal->toArray());
+    }
+
+    public function testFluentInterface()
+    {
+        $principal = Principal::instance();
+
+        $this->assertInstanceOf(Principal::class, $principal->setName('field'));
+        $this->assertInstanceOf(Principal::class, $principal->setLogin('field'));
+        $this->assertInstanceOf(Principal::class, $principal->setDisplayUid(1));
+        $this->assertInstanceOf(Principal::class, $principal->setPrincipalId(1));
+        $this->assertInstanceOf(Principal::class, $principal->setIsPrimary(true));
+        $this->assertInstanceOf(Principal::class, $principal->setType(Principal::TYPE_USER));
+        $this->assertInstanceOf(Principal::class, $principal->setHasChildren(false));
+        $this->assertInstanceOf(Principal::class, $principal->setPermissionId(Principal::TYPE_ADMINS));
+        $this->assertInstanceOf(Principal::class, $principal->setTrainingGroupId(1));
+        $this->assertInstanceOf(Principal::class, $principal->setIsEcommerce(false));
+        $this->assertInstanceOf(Principal::class, $principal->setIsHidden(false));
+        $this->assertInstanceOf(Principal::class, $principal->setDescription('field'));
+        $this->assertInstanceOf(Principal::class, $principal->setAccountId(1));
+        $this->assertInstanceOf(Principal::class, $principal->setDisabled(false));
+        $this->assertInstanceOf(Principal::class, $principal->setEmail('email@email.com'));
+        $this->assertInstanceOf(Principal::class, $principal->setFirstName('field'));
+        $this->assertInstanceOf(Principal::class, $principal->setLastName('field'));
+        $this->assertInstanceOf(Principal::class, $principal->setPassword('field'));
+        $this->assertInstanceOf(Principal::class, $principal->setSendEmail(false));
     }
 }
