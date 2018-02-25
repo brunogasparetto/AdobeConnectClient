@@ -4,6 +4,7 @@ namespace AdobeConnectClient\Entities;
 
 use DateTimeInterface;
 use DateTimeImmutable;
+use DomainException;
 use AdobeConnectClient\ArrayableInterface;
 use AdobeConnectClient\Helpers\ValueTransform as VT;
 use AdobeConnectClient\Traits\Arrayable as ArrayableTrait;
@@ -491,7 +492,7 @@ class SCO implements ArrayableInterface
      *
      * @param string $type
      * @return SCO
-     * @throws \DomainException
+     * @throws DomainException
      */
     public function setType($type)
     {
@@ -508,7 +509,7 @@ class SCO implements ArrayableInterface
                 self::TYPE_TREE
             ]
         )) {
-            throw new \DomainException("{$type} isn't a valid SCO Type");
+            throw new DomainException("{$type} isn't a valid SCO Type");
         }
         $this->type = $type;
         return $this;
