@@ -2,10 +2,10 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\ArrayableInterface;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\ArrayableInterface;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
 
 /**
  * Updates the principal's permissions to access a SCO or the access mode if the acl-id is a Meeting

@@ -2,8 +2,8 @@
 
 namespace AdobeConnectClient\Entities;
 
-use \AdobeConnectClient\ArrayableInterface;
-use \AdobeConnectClient\Traits\Arrayable;
+use AdobeConnectClient\ArrayableInterface;
+use AdobeConnectClient\Traits\Arrayable;
 
 /**
  * Adobe Connect Permission

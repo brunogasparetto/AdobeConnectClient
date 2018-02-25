@@ -2,9 +2,9 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
 
 /**
  * Changes user’s password.

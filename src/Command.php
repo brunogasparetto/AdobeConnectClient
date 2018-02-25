@@ -2,8 +2,8 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Client;
-use \BadMethodCallException;
+use AdobeConnectClient\Client;
+use BadMethodCallException;
 
 /**
  * The Commands base class is an abstraction to Web Service actions

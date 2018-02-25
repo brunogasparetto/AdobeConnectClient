@@ -2,10 +2,10 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Adds one principal to a group, or removes one principal from a group.

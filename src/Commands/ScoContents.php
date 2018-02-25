@@ -2,12 +2,12 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\ArrayableInterface;
-use \AdobeConnectClient\Entities\SCO;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
-use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\ArrayableInterface;
+use AdobeConnectClient\Entities\SCO;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 
 /**
  * Get the SCO Contents from a folder or from other SCO.

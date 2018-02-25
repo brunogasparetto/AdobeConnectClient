@@ -2,9 +2,9 @@
 
 namespace AdobeConnectClient\Entities;
 
-use \DateTimeImmutable;
-use \DateInterval;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use DateTimeImmutable;
+use DateInterval;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * The recording archive from a SCO

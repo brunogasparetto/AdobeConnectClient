@@ -1,7 +1,7 @@
 <?php
 
-use \PHPUnit\Framework\TestCase;
-use \AdobeConnectClient\Parameter;
+use PHPUnit\Framework\TestCase;
+use AdobeConnectClient\Parameter;
 
 class ParameterTest extends TestCase
 {

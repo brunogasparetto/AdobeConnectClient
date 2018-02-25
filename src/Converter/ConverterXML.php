@@ -2,9 +2,9 @@
 
 namespace AdobeConnectClient\Converter;
 
-use \InvalidArgumentException;
-use \AdobeConnectClient\Connection\ResponseInterface;
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use InvalidArgumentException;
+use AdobeConnectClient\Connection\ResponseInterface;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 class ConverterXML implements ConverterInterface
 {

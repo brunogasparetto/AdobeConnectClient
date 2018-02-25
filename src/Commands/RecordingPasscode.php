@@ -2,9 +2,9 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\Entities\Permission;
-use \AdobeConnectClient\Parameter;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\Entities\Permission;
+use AdobeConnectClient\Parameter;
 
 /**
  * Set the passcode on a Recording and turned into public.

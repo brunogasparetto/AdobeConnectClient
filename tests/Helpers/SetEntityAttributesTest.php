@@ -1,8 +1,8 @@
 <?php
 
-use \PHPUnit\Framework\TestCase;
-use \AdobeConnectClient\Helpers\SetEntityAttributes;
-use \AdobeConnectClient\Entities\Permission;
+use PHPUnit\Framework\TestCase;
+use AdobeConnectClient\Helpers\SetEntityAttributes;
+use AdobeConnectClient\Entities\Permission;
 
 class SetEntityAttributesTest extends TestCase
 {

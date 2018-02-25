@@ -1,7 +1,7 @@
 <?php
 
-use \PHPUnit\Framework\TestCase;
-use \AdobeConnectClient\Helpers\ValueTransform;
+use PHPUnit\Framework\TestCase;
+use AdobeConnectClient\Helpers\ValueTransform;
 
 class ValueTransformTest extends TestCase
 {

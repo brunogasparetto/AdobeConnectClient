@@ -2,11 +2,11 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Exceptions\NoDataException;
-use \AdobeConnectClient\Helpers\StatusValidate;
-use \AdobeConnectClient\Helpers\HeaderParse;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Exceptions\NoDataException;
+use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Helpers\HeaderParse;
 
 /**
  * Call the Login action and save the session cookie.

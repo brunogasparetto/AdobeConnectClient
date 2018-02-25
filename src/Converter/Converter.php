@@ -2,8 +2,8 @@
 
 namespace AdobeConnectClient\Converter;
 
-use \DomainException;
-use \AdobeConnectClient\Connection\ResponseInterface;
+use DomainException;
+use AdobeConnectClient\Connection\ResponseInterface;
 
 abstract class Converter
 {

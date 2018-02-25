@@ -2,11 +2,11 @@
 
 namespace AdobeConnectClient\Entities;
 
-use \DateTimeInterface;
-use \DateTimeImmutable;
-use \AdobeConnectClient\ArrayableInterface;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
-use \AdobeConnectClient\Traits\Arrayable as ArrayableTrait;
+use DateTimeInterface;
+use DateTimeImmutable;
+use AdobeConnectClient\ArrayableInterface;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
+use AdobeConnectClient\Traits\Arrayable as ArrayableTrait;
 
 /**
  * Adobe Connect SCO

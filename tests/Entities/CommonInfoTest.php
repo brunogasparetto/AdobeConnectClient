@@ -1,7 +1,7 @@
 <?php
 
-use \PHPUnit\Framework\TestCase;
-use \AdobeConnectClient\Entities\CommonInfo;
+use PHPUnit\Framework\TestCase;
+use AdobeConnectClient\Entities\CommonInfo;
 
 class CommonInfoTest extends TestCase
 {

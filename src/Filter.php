@@ -2,9 +2,9 @@
 
 namespace AdobeConnectClient;
 
-use \DateTimeInterface;
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use DateTimeInterface;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Create valid filters using Fluent Interface

@@ -1,7 +1,7 @@
 <?php
 
-use \PHPUnit\Framework\TestCase;
-use \AdobeConnectClient\Filter;
+use PHPUnit\Framework\TestCase;
+use AdobeConnectClient\Filter;
 
 class FilterTest extends TestCase
 {

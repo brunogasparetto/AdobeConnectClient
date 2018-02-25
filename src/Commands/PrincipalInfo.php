@@ -2,11 +2,11 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
-use \AdobeConnectClient\Entities\Principal;
-use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Entities\Principal;
+use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 
 /**
  * Provides information about one principal, either a user or a group.

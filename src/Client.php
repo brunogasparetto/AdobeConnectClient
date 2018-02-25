@@ -2,16 +2,16 @@
 
 namespace AdobeConnectClient;
 
-use \ReflectionClass;
-use \AdobeConnectClient\Connection\ConnectionInterface;
-use \AdobeConnectClient\Connection\ResponseInterface;
-use \AdobeConnectClient\Entities\SCO;
-use \AdobeConnectClient\Entities\SCORecord;
-use \AdobeConnectClient\Entities\Permission;
-use \AdobeConnectClient\Entities\Principal;
-use \AdobeConnectClient\Entities\CommonInfo;
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
-use \AdobeConnectClient\ArrayableInterface as Arrayable;
+use ReflectionClass;
+use AdobeConnectClient\Connection\ConnectionInterface;
+use AdobeConnectClient\Connection\ResponseInterface;
+use AdobeConnectClient\Entities\SCO;
+use AdobeConnectClient\Entities\SCORecord;
+use AdobeConnectClient\Entities\Permission;
+use AdobeConnectClient\Entities\Principal;
+use AdobeConnectClient\Entities\CommonInfo;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\ArrayableInterface as Arrayable;
 
 /**
  * The Client to Adobe Connect API

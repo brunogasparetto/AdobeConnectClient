@@ -2,8 +2,8 @@
 
 namespace AdobeConnectClient\Traits;
 
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Override the methods to turn into a valid ArrayableInterface

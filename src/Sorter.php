@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient;
 
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
  * Create valid sort using Fluent Interface

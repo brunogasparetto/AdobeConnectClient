@@ -1,11 +1,11 @@
 <?php
 
-use \PHPUnit\Framework\TestCase;
-use \AdobeConnectClient\Helpers\StatusValidate;
-use \AdobeConnectClient\Exceptions\InvalidException;
-use \AdobeConnectClient\Exceptions\NoAccessException;
-use \AdobeConnectClient\Exceptions\NoDataException;
-use \AdobeConnectClient\Exceptions\TooMuchDataException;
+use PHPUnit\Framework\TestCase;
+use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Exceptions\InvalidException;
+use AdobeConnectClient\Exceptions\NoAccessException;
+use AdobeConnectClient\Exceptions\NoDataException;
+use AdobeConnectClient\Exceptions\TooMuchDataException;
 
 class StatusValidateTest extends TestCase
 {

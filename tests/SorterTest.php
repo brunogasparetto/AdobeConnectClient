@@ -1,7 +1,7 @@
 <?php
 
-use \PHPUnit\Framework\TestCase;
-use \AdobeConnectClient\Sorter;
+use PHPUnit\Framework\TestCase;
+use AdobeConnectClient\Sorter;
 
 class SorterTest extends TestCase
 {

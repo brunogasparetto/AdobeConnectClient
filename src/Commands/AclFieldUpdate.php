@@ -2,12 +2,12 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\ArrayableInterface;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\ArrayableInterface;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Updates the passed in field-id for the specified SCO, Principal or Account.

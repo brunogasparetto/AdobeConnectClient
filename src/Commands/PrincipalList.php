@@ -2,12 +2,12 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\ArrayableInterface;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
-use \AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
-use \AdobeConnectClient\Entities\Principal;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\ArrayableInterface;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
+use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use AdobeConnectClient\Entities\Principal;
 
 /**
  * Provides a complete list of users and groups, including primary groups.

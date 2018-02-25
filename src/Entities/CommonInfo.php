@@ -2,7 +2,7 @@
 
 namespace AdobeConnectClient\Entities;
 
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
 
 /**
  * Result for Common Info Action

@@ -2,10 +2,10 @@
 
 namespace AdobeConnectClient\Entities;
 
-use \DomainException;
-use \AdobeConnectClient\ArrayableInterface;
-use \AdobeConnectClient\Helpers\ValueTransform as VT;
-use \AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use DomainException;
+use AdobeConnectClient\ArrayableInterface;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
+use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 
 /**
  * Adobe Connect Principal

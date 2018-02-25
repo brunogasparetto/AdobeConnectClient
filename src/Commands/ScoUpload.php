@@ -2,13 +2,13 @@
 
 namespace AdobeConnectClient\Commands;
 
-use \SplFileInfo;
-use \InvalidArgumentException;
-use \AdobeConnectClient\Command;
-use \AdobeConnectClient\Filter;
-use \AdobeConnectClient\Entities\SCO;
-use \AdobeConnectClient\Converter\Converter;
-use \AdobeConnectClient\Helpers\StatusValidate;
+use SplFileInfo;
+use InvalidArgumentException;
+use AdobeConnectClient\Command;
+use AdobeConnectClient\Filter;
+use AdobeConnectClient\Entities\SCO;
+use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Helpers\StatusValidate;
 
 /**
  * Uploads a file to the server and then builds the file, if necessary.
