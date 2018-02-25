@@ -495,7 +495,7 @@ class SCORecord
     /**
      * Set the Duration
      *
-     * @param DateInterval|string $duration
+     * @param DateInterval|string $duration String in format hh:mm:ss
      * @throws InvalidArgumentException
      */
     public function setDuration($duration)
