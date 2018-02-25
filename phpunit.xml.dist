@@ -14,11 +14,13 @@
         </testsuite>
     </testsuites>
     <filter>
-        <whitelist processUncoveredFilesFromWhitelist="false">
+        <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
             <exclude>
                 <directory suffix="Interface.php">./src</directory>
                 <directory suffix=".php">./src/Exceptions</directory>
+                <file>./src/Content.php</file>
+                <file>./src/CustomField.php</file>
             </exclude>
         </whitelist>
     </filter>
