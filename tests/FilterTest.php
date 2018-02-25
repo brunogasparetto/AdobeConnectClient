@@ -1,7 +1,11 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace AdobeConnectClient\Tests;
+
+use DateTime;
+use DateTimeImmutable;
 use AdobeConnectClient\Filter;
+use PHPUnit\Framework\TestCase;
 
 class FilterTest extends TestCase
 {
@@ -94,32 +98,31 @@ class FilterTest extends TestCase
 
     public function testDateAfter()
     {
-        $date = new \DateTimeImmutable();
+        $date = new DateTimeImmutable();
         $filter = Filter::instance();
         $expected = [];
 
         $filter->dateAfter('dateBegin', $date);
-        $expected['filter-gte-date-begin'] = $date->format(\DateTime::W3C);
+        $expected['filter-gte-date-begin'] = $date->format(DateTime::W3C);
         $this->assertEquals($expected, $filter->toArray());
 
         $filter->dateAfter('dateEnd', $date, false);
-        $expected['filter-gt-date-end'] = $date->format(\DateTime::W3C);
+        $expected['filter-gt-date-end'] = $date->format(DateTime::W3C);
         $this->assertEquals($expected, $filter->toArray());
     }
 
     public function testDateBefore()
     {
-        $date = new \DateTimeImmutable();
+        $date = new DateTimeImmutable();
         $filter = Filter::instance();
         $expected = [];
 
         $filter->dateBefore('dateBegin', $date);
-        $expected['filter-lte-date-begin'] = $date->format(\DateTime::W3C);
+        $expected['filter-lte-date-begin'] = $date->format(DateTime::W3C);
         $this->assertEquals($expected, $filter->toArray());
 
         $filter->dateBefore('dateEnd', $date, false);
-        $expected['filter-lt-date-end'] = $date->format(\DateTime::W3C);
+        $expected['filter-lt-date-end'] = $date->format(DateTime::W3C);
         $this->assertEquals($expected, $filter->toArray());
     }
-
 }

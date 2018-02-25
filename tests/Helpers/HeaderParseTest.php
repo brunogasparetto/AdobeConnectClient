@@ -1,7 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace AdobeConnectClient\Tests;
+
 use AdobeConnectClient\Helpers\HeaderParse;
+use PHPUnit\Framework\TestCase;
 
 
 class HeaderParseTest extends TestCase

@@ -1,23 +1,27 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
-use AdobeConnectClient\Helpers\ValueTransform;
+namespace AdobeConnectClient\Tests;
 
-class ValueTransformTest extends TestCase
+use DateTime;
+use DateTimeImmutable;
+use AdobeConnectClient\Helpers\ValueTransform as VT;
+use PHPUnit\Framework\TestCase;
+
+class VTTest extends TestCase
 {
     public function testToBoolean()
     {
-        $this->assertTrue(ValueTransform::toBoolean(true));
-        $this->assertTrue(ValueTransform::toBoolean(1));
-        $this->assertTrue(ValueTransform::toBoolean('true'));
-        $this->assertTrue(ValueTransform::toBoolean('on'));
-        $this->assertTrue(ValueTransform::toBoolean('1'));
+        $this->assertTrue(VT::toBoolean(true));
+        $this->assertTrue(VT::toBoolean(1));
+        $this->assertTrue(VT::toBoolean('true'));
+        $this->assertTrue(VT::toBoolean('on'));
+        $this->assertTrue(VT::toBoolean('1'));
 
-        $this->assertFalse(ValueTransform::toBoolean(false));
-        $this->assertFalse(ValueTransform::toBoolean(0));
-        $this->assertFalse(ValueTransform::toBoolean('false'));
-        $this->assertFalse(ValueTransform::toBoolean('off'));
-        $this->assertFalse(ValueTransform::toBoolean('0'));
+        $this->assertFalse(VT::toBoolean(false));
+        $this->assertFalse(VT::toBoolean(0));
+        $this->assertFalse(VT::toBoolean('false'));
+        $this->assertFalse(VT::toBoolean('off'));
+        $this->assertFalse(VT::toBoolean('0'));
     }
 
     public function testToDateTimeImmutable()
@@ -26,17 +30,17 @@ class ValueTransformTest extends TestCase
 
         $this->assertInstanceOf(
            DateTimeImmutable::class,
-            ValueTransform::toDateTimeImmutable($dateTime)
+            VT::toDateTimeImmutable($dateTime)
         );
 
         $this->assertInstanceOf(
            DateTimeImmutable::class,
-            ValueTransform::toDateTimeImmutable(DateTimeImmutable::createFromMutable($dateTime))
+            VT::toDateTimeImmutable(DateTimeImmutable::createFromMutable($dateTime))
         );
 
         $this->assertInstanceOf(
            DateTimeImmutable::class,
-            ValueTransform::toDateTimeImmutable($dateTime->format(DateTime::W3C))
+            VT::toDateTimeImmutable($dateTime->format(DateTime::W3C))
         );
     }
 
@@ -44,29 +48,29 @@ class ValueTransformTest extends TestCase
     {
         $this->assertEquals(
            'test',
-            ValueTransform::toString('test')
+            VT::toString('test')
         );
 
         $this->assertEquals(
            'true',
-            ValueTransform::toString(true)
+            VT::toString(true)
         );
 
         $this->assertEquals(
            'false',
-            ValueTransform::toString(false)
+            VT::toString(false)
         );
 
         $dateTimeImmutable = new DateTimeImmutable();
 
         $this->assertEquals(
             $dateTimeImmutable->format(DateTime::W3C),
-            ValueTransform::toString($dateTimeImmutable)
+            VT::toString($dateTimeImmutable)
         );
 
         $this->assertEquals(
            '1',
-            ValueTransform::toString(1)
+            VT::toString(1)
         );
     }
 }

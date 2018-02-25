@@ -1,7 +1,9 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace AdobeConnectClient\Tests;
+
 use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
+use PHPUnit\Framework\TestCase;
 
 class StringCaseTransformTest extends TestCase
 {

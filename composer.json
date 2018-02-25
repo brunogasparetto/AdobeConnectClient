@@ -24,5 +24,10 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^7"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AdobeConnectClient\\Tests\\": "tests/"
+        }
     }
 }

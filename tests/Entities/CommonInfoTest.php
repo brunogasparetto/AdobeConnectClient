@@ -1,7 +1,11 @@
 <?php
 
-use PHPUnit\Framework\TestCase;
+namespace AdobeConnectClient\Tests;
+
+use DateTime;
+use DateTimeImmutable;
 use AdobeConnectClient\Entities\CommonInfo;
+use PHPUnit\Framework\TestCase;
 
 class CommonInfoTest extends TestCase
 {
