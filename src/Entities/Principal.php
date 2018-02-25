@@ -213,7 +213,7 @@ class Principal implements ArrayableInterface
     /**
      * The fields for create/update a User
      *
-     * @return array
+     * @return string[]
      */
     protected function fieldsForUser()
     {
@@ -233,7 +233,7 @@ class Principal implements ArrayableInterface
     /**
      * The fields for create/update a Group
      *
-     * @return array
+     * @return string[]
      */
     protected function fieldsForGroup()
     {
@@ -261,7 +261,7 @@ class Principal implements ArrayableInterface
      *
      * @todo Returns fields for all types
      *
-     * @return string[]
+     * @return string[] [string => string]
      */
     public function toArray()
     {
@@ -343,6 +343,8 @@ class Principal implements ArrayableInterface
     /**
      * Get the Type
      *
+     * More info about types see {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
+     *
      * @return string
      */
     public function getType()
@@ -362,6 +364,8 @@ class Principal implements ArrayableInterface
 
     /**
      * Get the Permission ID
+     *
+     * @see \AdobeConnectClient\Entities\Permission
      *
      * @return string
      */
@@ -536,6 +540,9 @@ class Principal implements ArrayableInterface
     }
 
     /**
+     * Set the Principal type.
+     *
+     * More info about types see {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
      *
      * @param string $type
      * @return Principal
@@ -583,6 +590,7 @@ class Principal implements ArrayableInterface
 
     /**
      *
+     * @see \AdobeConnectClient\Entities\Permission
      * @param string $permissionId
      * @return Principal
      */
