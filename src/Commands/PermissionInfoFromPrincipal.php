@@ -36,6 +36,8 @@ class PermissionInfoFromPrincipal extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return Permission
      */
     protected function process()

@@ -12,6 +12,8 @@ use AdobeConnectClient\Command;
 class Logout extends Command
 {
     /**
+     * @inheritdoc
+     *
      * @return bool
      */
     protected function process()

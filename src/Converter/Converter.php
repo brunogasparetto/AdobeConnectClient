@@ -3,6 +3,7 @@
 namespace AdobeConnectClient\Converter;
 
 use DomainException;
+use InvalidArgumentException;
 use AdobeConnectClient\Connection\ResponseInterface;
 
 abstract class Converter
@@ -10,6 +11,7 @@ abstract class Converter
     /**
      * @param ResponseInterface $response
      * @throws DomainException if data type is not implemented
+     * @throws InvalidArgumentException if data is invalid
      * @return array An associative array
      */
     public static function convert(ResponseInterface $response)

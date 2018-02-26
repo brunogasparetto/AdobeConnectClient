@@ -7,7 +7,6 @@ use CURLFile;
 use InvalidArgumentException;
 use UnexpectedValueException;
 use AdobeConnectClient\Connection\ConnectionInterface;
-use AdobeConnectClient\Connection\ResponseInterface;
 
 /**
  * Connection using cURL
@@ -59,11 +58,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Send a GET request.
-     *
-     * @param array $queryParams Associative array to add params in URL
-     * @throws UnexpectedValueException if server does not respond
-     * @return ResponseInterface
+     * @inheritdoc
      */
     public function get(array $queryParams = [])
     {
@@ -81,15 +76,7 @@ class Connection implements ConnectionInterface
     }
 
     /**
-     * Send a POST request.
-     *
-     * The request need be send as application/x-www-form-urlencoded or multipart/form-data.
-     * The $postParams must accept stream file or \SplFileInfo to send files.
-     *
-     * @param array $postParams Associative array for the post parameters
-     * @param array $queryParams Associative array to add params in URL
-     * @throws UnexpectedValueException if server does not respond
-     * @return ResponseInterface
+     * @inheritdoc
      */
     public function post(array $postParams, array $queryParams = [])
     {

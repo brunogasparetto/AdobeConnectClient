@@ -35,6 +35,8 @@ class GroupMembershipUpdate extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return bool
      */
     protected function process()

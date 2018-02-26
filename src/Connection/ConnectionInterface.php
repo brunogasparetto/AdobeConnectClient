@@ -1,5 +1,8 @@
 <?php
+
 namespace AdobeConnectClient\Connection;
+
+use UnexpectedValueException;
 
 /**
  * Connection Interface
@@ -10,8 +13,8 @@ interface ConnectionInterface
      * Send a GET request.
      *
      * @param array $queryParams Associative array to add params in URL
-     * @throws \UnexpectedValueException if server does not respond
-     * @return \AdobeConnectClient\Connection\ResponseInterface
+     * @throws UnexpectedValueException if server does not respond
+     * @return ResponseInterface
      */
     public function get(array $queryParams = []);
 
@@ -23,8 +26,8 @@ interface ConnectionInterface
      *
      * @param array $postParams Associative array for the post parameters
      * @param array $queryParams Associative array to add params in URL
-     * @throws \UnexpectedValueException if server does not respond
-     * @return \AdobeConnectClient\Connection\ResponseInterface
+     * @throws UnexpectedValueException if server does not respond
+     * @return ResponseInterface
      */
     public function post(array $postParams, array $queryParams = []);
 }

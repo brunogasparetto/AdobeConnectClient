@@ -46,6 +46,8 @@ class PermissionsInfo extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return Permission[]
      */
     protected function process()

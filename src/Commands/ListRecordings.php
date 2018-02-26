@@ -29,6 +29,8 @@ class ListRecordings extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return SCORecord[]
      */
     protected function process()

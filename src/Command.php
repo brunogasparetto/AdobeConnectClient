@@ -2,8 +2,14 @@
 
 namespace AdobeConnectClient;
 
-use AdobeConnectClient\Client;
 use BadMethodCallException;
+use UnexpectedValueException;
+use InvalidArgumentException;
+use DomainException;
+use AdobeConnectClient\Exceptions\InvalidException;
+use AdobeConnectClient\Exceptions\NoAccessException;
+use AdobeConnectClient\Exceptions\NoDataException;
+use AdobeConnectClient\Exceptions\TooMuchDataException;
 
 /**
  * The Commands base class is an abstraction to Web Service actions
@@ -31,9 +37,16 @@ abstract class Command
     }
 
     /**
-     * Executes the command and return a mixed value
+     * Executes the command and return a value
      *
      * @return mixed
+     * @throws InvalidException
+     * @throws NoAccessException
+     * @throws NoDataException
+     * @throws TooMuchDataException
+     * @throws UnexpectedValueException
+     * @throws InvalidArgumentException
+     * @throws DomainException
      * @throws BadMethodCallException
      */
     public function execute()
@@ -45,9 +58,16 @@ abstract class Command
     }
 
     /**
-     * Process the command and return a mixed value
+     * Process the command and return a value
      *
      * @return mixed
+     * @throws InvalidException
+     * @throws NoAccessException
+     * @throws NoDataException
+     * @throws TooMuchDataException
+     * @throws UnexpectedValueException
+     * @throws InvalidArgumentException
+     * @throws DomainException
      */
     abstract protected function process();
 }

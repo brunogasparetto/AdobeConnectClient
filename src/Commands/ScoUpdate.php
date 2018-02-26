@@ -32,6 +32,8 @@ class ScoUpdate extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return bool
      */
     protected function process()

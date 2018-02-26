@@ -2,6 +2,7 @@
 
 namespace AdobeConnectClient\Converter;
 
+use InvalidArgumentException;
 use AdobeConnectClient\Connection\ResponseInterface;
 
 interface ConverterInterface
@@ -26,7 +27,7 @@ interface ConverterInterface
      *     ];
      *
      * @param ResponseInterface $response
-     * @throws \InvalidArgumentException if data is invalid
+     * @throws InvalidArgumentException if data is invalid
      * @return array
      */
     public static function convert(ResponseInterface $response);

@@ -9,27 +9,7 @@ use AdobeConnectClient\Helpers\StringCaseTransform as SCT;
 class ConverterXML implements ConverterInterface
 {
     /**
-     * Converts the data into an associative array with camelCase keys
-     *
-     * Example:
-     *     [
-     *         'status' => [
-     *             'code' => 'invalid',
-     *             'invalid' => [
-     *                 'field' => 'login',
-     *                 'type' => 'string',
-     *                 'subcode' => 'missing',
-     *             ],
-     *         ],
-     *         'common' => [
-     *             'zoneId' => 3,
-     *             'locale' => '',
-     *         ],
-     *     ];
-     *
-     * @param ResponseInterface $response
-     * @throws InvalidArgumentException if data is invalid
-     * @return array
+     * @inheritdoc
      */
     public static function convert(ResponseInterface $response)
     {

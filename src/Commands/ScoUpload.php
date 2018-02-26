@@ -59,6 +59,8 @@ class ScoUpload extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return int|null The Content SCO ID or null if fail
      */
     protected function process()

@@ -25,9 +25,7 @@ class Stream implements StreamInterface
     }
 
     /**
-     * Reads all data from the stream into a string, from the beginning to end.
-     *
-     * @return string
+     * @inheritdoc
      */
     public function __toString()
     {

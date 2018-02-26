@@ -43,7 +43,7 @@ class AclFieldUpdate extends Command
     }
 
     /**
-     * Execute the command
+     * @inheritdoc
      *
      * @return bool
      */

@@ -3,6 +3,10 @@
 namespace AdobeConnectClient;
 
 use ReflectionClass;
+use ReflectionException;
+use BadMethodCallException;
+use DomainException;
+use UnexpectedValueException;
 use AdobeConnectClient\Connection\ConnectionInterface;
 use AdobeConnectClient\Connection\ResponseInterface;
 use AdobeConnectClient\Entities\SCO;
@@ -83,19 +87,20 @@ class Client
      * @param string $commandName
      * @param array $arguments
      * @return mixed
+     * @throws ReflectionException
      */
     public function __call($commandName, array $arguments = [])
     {
         $className = '\\AdobeConnectClient\\Commands\\' . SCT::toUpperCamelCase($commandName);
 
         if (!class_exists($className)) {
-            throw new \BadMethodCallException(sprintf('"%s" is not defined as command', $commandName));
+            throw new BadMethodCallException(sprintf('"%s" is not defined as command', $commandName));
         }
 
         $reflection = new ReflectionClass($className);
 
         if (!$reflection->isSubclassOf(Command::class)) {
-            throw new \DomainException(sprintf('"%s" is not a valid command', $className));
+            throw new DomainException(sprintf('"%s" is not a valid command', $className));
         }
 
         return $reflection->newInstanceArgs($arguments)
@@ -107,6 +112,7 @@ class Client
      *
      * @param array $parameters
      * @return ResponseInterface
+     * @throws UnexpectedValueException
      */
     public function doGet(array $parameters)
     {
@@ -118,6 +124,7 @@ class Client
      * @param array $postParams
      * @param array $queryParams
      * @return ResponseInterface
+     * @throws UnexpectedValueException
      */
     public function doPost(array $postParams, array $queryParams = [])
     {

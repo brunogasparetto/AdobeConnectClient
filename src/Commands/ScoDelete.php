@@ -28,7 +28,7 @@ class ScoDelete extends Command
     }
 
     /**
-     * Execute the command.
+     * @inheritdoc
      *
      * @return bool
      */

@@ -49,6 +49,8 @@ class PrincipalList extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return Principal[]
      */
     protected function process()

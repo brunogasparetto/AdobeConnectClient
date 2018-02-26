@@ -32,6 +32,8 @@ class PrincipalUpdate extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return bool
      */
     protected function process()

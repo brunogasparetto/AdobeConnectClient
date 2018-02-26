@@ -49,6 +49,8 @@ class ScoContents extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return SCO[]
      */
     protected function process()

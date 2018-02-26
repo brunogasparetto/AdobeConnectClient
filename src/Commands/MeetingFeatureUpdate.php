@@ -43,6 +43,8 @@ class MeetingFeatureUpdate extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return bool
      */
     protected function process()

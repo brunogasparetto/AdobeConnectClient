@@ -29,6 +29,8 @@ class ScoInfo extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return SCO
      */
     protected function process()

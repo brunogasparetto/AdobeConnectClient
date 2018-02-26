@@ -43,9 +43,7 @@ class Response implements ResponseInterface
     }
 
     /**
-     * Gets the response status code.
-     *
-     * @return int
+     * @inheritdoc
      */
     public function getStatusCode()
     {
@@ -53,9 +51,7 @@ class Response implements ResponseInterface
     }
 
     /**
-     * Gets the body of the message.
-     *
-     * @return StreamInterface
+     * @inheritdoc
      */
     public function getBody()
     {
@@ -63,12 +59,7 @@ class Response implements ResponseInterface
     }
 
     /**
-     * Retrieves all message header values.
-     *
-     * The keys represent the header name as it will be sent over the wire, and
-     * each value is an array of strings associated with the header.
-     *
-     * @return array An associative array
+     * @inheritdoc
      */
     public function getHeaders()
     {
@@ -76,13 +67,7 @@ class Response implements ResponseInterface
     }
 
     /**
-     * Retrieves a message header value by the given case-insensitive name.
-     *
-     * This method returns an array of all the header values of the given
-     * case-insensitive header name.
-     *
-     * @param string $name Case-insensitive header field name.
-     * @return string[] An array of string values as provided for the given header.
+     * @inheritdoc
      */
     public function getHeader($name)
     {
@@ -100,18 +85,7 @@ class Response implements ResponseInterface
     }
 
     /**
-     * Retrieves a comma-separated string of the values for a single header.
-     *
-     * This method returns all of the header values of the given
-     * case-insensitive header name as a string concatenated together using
-     * a comma.
-     *
-     * NOTE: Not all header values may be appropriately represented using
-     * comma concatenation. For such headers, use getHeader() instead
-     * and supply your own delimiter when concatenating.
-     *
-     * @param string $name Case-insensitive header field name.
-     * @return string
+     * @inheritdoc
      */
     public function getHeaderLine($name)
     {

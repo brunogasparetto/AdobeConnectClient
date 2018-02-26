@@ -29,6 +29,8 @@ class PrincipalInfo extends Command
     }
 
     /**
+     * @inheritdoc
+     *
      * @return Principal
      */
     protected function process()

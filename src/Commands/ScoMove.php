@@ -33,9 +33,11 @@ class ScoMove extends Command
         $this->folderId = (int) $folderId;
     }
 
-/**
- * @return bool
- */
+    /**
+     * @inheritdoc
+     *
+     * @return bool
+     */
     protected function process()
     {
         $response = Converter::convert(

@@ -28,8 +28,11 @@ class CommonInfo extends Command
     {
         $this->domain = $domain;
     }
+
     /**
-     * @return CommonInfo
+     * @inheritdoc
+     *
+     * @return CommonInfoEntity
      */
     protected function process()
     {
