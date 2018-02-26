@@ -24,4 +24,8 @@
             </exclude>
         </whitelist>
     </filter>
+    <php>
+        <const name="TEST_REAL_CONNECTION" value="false"/>
+        <const name="REAL_CONNECTION_HOST" value="https://test.adobeconnect.com/api/xml"/>
+    </php>
 </phpunit>
