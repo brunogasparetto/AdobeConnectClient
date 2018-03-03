@@ -62,7 +62,7 @@ class ConnectionTest extends TestCase
         $this->assertInstanceOf(ResponseInterface::class, $response);
     }
 
-    public function testGetInvalid()
+    public function testGetWithoutResponse()
     {
         if (!TEST_REAL_CONNECTION) {
             $this->markTestSkipped();
@@ -73,7 +73,7 @@ class ConnectionTest extends TestCase
         $connection->get();
     }
 
-    public function testPostInvalid()
+    public function testPostWithoutResponse()
     {
         if (!TEST_REAL_CONNECTION) {
             $this->markTestSkipped();
