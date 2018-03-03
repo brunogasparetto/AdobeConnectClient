@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<results>
+    <status code="ok" />
+    <scos>
+        <sco sco-id="2007035246" source-sco-id="2006334909" folder-id="2006258748" type="content" icon="course" display-seq="0" is-folder="0">
+            <name>Java 101</name>
+            <url-path>/java101/</url-path>
+            <date-begin>2006-07-20T17:15:00.000-07:00</date-begin>
+            <date-modified>2006-07-20T17:21:38.860-07:00</date-modified>
+        </sco>
+    </scos>
+</results>
