@@ -9,9 +9,11 @@ use AdobeConnectClient\Connection\Curl\Stream;
 
 class Connection implements ConnectionInterface
 {
-
-
     private $actionsResources = __DIR__ . '/../../Resources/xml/';
+
+    private $phpArrayResources = __DIR__ . '/../../Resources/php/';
+
+    private $lastAction = '';
 
     private $overrideStatus = '';
 
@@ -47,12 +49,19 @@ class Connection implements ConnectionInterface
         return $this->sessionString;
     }
 
+    public function getLasActionArrayResource()
+    {
+        $resourceFile = $this->phpArrayResources . $this->lastAction . '.php';
+        return include $resourceFile;
+    }
+
     /**
      * @inheritdoc
      */
     public function get(array $queryParams = [])
     {
-        $resourceFile = ($this->overrideStatus ?: $queryParams['action']) . '.xml';
+        $this->lastAction = $this->overrideStatus ?: $queryParams['action'];
+        $resourceFile = $this->actionsResources . $this->lastAction . '.xml';
 
         $this->resetStatusOverride();
 
@@ -62,7 +71,7 @@ class Connection implements ConnectionInterface
                 'Content-Type' => ['text/xml'],
                 'Set-Cookie' => ["BREEZESESSION={$this->sessionString};HttpOnly;domain=.adobeconnect.com;secure;path=/"]
             ],
-            new Stream(file_get_contents($this->actionsResources . $resourceFile))
+            new Stream(file_get_contents($resourceFile))
         );
     }
 
@@ -71,7 +80,10 @@ class Connection implements ConnectionInterface
      */
     public function post(array $postParams, array $queryParams = [])
     {
-        $resourceFile = ($this->overrideStatus ?: $queryParams['action']) . '.xml';
+        $this->lastAction = $this->overrideStatus ?: $queryParams['action'];
+        $resourceFile = $this->actionsResources . $this->lastAction . '.xml';
+
+        $this->resetStatusOverride();
 
         $this->resetStatusOverride();
 
@@ -81,7 +93,7 @@ class Connection implements ConnectionInterface
                 'Content-Type' => ['text/xml'],
                 'Set-Cookie' => ["BREEZESESSION={$this->sessionString};HttpOnly;domain=.adobeconnect.com;secure;path=/"]
             ],
-            new Stream(file_get_contents($this->actionsResources . $resourceFile))
+            new Stream(file_get_contents($resourceFile))
         );
     }
 }
