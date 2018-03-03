@@ -12,7 +12,7 @@ use AdobeConnectClient\Tests\Connection\File\Connection;
 use AdobeConnectClient\Client;
 use PHPUnit\Framework\TestCase;
 
-class TestCommandBase extends TestCase
+abstract class TestCommandBase extends TestCase
 {
     /**
      * @var Connection
