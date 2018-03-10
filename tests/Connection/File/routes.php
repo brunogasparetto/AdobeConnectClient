@@ -93,6 +93,12 @@ return [
         '121875836a8430c43fba24097fb42c628258a142' => 'principal-list-group',
     ],
 
+    'user-update-pwd' => [
+        'dba78015dd3532813b513ac5f4d2825fbb712f8e' => 'user-update-pwd-no-access',
+        'ff9d991b034d2bbc4fe76e71e5b64ba1cac353ed' => 'user-update-pwd-success',
+        '6e19a6356eb0449548c24b0182cbc5efd0d60fb3' => 'user-update-pwd-success',
+    ],
+
     '' => [
         '' => '',
     ],
