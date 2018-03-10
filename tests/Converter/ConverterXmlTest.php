@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use AdobeConnectClient\Converter\ConverterXML;
 use AdobeConnectClient\Connection\Curl\Response;
 use AdobeConnectClient\Connection\Curl\Stream;
+use AdobeConnectClient\Tests\Connection\File\Connection;
 use PHPUnit\Framework\TestCase;
 
 class ConverterXmlTest extends TestCase
@@ -21,27 +22,17 @@ class ConverterXmlTest extends TestCase
 
     public function testConvertListRecordings()
     {
-        $response = new Response(
-            200,
-            [],
-            new Stream(file_get_contents(__DIR__ . '/../Resources/xml/list-recordings.xml'))
-        );
+        $connection = new Connection();
 
-        $expected = include __DIR__ . '/../Resources/php/list-recordings.php';
+        $response = $connection->get([
+            'action' => 'list-recordings',
+            'folder-id' => 1,
+            'session' => $connection->getSessionString()
+        ]);
 
-        $this->assertEquals($expected, ConverterXML::convert($response));
-    }
+        $rawData = ConverterXML::convert($response);
 
-    public function testConvertCommonInfo()
-    {
-        $response = new Response(
-            200,
-            [],
-            new Stream(file_get_contents(__DIR__ . '/../Resources/xml/common-info.xml'))
-        );
-
-        $expected = include __DIR__ . '/../Resources/php/common-info.php';
-
-        $this->assertEquals($expected, ConverterXML::convert($response));
+        $this->assertNotEmpty($rawData);
+        $this->assertEquals(13633, $rawData['recordings'][0]['scoId']);
     }
 }

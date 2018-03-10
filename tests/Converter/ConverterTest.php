@@ -6,23 +6,25 @@ use DomainException;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Connection\Curl\Response;
 use AdobeConnectClient\Connection\Curl\Stream;
+use AdobeConnectClient\Tests\Connection\File\Connection;
 use PHPUnit\Framework\TestCase;
 
 class ConverterTest extends TestCase
 {
     public function testConvertListRecordings()
     {
-        $response = new Response(
-            200,
-            [
-                'Content-Type' => ['text/xml']
-            ],
-            new Stream(file_get_contents(__DIR__ . '/../Resources/xml/list-recordings.xml'))
-        );
+        $connection = new Connection();
 
-        $expected = include __DIR__ . '/../Resources/php/list-recordings.php';
+        $response = $connection->get([
+            'action' => 'list-recordings',
+            'folder-id' => 1,
+            'session' => $connection->getSessionString()
+        ]);
 
-        $this->assertEquals($expected, Converter::convert($response));
+        $rawData = Converter::convert($response);
+
+        $this->assertNotEmpty($rawData);
+        $this->assertEquals(13633, $rawData['recordings'][0]['scoId']);
     }
 
     public function testInvalidArgumentException()
