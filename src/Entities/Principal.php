@@ -208,9 +208,17 @@ class Principal implements ArrayableInterface
 
     /**
      * Only on create a User
+     *
      * @var bool
      */
     protected $sendEmail = null;
+
+    /**
+     * Indicates if the user is a member of the group (@see \AdobeConnectClient\Commands\PrincipalList)
+     *
+     * @var bool
+     */
+    protected $isMember = null;
 
     /**
      * The fields for create/update a User
@@ -751,5 +759,21 @@ class Principal implements ArrayableInterface
     {
         $this->sendEmail = VT::toBoolean($sendEmail);
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsMember()
+    {
+        return $this->isMember;
+    }
+
+    /**
+     * @param bool $isMember
+     */
+    public function setIsMember($isMember)
+    {
+        $this->isMember = VT::toBoolean($isMember);
     }
 }

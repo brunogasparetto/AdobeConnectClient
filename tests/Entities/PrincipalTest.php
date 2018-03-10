@@ -415,6 +415,35 @@ class PrincipalTest extends TestCase
         );
     }
 
+    public function testIsMember()
+    {
+        $principal = Principal::instance();
+
+        $principal->setIsMember(true);
+        $this->assertTrue($principal->getIsMember());
+
+        $principal->setIsMember(1);
+        $this->assertTrue($principal->getIsMember());
+
+        $principal->setIsMember('true');
+        $this->assertTrue($principal->getIsMember());
+
+        $principal->setIsMember('on');
+        $this->assertTrue($principal->getIsMember());
+
+        $principal->setIsMember(false);
+        $this->assertFalse($principal->getIsMember());
+
+        $principal->setIsMember(0);
+        $this->assertFalse($principal->getIsMember());
+
+        $principal->setIsMember('false');
+        $this->assertFalse($principal->getIsMember());
+
+        $principal->setIsMember('off');
+        $this->assertFalse($principal->getIsMember());
+    }
+
     public function testFluentInterface()
     {
         $principal = Principal::instance();

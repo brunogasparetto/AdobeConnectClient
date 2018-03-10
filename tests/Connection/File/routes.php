@@ -90,7 +90,9 @@ return [
         '0f9879a925d933ca16dd095ba2fa5944ff13de0f' => 'principal-list-sorter',
         'ec5d33500aa52c47e176076b19037113a94db903' => 'principal-list-filter',
         'e5ca329139ae19dcc7f898f0eef70362cc476257' => 'principal-list-empty',
-        '121875836a8430c43fba24097fb42c628258a142' => 'principal-list-group',
+        'c62181a8a91f197ecdaa48da840f9dbc4bab28c7' => 'principal-list-group-all',
+        '121875836a8430c43fba24097fb42c628258a142' => 'principal-list-group-is-member',
+        'e7349e5d03ac0d62add8d6a9ba77972e3cf9ad76' => 'principal-list-group-is-not-member',
     ],
 
     'user-update-pwd' => [

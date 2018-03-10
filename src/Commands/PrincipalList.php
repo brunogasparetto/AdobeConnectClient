@@ -23,7 +23,7 @@ class PrincipalList extends Command
     protected $parameters;
 
     /**
-     * @param int $groupId The Principal ID of a group. Gets only members from this group.
+     * @param int $groupId The Principal ID of a group. If indicate will be possible filter by isMember.
      * @param ArrayableInterface|null $filter
      * @param ArrayableInterface|null $sorter
      */
@@ -38,11 +38,6 @@ class PrincipalList extends Command
 
         if ($groupId) {
             $this->parameters['group-id'] = $groupId;
-
-            if (empty($filter)) {
-                $filter = Filter::instance();
-            }
-            $filter->isMember(true);
         }
 
         if ($filter) {

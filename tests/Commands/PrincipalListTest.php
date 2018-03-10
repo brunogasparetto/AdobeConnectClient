@@ -85,7 +85,7 @@ class PrincipalListTest extends TestCommandBase
         $this->assertEmpty($principals);
     }
 
-    public function testListGroup()
+    public function testListGroupAll()
     {
         $this->userLogin();
 
@@ -94,8 +94,56 @@ class PrincipalListTest extends TestCommandBase
 
         $principals = $command->execute();
 
+        $this->assertEquals(2, \count($principals));
+
+        $assertsExpected = [
+            [
+                'id' => 624526,
+                'isMember' => true
+            ],
+            [
+                'id' => 624550,
+                'isMember' => false
+            ]
+        ];
+
+        foreach ($assertsExpected as $index => $expectedItems) {
+            $this->assertEquals($expectedItems['id'], $principals[$index]->getPrincipalId());
+            $this->assertEquals($expectedItems['isMember'], $principals[$index]->getIsMember());
+        }
+    }
+
+    public function testListGroupIsMember()
+    {
+        $this->userLogin();
+
+        $command = new PrincipalList(5, Filter::instance()->isMember(true));
+        $command->setClient($this->client);
+
+        $principals = $command->execute();
+
         $this->assertEquals(1, \count($principals));
 
-        $this->assertEquals(624526, $principals[0]->getPrincipalId());
+        $principal = $principals[0];
+
+        $this->assertEquals(624526, $principal->getPrincipalId());
+        $this->assertTrue($principal->getIsMember());
+    }
+
+    public function testListGroupIsNotMember()
+    {
+        $this->userLogin();
+
+        $command = new PrincipalList(5, Filter::instance()->isMember(false));
+        $command->setClient($this->client);
+
+        $principals = $command->execute();
+
+        $this->assertEquals(1, \count($principals));
+
+        $principal = $principals[0];
+
+        $this->assertEquals(624550, $principal->getPrincipalId());
+        $this->assertFalse($principal->getIsMember());
     }
 }
