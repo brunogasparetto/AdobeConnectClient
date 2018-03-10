@@ -29,7 +29,7 @@ class ConverterXML implements ConverterInterface
             }
 
             // if it doesn't have attributes it is a collection
-            $elementName = $element->getName();
+            $elementName = SCT::toCamelCase($element->getName());
             $result[$elementName] = [];
 
             foreach ($element->children() as $elementChild) {
