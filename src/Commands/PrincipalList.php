@@ -22,7 +22,7 @@ class PrincipalList extends Command
     protected $parameters;
 
     /**
-     * @param int $groupId The ID of a group. Same as the principal-id of a principal that has a type value of group.
+     * @param int $groupId The Principal ID of a group. With this you can add a filter isMember to retrieve only group members
      * @param ArrayableInterface|null $filter
      * @param ArrayableInterface|null $sorter
      */
