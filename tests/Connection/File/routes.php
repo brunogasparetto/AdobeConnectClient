@@ -8,7 +8,9 @@
 return [
     'acl-field-update' => [
         'ec1009edcfbc4d44063e3e4c7bf7f042bcbd2dd1' => 'acl-field-update-success',
+        'f9bfa92d710a9988edec5b75ae121de4003dedba' => 'acl-field-update-success',
         '7fec835d624f38f4f6b1a4f93442ea8b5c4c4726' => 'acl-field-update-no-access',
+        '35f35a3fcea9c4b0f63e48b652e8ff41e175dc24' => 'acl-field-update-no-access',
         'c0db054e609efa75105a7888ff851f177c2a7d06' => 'acl-field-update-invalid',
     ],
 
@@ -57,7 +59,9 @@ return [
 
     'permissions-update' => [
         '71e3d7c0567ec5429da14cd91b0f16a20d0a244d' => 'permission-update-success',
+        'eed55aa2f119637eb9f12efc120087d6b3eedbc5' => 'permission-update-success',
         '403b845b83b942e00dc00d907829fa8c9f8bcd34' => 'permission-update-no-access',
+        'fdba3dd167f5071b7e28b6bf345ad17c836bf759' => 'permission-update-no-access',
     ],
 
     'principals-delete' => [
