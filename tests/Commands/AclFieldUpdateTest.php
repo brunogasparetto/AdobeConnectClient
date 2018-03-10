@@ -2,14 +2,17 @@
 
 namespace AdobeConnectClient\Tests\Commands;
 
-use Exception;
 use AdobeConnectClient\Commands\AclFieldUpdate;
 use AdobeConnectClient\Parameter;
+use AdobeConnectClient\Exceptions\NoAccessException;
+use AdobeConnectClient\Exceptions\InvalidException;
 
 class AclFieldUpdateTest extends TestCommandBase
 {
-    public function testExecute()
+    public function testAclFieldUpdate()
     {
+        $this->userLogin();
+
         $extraParams = Parameter::instance()
             ->set('extraField', 'extra value');
 
@@ -19,14 +22,33 @@ class AclFieldUpdateTest extends TestCommandBase
         $this->assertTrue($command->execute());
     }
 
-    public function testException()
+    public function testNoAccess()
     {
-        $this->expectException(Exception::class);
+        $this->userLogout();
 
-        $this->connection->overrideStatusWithNoAccess();
+        $extraParams = Parameter::instance()
+            ->set('extraField', 'extra value');
 
-        $command = new AclFieldUpdate(1, 'field', 'value');
+        $command = new AclFieldUpdate(1, 'field', 'value', $extraParams);
         $command->setClient($this->client);
+
+        $this->expectException(NoAccessException::class);
+
+        $command->execute();
+    }
+
+    public function testInvalid()
+    {
+        $this->userLogin();
+
+        $extraParams = Parameter::instance()
+            ->set('extraField', 'extra value');
+
+        $command = new AclFieldUpdate(1, 'invalid-field', 'value', $extraParams);
+        $command->setClient($this->client);
+
+        $this->expectException(InvalidException::class);
+
         $command->execute();
     }
 }

@@ -9,28 +9,25 @@ use AdobeConnectClient\Helpers\SetEntityAttributes;
 
 class CommonInfoTest extends TestCommandBase
 {
-    public function testExecute()
+    public function testWithoutDomain()
+    {
+        $command = new CommonInfo();
+        $command->setClient($this->client);
+        $commonInfo = $command->execute();
+
+        $this->assertInstanceOf(CommonInfoEntity::class, $commonInfo);
+        $this->assertEquals('https:example.com', $commonInfo->getHost());
+        $this->assertEquals(624520, $commonInfo->getAccountId());
+    }
+
+    public function testWithDomain()
     {
         $command = new CommonInfo('domain');
         $command->setClient($this->client);
         $commonInfo = $command->execute();
 
         $this->assertInstanceOf(CommonInfoEntity::class, $commonInfo);
-
-        $expected = new CommonInfoEntity();
-        SetEntityAttributes::setAttributes($expected, $this->connection->getLasActionArrayResource());
-
-        $this->assertEquals($expected, $commonInfo);
-    }
-
-    public function testException()
-    {
-        $this->expectException(Exception::class);
-
-        $this->connection->overrideStatusWithNoAccess();
-
-        $command = new CommonInfo();
-        $command->setClient($this->client);
-        $command->execute();
+        $this->assertEquals('https:example.com', $commonInfo->getHost());
+        $this->assertEquals(624520, $commonInfo->getAccountId());
     }
 }

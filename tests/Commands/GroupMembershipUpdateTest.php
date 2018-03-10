@@ -2,13 +2,15 @@
 
 namespace AdobeConnectClient\Tests\Commands;
 
-use Exception;
 use AdobeConnectClient\Commands\GroupMembershipUpdate;
+use AdobeConnectClient\Exceptions\NoAccessException;
+use AdobeConnectClient\Exceptions\InvalidException;
 
 class GroupMembershipUpdateTest extends TestCommandBase
 {
-    public function testExecute()
+    public function testChangeMemberSuccess()
     {
+        $this->userLogin();
 
         $command = new GroupMembershipUpdate(1, 1, true);
         $command->setClient($this->client);
@@ -16,14 +18,28 @@ class GroupMembershipUpdateTest extends TestCommandBase
         $this->assertTrue($command->execute());
     }
 
-    public function testException()
+    public function testNoAccess()
     {
-        $this->expectException(Exception::class);
+        $this->userLogout();
 
-        $this->connection->overrideStatusWithNoAccess();
-
-        $command = new GroupMembershipUpdate(1, 1, true);
+        $command = new GroupMembershipUpdate(1, 0, true);
         $command->setClient($this->client);
+
+        $this->expectException(NoAccessException::class);
+
+        $command->execute();
+    }
+
+    public function testInvalidPrincipalUser()
+    {
+        $this->userLogin();
+
+
+        $command = new GroupMembershipUpdate(1, 0, true);
+        $command->setClient($this->client);
+
+        $this->expectException(InvalidException::class);
+
         $command->execute();
     }
 }

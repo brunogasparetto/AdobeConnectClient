@@ -9,9 +9,9 @@ class LoginTest extends TestCommandBase
     /**
      * return string
      */
-    public function testExecute()
+    public function testUserSuccess()
     {
-        $command = new Login('login', 'password');
+        $command = new Login('ValidLogin', 'ValidPassword');
         $command->setClient($this->client);
 
         $this->assertTrue($command->execute());
@@ -20,7 +20,7 @@ class LoginTest extends TestCommandBase
     }
 
     /**
-     * @depends testExecute
+     * @depends testUserSuccess
      *
      * @param string $session
      */
@@ -31,11 +31,19 @@ class LoginTest extends TestCommandBase
 
     public function testInvalidLogin()
     {
-        $this->connection->overrideStatusWithNoData();
-
-        $command = new Login('login', 'password');
+        $command = new Login('InvalidLogin', 'InvalidPassword');
         $command->setClient($this->client);
 
         $this->assertFalse($command->execute());
+    }
+
+    /**
+     * @depends testInvalidLogin
+     *
+     * @param string $session
+     */
+    public function testLogoutdSession($session)
+    {
+        $this->assertEquals('', $session);
     }
 }

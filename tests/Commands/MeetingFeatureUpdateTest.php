@@ -2,32 +2,44 @@
 
 namespace AdobeConnectClient\Tests\Commands;
 
-use Exception;
 use AdobeConnectClient\Commands\MeetingFeatureUpdate;
+use AdobeConnectClient\Exceptions\NoAccessException;
+use AdobeConnectClient\Exceptions\InvalidException;
 
 class MeetingFeatureUpdateTest extends TestCommandBase
 {
-    /**
-     * return string
-     */
-    public function testExecute()
+    public function testMeetignFeatureUpdate()
     {
+        $this->userLogin();
+
         $command = new MeetingFeatureUpdate(1, 'feature', true);
         $command->setClient($this->client);
 
         $this->assertTrue($command->execute());
-
-        return $this->client->getSession();
     }
 
-    public function testException()
+    public function testNoAccess()
     {
-        $this->expectException(Exception::class);
-
-        $this->connection->overrideStatusWithNoAccess();
+        $this->userLogout();
 
         $command = new MeetingFeatureUpdate(1, 'feature', true);
         $command->setClient($this->client);
+
+        $this->expectException(NoAccessException::class);
+
+        $command->execute();
+    }
+
+    public function testInvalidFeature()
+    {
+        $this->userLogin();
+
+
+        $command = new MeetingFeatureUpdate(1, 'invalid-feature', true);
+        $command->setClient($this->client);
+
+        $this->expectException(InvalidException::class);
+
         $command->execute();
     }
 }

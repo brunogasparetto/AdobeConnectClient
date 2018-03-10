@@ -9,8 +9,10 @@ class LogoutTest extends TestCommandBase
     /**
      * return string
      */
-    public function testExecute()
+    public function testLogout()
     {
+        $this->userLogin();
+
         $command = new Logout();
         $command->setClient($this->client);
 
@@ -20,7 +22,7 @@ class LogoutTest extends TestCommandBase
     }
 
     /**
-     * @depends testExecute
+     * @depends testLogout
      *
      * @param string $session
      */
