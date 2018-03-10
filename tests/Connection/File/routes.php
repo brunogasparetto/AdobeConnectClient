@@ -80,6 +80,15 @@ return [
         '4ead5c80628ae73a4343a588979a2f7fef1e7798' => 'principal-update-update',
     ],
 
+    'principal-list' => [
+        'c228737ee01c96f5b6c3c88ab94cb390347e3647' => 'principal-list-no-access',
+        'c7d426c3410ec12370e5a4319f8aeff934c9565f' => 'principal-list-all',
+        '0f9879a925d933ca16dd095ba2fa5944ff13de0f' => 'principal-list-sorter',
+        'ec5d33500aa52c47e176076b19037113a94db903' => 'principal-list-filter',
+        'e5ca329139ae19dcc7f898f0eef70362cc476257' => 'principal-list-empty',
+        '121875836a8430c43fba24097fb42c628258a142' => 'principal-list-group',
+    ],
+
     '' => [
         '' => '',
     ],
