@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<results>
-    <status code="ok" />
-    <principal principal-id="2006403978" account-id="624520" type="user" has-children="0">
-        <login>jakedoe@example.com</login>
-        <ext-login>jakedoe@example.com</ext-login>
-        <name>jake doe</name>
-    </principal>
-</results>
