@@ -73,8 +73,11 @@ return [
 
     'principal-update' => [
         '0a3ff4f4bf08f7c18a08c4accb0c952f2663e2cf' => 'principal-update-no-access',
+        '7e8f86017c3168c211e0da2f739a6b29b4b0f988' => 'principal-update-no-access',
         'd707626582cc0bea8be5a10011b4fb6afcb62afa' => 'principal-update-create-user',
         '1177141f4482789d55daffa0cda76b2a327ba6fd' => 'principal-update-create-group',
+        'd74fb1b82f258a0066340ef1ca4172bbdfb3a60f' => 'principal-update-update',
+        '4ead5c80628ae73a4343a588979a2f7fef1e7798' => 'principal-update-update',
     ],
 
     '' => [
