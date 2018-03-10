@@ -31,4 +31,14 @@ abstract class TestCommandBase extends TestCase
         $this->connection = new Connection();
         $this->client = new Client($this->connection);
     }
+
+    protected function userLogin()
+    {
+        $this->client->setSession($this->connection->getSessionString());
+    }
+
+    protected function userLogout()
+    {
+        $this->client->setSession('');
+    }
 }
