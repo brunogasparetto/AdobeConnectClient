@@ -355,7 +355,7 @@ class PrincipalTest extends TestCase
             ->setHasChildren(true)
             ->setPrincipalId(1)
             ->setFirstName('FirstName')
-            ->setLastName('LasName')
+            ->setLastName('LastName')
             ->setLogin('Login')
             ->setPassword('Password')
             ->setEmail('E-Mail')
@@ -394,6 +394,25 @@ class PrincipalTest extends TestCase
             ->setDescription('Description');
 
         $this->assertEquals([], $principal->toArray());
+    }
+
+    public function testFixNameByType()
+    {
+        $principal = new Principal();
+
+        $principal->setName('Foo Bar');
+        $principal->setType(Principal::TYPE_USER);
+
+        $this->assertEquals(
+            [
+                'Foo',
+                'Bar'
+            ],
+            [
+                $principal->getFirstName(),
+                $principal->getLastName()
+            ]
+        );
     }
 
     public function testFluentInterface()

@@ -140,6 +140,8 @@ class Principal implements ArrayableInterface
     protected $hasChildren = null;
 
     /**
+     * @see Permission::PRINCIPAL_* constants
+     *
      * @var string
      */
     protected $permissionId = null;
@@ -492,6 +494,7 @@ class Principal implements ArrayableInterface
     public function setName($name)
     {
         $this->name = (string) $name;
+        $this->fixNameByType();
         return $this;
     }
 
@@ -574,7 +577,34 @@ class Principal implements ArrayableInterface
             throw new DomainException("{$type} isn't a valid Principal Type");
         }
 
+        $this->fixNameByType();
+
         return $this;
+    }
+
+    /**
+     * Fix the name or firstName and lastName.
+     *
+     * The user type has firstName and lastName, but some actions from Adobe Connect returns the
+     * Principal user type with name, so we need fix it.
+     */
+    protected function fixNameByType()
+    {
+        if ($this->type === self::TYPE_GROUP and empty($this->name) and $this->firstName and $this->lastName) {
+            $this->name = $this->firstName . ' ' . $this->lastName;
+            return;
+        }
+
+        if ($this->type === self::TYPE_USER and empty($this->firstName) and empty($this->lastName) and $this->name ) {
+            $names = explode(' ', $this->name, 2);
+
+            if (count($names) !== 2) {
+                $this->firstName = $names[0];
+                return;
+            }
+
+            list($this->firstName, $this->lastName) = $names;
+        }
     }
 
     /**
@@ -685,6 +715,7 @@ class Principal implements ArrayableInterface
     public function setFirstName($firstName)
     {
         $this->firstName = (string) $firstName;
+        $this->fixNameByType();
         return $this;
     }
 
@@ -696,6 +727,7 @@ class Principal implements ArrayableInterface
     public function setLastName($lastName)
     {
         $this->lastName = (string) $lastName;
+        $this->fixNameByType();
         return $this;
     }
 

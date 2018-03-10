@@ -4,8 +4,8 @@ namespace AdobeConnectClient\Commands;
 
 use AdobeConnectClient\Command;
 use AdobeConnectClient\ArrayableInterface;
-use AdobeConnectClient\Entities\Permission;
 use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Entities\Principal;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 
@@ -48,7 +48,7 @@ class PermissionsInfo extends Command
     /**
      * @inheritdoc
      *
-     * @return Permission[]
+     * @return Principal[]
      */
     protected function process()
     {
@@ -59,13 +59,13 @@ class PermissionsInfo extends Command
         );
         StatusValidate::validate($response['status']);
 
-        $permissions = [];
+        $principals = [];
 
-        foreach ($response['permissions'] as $permissionAttributes) {
-            $permission = new Permission();
-            FillObject::setAttributes($permission, $permissionAttributes);
-            $permissions[] = $permission;
+        foreach ($response['permissions'] as $principalAttributes) {
+            $principal = new Principal();
+            FillObject::setAttributes($principal, $principalAttributes);
+            $principals[] = $principal;
         }
-        return $permissions;
+        return $principals;
     }
 }
