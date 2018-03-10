@@ -71,6 +71,12 @@ return [
         '8d355bf7aea07113487665e0eedd26e04b252688' => 'principal-info-no-access',
     ],
 
+    'principal-update' => [
+        '0a3ff4f4bf08f7c18a08c4accb0c952f2663e2cf' => 'principal-update-no-access',
+        'd707626582cc0bea8be5a10011b4fb6afcb62afa' => 'principal-update-create-user',
+        '1177141f4482789d55daffa0cda76b2a327ba6fd' => 'principal-update-create-group',
+    ],
+
     '' => [
         '' => '',
     ],
