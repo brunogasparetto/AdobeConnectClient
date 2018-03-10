@@ -5,6 +5,7 @@ namespace AdobeConnectClient\Commands;
 use AdobeConnectClient\Command;
 use AdobeConnectClient\ArrayableInterface;
 use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Filter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
 use AdobeConnectClient\Entities\Principal;
@@ -22,7 +23,7 @@ class PrincipalList extends Command
     protected $parameters;
 
     /**
-     * @param int $groupId The Principal ID of a group. With this you can add a filter isMember to retrieve only group members
+     * @param int $groupId The Principal ID of a group. Gets only members from this group.
      * @param ArrayableInterface|null $filter
      * @param ArrayableInterface|null $sorter
      */
@@ -37,6 +38,11 @@ class PrincipalList extends Command
 
         if ($groupId) {
             $this->parameters['group-id'] = $groupId;
+
+            if (empty($filter)) {
+                $filter = Filter::instance();
+            }
+            $filter->isMember(true);
         }
 
         if ($filter) {
