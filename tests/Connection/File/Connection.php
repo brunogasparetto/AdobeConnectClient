@@ -9,50 +9,71 @@ use AdobeConnectClient\Connection\Curl\Stream;
 
 class Connection implements ConnectionInterface
 {
-    private $actionsResources = __DIR__ . '/../../Resources/xml/';
+    private $contentType = 'text/xml';
 
-    private $phpArrayResources = __DIR__ . '/../../Resources/php/';
+    private $resources = __DIR__ . '/Resources/';
 
-    private $lastAction = '';
+    private $override = '';
 
-    private $overrideStatus = '';
+    private $session = 'na9breezx3385yw9ymhhzb5p';
 
-    private $sessionString = 'na9breezx3385yw9ymhhzb5p';
+    private $routes = [];
+
+    public function __construct()
+    {
+        $this->routes = include __DIR__ . '/routes.php';
+    }
+
 
     public function overrideStatusWithInvalid()
     {
-        $this->overrideStatus = 'status-invalid';
+        $this->override = 'status-invalid';
     }
 
     public function overrideStatusWithNoAccess()
     {
-        $this->overrideStatus = 'status-no-access';
+        $this->override = 'status-no-access';
     }
 
     public function overrideStatusWithNoData()
     {
-        $this->overrideStatus = 'status-no-data';
+        $this->override = 'status-no-data';
     }
 
     public function overrideStatusWithTooMuchData()
     {
-        $this->overrideStatus = 'status-too-much-data';
+        $this->override = 'status-too-much-data';
+    }
+
+    public function setContentType($contentType)
+    {
+        $this->contentType = $contentType;
     }
 
     public function resetStatusOverride()
     {
-        $this->overrideStatus = '';
+        $this->override = '';
     }
 
     public function getSessionString()
     {
-        return $this->sessionString;
+        return $this->session;
     }
 
-    public function getLasActionArrayResource()
+    private function getResourcePath(array $queryParams)
     {
-        $resourceFile = $this->phpArrayResources . $this->lastAction . '.php';
-        return include $resourceFile;
+        if ($this->override) {
+            return $this->resources . $this->override . '.xml';
+        }
+
+        $action = $queryParams['action'];
+        $resourceId = sha1(serialize($queryParams));
+
+        if (empty($this->routes[$action][$resourceId])) {
+            trigger_error("Resource to {$action} with resource ID {$resourceId} not found.", E_USER_ERROR);
+        }
+
+        return $this->resources . $this->routes[$action][$resourceId] . '.xml';
     }
 
     /**
@@ -60,16 +81,13 @@ class Connection implements ConnectionInterface
      */
     public function get(array $queryParams = [])
     {
-        $this->lastAction = $this->overrideStatus ?: $queryParams['action'];
-        $resourceFile = $this->actionsResources . $this->lastAction . '.xml';
-
-        $this->resetStatusOverride();
+        $resourceFile = $this->getResourcePath($queryParams);
 
         return new Response(
             200,
             [
-                'Content-Type' => ['text/xml'],
-                'Set-Cookie' => ["BREEZESESSION={$this->sessionString};HttpOnly;domain=.adobeconnect.com;secure;path=/"]
+                'Content-Type' => [$this->contentType],
+                'Set-Cookie' => ["BREEZESESSION={$this->session};HttpOnly;domain=.adobeconnect.com;secure;path=/"]
             ],
             new Stream(file_get_contents($resourceFile))
         );
@@ -80,18 +98,13 @@ class Connection implements ConnectionInterface
      */
     public function post(array $postParams, array $queryParams = [])
     {
-        $this->lastAction = $this->overrideStatus ?: $queryParams['action'];
-        $resourceFile = $this->actionsResources . $this->lastAction . '.xml';
-
-        $this->resetStatusOverride();
-
-        $this->resetStatusOverride();
+        $resourceFile = $this->getResourcePath($queryParams);
 
         return new Response(
             200,
             [
                 'Content-Type' => ['text/xml'],
-                'Set-Cookie' => ["BREEZESESSION={$this->sessionString};HttpOnly;domain=.adobeconnect.com;secure;path=/"]
+                'Set-Cookie' => ["BREEZESESSION={$this->session};HttpOnly;domain=.adobeconnect.com;secure;path=/"]
             ],
             new Stream(file_get_contents($resourceFile))
         );
