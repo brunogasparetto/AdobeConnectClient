@@ -75,11 +75,53 @@ class PrincipalCreateTest extends TestCommandBase
         $this->assertEquals(624520, $principalCreated->getAccountId());
     }
 
+    public function testCreateUserWithPrincipalId()
+    {
+        $this->userLogin();
+
+        $principal = $this->createPrincipalUser();
+        $principal->setPrincipalId(12345);
+
+        $command = new PrincipalCreate($principal);
+        $command->setClient($this->client);
+
+        $principalCreated = $command->execute();
+
+        $this->assertInstanceOf(Principal::class, $principalCreated);
+        $this->assertEquals($principal->getType(), $principalCreated->getType());
+        $this->assertEquals($principal->getFirstName(), $principalCreated->getFirstName());
+        $this->assertEquals($principal->getLastName(), $principalCreated->getLastName());
+        $this->assertEquals($principal->getLogin(), $principalCreated->getLogin());
+        $this->assertEquals($principal->getHasChildren(), $principalCreated->getHasChildren());
+        $this->assertEquals(2006403978, $principalCreated->getPrincipalId());
+        $this->assertEquals(624520, $principalCreated->getAccountId());
+    }
+
     public function testCreateGroup()
     {
         $this->userLogin();
 
         $principal = $this->createPrincipalGroup();
+
+        $command = new PrincipalCreate($principal);
+        $command->setClient($this->client);
+
+        $principalCreated = $command->execute();
+
+        $this->assertInstanceOf(Principal::class, $principalCreated);
+        $this->assertEquals($principal->getType(), $principalCreated->getType());
+        $this->assertEquals($principal->getName(), $principalCreated->getName());
+        $this->assertEquals($principal->getHasChildren(), $principalCreated->getHasChildren());
+        $this->assertEquals(2006403979, $principalCreated->getPrincipalId());
+        $this->assertEquals(624520, $principalCreated->getAccountId());
+    }
+
+    public function testCreateGroupWithPrincipalId()
+    {
+        $this->userLogin();
+
+        $principal = $this->createPrincipalGroup();
+        $principal->setPrincipalId(12345);
 
         $command = new PrincipalCreate($principal);
         $command->setClient($this->client);
