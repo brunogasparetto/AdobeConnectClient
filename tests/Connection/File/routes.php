@@ -66,7 +66,8 @@ return [
     ],
 
     'principal-info' => [
-        '49d78b23c62f9a7bc35704a4a5d4c6ab57cc3290' => 'principal-info-success',
+        '49d78b23c62f9a7bc35704a4a5d4c6ab57cc3290' => 'principal-info-user',
+        '618259e8dc03ad89e8261150b5adb14a9e460649' => 'principal-info-group',
         '8d355bf7aea07113487665e0eedd26e04b252688' => 'principal-info-no-access',
     ],
 
