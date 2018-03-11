@@ -112,6 +112,11 @@ return [
         '573eab90bb568ac1a94306d597ed7ab0ee25c85c' => 'status-ok',
     ],
 
+    'sco-update' => [
+        '8c04c6b8918e227615acc0403e454b4f1dfbcd42' => 'status-no-access',
+        '742ad6cc07e48116478a84d5df2da1f2048ff04a' => 'status-ok',
+    ],
+
     '' => [
         '' => '',
     ],

@@ -5,6 +5,7 @@ namespace AdobeConnectClient\Commands;
 use AdobeConnectClient\Command;
 use AdobeConnectClient\ArrayableInterface;
 use AdobeConnectClient\Converter\Converter;
+use AdobeConnectClient\Exceptions\InvalidException;
 use AdobeConnectClient\Helpers\StatusValidate;
 
 /**
@@ -21,6 +22,7 @@ class ScoUpdate extends Command
 
     /**
      * @param ArrayableInterface $sco
+     * @throws InvalidException
      */
     public function __construct(ArrayableInterface $sco)
     {
@@ -29,6 +31,10 @@ class ScoUpdate extends Command
         ];
 
         $this->parameters += $sco->toArray();
+
+        if (empty($this->parameters['sco-id'])) {
+            throw new InvalidException('sco-id is missing');
+        }
     }
 
     /**
