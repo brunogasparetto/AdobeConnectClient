@@ -114,9 +114,10 @@ return [
 
     'sco-update' => [
         '8c04c6b8918e227615acc0403e454b4f1dfbcd42' => 'status-no-access',
-        '742ad6cc07e48116478a84d5df2da1f2048ff04a' => 'status-ok',
         'd27ef55e5f3c50eff7c7725fa7f11a2d13b0af05' => 'status-no-access',
+        '742ad6cc07e48116478a84d5df2da1f2048ff04a' => 'status-ok',
         'ce0e3eee5dbdda24eb53129dfc971b0d17d914b6' => 'sco-update',
+        '3ad2371a122901b42ca222a1216fce716e9d3f84' => 'sco-update',
     ],
 
     'sco-info' => [
@@ -126,13 +127,17 @@ return [
 
     'sco-contents' => [
         'ab3ec4c010dd996283c23f67d019ea82c900bd07' => 'status-no-access',
+        'dd472355b18cecf2b2f290aa578db1f0fc89f670' => 'status-no-access',
         '74691ab673641f00810aad3074a6850a09999e21' => 'sco-contents-empty',
+        'fc6c54d81f747a3166c03b05f042364a28445741' => 'sco-contents-empty',
         'f670ae196389edaf3c9ade93f49f378c53e8a5da' => 'sco-contents',
         'd41d535ff7e391054a25e297accc378eb6520833' => 'sco-contents-filter',
         'f8520febc56b12508e51fdb11d76b427ead9e6e3' => 'sco-contents-sorter',
+        '4c619a5af0f30b33e49089b5b434ad7765940e1c' => 'sco-contents-content',
     ],
 
-    '' => [
-        '' => '',
+    'sco-upload' => [
+        'c9eb1fb91abdf561210c6ed6070f86d955f3bae6' => 'sco-upload',
+        '02928b278f68e09e51b613af7204784c2cd23d9a' => 'sco-upload',
     ],
 ];
