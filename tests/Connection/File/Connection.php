@@ -7,13 +7,18 @@ use AdobeConnectClient\Connection\ConnectionInterface;
 use AdobeConnectClient\Connection\Curl\Response;
 use AdobeConnectClient\Connection\Curl\Stream;
 
+/**
+ * Mock the WS response.
+ *
+ * The responses are XML files in Resources folder and the routes are listed in routes.php file.
+ * The routes are an array with action as key and each value is an array with resourceId => xml-file.
+ * The resourceId is a sha1 from a serialize in queryParams.
+ */
 class Connection implements ConnectionInterface
 {
     private $contentType = 'text/xml';
 
     private $resources = __DIR__ . '/Resources/';
-
-    private $override = '';
 
     private $session = 'na9breezx3385yw9ymhhzb5p';
 
@@ -24,37 +29,6 @@ class Connection implements ConnectionInterface
         $this->routes = include __DIR__ . '/routes.php';
     }
 
-
-    public function overrideStatusWithInvalid()
-    {
-        $this->override = 'status-invalid';
-    }
-
-    public function overrideStatusWithNoAccess()
-    {
-        $this->override = 'status-no-access';
-    }
-
-    public function overrideStatusWithNoData()
-    {
-        $this->override = 'status-no-data';
-    }
-
-    public function overrideStatusWithTooMuchData()
-    {
-        $this->override = 'status-too-much-data';
-    }
-
-    public function setContentType($contentType)
-    {
-        $this->contentType = $contentType;
-    }
-
-    public function resetStatusOverride()
-    {
-        $this->override = '';
-    }
-
     public function getSessionString()
     {
         return $this->session;
@@ -62,10 +36,6 @@ class Connection implements ConnectionInterface
 
     private function getResourcePath(array $queryParams)
     {
-        if ($this->override) {
-            return $this->resources . $this->override . '.xml';
-        }
-
         $action = $queryParams['action'];
         $resourceId = sha1(serialize($queryParams));
 
