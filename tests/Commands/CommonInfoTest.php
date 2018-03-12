@@ -30,4 +30,13 @@ class CommonInfoTest extends TestCommandBase
         $this->assertEquals('https:example.com', $commonInfo->getHost());
         $this->assertEquals(624520, $commonInfo->getAccountId());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new CommonInfo();
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

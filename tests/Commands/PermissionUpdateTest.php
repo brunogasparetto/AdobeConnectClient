@@ -45,4 +45,18 @@ class PermissionUpdateTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $permission = Permission::instance()
+            ->setAclId(1)
+            ->setPrincipalId(1)
+            ->setPermissionId(Permission::PRINCIPAL_HOST);
+
+        $command = new PermissionUpdate($permission);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

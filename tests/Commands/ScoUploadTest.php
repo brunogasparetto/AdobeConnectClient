@@ -70,7 +70,7 @@ class ScoUploadTest extends TestCommandBase
     {
         $this->userLogin();
 
-        $fileResource = fopen(__FILE__, 'r');
+        $fileResource = new \SplFileInfo(__FILE__);
 
         $command = new ScoUpload(
             10,
@@ -82,5 +82,20 @@ class ScoUploadTest extends TestCommandBase
         $scoId = $command->execute();
 
         $this->assertNotEmpty($scoId);
+    }
+
+    public function testInvalidDependency()
+    {
+        $fileResource = new \SplFileInfo(__FILE__);
+
+        $command = new ScoUpload(
+            10,
+            'Content Name',
+            $fileResource
+        );
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
     }
 }

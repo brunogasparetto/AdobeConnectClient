@@ -30,4 +30,13 @@ class LogoutTest extends TestCommandBase
     {
         $this->assertEquals('', $session);
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new Logout();
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

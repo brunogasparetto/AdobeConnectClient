@@ -22,6 +22,17 @@ class ScoCreateTest extends TestCommandBase
         $command->execute();
     }
 
+    public function testInvalidDependency()
+    {
+        $sco = SCO::instance()->setName('SCO Name');
+
+        $command = new ScoCreate($sco);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
+
     public function testCreate()
     {
         $this->userLogin();

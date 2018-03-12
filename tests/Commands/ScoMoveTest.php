@@ -41,4 +41,13 @@ class ScoMoveTest extends TestCommandBase
 
         $this->assertTrue($command->execute());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new ScoMove(1, 1);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

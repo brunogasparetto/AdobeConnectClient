@@ -135,4 +135,15 @@ class PrincipalCreateTest extends TestCommandBase
         $this->assertEquals(2006403979, $principalCreated->getPrincipalId());
         $this->assertEquals(624520, $principalCreated->getAccountId());
     }
+
+    public function testInvalidDependency()
+    {
+        $principal = $this->createPrincipalGroup();
+
+        $command = new PrincipalCreate($principal);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

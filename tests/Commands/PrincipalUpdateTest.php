@@ -78,4 +78,15 @@ class PrincipalUpdateTest extends TestCommandBase
 
         $this->assertTrue($command->execute());
     }
+
+    public function testInvalidDependency()
+    {
+        $principal = $this->createPrincipalGroup();
+
+        $command = new PrincipalUpdate($principal);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

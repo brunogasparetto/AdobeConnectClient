@@ -28,4 +28,13 @@ class ScoDeleteTest extends TestCommandBase
 
         $this->assertTrue($command->execute());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new ScoDelete(1);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

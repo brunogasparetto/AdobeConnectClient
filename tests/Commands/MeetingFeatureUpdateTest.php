@@ -42,4 +42,13 @@ class MeetingFeatureUpdateTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new MeetingFeatureUpdate(1, 'invalid-feature', true);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

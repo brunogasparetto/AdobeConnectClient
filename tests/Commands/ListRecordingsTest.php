@@ -50,4 +50,13 @@ class ListRecordingsTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new ListRecordings(5);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

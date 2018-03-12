@@ -63,4 +63,17 @@ class ScoUpdateTest extends TestCommandBase
 
         $this->assertTrue($command->execute());
     }
+
+    public function testInvalidDependency()
+    {
+        $sco = SCO::instance()
+            ->setScoId(1)
+            ->setName('New Name');
+
+        $command = new ScoUpdate($sco);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

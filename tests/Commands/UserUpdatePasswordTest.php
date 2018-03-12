@@ -44,4 +44,13 @@ class UserUpdatePasswordTest extends TestCommandBase
 
         $this->assertTrue($command->execute());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new UserUpdatePassword(1, 'newpassword', 'oldpassword');
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

@@ -46,4 +46,13 @@ class LoginTest extends TestCommandBase
     {
         $this->assertEquals('', $session);
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new Login('InvalidLogin', 'InvalidPassword');
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

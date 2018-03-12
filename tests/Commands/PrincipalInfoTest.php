@@ -56,4 +56,13 @@ class PrincipalInfoTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new PrincipalInfo(2006258745);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

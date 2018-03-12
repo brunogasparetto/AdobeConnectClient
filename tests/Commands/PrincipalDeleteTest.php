@@ -34,4 +34,13 @@ class PrincipalDeleteTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new PrincipalDelete(1);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

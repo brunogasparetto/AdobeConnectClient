@@ -42,4 +42,13 @@ class GroupMembershipUpdateTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new GroupMembershipUpdate(1, 0, true);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

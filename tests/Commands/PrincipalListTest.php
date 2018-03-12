@@ -146,4 +146,13 @@ class PrincipalListTest extends TestCommandBase
         $this->assertEquals(624550, $principal->getPrincipalId());
         $this->assertFalse($principal->getIsMember());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new PrincipalList(5, Filter::instance()->isMember(false));
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

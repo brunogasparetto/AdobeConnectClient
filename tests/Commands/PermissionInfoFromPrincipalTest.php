@@ -45,4 +45,13 @@ class PermissionInfoFromPrincipalTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new PermissionInfoFromPrincipal(12345, 987654);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

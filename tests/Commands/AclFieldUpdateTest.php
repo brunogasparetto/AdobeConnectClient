@@ -51,4 +51,13 @@ class AclFieldUpdateTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new AclFieldUpdate(1, 'field', 'value');
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

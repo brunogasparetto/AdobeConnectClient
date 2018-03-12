@@ -33,4 +33,13 @@ class ScoInfoTest extends TestCommandBase
         $this->assertEquals(624520, $sco->getAccountId());
         $this->assertEquals(2006320683, $sco->getScoId());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new ScoInfo(1);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

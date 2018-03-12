@@ -83,4 +83,13 @@ class ScoContentsTest extends TestCommandBase
         $this->assertEquals(2007035247, $sco->getScoId());
         $this->assertEquals(0, $sco->getSourceScoId());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new ScoContents(2, null, Sorter::instance()->desc('name'));
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

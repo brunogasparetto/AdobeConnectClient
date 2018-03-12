@@ -27,4 +27,13 @@ class RecordingPasscodeTest extends TestCommandBase
 
         $this->assertTrue($command->execute());
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new RecordingPasscode(1, 'passcode');
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }

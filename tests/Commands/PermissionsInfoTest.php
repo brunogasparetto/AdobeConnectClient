@@ -104,4 +104,13 @@ class PermissionsInfoTest extends TestCommandBase
 
         $command->execute();
     }
+
+    public function testInvalidDependency()
+    {
+        $command = new PermissionsInfo(12345);
+
+        $this->expectException(\BadMethodCallException::class);
+
+        $command->execute();
+    }
 }
