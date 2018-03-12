@@ -115,6 +115,8 @@ return [
     'sco-update' => [
         '8c04c6b8918e227615acc0403e454b4f1dfbcd42' => 'status-no-access',
         '742ad6cc07e48116478a84d5df2da1f2048ff04a' => 'status-ok',
+        'd27ef55e5f3c50eff7c7725fa7f11a2d13b0af05' => 'status-no-access',
+        'ce0e3eee5dbdda24eb53129dfc971b0d17d914b6' => 'sco-update',
     ],
 
     'sco-info' => [
