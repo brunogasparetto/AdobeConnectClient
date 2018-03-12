@@ -122,6 +122,14 @@ return [
         'd88a2216b9fa963ffd42a451bb84aa32383bc919' => 'sco-info',
     ],
 
+    'sco-contents' => [
+        'ab3ec4c010dd996283c23f67d019ea82c900bd07' => 'status-no-access',
+        '74691ab673641f00810aad3074a6850a09999e21' => 'sco-contents-empty',
+        'f670ae196389edaf3c9ade93f49f378c53e8a5da' => 'sco-contents',
+        'd41d535ff7e391054a25e297accc378eb6520833' => 'sco-contents-filter',
+        'f8520febc56b12508e51fdb11d76b427ead9e6e3' => 'sco-contents-sorter',
+    ],
+
     '' => [
         '' => '',
     ],
