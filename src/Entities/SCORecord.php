@@ -419,7 +419,7 @@ class SCORecord
      */
     public function setIsFolder($isFolder)
     {
-        $this->isFolder = VT::toBoolean($isFolder);
+        $this->isFolder = VT::toBool($isFolder);
     }
 
     /**

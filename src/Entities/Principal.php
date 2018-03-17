@@ -546,7 +546,7 @@ class Principal implements ArrayableInterface
      */
     public function setIsPrimary($isPrimary)
     {
-        $this->isPrimary = VT::toBoolean($isPrimary);
+        $this->isPrimary = VT::toBool($isPrimary);
         return $this;
     }
 
@@ -622,7 +622,7 @@ class Principal implements ArrayableInterface
      */
     public function setHasChildren($hasChildren)
     {
-        $this->hasChildren = VT::toBoolean($hasChildren);
+        $this->hasChildren = VT::toBool($hasChildren);
         return $this;
     }
 
@@ -656,7 +656,7 @@ class Principal implements ArrayableInterface
      */
     public function setIsEcommerce($isEcommerce)
     {
-        $this->isEcommerce = VT::toBoolean($isEcommerce);
+        $this->isEcommerce = VT::toBool($isEcommerce);
         return $this;
     }
 
@@ -667,7 +667,7 @@ class Principal implements ArrayableInterface
      */
     public function setIsHidden($isHidden)
     {
-        $this->isHidden = VT::toBoolean($isHidden);
+        $this->isHidden = VT::toBool($isHidden);
         return $this;
     }
 
@@ -700,7 +700,7 @@ class Principal implements ArrayableInterface
      */
     public function setDisabled($disabled)
     {
-        $this->disabled = VT::toBoolean($disabled);
+        $this->disabled = VT::toBool($disabled);
         return $this;
     }
 
@@ -757,7 +757,7 @@ class Principal implements ArrayableInterface
      */
     public function setSendEmail($sendEmail)
     {
-        $this->sendEmail = VT::toBoolean($sendEmail);
+        $this->sendEmail = VT::toBool($sendEmail);
         return $this;
     }
 
@@ -774,6 +774,6 @@ class Principal implements ArrayableInterface
      */
     public function setIsMember($isMember)
     {
-        $this->isMember = VT::toBoolean($isMember);
+        $this->isMember = VT::toBool($isMember);
     }
 }

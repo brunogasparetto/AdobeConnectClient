@@ -39,6 +39,7 @@ abstract class ValueTransform
      *
      * @param mixed $value
      * @return DateTimeImmutable
+     * @throws \Exception
      */
     public static function toDateTimeImmutable($value)
     {
@@ -59,7 +60,7 @@ abstract class ValueTransform
      * @param  mixed $value The value to transform
      * @return bool
      */
-    public static function toBoolean($value)
+    public static function toBool($value)
     {
         if (!is_string($value)) {
             return boolval($value);

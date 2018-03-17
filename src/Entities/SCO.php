@@ -400,7 +400,7 @@ class SCO implements ArrayableInterface
      */
     public function setDisabled($disabled)
     {
-        $this->disabled = VT::toBoolean($disabled);
+        $this->disabled = VT::toBool($disabled);
         return $this;
     }
 
@@ -619,7 +619,7 @@ class SCO implements ArrayableInterface
      */
     public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
     {
-        $this->meetingPodsLayoutsLocked = VT::toBoolean($meetingPodsLayoutsLocked);
+        $this->meetingPodsLayoutsLocked = VT::toBool($meetingPodsLayoutsLocked);
         return $this;
     }
 
@@ -631,7 +631,7 @@ class SCO implements ArrayableInterface
      */
     public function setUpdateLinkedItem($updateLinkedItem)
     {
-        $this->updateLinkedItem = VT::toBoolean($updateLinkedItem);
+        $this->updateLinkedItem = VT::toBool($updateLinkedItem);
         return $this;
     }
 }

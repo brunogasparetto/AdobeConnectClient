@@ -11,17 +11,17 @@ class VTTest extends TestCase
 {
     public function testToBoolean()
     {
-        $this->assertTrue(VT::toBoolean(true));
-        $this->assertTrue(VT::toBoolean(1));
-        $this->assertTrue(VT::toBoolean('true'));
-        $this->assertTrue(VT::toBoolean('on'));
-        $this->assertTrue(VT::toBoolean('1'));
+        $this->assertTrue(VT::toBool(true));
+        $this->assertTrue(VT::toBool(1));
+        $this->assertTrue(VT::toBool('true'));
+        $this->assertTrue(VT::toBool('on'));
+        $this->assertTrue(VT::toBool('1'));
 
-        $this->assertFalse(VT::toBoolean(false));
-        $this->assertFalse(VT::toBoolean(0));
-        $this->assertFalse(VT::toBoolean('false'));
-        $this->assertFalse(VT::toBoolean('off'));
-        $this->assertFalse(VT::toBoolean('0'));
+        $this->assertFalse(VT::toBool(false));
+        $this->assertFalse(VT::toBool(0));
+        $this->assertFalse(VT::toBool('false'));
+        $this->assertFalse(VT::toBool('off'));
+        $this->assertFalse(VT::toBool('0'));
     }
 
     public function testToDateTimeImmutable()
