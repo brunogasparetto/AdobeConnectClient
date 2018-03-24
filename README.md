@@ -26,7 +26,7 @@ You can use filters and sorters in some actions.
 ```php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\SCO;
+use AdobeConnectClient\Entities\SCO;
 use AdobeConnectClient\Filter;
 use AdobeConnectClient\Sorter;
 
