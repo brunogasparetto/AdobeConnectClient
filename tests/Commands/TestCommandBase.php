@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Bruno
- * Date: 03/03/2018
- * Time: 12:32
- */
 
 namespace AdobeConnectClient\Tests\Commands;
 

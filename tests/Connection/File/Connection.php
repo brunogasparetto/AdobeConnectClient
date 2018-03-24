@@ -37,6 +37,7 @@ class Connection implements ConnectionInterface
     private function getResourcePath(array $queryParams)
     {
         $action = $queryParams['action'];
+        ksort($queryParams);
         $resourceId = sha1(serialize($queryParams));
 
         if (empty($this->routes[$action][$resourceId])) {

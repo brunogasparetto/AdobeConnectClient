@@ -2,10 +2,8 @@
 
 namespace AdobeConnectClient\Tests\Commands;
 
-use Exception;
 use AdobeConnectClient\Commands\CommonInfo;
 use AdobeConnectClient\Entities\CommonInfo as CommonInfoEntity;
-use AdobeConnectClient\Helpers\SetEntityAttributes;
 
 class CommonInfoTest extends TestCommandBase
 {

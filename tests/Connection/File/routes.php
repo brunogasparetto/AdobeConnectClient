@@ -7,11 +7,11 @@
  */
 return [
     'acl-field-update' => [
-        'ec1009edcfbc4d44063e3e4c7bf7f042bcbd2dd1' => 'status-ok',
-        'f9bfa92d710a9988edec5b75ae121de4003dedba' => 'status-ok',
-        '7fec835d624f38f4f6b1a4f93442ea8b5c4c4726' => 'status-no-access',
+        'a897da5833cf6a9c09672da200d6689a80ae8374' => 'status-ok',
+        'cfce3ab0eac45314eb234d7564acb0b469f2c9c4' => 'status-no-access',
+        'f2676da3c1191043674a63fbde23abdd8b91f311' => 'status-invalid',
+        '0ecdd4a7778cb3bf3fa018f225a05fb4d63f5375' => 'status-ok',
         '35f35a3fcea9c4b0f63e48b652e8ff41e175dc24' => 'status-no-access',
-        'c0db054e609efa75105a7888ff851f177c2a7d06' => 'status-invalid',
     ],
 
     'common-info' => [
@@ -20,9 +20,9 @@ return [
     ],
 
     'group-membership-update' => [
-        '5e253185ad6e3a7e303d22f972a017ac5b02c799' => 'status-ok',
-        '6463d48e5069e62e884206d0bffdd96d905f42c6' => 'status-no-access',
-        '12e9e36dbe3c9bfb3a37222f27019bae5efea4b1' => 'status-invalid',
+        '9ce09509fd50036522ef2cd3eb2087425ecc16ca' => 'status-ok',
+        '15fe8f772ef7aed2dc4a5ff3ffe1fa70c574ba98' => 'status-no-access',
+        '4efc7bdb8d942eae0fdd25ca0144e615ccfb496a' => 'status-invalid',
     ],
 
     'list-recordings' => [
@@ -41,27 +41,27 @@ return [
     ],
 
     'meeting-feature-update' => [
-        '9d2cc3f416743c3a256d124643ab1d0c7f1ce65b' => 'status-ok',
-        'b49f99e9765f9554afbd1252075d5bd1653f1c00' => 'status-no-access',
-        'b3a13d33abaa781720820d257e4e270dea3d996a' => 'status-invalid',
+        '9e3e9139f96e71464350095d4253ec1de899d0ff' => 'status-ok',
+        'f07cee482738a7358945439350be95b740a7f49d' => 'status-no-access',
+        '1fdd8d79c4be6c4c32dbe0dd1a9c0f6d6f94af05' => 'status-invalid',
     ],
 
     'permissions-info' => [
-        '889f22d94f8698acf494e0b92a32af621b8d523a' => 'permissions-info-principal',
-        'cb92de166bc3ac9eb17061330521245f315789e6' => 'status-no-data',
-        'fe034c017cb5f28e6c5197cb4c60b2cb43f6e8b5' => 'status-no-access',
-        '66199296f7cb96201b74d1b514d38ffd5d751da9' => 'permissions-info-all',
-        '088ec38122a16dbbed309a960aeef2a67264f2c5' => 'permissions-info-filter-permission',
-        '721100c4ce934c1cb3816d5806843832c1fb681f' => 'permissions-info-all',
-        '0652074d72bec5542bc55ad052a27db8c1f41b75' => 'permissions-info-empty',
-        'b11a3d47c71ca83a8fff379b191f06351e659a70' => 'status-no-access',
+        '77077b221c5721b42ab1a46964ad364dae9bbe2f' => 'permissions-info-principal',
+        '70cbb7f9a4bf3638e35791d87e2275c0e63c9c53' => 'status-no-data',
+        'b3d3c88d6ac767514b5fb5a1afe144fb8af26ad3' => 'status-no-access',
+        'fde09ab5a1cf65040a84f5b043d4e1fc9a48b2af' => 'permissions-info-all',
+        'b5f4edc515660f23262ae1b0b19eb08620bf03d0' => 'permissions-info-filter-permission',
+        '0178ea988d35f42f55a7dca5e40bad8acdd9cb6d' => 'permissions-info-all',
+        'e669c55a3b61d8fb63e5f5d4c3c8041fc339b27d' => 'permissions-info-empty',
+        'b98586ceac5c77a42cdfb5a5b0913299b9b07cb2' => 'status-no-access',
     ],
 
     'permissions-update' => [
-        '71e3d7c0567ec5429da14cd91b0f16a20d0a244d' => 'status-ok',
-        'eed55aa2f119637eb9f12efc120087d6b3eedbc5' => 'status-ok',
-        '403b845b83b942e00dc00d907829fa8c9f8bcd34' => 'status-no-access',
-        'fdba3dd167f5071b7e28b6bf345ad17c836bf759' => 'status-no-access',
+        'af3954bf30a856dc2435178cce4e6d96973c7f7a' => 'status-ok',
+        '06cc0fb08e01e7095a9c4ccb5749944a3a027470' => 'status-no-access',
+        'd969b4ffdd2013af7e86051ee2c9136bb014f03c' => 'status-ok',
+        '1392de72bf98475b8803ca36b46556ae868f08af' => 'status-no-access',
     ],
 
     'principals-delete' => [
@@ -76,29 +76,29 @@ return [
     ],
 
     'principal-update' => [
-        '0a3ff4f4bf08f7c18a08c4accb0c952f2663e2cf' => 'status-no-access',
-        '7e8f86017c3168c211e0da2f739a6b29b4b0f988' => 'status-no-access',
-        'd707626582cc0bea8be5a10011b4fb6afcb62afa' => 'principal-update-create-user',
-        '1177141f4482789d55daffa0cda76b2a327ba6fd' => 'principal-update-create-group',
-        'd74fb1b82f258a0066340ef1ca4172bbdfb3a60f' => 'status-ok',
-        '4ead5c80628ae73a4343a588979a2f7fef1e7798' => 'status-ok',
+        'd4c6302c6e7d507d51c2685a14b9799a4aa13555' => 'status-no-access',
+        'b6f48bc3bc839d71125a58d7b655a816394ff024' => 'principal-update-create-user',
+        'dd027af601b01328c685dda2ea8ed5dc76c58bc0' => 'principal-update-create-group',
+        'e57456452205bf2f3f2c69ac0acebf5cc2dbc490' => 'status-no-access',
+        '11814c0bb9e79f7e7774e751c33b114f51de3137' => 'status-ok',
+        '1d4cdb7fbc249f4c92d5f1ba313d7cf0c12fbe64' => 'status-ok',
     ],
 
     'principal-list' => [
         'c228737ee01c96f5b6c3c88ab94cb390347e3647' => 'status-no-access',
         'c7d426c3410ec12370e5a4319f8aeff934c9565f' => 'principal-list-all',
-        '0f9879a925d933ca16dd095ba2fa5944ff13de0f' => 'principal-list-sorter',
+        'a7d57a0f6758747a41a01d5939bdb68e6c23b511' => 'principal-list-sorter',
         'ec5d33500aa52c47e176076b19037113a94db903' => 'principal-list-filter',
         'e5ca329139ae19dcc7f898f0eef70362cc476257' => 'principal-list-empty',
         'c62181a8a91f197ecdaa48da840f9dbc4bab28c7' => 'principal-list-group-all',
-        '121875836a8430c43fba24097fb42c628258a142' => 'principal-list-group-is-member',
-        'e7349e5d03ac0d62add8d6a9ba77972e3cf9ad76' => 'principal-list-group-is-not-member',
+        'e647bd522510da5a35148f2ed3d4760965db27ca' => 'principal-list-group-is-member',
+        '46746af9d92511e1e98314e9044c62372380f707' => 'principal-list-group-is-not-member',
     ],
 
     'user-update-pwd' => [
-        'dba78015dd3532813b513ac5f4d2825fbb712f8e' => 'status-no-access',
-        'ff9d991b034d2bbc4fe76e71e5b64ba1cac353ed' => 'status-ok',
-        '6e19a6356eb0449548c24b0182cbc5efd0d60fb3' => 'status-ok',
+        '11ea77bf237680b5fdd5ac60a6e3a06c19632bf8' => 'status-no-access',
+        '2fe9a343ef6b504440ce255443dde531de5091ea' => 'status-ok',
+        '0c7843c4664f026adf66f23d4986506cff3b09fe' => 'status-ok',
     ],
 
     'sco-delete' => [
@@ -107,17 +107,17 @@ return [
     ],
 
     'sco-move' => [
-        '5ab7622185a157a3fb9e9eec4e5b7e000e573dcc' => 'status-no-access',
-        'fe5e5d7916561f55b32d545e9039bab99725d3cb' => 'status-invalid',
-        '573eab90bb568ac1a94306d597ed7ab0ee25c85c' => 'status-ok',
+        '65f42c29b115a4def23d9e9ffa241938a8973dfd' => 'status-no-access',
+        'cfdfa3fde5666f035a0dfa24d56a63262e1b7afd' => 'status-invalid',
+        '50cfe85816b4a2e0b1010c4bafd3097a8bfbed0d' => 'status-ok',
     ],
 
     'sco-update' => [
-        '8c04c6b8918e227615acc0403e454b4f1dfbcd42' => 'status-no-access',
         'd27ef55e5f3c50eff7c7725fa7f11a2d13b0af05' => 'status-no-access',
-        '742ad6cc07e48116478a84d5df2da1f2048ff04a' => 'status-ok',
-        'ce0e3eee5dbdda24eb53129dfc971b0d17d914b6' => 'sco-update',
-        '3ad2371a122901b42ca222a1216fce716e9d3f84' => 'sco-update',
+        'e7c1d36c969f1b842e3f577799e08f0c163fd7a6' => 'status-no-access',
+        '6577d9859bc326040289a69e57510f038013d7ff' => 'status-ok',
+        '476de062ecd88b04ec4398225879d872505a5526' => 'sco-update',
+        '799cdd559ce4ffe2f3c9dec702e696612105ab1e' => 'sco-update',
     ],
 
     'sco-info' => [
@@ -127,13 +127,13 @@ return [
 
     'sco-contents' => [
         'ab3ec4c010dd996283c23f67d019ea82c900bd07' => 'status-no-access',
-        'dd472355b18cecf2b2f290aa578db1f0fc89f670' => 'status-no-access',
+        '26db7bf23521a35b5167a32f6b9092f2f8cbe9bc' => 'status-no-access',
         '74691ab673641f00810aad3074a6850a09999e21' => 'sco-contents-empty',
-        'fc6c54d81f747a3166c03b05f042364a28445741' => 'sco-contents-empty',
+        '5bc14ab36ba2a352287b186ca7ff4391dc59bf14' => 'sco-contents-empty',
         'f670ae196389edaf3c9ade93f49f378c53e8a5da' => 'sco-contents',
-        'd41d535ff7e391054a25e297accc378eb6520833' => 'sco-contents-filter',
-        'f8520febc56b12508e51fdb11d76b427ead9e6e3' => 'sco-contents-sorter',
-        '4c619a5af0f30b33e49089b5b434ad7765940e1c' => 'sco-contents-content',
+        '6fffd05a7bf8d7c045574c6597245de71d8f38e2' => 'sco-contents-filter',
+        'a000d5a5d78ec628e7dd38f827edd8347f13a2e6' => 'sco-contents-sorter',
+        '365f6cac0b010aa072b19c70cd5ffaa1f2f95cc0' => 'sco-contents-content',
     ],
 
     'sco-upload' => [
