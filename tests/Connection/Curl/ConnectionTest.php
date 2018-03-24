@@ -8,15 +8,24 @@ use SplFileInfo;
 use AdobeConnectClient\Connection\ConnectionInterface;
 use AdobeConnectClient\Connection\ResponseInterface;
 use AdobeConnectClient\Connection\Curl\Connection;
-use AdobeConnectClient\Connection\Curl\Response;
-use AdobeConnectClient\Connection\Curl\Stream;
 use PHPUnit\Framework\TestCase;
 
 class ConnectionTest extends TestCase
 {
+    protected $host = 'https://test.adobeconnect.com/api/xml';
+
+    protected $errorHost = 'https://error.adobeconnect.com/api/xml';
+
+    protected function setUp()
+    {
+        if (!TEST_CONNECTION_CURL) {
+            $this->markTestSkipped();
+        }
+    }
+
     public function testConnectionInterface()
     {
-        $connection = new Connection(REAL_CONNECTION_HOST);
+        $connection = new Connection($this->host);
         $this->assertInstanceOf(ConnectionInterface::class, $connection);
 
         return $connection;
@@ -28,30 +37,16 @@ class ConnectionTest extends TestCase
         new Connection('invalid-host');
     }
 
-    /**
-     * @depends testConnectionInterface
-     * @param Connection $connection
-     */
-    public function testGet(Connection $connection)
+    public function testGet()
     {
-        if (!TEST_REAL_CONNECTION) {
-            $this->markTestSkipped();
-        }
-
+        $connection = new Connection($this->host);
         $response = $connection->get();
         $this->assertInstanceOf(ResponseInterface::class, $response);
     }
 
-    /**
-     * @depends testConnectionInterface
-     * @param Connection $connection
-     */
-    public function testPost(Connection $connection)
+    public function testPost()
     {
-        if (!TEST_REAL_CONNECTION) {
-            $this->markTestSkipped();
-        }
-
+        $connection = new Connection($this->host);
         $response = $connection->post(
             [
                 'invalid' => 'string',
@@ -64,23 +59,15 @@ class ConnectionTest extends TestCase
 
     public function testGetWithoutResponse()
     {
-        if (!TEST_REAL_CONNECTION) {
-            $this->markTestSkipped();
-        }
-
         $this->expectException(UnexpectedValueException::class);
-        $connection = new Connection('https://error.adobeconnect.com/api/xml');
+        $connection = new Connection($this->errorHost);
         $connection->get();
     }
 
     public function testPostWithoutResponse()
     {
-        if (!TEST_REAL_CONNECTION) {
-            $this->markTestSkipped();
-        }
-
         $this->expectException(UnexpectedValueException::class);
-        $connection = new Connection('https://error.adobeconnect.com/api/xml');
+        $connection = new Connection($this->errorHost);
         $connection->post([]);
     }
 }
