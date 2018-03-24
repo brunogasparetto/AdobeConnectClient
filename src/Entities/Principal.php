@@ -23,6 +23,12 @@ class Principal implements ArrayableInterface
     const TYPE_ADMINS = 'admins';
 
     /**
+     * The built-in group Administrators, for Adobe Connect server Administrators.
+     * @var string
+     */
+    const TYPE_ADMINS_LIMITED = 'admins-limited';
+
+    /**
      * The built-in group Authors, for authors.
      * @var string
      */
@@ -567,6 +573,7 @@ class Principal implements ArrayableInterface
             $this->type,
             [
                 self::TYPE_ADMINS,
+                self::TYPE_ADMINS_LIMITED,
                 self::TYPE_AUTHORS,
                 self::TYPE_COURSE_ADMINS,
                 self::TYPE_EVENT_ADMINS,
