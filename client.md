@@ -58,7 +58,7 @@ The Adobe Connect Web Service use actions named update to create and update an i
 <?php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\SCO;
+use AdobeConnectClient\Entities\SCO;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
 $client = new Client($connection);

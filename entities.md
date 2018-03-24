@@ -11,7 +11,7 @@ The package use two types of objects to send and receive info from Adobe Connect
 
 ## Entities to Send and Receive
 
-Entities are objects with get and set methods and all of them are Arrayable, returning an associative array formatted as the Adobe Connect API needs.
+Entities are objects with get and set methods and all of them are ArrayableInterface, returning an associative array formatted as the Adobe Connect API needs.
 
 ### SCO
 
@@ -22,7 +22,7 @@ SCO normally are meetings, events, folders, contents etc.
 
 ```php
 <?php
-use AdobeConnectClient\SCO;
+use AdobeConnectClient\Entities\SCO;
 
 $sco = SCO::instance()
     ->setName('A new SCO')
@@ -36,7 +36,7 @@ A Principal is an user, group and others not objects.
 
 ```php
 <?php
-use AdobeConnectClient\Principal;
+use AdobeConnectClient\Entities\Principal;
 
 $principal = Principal::instance()
     ->setType(Principal::TYPE_USER)
@@ -61,7 +61,7 @@ Set a SCO Meeting to public access to anyone with the URL.
 <?php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\Permission;
+use AdobeConnectClient\Entities\Permission;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
 $client =  new Client($connection);
@@ -83,7 +83,7 @@ Set a User (Principal) as Host in a Meeting
 <?php
 use AdobeConnectClient\Connection\Curl\Connection;
 use AdobeConnectClient\Client;
-use AdobeConnectClient\Permission;
+use AdobeConnectClient\Entities\Permission;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
 $client =  new Client($connection);
