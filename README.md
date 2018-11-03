@@ -1,6 +1,8 @@
 # Client for Adobe Connect API v9.5.4
 
-Not all actions are implemented, but many actions are in development and some others are a sequence of actions, like the RecordingPasscode.
+PHP library to comunicate with the [Adobe Connect Web Service](https://helpx.adobe.com/adobe-connect/webservices/topics.html).
+
+There are many actions implemented. Some of them are a sequence of actions, like the RecordingPasscode.
 
 ## Installation ##
 
@@ -47,6 +49,8 @@ $sorter = Sorter::instance()
 $scos = $client->scoContents($folderId, $filter, $sorter);
 ```
 
+The entities, filters and sorter use Fluent Interface.
+
 The **AdobeConnectClient\Connection\Curl\Connection** class accept an array of options
 to configure the CURL.
 
@@ -81,12 +85,6 @@ $client = new Client($connection);
 // Throws NoAccessException if not logged in
 $client->scoInfo(123);
 ```
-
-## TODO ##
-
-- [ ] Create documentation.
-- [ ] Create automatized tests (All actions were manually tested).
-- [ ] Implement all methods and entities.
 
 ***
 
