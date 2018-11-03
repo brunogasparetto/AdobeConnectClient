@@ -29,5 +29,8 @@
         "psr-4": {
             "AdobeConnectClient\\Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "test": "phpunit"
     }
 }
