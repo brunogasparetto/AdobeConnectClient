@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>AdobeConnectClient\Commands\ScoUpload</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.html">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.html">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.html">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.html">Classes</a>
+        </li>
+        <li>
+          <a href="../traits.html">Traits</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.html">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.html">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html#AdobeConnectClient_Commands">AdobeConnectClient\Commands</a>
+          </li>
+          <li class="separator">ScoUpload</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#coverage">Coverage</a>
+          </li>
+          <li>
+            <a href="#violations">Violations</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/Commands/ScoUpload.php.html#line27">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>AdobeConnectClient\Commands\</small>ScoUpload</h1>
+        <h4>Uploads a file to the server and then builds the file, if necessary.</h4>
+        <p>Create a new File SCO or update if exists in the folder (a SCO Meeting) and upload the file.<br/>More info see The filename (filePath) needs the extension for Adobe Connect purpose.<br/>The Adobe Connect API Documentation says to call the sco-info and analyse the status info<br/>to determine if upload is ready, but the sco-info does not inform the status attribute.<br/>So we analyse the files array wich is returned by the sco-upload, but this info is deprecated.<br/></p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class ScoUpload
+                extends <a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command.html">Command</a>
+            {<br/><ul class="none"><li>// members</li><li>protected  <a href="#members">$folderId</a>;
+                    </li><li>protected  <a href="#members">$resourceName</a>;
+                    </li><li>protected <span title="AdobeConnectClient\Commands\SplFileInfo|resource">SplFileInfo|resource</span> <a href="#members">$file</a>;
+                    </li></ul><ul class="none"><li>// Inherited members from <span title="AdobeConnectClient\Command">Command</span></li><li>protected <span title="AdobeConnectClient\Client">Client</span> <a href="#members">$client</a>;
+                        </li></ul><ul class="none"><li>// methods</li><li>public void <a title="AdobeConnectClient\Commands\ScoUpload" href="../classes/AdobeConnectClient_Commands_ScoUpload/__construct.html">__construct</a>()
+                    </li><li>protected int|null <a title="AdobeConnectClient\Commands\ScoUpload" href="../classes/AdobeConnectClient_Commands_ScoUpload/process.html">process</a>()
+                    </li><li>protected SCO <a title="AdobeConnectClient\Commands\ScoUpload" href="../classes/AdobeConnectClient_Commands_ScoUpload/getSco.html">getSco</a>()
+                    </li><li>protected SCO <a title="AdobeConnectClient\Commands\ScoUpload" href="../classes/AdobeConnectClient_Commands_ScoUpload/createSco.html">createSco</a>()
+                    </li></ul><ul class="none"><li>// Inherited methods from <span title="AdobeConnectClient\Command">Command</span></li><li>public Command <a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command/setClient.html">setClient</a>()
+                        </li><li>public mixed <a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command/execute.html">execute</a>()
+                        </li><li>protected abstract mixed <a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command/process.html">process</a>()
+                        </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Extends</h4>
+          <ul>
+            <li>
+              <a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command.html">AdobeConnectClient\Command</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="coverage">Coverage</h2>
+        <table class="styled">
+          <tr>
+            <td>Methods</td>
+            <td class="percent">0%</td>
+            <td class="nummeric">0 / 4</td>
+          </tr>
+          <tr>
+            <td>Lines</td>
+            <td class="percent">0%</td>
+            <td class="nummeric"> / </td>
+          </tr>
+        </table>
+        <h2 id="violations">Violations</h2>
+        <div class="styled">
+          <h3>PHPMessDetector</h3>
+          <table class="styled">
+            <thead>
+              <tr>
+                <th>Line</th>
+                <th>Rule</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tr>
+              <td class="line">70 - 81</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Converter\Converter' in method 'process'.</td>
+            </tr>
+            <tr>
+              <td class="line">82</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\StatusValidate' in method 'process'.</td>
+            </tr>
+          </table>
+        </div>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="client"><strong>$client</strong>
+                —
+                <a title="AdobeConnectClient\Client" href="../classes/AdobeConnectClient_Client.html">AdobeConnectClient\Client</a></li>
+            <li id="file"><strong>$file</strong>
+                —
+                <a title="AdobeConnectClient\Commands\SplFileInfo|resource" href="../classes/AdobeConnectClient_Commands_SplFileInfo|resource.html">AdobeConnectClient\Commands\SplFileInfo|resource</a></li>
+            <li id="folderId"><strong>$folderId</strong>
+                —
+                int</li>
+            <li id="resourceName"><strong>$resourceName</strong>
+                —
+                string</li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="createSco"><a title="AdobeConnectClient\Commands\ScoUpload" href="../classes/AdobeConnectClient_Commands_ScoUpload/createSco.html">createSco()</a>
+                — Create a SCO content</li>
+            <li id="getSco"><a title="AdobeConnectClient\Commands\ScoUpload" href="../classes/AdobeConnectClient_Commands_ScoUpload/getSco.html">getSco()</a>
+                — Get the SCO content if exists or create one</li>
+            <li id="process">
+              <a title="AdobeConnectClient\Commands\ScoUpload" href="../classes/AdobeConnectClient_Commands_ScoUpload/process.html">process()</a>
+            </li>
+          </ul>
+          <h3>Inherited from <a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command.html">AdobeConnectClient\Command</a></h3>
+          <h4>protected</h4>
+          <ul>
+            <li id="process"><a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command/process.html">process()</a>
+                — Process the command and return a value</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="execute"><a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command/execute.html">execute()</a>
+                — Executes the command and return a value</li>
+            <li id="setClient">
+              <a title="AdobeConnectClient\Command" href="../classes/AdobeConnectClient_Command/setClient.html">setClient()</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.11.2 - Copyright (C) 2010 - 2018 by Arne Blankerts and Contributors</span>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <title>AdobeConnectClient\Entities\Principal</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+  </head>
+  <body>
+    <nav class="topnav">
+      <ul>
+        <li>
+          <div class="logo"><span>/**</span>phpDox</div>
+        </li>
+        <li class="separator">
+          <a href="../index.html">Overview</a>
+        </li>
+        <li class="separator">
+          <a href="../namespaces.html">Namespaces</a>
+        </li>
+        <li>
+          <a href="../interfaces.html">Interfaces</a>
+        </li>
+        <li>
+          <a href="../classes.html">Classes</a>
+        </li>
+        <li>
+          <a href="../traits.html">Traits</a>
+        </li>
+        <li class="separator">
+          <a href="../source/index.html">Source</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="mainstage">
+      <div class="box">
+        <ul class="breadcrumb">
+          <li>
+            <a href="../index.html">Overview</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html">Classes</a>
+          </li>
+          <li class="separator">
+            <a href="../classes.html#AdobeConnectClient_Entities">AdobeConnectClient\Entities</a>
+          </li>
+          <li class="separator">Principal</li>
+        </ul>
+      </div>
+      <nav class="box">
+        <ul>
+          <li>
+            <a href="#introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#synopsis">Synopsis</a>
+          </li>
+          <li>
+            <a href="#hierarchy">Hierarchy</a>
+          </li>
+          <li>
+            <a href="#coverage">Coverage</a>
+          </li>
+          <li>
+            <a href="#violations">Violations</a>
+          </li>
+          <li>
+            <a href="#tasks">Tasks</a>
+          </li>
+          <li>
+            <a href="#constants">Constants</a>
+          </li>
+          <li>
+            <a href="#members">Members</a>
+          </li>
+          <li>
+            <a href="#methods">Methods</a>
+          </li>
+          <li>
+            <a href="../source/Entities/Principal.php.html#line17">Source</a>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <h1 id="introduction"><small>AdobeConnectClient\Entities\</small>Principal</h1>
+        <h4>Adobe Connect Principal</h4>
+        <p>See </p>
+        <ul/>
+        <h2 id="synopsis">Synopsis</h2>
+        <div class="synopsis">class Principal
+                implements
+                <a title="AdobeConnectClient\ArrayableInterface" href="../interfaces/AdobeConnectClient_ArrayableInterface.html">ArrayableInterface</a>
+            {<br/><ul class="none"><li>// constants</li><li>const TYPE_ADMINS = 'admins';</li><li>const TYPE_ADMINS_LIMITED = 'admins-limited';</li><li>const TYPE_AUTHORS = 'authors';</li><li>const TYPE_COURSE_ADMINS = 'course-admins';</li><li>const TYPE_EVENT_ADMINS = 'event-admins';</li><li>const TYPE_EVENT_GROUP = 'event-group';</li><li>const TYPE_EVERYONE = 'everyone';</li><li>const TYPE_EXTERNAL_GROUP = 'external-group';</li><li>const TYPE_EXTERNAL_USER = 'external-user';</li><li>const TYPE_GROUP = 'group';</li><li>const TYPE_GUEST = 'guest';</li><li>const TYPE_LEARNERS = 'learners';</li><li>const TYPE_LIVE_ADMINS = 'live-admins';</li><li>const TYPE_SEMINAR_ADMINS = 'seminar-admins';</li><li>const TYPE_USER = 'user';</li></ul><ul class="none"><li>// members</li><li>protected  <a href="#members">$name</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$login</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$displayUid</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$principalId</a> =
+                        NULL;
+                    </li><li>protected <span title="AdobeConnectClient\Entities\bool">bool</span> <a href="#members">$isPrimary</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$type</a> =
+                        NULL;
+                    </li><li>protected <span title="AdobeConnectClient\Entities\bool">bool</span> <a href="#members">$hasChildren</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$permissionId</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$trainingGroupId</a> =
+                        NULL;
+                    </li><li>protected <span title="AdobeConnectClient\Entities\bool">bool</span> <a href="#members">$isEcommerce</a> =
+                        NULL;
+                    </li><li>protected <span title="AdobeConnectClient\Entities\bool">bool</span> <a href="#members">$isHidden</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$description</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$accountId</a> =
+                        NULL;
+                    </li><li>protected <span title="AdobeConnectClient\Entities\bool">bool</span> <a href="#members">$disabled</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$email</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$firstName</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$lastName</a> =
+                        NULL;
+                    </li><li>protected  <a href="#members">$password</a> =
+                        NULL;
+                    </li><li>protected <span title="AdobeConnectClient\Entities\bool">bool</span> <a href="#members">$sendEmail</a> =
+                        NULL;
+                    </li><li>protected <span title="AdobeConnectClient\Entities\bool">bool</span> <a href="#members">$isMember</a> =
+                        NULL;
+                    </li></ul><ul class="none"><li>// methods</li><li>protected array <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/fieldsForUser.html">fieldsForUser</a>()
+                    </li><li>protected array <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/fieldsForGroup.html">fieldsForGroup</a>()
+                    </li><li>public static Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/instance.html">instance</a>()
+                    </li><li>public array <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/toArray.html">toArray</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getName.html">getName</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getLogin.html">getLogin</a>()
+                    </li><li>public int <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getDisplayUid.html">getDisplayUid</a>()
+                    </li><li>public int <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getPrincipalId.html">getPrincipalId</a>()
+                    </li><li>public bool <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsPrimary.html">getIsPrimary</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getType.html">getType</a>()
+                    </li><li>public bool <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getHasChildren.html">getHasChildren</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getPermissionId.html">getPermissionId</a>()
+                    </li><li>public int <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getTrainingGroupId.html">getTrainingGroupId</a>()
+                    </li><li>public bool <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsEcommerce.html">getIsEcommerce</a>()
+                    </li><li>public bool <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsHidden.html">getIsHidden</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getDescription.html">getDescription</a>()
+                    </li><li>public int <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getAccountId.html">getAccountId</a>()
+                    </li><li>public bool <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getDisabled.html">getDisabled</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getEmail.html">getEmail</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getFirstName.html">getFirstName</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getLastName.html">getLastName</a>()
+                    </li><li>public string <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getPassword.html">getPassword</a>()
+                    </li><li>public bool <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getSendEmail.html">getSendEmail</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setName.html">setName</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setLogin.html">setLogin</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setDisplayUid.html">setDisplayUid</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setPrincipalId.html">setPrincipalId</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsPrimary.html">setIsPrimary</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setType.html">setType</a>()
+                    </li><li>protected void <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/fixNameByType.html">fixNameByType</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setHasChildren.html">setHasChildren</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setPermissionId.html">setPermissionId</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setTrainingGroupId.html">setTrainingGroupId</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsEcommerce.html">setIsEcommerce</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsHidden.html">setIsHidden</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setDescription.html">setDescription</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setAccountId.html">setAccountId</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setDisabled.html">setDisabled</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setEmail.html">setEmail</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setFirstName.html">setFirstName</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setLastName.html">setLastName</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setPassword.html">setPassword</a>()
+                    </li><li>public Principal <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setSendEmail.html">setSendEmail</a>()
+                    </li><li>public bool <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsMember.html">getIsMember</a>()
+                    </li><li>public void <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsMember.html">setIsMember</a>()
+                    </li></ul>
+
+            }<br/></div>
+        <h2 id="hierarchy">Hierarchy</h2>
+        <div class="styled">
+          <h4>Implements</h4>
+          <ul>
+            <li>
+              <a title="AdobeConnectClient\ArrayableInterface" href="../interfaces/AdobeConnectClient_ArrayableInterface.html">AdobeConnectClient\ArrayableInterface</a>
+            </li>
+          </ul>
+        </div>
+        <h2 id="coverage">Coverage</h2>
+        <table class="styled">
+          <tr>
+            <td>Methods</td>
+            <td class="percent">0%</td>
+            <td class="nummeric">0 / 45</td>
+          </tr>
+          <tr>
+            <td>Lines</td>
+            <td class="percent">0%</td>
+            <td class="nummeric"> / </td>
+          </tr>
+        </table>
+        <h2 id="violations">Violations</h2>
+        <div class="styled">
+          <h3>PHPMessDetector</h3>
+          <table class="styled">
+            <thead>
+              <tr>
+                <th>Line</th>
+                <th>Rule</th>
+                <th>Message</th>
+              </tr>
+            </thead>
+            <tr>
+              <td class="line">303</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\StringCaseTransform' in method 'toArray'.</td>
+            </tr>
+            <tr>
+              <td class="line">303</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'toArray'.</td>
+            </tr>
+            <tr>
+              <td class="line">354 - 357</td>
+              <td>
+                <a href="http://phpmd.org/rules/naming.html#booleangetmethodname" target="_blank" title="Naming Rules">BooleanGetMethodName</a>
+              </td>
+              <td>The 'getIsPrimary()' method which returns a boolean should be named 'is...()' or 'has...()'</td>
+            </tr>
+            <tr>
+              <td class="line">376 - 379</td>
+              <td>
+                <a href="http://phpmd.org/rules/naming.html#booleangetmethodname" target="_blank" title="Naming Rules">BooleanGetMethodName</a>
+              </td>
+              <td>The 'getHasChildren()' method which returns a boolean should be named 'is...()' or 'has...()'</td>
+            </tr>
+            <tr>
+              <td class="line">408 - 411</td>
+              <td>
+                <a href="http://phpmd.org/rules/naming.html#booleangetmethodname" target="_blank" title="Naming Rules">BooleanGetMethodName</a>
+              </td>
+              <td>The 'getIsEcommerce()' method which returns a boolean should be named 'is...()' or 'has...()'</td>
+            </tr>
+            <tr>
+              <td class="line">418 - 421</td>
+              <td>
+                <a href="http://phpmd.org/rules/naming.html#booleangetmethodname" target="_blank" title="Naming Rules">BooleanGetMethodName</a>
+              </td>
+              <td>The 'getIsHidden()' method which returns a boolean should be named 'is...()' or 'has...()'</td>
+            </tr>
+            <tr>
+              <td class="line">448 - 451</td>
+              <td>
+                <a href="http://phpmd.org/rules/naming.html#booleangetmethodname" target="_blank" title="Naming Rules">BooleanGetMethodName</a>
+              </td>
+              <td>The 'getDisabled()' method which returns a boolean should be named 'is...()' or 'has...()'</td>
+            </tr>
+            <tr>
+              <td class="line">498 - 501</td>
+              <td>
+                <a href="http://phpmd.org/rules/naming.html#booleangetmethodname" target="_blank" title="Naming Rules">BooleanGetMethodName</a>
+              </td>
+              <td>The 'getSendEmail()' method which returns a boolean should be named 'is...()' or 'has...()'</td>
+            </tr>
+            <tr>
+              <td class="line">555</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'setIsPrimary'.</td>
+            </tr>
+            <tr>
+              <td class="line">606 - 623</td>
+              <td>
+                <a href="http://phpmd.org/rules/codesize.html#cyclomaticcomplexity" target="_blank" title="Code Size Rules">CyclomaticComplexity</a>
+              </td>
+              <td>The method fixNameByType() has a Cyclomatic Complexity of 10. The configured cyclomatic complexity threshold is 10.</td>
+            </tr>
+            <tr>
+              <td class="line">632</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'setHasChildren'.</td>
+            </tr>
+            <tr>
+              <td class="line">666</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'setIsEcommerce'.</td>
+            </tr>
+            <tr>
+              <td class="line">677</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'setIsHidden'.</td>
+            </tr>
+            <tr>
+              <td class="line">710</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'setDisabled'.</td>
+            </tr>
+            <tr>
+              <td class="line">767</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'setSendEmail'.</td>
+            </tr>
+            <tr>
+              <td class="line">774 - 777</td>
+              <td>
+                <a href="http://phpmd.org/rules/naming.html#booleangetmethodname" target="_blank" title="Naming Rules">BooleanGetMethodName</a>
+              </td>
+              <td>The 'getIsMember()' method which returns a boolean should be named 'is...()' or 'has...()'</td>
+            </tr>
+            <tr>
+              <td class="line">784</td>
+              <td>
+                <a href="http://phpmd.org/rules/cleancode.html#staticaccess" target="_blank" title="Clean Code Rules">StaticAccess</a>
+              </td>
+              <td>Avoid using static access to class '\AdobeConnectClient\Helpers\ValueTransform' in method 'setIsMember'.</td>
+            </tr>
+          </table>
+        </div>
+        <h2 id="tasks">Tasks</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th style="width:3em;">Line</th>
+              <th>Task</th>
+            </tr>
+          </thead>
+          <tr>
+            <td class="nummeric">17+</td>
+            <td>Maybe a factory for the differents types?</td>
+          </tr>
+          <tr>
+            <td class="nummeric">282+</td>
+            <td>Returns fields for all types</td>
+          </tr>
+        </table>
+        <h2 id="constants">Constants</h2>
+        <table class="styled">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="TYPE_ADMINS">TYPE_ADMINS</td>
+              <td>'admins'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_ADMINS_LIMITED">TYPE_ADMINS_LIMITED</td>
+              <td>'admins-limited'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_AUTHORS">TYPE_AUTHORS</td>
+              <td>'authors'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_COURSE_ADMINS">TYPE_COURSE_ADMINS</td>
+              <td>'course-admins'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_EVENT_ADMINS">TYPE_EVENT_ADMINS</td>
+              <td>'event-admins'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_EVENT_GROUP">TYPE_EVENT_GROUP</td>
+              <td>'event-group'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_EVERYONE">TYPE_EVERYONE</td>
+              <td>'everyone'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_EXTERNAL_GROUP">TYPE_EXTERNAL_GROUP</td>
+              <td>'external-group'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_EXTERNAL_USER">TYPE_EXTERNAL_USER</td>
+              <td>'external-user'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_GROUP">TYPE_GROUP</td>
+              <td>'group'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_GUEST">TYPE_GUEST</td>
+              <td>'guest'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_LEARNERS">TYPE_LEARNERS</td>
+              <td>'learners'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_LIVE_ADMINS">TYPE_LIVE_ADMINS</td>
+              <td>'live-admins'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_SEMINAR_ADMINS">TYPE_SEMINAR_ADMINS</td>
+              <td>'seminar-admins'</td>
+            </tr>
+            <tr>
+              <td id="TYPE_USER">TYPE_USER</td>
+              <td>'user'</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="members">Members</h2>
+        <div class="styled members">
+          <h4>protected</h4>
+          <ul class="members">
+            <li id="accountId"><strong>$accountId</strong>
+                —
+                int</li>
+            <li id="description"><strong>$description</strong>
+                —
+                string<br/><span class="indent">The new group’s description. Use only when creating a new group.</span></li>
+            <li id="disabled"><strong>$disabled</strong>
+                —
+                <a title="AdobeConnectClient\Entities\bool" href="../classes/AdobeConnectClient_Entities_bool.html">AdobeConnectClient\Entities\bool</a></li>
+            <li id="displayUid"><strong>$displayUid</strong>
+                —
+                int</li>
+            <li id="email"><strong>$email</strong>
+                —
+                string<br/><span class="indent">Only for User</span></li>
+            <li id="firstName"><strong>$firstName</strong>
+                —
+                string<br/><span class="indent">Only for User</span></li>
+            <li id="hasChildren"><strong>$hasChildren</strong>
+                —
+                <a title="AdobeConnectClient\Entities\bool" href="../classes/AdobeConnectClient_Entities_bool.html">AdobeConnectClient\Entities\bool</a><br/><span class="indent">On create: If the principal is a group, use true. If the principal is a user, use false.</span></li>
+            <li id="isEcommerce"><strong>$isEcommerce</strong>
+                —
+                <a title="AdobeConnectClient\Entities\bool" href="../classes/AdobeConnectClient_Entities_bool.html">AdobeConnectClient\Entities\bool</a></li>
+            <li id="isHidden"><strong>$isHidden</strong>
+                —
+                <a title="AdobeConnectClient\Entities\bool" href="../classes/AdobeConnectClient_Entities_bool.html">AdobeConnectClient\Entities\bool</a></li>
+            <li id="isMember"><strong>$isMember</strong>
+                —
+                <a title="AdobeConnectClient\Entities\bool" href="../classes/AdobeConnectClient_Entities_bool.html">AdobeConnectClient\Entities\bool</a><br/><span class="indent">Indicates if the user is a member of the group (@see \AdobeConnectClient\Commands\PrincipalList)</span></li>
+            <li id="isPrimary"><strong>$isPrimary</strong>
+                —
+                <a title="AdobeConnectClient\Entities\bool" href="../classes/AdobeConnectClient_Entities_bool.html">AdobeConnectClient\Entities\bool</a></li>
+            <li id="lastName"><strong>$lastName</strong>
+                —
+                string<br/><span class="indent">Only for User</span></li>
+            <li id="login"><strong>$login</strong>
+                —
+                string</li>
+            <li id="name"><strong>$name</strong>
+                —
+                string</li>
+            <li id="password"><strong>$password</strong>
+                —
+                string<br/><span class="indent">Only on create a User</span></li>
+            <li id="permissionId"><strong>$permissionId</strong>
+                —
+                string</li>
+            <li id="principalId"><strong>$principalId</strong>
+                —
+                int</li>
+            <li id="sendEmail"><strong>$sendEmail</strong>
+                —
+                <a title="AdobeConnectClient\Entities\bool" href="../classes/AdobeConnectClient_Entities_bool.html">AdobeConnectClient\Entities\bool</a><br/><span class="indent">Only on create a User</span></li>
+            <li id="trainingGroupId"><strong>$trainingGroupId</strong>
+                —
+                int</li>
+            <li id="type"><strong>$type</strong>
+                —
+                string<br/><span class="indent">See {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}</span></li>
+          </ul>
+        </div>
+        <h2 id="methods">Methods</h2>
+        <div class="styled">
+          <h4>protected</h4>
+          <ul>
+            <li id="fieldsForGroup"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/fieldsForGroup.html">fieldsForGroup()</a>
+                — The fields for create/update a Group</li>
+            <li id="fieldsForUser"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/fieldsForUser.html">fieldsForUser()</a>
+                — The fields for create/update a User</li>
+            <li id="fixNameByType"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/fixNameByType.html">fixNameByType()</a>
+                — Fix the name or firstName and lastName.</li>
+          </ul>
+          <h4>public</h4>
+          <ul>
+            <li id="getAccountId"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getAccountId.html">getAccountId()</a>
+                — Get the Account ID</li>
+            <li id="getDescription"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getDescription.html">getDescription()</a>
+                — Get the Description</li>
+            <li id="getDisabled"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getDisabled.html">getDisabled()</a>
+                — Indicate if is Disabled</li>
+            <li id="getDisplayUid"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getDisplayUid.html">getDisplayUid()</a>
+                — Get the UID</li>
+            <li id="getEmail"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getEmail.html">getEmail()</a>
+                — Get the E-Mail</li>
+            <li id="getFirstName"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getFirstName.html">getFirstName()</a>
+                — Get the First Name</li>
+            <li id="getHasChildren"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getHasChildren.html">getHasChildren()</a>
+                — Indicate if Has Children</li>
+            <li id="getIsEcommerce"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsEcommerce.html">getIsEcommerce()</a>
+                — Indicate if Is E-Commerce</li>
+            <li id="getIsHidden"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsHidden.html">getIsHidden()</a>
+                — Indicate if Is Hidden</li>
+            <li id="getIsMember">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsMember.html">getIsMember()</a>
+            </li>
+            <li id="getIsPrimary"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getIsPrimary.html">getIsPrimary()</a>
+                — Indicate if Is Primary</li>
+            <li id="getLastName"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getLastName.html">getLastName()</a>
+                — Get the Last Name</li>
+            <li id="getLogin"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getLogin.html">getLogin()</a>
+                — Get the Login</li>
+            <li id="getName"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getName.html">getName()</a>
+                — Get the Name</li>
+            <li id="getPassword"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getPassword.html">getPassword()</a>
+                — Get the Password</li>
+            <li id="getPermissionId"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getPermissionId.html">getPermissionId()</a>
+                — Get the Permission ID</li>
+            <li id="getPrincipalId"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getPrincipalId.html">getPrincipalId()</a>
+                — Get the ID</li>
+            <li id="getSendEmail"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getSendEmail.html">getSendEmail()</a>
+                — Indicate if will send E-Mail</li>
+            <li id="getTrainingGroupId"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getTrainingGroupId.html">getTrainingGroupId()</a>
+                — Get the Training Groupd ID</li>
+            <li id="getType"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/getType.html">getType()</a>
+                — Get the Type</li>
+            <li id="instance"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/instance.html">instance()</a>
+                — Returns a new Principal instance</li>
+            <li id="setAccountId">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setAccountId.html">setAccountId()</a>
+            </li>
+            <li id="setDescription">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setDescription.html">setDescription()</a>
+            </li>
+            <li id="setDisabled">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setDisabled.html">setDisabled()</a>
+            </li>
+            <li id="setDisplayUid">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setDisplayUid.html">setDisplayUid()</a>
+            </li>
+            <li id="setEmail">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setEmail.html">setEmail()</a>
+            </li>
+            <li id="setFirstName">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setFirstName.html">setFirstName()</a>
+            </li>
+            <li id="setHasChildren">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setHasChildren.html">setHasChildren()</a>
+            </li>
+            <li id="setIsEcommerce">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsEcommerce.html">setIsEcommerce()</a>
+            </li>
+            <li id="setIsHidden">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsHidden.html">setIsHidden()</a>
+            </li>
+            <li id="setIsMember">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsMember.html">setIsMember()</a>
+            </li>
+            <li id="setIsPrimary">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setIsPrimary.html">setIsPrimary()</a>
+            </li>
+            <li id="setLastName">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setLastName.html">setLastName()</a>
+            </li>
+            <li id="setLogin">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setLogin.html">setLogin()</a>
+            </li>
+            <li id="setName">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setName.html">setName()</a>
+            </li>
+            <li id="setPassword">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setPassword.html">setPassword()</a>
+            </li>
+            <li id="setPermissionId">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setPermissionId.html">setPermissionId()</a>
+            </li>
+            <li id="setPrincipalId">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setPrincipalId.html">setPrincipalId()</a>
+            </li>
+            <li id="setSendEmail">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setSendEmail.html">setSendEmail()</a>
+            </li>
+            <li id="setTrainingGroupId">
+              <a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setTrainingGroupId.html">setTrainingGroupId()</a>
+            </li>
+            <li id="setType"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/setType.html">setType()</a>
+                — Set the Principal type.</li>
+            <li id="toArray"><a title="AdobeConnectClient\Entities\Principal" href="../classes/AdobeConnectClient_Entities_Principal/toArray.html">toArray()</a>
+                — Retrieves all not null attributes in an associative array</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+    <footer>
+      <span>Generated using phpDox 0.11.2 - Copyright (C) 2010 - 2018 by Arne Blankerts and Contributors</span>
+    </footer>
+  </body>
+</html>

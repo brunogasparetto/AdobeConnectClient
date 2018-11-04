@@ -27,5 +27,13 @@ use AdobeConnectClient\Client;
 
 $connection = new Connection('https://hostname.adobeconnect.com');
 $client =  new Client($connection);
-$commonInfo = $client->commonInfo();
+$client->login('username', 'password');
+
+$folderId = 123;
+
+$filter = Filter::instance()
+    ->like('name', 'Test')
+    ->dateAfter('dateBegin', new DateTimeImmutable());
+
+$scos = $client->scoContents($folderId, $filter);
 ```
