@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/brunogasparetto/AdobeConnectClient.svg?branch=master)](https://travis-ci.com/brunogasparetto/AdobeConnectClient)
+
 # Client for Adobe Connect API v9.5.4
 
 PHP library to comunicate with the [Adobe Connect Web Service](https://helpx.adobe.com/adobe-connect/webservices/topics.html).
