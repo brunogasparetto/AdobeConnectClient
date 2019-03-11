@@ -177,7 +177,7 @@ class SCO implements ArrayableInterface
      */
     public static function instance()
     {
-        return new static;
+        return new static();
     }
 
     /**

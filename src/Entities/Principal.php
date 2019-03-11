@@ -269,7 +269,7 @@ class Principal implements ArrayableInterface
      */
     public static function instance()
     {
-        return new static;
+        return new static();
     }
 
     /**
@@ -359,7 +359,8 @@ class Principal implements ArrayableInterface
     /**
      * Get the Type
      *
-     * More info about types see {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
+     * More info about types see
+     * {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
      *
      * @return string
      */
@@ -559,7 +560,8 @@ class Principal implements ArrayableInterface
     /**
      * Set the Principal type.
      *
-     * More info about types see {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
+     * More info about types see
+     * {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#type}
      *
      * @param string $type
      * @return Principal
@@ -610,7 +612,7 @@ class Principal implements ArrayableInterface
             return;
         }
 
-        if ($this->type === self::TYPE_USER and empty($this->firstName) and empty($this->lastName) and $this->name ) {
+        if ($this->type === self::TYPE_USER and empty($this->firstName) and empty($this->lastName) and $this->name) {
             $names = explode(' ', $this->name, 2);
 
             if (count($names) !== 2) {

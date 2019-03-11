@@ -25,6 +25,6 @@
         </whitelist>
     </filter>
     <php>
-        <const name="TEST_CONNECTION_CURL" value="true"/>
+        <const name="TEST_CONNECTION_CURL" value="false"/>
     </php>
 </phpunit>

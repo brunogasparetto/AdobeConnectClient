@@ -91,17 +91,17 @@ class SCORecord
     /**
      * @var DateTimeImmutable
      */
-    protected $dateEnd= null;
+    protected $dateEnd = null;
 
     /**
      * @var DateTimeImmutable
      */
-    protected $dateCreated= null;
+    protected $dateCreated = null;
 
     /**
      * @var DateTimeImmutable
      */
-    protected $dateModified= null;
+    protected $dateModified = null;
 
     /**
      * @var DateInterval

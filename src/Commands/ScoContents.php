@@ -65,7 +65,7 @@ class ScoContents extends Command
         $scos = [];
 
         foreach ($response['scos'] as $scoAttributes) {
-            $sco = new SCO;
+            $sco = new SCO();
             FillObject::setAttributes($sco, $scoAttributes);
             $scos[] = $sco;
         }

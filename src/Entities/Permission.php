@@ -148,7 +148,7 @@ class Permission implements ArrayableInterface
      */
     public static function instance()
     {
-        return new static;
+        return new static();
     }
 
     /**
