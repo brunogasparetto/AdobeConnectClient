@@ -15,7 +15,8 @@ class CommonInfo
     protected $locale = null;
 
     /**
-     * Time Zone ID list in {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
+     * Time Zone ID list in
+     * {@link https://helpx.adobe.com/adobe-connect/webservices/common-xml-elements-attributes.html#time_zone_id}
      *
      * @var int
      */
@@ -178,7 +179,7 @@ class CommonInfo
      */
     public function setTimeZoneId($timeZoneId)
     {
-        $this->timeZoneId = (int) $timeZoneId;
+        $this->timeZoneId = $timeZoneId;
     }
 
     /**
@@ -258,6 +259,6 @@ class CommonInfo
      */
     public function setAccountId($accountId)
     {
-        $this->accountId = (int) $accountId;
+        $this->accountId = $accountId;
     }
 }

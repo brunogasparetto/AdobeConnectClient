@@ -29,7 +29,7 @@ class MeetingFeatureUpdate extends Command
     {
         $this->parameters = [
             'action' => 'meeting-feature-update',
-            'account-id' => (int) $accountId,
+            'account-id' => $accountId,
             'enable' => VT::toString($enable),
         ];
 

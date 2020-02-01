@@ -137,7 +137,7 @@ class Connection implements ConnectionInterface
             if (empty($fileInfo)) {
                 continue;
             }
-            $params[$param] = new CURLFile($fileInfo['path'], $fileInfo['mime']);
+            $params[$param] = new CURLFile($fileInfo['path'], $fileInfo['mime'], basename($fileInfo['path']));
         }
         return $params;
     }

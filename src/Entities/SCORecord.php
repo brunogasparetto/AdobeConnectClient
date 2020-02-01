@@ -91,17 +91,17 @@ class SCORecord
     /**
      * @var DateTimeImmutable
      */
-    protected $dateEnd= null;
+    protected $dateEnd = null;
 
     /**
      * @var DateTimeImmutable
      */
-    protected $dateCreated= null;
+    protected $dateCreated = null;
 
     /**
      * @var DateTimeImmutable
      */
-    protected $dateModified= null;
+    protected $dateModified = null;
 
     /**
      * @var DateInterval
@@ -319,7 +319,7 @@ class SCORecord
      */
     public function setScoId($scoId)
     {
-        $this->scoId = (int) $scoId;
+        $this->scoId = $scoId;
     }
 
     /**
@@ -329,7 +329,7 @@ class SCORecord
      */
     public function setSourceScoId($sourceScoId)
     {
-        $this->sourceScoId = (int) $sourceScoId;
+        $this->sourceScoId = $sourceScoId;
     }
 
     /**
@@ -339,7 +339,7 @@ class SCORecord
      */
     public function setFolderId($folderId)
     {
-        $this->folderId = (int) $folderId;
+        $this->folderId = $folderId;
     }
 
     /**
@@ -369,7 +369,7 @@ class SCORecord
      */
     public function setDisplaySeq($displaySeq)
     {
-        $this->displaySeq = (int) $displaySeq;
+        $this->displaySeq = $displaySeq;
     }
 
     /**
@@ -379,7 +379,7 @@ class SCORecord
      */
     public function setJobId($jobId)
     {
-        $this->jobId = (int) $jobId;
+        $this->jobId = $jobId;
     }
 
     /**
@@ -389,7 +389,7 @@ class SCORecord
      */
     public function setAccountId($accountId)
     {
-        $this->accountId = (int) $accountId;
+        $this->accountId = $accountId;
     }
 
     /**
@@ -409,7 +409,7 @@ class SCORecord
      */
     public function setEncoderServiceJobProgress($encoderServiceJobProgress)
     {
-        $this->encoderServiceJobProgress = (int) $encoderServiceJobProgress;
+        $this->encoderServiceJobProgress = $encoderServiceJobProgress;
     }
 
     /**
@@ -429,7 +429,7 @@ class SCORecord
      */
     public function setNoOfDownloads($noOfDownloads)
     {
-        $this->noOfDownloads = (int) $noOfDownloads;
+        $this->noOfDownloads = $noOfDownloads;
     }
 
     /**

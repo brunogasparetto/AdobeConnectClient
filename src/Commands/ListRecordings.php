@@ -25,7 +25,7 @@ class ListRecordings extends Command
      */
     public function __construct($folderId)
     {
-        $this->folderId = (int) $folderId;
+        $this->folderId = $folderId;
     }
 
     /**

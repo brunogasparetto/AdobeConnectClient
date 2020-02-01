@@ -28,8 +28,8 @@ class GroupMembershipUpdate extends Command
     {
         $this->parameters = [
             'action' => 'group-membership-update',
-            'group-id' => (int) $groupId,
-            'principal-id' => (int) $principalId,
+            'group-id' => $groupId,
+            'principal-id' => $principalId,
             'is-member' => VT::toString($isMember),
         ];
     }

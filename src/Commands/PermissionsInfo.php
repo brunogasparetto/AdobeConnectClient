@@ -33,7 +33,7 @@ class PermissionsInfo extends Command
     ) {
         $this->parameters = [
             'action' => 'permissions-info',
-            'acl-id' => (int) $aclId,
+            'acl-id' => $aclId,
         ];
 
         if ($filter) {

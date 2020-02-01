@@ -177,7 +177,7 @@ class SCO implements ArrayableInterface
      */
     public static function instance()
     {
-        return new static;
+        return new static();
     }
 
     /**
@@ -388,7 +388,7 @@ class SCO implements ArrayableInterface
      */
     public function setAccountId($accountId)
     {
-        $this->accountId = (int) $accountId;
+        $this->accountId = $accountId;
         return $this;
     }
 
@@ -412,7 +412,7 @@ class SCO implements ArrayableInterface
      */
     public function setDisplaySeq($displaySeq)
     {
-        $this->displaySeq = (int) $displaySeq;
+        $this->displaySeq = $displaySeq;
         return $this;
     }
 
@@ -424,7 +424,7 @@ class SCO implements ArrayableInterface
      */
     public function setFolderId($folderId)
     {
-        $this->folderId = (int) $folderId;
+        $this->folderId = $folderId;
         return $this;
     }
 
@@ -460,7 +460,7 @@ class SCO implements ArrayableInterface
      */
     public function setMaxRetries($maxRetries)
     {
-        $this->maxRetries = (int) $maxRetries;
+        $this->maxRetries = $maxRetries;
         return $this;
     }
 
@@ -472,7 +472,7 @@ class SCO implements ArrayableInterface
      */
     public function setScoId($scoId)
     {
-        $this->scoId = (int) $scoId;
+        $this->scoId = $scoId;
         return $this;
     }
 
@@ -483,7 +483,7 @@ class SCO implements ArrayableInterface
      */
     public function setSourceScoId($sourceScoId)
     {
-        $this->sourceScoId = (int) $sourceScoId;
+        $this->sourceScoId = $sourceScoId;
         return $this;
     }
 

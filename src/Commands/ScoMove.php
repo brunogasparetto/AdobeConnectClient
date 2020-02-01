@@ -29,8 +29,8 @@ class ScoMove extends Command
      */
     public function __construct($scoId, $folderId)
     {
-        $this->scoId = (int) $scoId;
-        $this->folderId = (int) $folderId;
+        $this->scoId = $scoId;
+        $this->folderId = $folderId;
     }
 
     /**

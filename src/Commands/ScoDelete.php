@@ -24,7 +24,7 @@ class ScoDelete extends Command
      */
     public function __construct($scoId)
     {
-        $this->scoId = (int) $scoId;
+        $this->scoId = $scoId;
     }
 
     /**

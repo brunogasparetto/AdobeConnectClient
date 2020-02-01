@@ -53,7 +53,7 @@ class ScoUpload extends Command
         if (!is_resource($file) && !($file instanceof SplFileInfo)) {
             throw new InvalidArgumentException('File need be a valid resource or a SplFileInfo object');
         }
-        $this->folderId = (int) $folderId;
+        $this->folderId = $folderId;
         $this->resourceName = (string) $resourceName;
         $this->file = $file;
     }
