@@ -36,7 +36,7 @@ class ScoContents extends Command
     ) {
         $this->parameters = [
             'action' => 'sco-contents',
-            'sco-id' => (int) $scoId,
+            'sco-id' => $scoId,
         ];
 
         if ($filter) {

@@ -23,7 +23,7 @@ class PrincipalDelete extends Command
      */
     public function __construct($principalId)
     {
-        $this->principalId = (int) $principalId;
+        $this->principalId = $principalId;
     }
 
     /**

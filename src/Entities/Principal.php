@@ -531,7 +531,7 @@ class Principal implements ArrayableInterface
      */
     public function setDisplayUid($displayUid)
     {
-        $this->displayUid = (int) $displayUid;
+        $this->displayUid = $displayUid;
         return $this;
     }
 
@@ -542,7 +542,7 @@ class Principal implements ArrayableInterface
      */
     public function setPrincipalId($principalId)
     {
-        $this->principalId = (int) $principalId;
+        $this->principalId = $principalId;
         return $this;
     }
 
@@ -654,7 +654,7 @@ class Principal implements ArrayableInterface
      */
     public function setTrainingGroupId($trainingGroupId)
     {
-        $this->trainingGroupId = (int) $trainingGroupId;
+        $this->trainingGroupId = $trainingGroupId;
         return $this;
     }
 

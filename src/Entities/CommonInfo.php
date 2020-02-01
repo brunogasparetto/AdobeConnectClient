@@ -179,7 +179,7 @@ class CommonInfo
      */
     public function setTimeZoneId($timeZoneId)
     {
-        $this->timeZoneId = (int) $timeZoneId;
+        $this->timeZoneId = $timeZoneId;
     }
 
     /**
@@ -259,6 +259,6 @@ class CommonInfo
      */
     public function setAccountId($accountId)
     {
-        $this->accountId = (int) $accountId;
+        $this->accountId = $accountId;
     }
 }

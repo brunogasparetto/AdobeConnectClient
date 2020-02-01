@@ -25,7 +25,7 @@ class ScoInfo extends Command
      */
     public function __construct($scoId)
     {
-        $this->scoId = intval($scoId);
+        $this->scoId = $scoId;
     }
 
     /**

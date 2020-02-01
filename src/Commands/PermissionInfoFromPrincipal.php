@@ -31,8 +31,8 @@ class PermissionInfoFromPrincipal extends Command
      */
     public function __construct($aclId, $principalId)
     {
-        $this->aclId = (int) $aclId;
-        $this->principalId = (int) $principalId;
+        $this->aclId = $aclId;
+        $this->principalId = $principalId;
     }
 
     /**
