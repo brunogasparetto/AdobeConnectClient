@@ -81,7 +81,7 @@ class ScoContentsTest extends TestCommandBase
         $sco = $scos[0];
 
         $this->assertEquals(2007035247, $sco->getScoId());
-        $this->assertEquals(0, $sco->getSourceScoId());
+        $this->assertEquals('', $sco->getSourceScoId());
     }
 
     public function testInvalidDependency()
