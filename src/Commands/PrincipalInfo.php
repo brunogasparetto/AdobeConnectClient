@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -23,7 +24,7 @@ class PrincipalInfo extends Command
     /**
      * @param int $principalId
      */
-    public function __construct($principalId)
+    public function __construct(int $principalId)
     {
         $this->principalId = $principalId;
     }
@@ -33,7 +34,7 @@ class PrincipalInfo extends Command
      *
      * @return Principal
      */
-    protected function process()
+    protected function process(): Principal
     {
         $response = Converter::convert(
             $this->client->doGet([

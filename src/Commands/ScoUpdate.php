@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -42,7 +43,7 @@ class ScoUpdate extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         // Only use the SCO ID. To change Folder use scoMove
         if (isset($this->parameters['folder-id'])) {

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -23,7 +24,7 @@ class ScoInfo extends Command
     /**
      * @param int $scoId
      */
-    public function __construct($scoId)
+    public function __construct(int $scoId)
     {
         $this->scoId = $scoId;
     }
@@ -33,7 +34,7 @@ class ScoInfo extends Command
      *
      * @return SCO
      */
-    protected function process()
+    protected function process(): SCO
     {
         $response = Converter::convert(
             $this->client->doGet([

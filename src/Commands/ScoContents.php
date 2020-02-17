@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -30,9 +31,9 @@ class ScoContents extends Command
      * @param ArrayableInterface|null $sorter
      */
     public function __construct(
-        $scoId,
-        ArrayableInterface $filter = null,
-        ArrayableInterface $sorter = null
+        int $scoId,
+        ?ArrayableInterface $filter = null,
+        ?ArrayableInterface $sorter = null
     ) {
         $this->parameters = [
             'action' => 'sco-contents',
@@ -53,7 +54,7 @@ class ScoContents extends Command
      *
      * @return SCO[]
      */
-    protected function process()
+    protected function process(): array
     {
         $response = Converter::convert(
             $this->client->doGet(

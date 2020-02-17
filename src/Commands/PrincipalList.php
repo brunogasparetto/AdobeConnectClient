@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -28,9 +29,9 @@ class PrincipalList extends Command
      * @param ArrayableInterface|null $sorter
      */
     public function __construct(
-        $groupId = 0,
-        ArrayableInterface $filter = null,
-        ArrayableInterface $sorter = null
+        int $groupId = 0,
+        ?ArrayableInterface $filter = null,
+        ?ArrayableInterface $sorter = null
     ) {
         $this->parameters = [
             'action' => 'principal-list',
@@ -54,7 +55,7 @@ class PrincipalList extends Command
      *
      * @return Principal[]
      */
-    protected function process()
+    protected function process(): array
     {
         $response = Converter::convert(
             $this->client->doGet(

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -24,7 +25,7 @@ class GroupMembershipUpdate extends Command
      * @param int $principalId
      * @param bool $isMember
      */
-    public function __construct($groupId, $principalId, $isMember)
+    public function __construct(int $groupId, int $principalId, bool $isMember)
     {
         $this->parameters = [
             'action' => 'group-membership-update',
@@ -39,7 +40,7 @@ class GroupMembershipUpdate extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = Converter::convert(
             $this->client->doGet(

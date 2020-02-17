@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -38,7 +39,7 @@ class PrincipalCreate extends Command
      *
      * @return Principal
      */
-    protected function process()
+    protected function process(): Principal
     {
         if (isset($this->parameters['principal-id'])) {
             unset($this->parameters['principal-id']);

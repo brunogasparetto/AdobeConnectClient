@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -29,7 +30,7 @@ class PermissionInfoFromPrincipal extends Command
      * @param int $aclId
      * @param int $principalId
      */
-    public function __construct($aclId, $principalId)
+    public function __construct(int $aclId, int $principalId)
     {
         $this->aclId = $aclId;
         $this->principalId = $principalId;
@@ -40,7 +41,7 @@ class PermissionInfoFromPrincipal extends Command
      *
      * @return Permission
      */
-    protected function process()
+    protected function process(): Permission
     {
         $response = Converter::convert(
             $this->client->doGet([

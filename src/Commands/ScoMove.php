@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -27,7 +28,7 @@ class ScoMove extends Command
      * @param int $scoId
      * @param int $folderId
      */
-    public function __construct($scoId, $folderId)
+    public function __construct(int $scoId, int $folderId)
     {
         $this->scoId = $scoId;
         $this->folderId = $folderId;
@@ -38,7 +39,7 @@ class ScoMove extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = Converter::convert(
             $this->client->doGet([

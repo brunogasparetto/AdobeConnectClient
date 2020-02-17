@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -21,7 +22,7 @@ class PrincipalDelete extends Command
     /**
      * @param int $principalId
      */
-    public function __construct($principalId)
+    public function __construct(int $principalId)
     {
         $this->principalId = $principalId;
     }
@@ -31,7 +32,7 @@ class PrincipalDelete extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = Converter::convert(
             $this->client->doGet([

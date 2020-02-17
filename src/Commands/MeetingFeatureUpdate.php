@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -25,7 +26,7 @@ class MeetingFeatureUpdate extends Command
      * @param string $featureId
      * @param bool $enable
      */
-    public function __construct($accountId, $featureId, $enable)
+    public function __construct(int $accountId, string $featureId, bool $enable)
     {
         $this->parameters = [
             'action' => 'meeting-feature-update',
@@ -47,7 +48,7 @@ class MeetingFeatureUpdate extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = Converter::convert(
             $this->client->doGet(

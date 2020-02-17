@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -24,7 +25,7 @@ class CommonInfo extends Command
     /**
      * @param string $domain
      */
-    public function __construct($domain = '')
+    public function __construct(string $domain = '')
     {
         $this->domain = $domain;
     }
@@ -34,7 +35,7 @@ class CommonInfo extends Command
      *
      * @return CommonInfoEntity
      */
-    protected function process()
+    protected function process(): CommonInfoEntity
     {
 
         $parameters = [

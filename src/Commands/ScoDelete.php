@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -22,7 +23,7 @@ class ScoDelete extends Command
      *
      * @param int $scoId The SCO ID or Folder ID
      */
-    public function __construct($scoId)
+    public function __construct(int $scoId)
     {
         $this->scoId = $scoId;
     }
@@ -32,7 +33,7 @@ class ScoDelete extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = Converter::convert(
             $this->client->doGet([

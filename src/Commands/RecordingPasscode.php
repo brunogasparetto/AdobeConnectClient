@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -28,10 +29,10 @@ class RecordingPasscode extends Command
      * @param int $scoId
      * @param string $passcode
      */
-    public function __construct($scoId, $passcode)
+    public function __construct(int $scoId, string $passcode)
     {
         $this->scoId = $scoId;
-        $this->passcode = (string) $passcode;
+        $this->passcode = $passcode;
     }
 
     /**
@@ -39,7 +40,7 @@ class RecordingPasscode extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $permission = new Permission();
         $permission->setAclId($this->scoId);

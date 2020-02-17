@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -28,7 +29,7 @@ class AclFieldUpdate extends Command
      * @param mixed $value
      * @param ArrayableInterface|null $extraParams
      */
-    public function __construct($aclId, $fieldId, $value, ArrayableInterface $extraParams = null)
+    public function __construct(int $aclId, string $fieldId, $value, ArrayableInterface $extraParams = null)
     {
         $this->parameters = [
             'action' => 'acl-field-update',
@@ -47,7 +48,7 @@ class AclFieldUpdate extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = Converter::convert(
             $this->client->doGet(

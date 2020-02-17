@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -48,13 +49,13 @@ class ScoUpload extends Command
      * @param SplFileInfo|resource $file
      * @throws InvalidArgumentException
      */
-    public function __construct($folderId, $resourceName, $file)
+    public function __construct(int $folderId, string $resourceName, $file)
     {
         if (!is_resource($file) && !($file instanceof SplFileInfo)) {
             throw new InvalidArgumentException('File need be a valid resource or a SplFileInfo object');
         }
         $this->folderId = $folderId;
-        $this->resourceName = (string) $resourceName;
+        $this->resourceName = $resourceName;
         $this->file = $file;
     }
 
@@ -63,7 +64,7 @@ class ScoUpload extends Command
      *
      * @return int|null The Content SCO ID or null if fail
      */
-    protected function process()
+    protected function process(): ?int
     {
         $sco = $this->getSco();
 
@@ -88,7 +89,7 @@ class ScoUpload extends Command
      *
      * @return SCO
      */
-    protected function getSco()
+    protected function getSco(): SCO
     {
         $scos = $this->client->scoContents(
             $this->folderId,
@@ -105,7 +106,7 @@ class ScoUpload extends Command
      *
      * @return SCO
      */
-    protected function createSco()
+    protected function createSco(): SCO
     {
         return $this->client->scoCreate(
             SCO::instance()

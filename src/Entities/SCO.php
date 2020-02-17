@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Entities;
 
@@ -175,7 +176,7 @@ class SCO implements ArrayableInterface
      *
      * @return SCO
      */
-    public static function instance()
+    public static function instance(): SCO
     {
         return new static();
     }
@@ -185,7 +186,7 @@ class SCO implements ArrayableInterface
      *
      * @return int
      */
-    public function getAccountId()
+    public function getAccountId(): int
     {
         return $this->accountId;
     }
@@ -195,7 +196,7 @@ class SCO implements ArrayableInterface
      *
      * @return bool
      */
-    public function getDisabled()
+    public function getDisabled(): bool
     {
         return $this->disabled;
     }
@@ -205,7 +206,7 @@ class SCO implements ArrayableInterface
      *
      * @return int
      */
-    public function getDisplaySeq()
+    public function getDisplaySeq(): int
     {
         return $this->displaySeq;
     }
@@ -215,7 +216,7 @@ class SCO implements ArrayableInterface
      *
      * @return int
      */
-    public function getFolderId()
+    public function getFolderId(): int
     {
         return $this->folderId;
     }
@@ -225,7 +226,7 @@ class SCO implements ArrayableInterface
      *
      * @return string
      */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
@@ -235,7 +236,7 @@ class SCO implements ArrayableInterface
      *
      * @return string
      */
-    public function getLang()
+    public function getLang(): string
     {
         return $this->lang;
     }
@@ -245,7 +246,7 @@ class SCO implements ArrayableInterface
      *
      * @return int
      */
-    public function getMaxRetries()
+    public function getMaxRetries(): int
     {
         return $this->maxRetries;
     }
@@ -255,7 +256,7 @@ class SCO implements ArrayableInterface
      *
      * @return int
      */
-    public function getScoId()
+    public function getScoId(): int
     {
         return $this->scoId;
     }
@@ -265,7 +266,7 @@ class SCO implements ArrayableInterface
      *
      * @return int
      */
-    public function getSourceScoId()
+    public function getSourceScoId(): int
     {
         return $this->sourceScoId;
     }
@@ -275,7 +276,7 @@ class SCO implements ArrayableInterface
      *
      * @return string
      */
-    public function getType()
+    public function getType(): string
     {
         return $this->type;
     }
@@ -285,7 +286,7 @@ class SCO implements ArrayableInterface
      *
      * @return string
      */
-    public function getVersion()
+    public function getVersion(): string
     {
         return $this->version;
     }
@@ -295,7 +296,7 @@ class SCO implements ArrayableInterface
      *
      * @return DateTimeImmutable
      */
-    public function getDateCreated()
+    public function getDateCreated(): DateTimeImmutable
     {
         return $this->dateCreated;
     }
@@ -305,7 +306,7 @@ class SCO implements ArrayableInterface
      *
      * @return DateTimeImmutable
      */
-    public function getDateModified()
+    public function getDateModified(): DateTimeImmutable
     {
         return $this->dateModified;
     }
@@ -315,7 +316,7 @@ class SCO implements ArrayableInterface
      *
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -325,7 +326,7 @@ class SCO implements ArrayableInterface
      *
      * @return string
      */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -335,7 +336,7 @@ class SCO implements ArrayableInterface
      *
      * @return string
      */
-    public function getUrlPath()
+    public function getUrlPath(): string
     {
         return $this->urlPath;
     }
@@ -345,7 +346,7 @@ class SCO implements ArrayableInterface
      *
      * @return DateTimeImmutable
      */
-    public function getDateBegin()
+    public function getDateBegin(): DateTimeImmutable
     {
         return $this->dateBegin;
     }
@@ -355,7 +356,7 @@ class SCO implements ArrayableInterface
      *
      * @return DateTimeImmutable
      */
-    public function getDateEnd()
+    public function getDateEnd(): DateTimeImmutable
     {
         return $this->dateEnd;
     }
@@ -365,7 +366,7 @@ class SCO implements ArrayableInterface
      *
      * @return bool
      */
-    public function getMeetingPodsLayoutsLocked()
+    public function getMeetingPodsLayoutsLocked(): bool
     {
         return $this->meetingPodsLayoutsLocked;
     }
@@ -375,7 +376,7 @@ class SCO implements ArrayableInterface
      *
      * @return bool
      */
-    public function getUpdateLinkedItem()
+    public function getUpdateLinkedItem(): bool
     {
         return $this->updateLinkedItem;
     }
@@ -386,9 +387,9 @@ class SCO implements ArrayableInterface
      * @param int $accountId The account ID
      * @return SCO
      */
-    public function setAccountId($accountId)
+    public function setAccountId($accountId): self
     {
-        $this->accountId = $accountId;
+        $this->accountId = intval($accountId);
         return $this;
     }
 
@@ -398,7 +399,7 @@ class SCO implements ArrayableInterface
      * @param bool $disabled
      * @return SCO
      */
-    public function setDisabled($disabled)
+    public function setDisabled($disabled): self
     {
         $this->disabled = VT::toBool($disabled);
         return $this;
@@ -410,9 +411,9 @@ class SCO implements ArrayableInterface
      * @param int $displaySeq
      * @return SCO
      */
-    public function setDisplaySeq($displaySeq)
+    public function setDisplaySeq($displaySeq): self
     {
-        $this->displaySeq = $displaySeq;
+        $this->displaySeq = intval($displaySeq);
         return $this;
     }
 
@@ -422,9 +423,9 @@ class SCO implements ArrayableInterface
      * @param int $folderId
      * @return SCO
      */
-    public function setFolderId($folderId)
+    public function setFolderId($folderId): self
     {
-        $this->folderId = $folderId;
+        $this->folderId = intval($folderId);
         return $this;
     }
 
@@ -434,7 +435,7 @@ class SCO implements ArrayableInterface
      * @param string $icon
      * @return SCO
      */
-    public function setIcon($icon)
+    public function setIcon($icon): self
     {
         $this->icon = (string) $icon;
         return $this;
@@ -446,7 +447,7 @@ class SCO implements ArrayableInterface
      * @param string $lang
      * @return SCO
      */
-    public function setLang($lang)
+    public function setLang($lang): self
     {
         $this->lang = (string) $lang;
         return $this;
@@ -458,9 +459,9 @@ class SCO implements ArrayableInterface
      * @param int $maxRetries
      * @return SCO
      */
-    public function setMaxRetries($maxRetries)
+    public function setMaxRetries($maxRetries): self
     {
-        $this->maxRetries = $maxRetries;
+        $this->maxRetries = intval($maxRetries);
         return $this;
     }
 
@@ -470,9 +471,9 @@ class SCO implements ArrayableInterface
      * @param int $scoId
      * @return SCO
      */
-    public function setScoId($scoId)
+    public function setScoId($scoId): self
     {
-        $this->scoId = $scoId;
+        $this->scoId = intval($scoId);
         return $this;
     }
 
@@ -481,9 +482,9 @@ class SCO implements ArrayableInterface
      * @param int $sourceScoId
      * @return SCO
      */
-    public function setSourceScoId($sourceScoId)
+    public function setSourceScoId($sourceScoId): self
     {
-        $this->sourceScoId = $sourceScoId;
+        $this->sourceScoId = intval($sourceScoId);
         return $this;
     }
 
@@ -494,7 +495,7 @@ class SCO implements ArrayableInterface
      * @return SCO
      * @throws DomainException
      */
-    public function setType($type)
+    public function setType($type): self
     {
         if (!in_array(
             $type,
@@ -521,7 +522,7 @@ class SCO implements ArrayableInterface
      * @param string $version
      * @return SCO
      */
-    public function setVersion($version)
+    public function setVersion($version): self
     {
         $this->version = (string) $version;
         return $this;
@@ -533,7 +534,7 @@ class SCO implements ArrayableInterface
      * @param DateTimeInterface|string $dateCreated
      * @return SCO
      */
-    public function setDateCreated($dateCreated)
+    public function setDateCreated($dateCreated): self
     {
         $this->dateCreated = VT::toDateTimeImmutable($dateCreated);
         return $this;
@@ -545,7 +546,7 @@ class SCO implements ArrayableInterface
      * @param DateTimeInterface|string $dateModified
      * @return SCO
      */
-    public function setDateModified($dateModified)
+    public function setDateModified($dateModified): self
     {
         $this->dateModified = VT::toDateTimeImmutable($dateModified);
         return $this;
@@ -557,7 +558,7 @@ class SCO implements ArrayableInterface
      * @param string $description
      * @return SCO
      */
-    public function setDescription($description)
+    public function setDescription($description): self
     {
         $this->description = (string) $description;
         return $this;
@@ -569,7 +570,7 @@ class SCO implements ArrayableInterface
      * @param string $name
      * @return SCO
      */
-    public function setName($name)
+    public function setName($name): self
     {
         $this->name = (string) $name;
         return $this;
@@ -581,7 +582,7 @@ class SCO implements ArrayableInterface
      * @param string $urlPath
      * @return SCO
      */
-    public function setUrlPath($urlPath)
+    public function setUrlPath($urlPath): self
     {
         $this->urlPath = (string) $urlPath;
         return $this;
@@ -593,7 +594,7 @@ class SCO implements ArrayableInterface
      * @param DateTimeInterface|string $dateBegin
      * @return SCO
      */
-    public function setDateBegin($dateBegin)
+    public function setDateBegin($dateBegin): self
     {
         $this->dateBegin = VT::toDateTimeImmutable($dateBegin);
         return $this;
@@ -605,7 +606,7 @@ class SCO implements ArrayableInterface
      * @param DateTimeInterface|string $dateEnd
      * @return SCO
      */
-    public function setDateEnd($dateEnd)
+    public function setDateEnd($dateEnd): self
     {
         $this->dateEnd = VT::toDateTimeImmutable($dateEnd);
         return $this;
@@ -617,7 +618,7 @@ class SCO implements ArrayableInterface
      * @param bool $meetingPodsLayoutsLocked
      * @return SCO
      */
-    public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked)
+    public function setMeetingPodsLayoutsLocked($meetingPodsLayoutsLocked): self
     {
         $this->meetingPodsLayoutsLocked = VT::toBool($meetingPodsLayoutsLocked);
         return $this;
@@ -629,7 +630,7 @@ class SCO implements ArrayableInterface
      * @param bool $updateLinkedItem
      * @return SCO
      */
-    public function setUpdateLinkedItem($updateLinkedItem)
+    public function setUpdateLinkedItem($updateLinkedItem): self
     {
         $this->updateLinkedItem = VT::toBool($updateLinkedItem);
         return $this;

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -23,7 +24,7 @@ class UserUpdatePassword extends Command
      * @param string $newPassword
      * @param string $oldPassword
      */
-    public function __construct($userId, $newPassword, $oldPassword = '')
+    public function __construct(int $userId, string $newPassword, string $oldPassword = '')
     {
         $this->parameters = [
             'action' => 'user-update-pwd',
@@ -42,7 +43,7 @@ class UserUpdatePassword extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = Converter::convert(
             $this->client->doGet(

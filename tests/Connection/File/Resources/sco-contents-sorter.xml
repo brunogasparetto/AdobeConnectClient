@@ -2,7 +2,7 @@
 <results>
     <status code="ok" />
     <scos>
-        <sco sco-id="2007035247" source-sco-id="" folder-id="2006258748" type="meeting" icon="meeting" display-seq="0" duration="3600" is-folder="0">
+        <sco sco-id="3327764235" source-sco-id="" folder-id="2006258748" type="meeting" icon="meeting" display-seq="0" duration="3600" is-folder="0">
             <name>Adobe Connect 002</name>
             <url-path>/adobeconnect002/</url-path>
             <date-begin>2016-08-17T07:30:00.000-03:00</date-begin>

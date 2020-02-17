@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -24,7 +25,7 @@ class Login extends Command
      * @param string $login
      * @param string $password
      */
-    public function __construct($login, $password)
+    public function __construct(string $login, string $password)
     {
         $this->parameters = [
             'action' => 'login',
@@ -38,7 +39,7 @@ class Login extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $response = $this->client->doGet($this->parameters);
         $responseConverted = Converter::convert($response);

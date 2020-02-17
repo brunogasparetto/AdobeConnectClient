@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -7,6 +8,7 @@ use AdobeConnectClient\Entities\SCORecord;
 use AdobeConnectClient\Converter\Converter;
 use AdobeConnectClient\Helpers\StatusValidate;
 use AdobeConnectClient\Helpers\SetEntityAttributes as FillObject;
+use phpDocumentor\Reflection\Types\Array_;
 
 /**
  * Provides a list of recordings (FLV and MP4) for a specified folder or SCO
@@ -23,7 +25,7 @@ class ListRecordings extends Command
     /**
      * @param int $folderId
      */
-    public function __construct($folderId)
+    public function __construct(int $folderId)
     {
         $this->folderId = $folderId;
     }
@@ -33,7 +35,7 @@ class ListRecordings extends Command
      *
      * @return SCORecord[]
      */
-    protected function process()
+    protected function process(): array
     {
         $response = Converter::convert(
             $this->client->doGet([

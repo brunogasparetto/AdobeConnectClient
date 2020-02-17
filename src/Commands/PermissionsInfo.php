@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -27,9 +28,9 @@ class PermissionsInfo extends Command
      * @param ArrayableInterface|null $sorter
      */
     public function __construct(
-        $aclId,
-        ArrayableInterface $filter = null,
-        ArrayableInterface $sorter = null
+        int $aclId,
+        ?ArrayableInterface $filter = null,
+        ?ArrayableInterface $sorter = null
     ) {
         $this->parameters = [
             'action' => 'permissions-info',
@@ -50,7 +51,7 @@ class PermissionsInfo extends Command
      *
      * @return Principal[]
      */
-    protected function process()
+    protected function process(): array
     {
         $response = Converter::convert(
             $this->client->doGet(

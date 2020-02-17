@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace AdobeConnectClient\Commands;
 
@@ -16,7 +17,7 @@ class Logout extends Command
      *
      * @return bool
      */
-    protected function process()
+    protected function process(): bool
     {
         $this->client->doGet([
             'action' => 'logout',

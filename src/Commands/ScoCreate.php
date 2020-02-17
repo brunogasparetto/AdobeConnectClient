@@ -38,7 +38,7 @@ class ScoCreate extends Command
      *
      * @return SCO
      */
-    protected function process()
+    protected function process(): SCO
     {
         // Create a SCO only in a folder
         if (isset($this->parameters['sco-id'])) {
