@@ -51,7 +51,7 @@ class Connection implements ConnectionInterface
     {
         $host = filter_var(trim($host, " ?/\n\t"), FILTER_SANITIZE_URL);
 
-        if (!filter_var($host, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED)) {
+        if (!filter_var($host, FILTER_VALIDATE_URL)) {
             throw new InvalidArgumentException('Connection Host must be a valid URL with scheme');
         }
         $this->host = strpos($host, '/api/xml') === false ? $host . '/api/xml' : $host;
