@@ -59,7 +59,9 @@ return [
 
     'permissions-update' => [
         'af3954bf30a856dc2435178cce4e6d96973c7f7a' => 'status-ok',
+        '6e87f6a506413a8eaa2ac571242919d2202f4b5c' => 'status-ok',
         '06cc0fb08e01e7095a9c4ccb5749944a3a027470' => 'status-no-access',
+        'a260a943500cd6e821149a4f5646e6702f1ad324' => 'status-no-access',
         'd969b4ffdd2013af7e86051ee2c9136bb014f03c' => 'status-ok',
         '1392de72bf98475b8803ca36b46556ae868f08af' => 'status-no-access',
     ],
