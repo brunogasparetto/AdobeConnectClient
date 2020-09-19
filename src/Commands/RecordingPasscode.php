@@ -44,8 +44,9 @@ class RecordingPasscode extends Command
     {
         $permission = new Permission();
         $permission->setAclId($this->scoId);
-        $permission->setPrincipalId(Permission::RECORDING_PUBLIC);
-        $permission->setPermissionId(Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS);
+        $permission->setPrincipalId(Permission::MEETING_PRINCIPAL_PUBLIC_ACCESS);
+        $permission->setPermissionId(Permission::RECORDING_PUBLIC);
+
         $this->client->permissionUpdate($permission);
 
         $parameters = Parameter::instance()
